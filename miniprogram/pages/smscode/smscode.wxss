@@ -1,0 +1,123 @@
+page{
+  background: #1D232D;
+  font-family: "苹方-简 中黑体";
+}
+.box{
+  width: 614rpx;
+  margin: 42rpx auto 0;
+}
+.pla{
+  height: 66rpx;
+  width: 100%;
+  color: #fff;
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+.sbox{
+  height: 40rpx;
+  margin-top: 10rpx;
+  width: 100%;
+  position: relative;
+}
+.sl{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: url(http://ll.linkfeeling.cn/img/oq.png) center no-repeat;
+  position: absolute;
+  top: 5rpx;
+}
+.ss{
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: #EB4343;
+  position: absolute;
+  top: 5rpx;
+}
+.sr{
+  width: calc(100% - 50rpx);
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  color: #00ab78;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.rr{
+  width: calc(100% - 50rpx);
+  height: 40rpx;
+  position: absolute;
+  right: 0;
+  color: #EB4343;
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.content{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 58rpx auto 0;
+  width: 426rpx;
+  /* background: #fff; */
+}
+.iptbox{
+  width: 87rpx;
+  height: 140rpx;
+  border-bottom:4rpx solid #3E4655;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  /* background: #fff; */
+  color: #fff;
+  font-size: 96rpx;
+  position: relative;
+}
+.ipt{
+  width: 0;
+  height: 0;
+}
+.btn-area{
+  width: 560rpx;
+  background-color: rgba(255,255,255,.3);
+  color:rgba(255,255,255,.5);
+  height: 110rpx;
+  margin: 42rpx auto 0;
+  border-radius: 55rpx;
+  line-height: 110rpx;
+
+}
+.pkk{
+  width: 560rpx;
+  background-color: #F4B619;
+  color:rgba(255,255,255,1);
+  height: 110rpx;
+  margin: 42rpx auto 0;
+  border-radius: 55rpx;
+  line-height: 110rpx;
+
+}
+.ptt{
+  width: 440rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  color: #a4a4a4;
+  letter-spacing: 2rpx;
+  font-size: 28rpx;
+  margin: 0rpx auto 0;
+  text-align: center;
+  font-family: 'DIN Alternate Bold'
+}
+.qqq{
+  display: inline-block;
+  position: absolute;
+  width: 60rpx;
+  height: 10rpx;
+  background: #fff;
+  top: 70rpx;
+  left: 12rpx;
+}
+.ppp{
+  display: none;
+}

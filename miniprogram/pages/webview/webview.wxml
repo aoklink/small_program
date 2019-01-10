@@ -1,0 +1,1 @@
+<web-view src='https://ll.linkfeeling.cn/lulu/share.html?uid={{uid}}&user_type={{user_type}}&request_time={{request_time}}&platform={{platform}}&tk={{tk}}&network={{network}}&product_id={{product_id}}&app_version={{app_version}}&bind_time={{bind_time}}&usname={{usname}}&avatarUrl={{avatarUrl}}'/>

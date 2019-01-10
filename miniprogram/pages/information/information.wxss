@@ -1,0 +1,242 @@
+page{
+  background: #1D232D;
+  font-family: "苹方-简 中黑体";
+}
+.box{
+  width: 612rpx;
+  margin: 100rpx auto 0;
+}
+.sex{
+  color: #fff;
+  width: 100%;
+  height: 66rpx;
+  position: relative;
+}
+.sa{
+  display: inline-block;
+  width: 70rpx;
+  height: 40rx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+}
+.sb{
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  left: 298rpx;
+  width: 50rpx;
+  height: 66rpx;
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+.sc{
+  display: inline-block;
+  position: absolute;
+  top: 16rpx;
+  left: 376rpx;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  background: #4b5058;
+}
+.sd{
+  display: inline-block;
+  position: absolute;
+  top: 0;
+  right: 86rpx;
+  width: 50rpx;
+  height: 66rpx;
+  font-size: 48rpx;
+  line-height: 66rpx;
+}
+.se{
+  display: inline-block;
+  position: absolute;
+  top: 16rpx;
+  right: 22rpx;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  background: url(http://ll.linkfeeling.cn/img/op.png) center no-repeat;
+}
+.age{
+  color: #fff;
+  position: relative;
+  margin: 118rpx auto 0;
+  height: 66rpx;
+}
+.aa{
+  display: inline-block;
+  width: 70rpx;
+  height: 40rx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  position: absolute;
+  top: 16rpx;
+  left: 20rpx;
+}
+.ab{
+  display: inline-block;
+  width: 350rpx;
+  height: 66rpx;
+  position: absolute;
+  left: 194rpx;
+  top: 0;
+}
+.ac{
+  display: inline-block;
+  position: absolute;
+  right: 24rpx;
+  height: 44rpx;
+  width: 40rpx;
+  text-align: right;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  top: 12rpx;
+}
+.hei{
+  color: #fff;
+  position: relative;
+  margin: 126rpx auto 0;
+  height: 66rpx;
+}
+.ha{
+  display: inline-block;
+  width: 70rpx;
+  height: 40rx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  position: absolute;
+  top: 16rpx;
+  left: 20rpx;
+}
+.hb{
+  display: inline-block;
+  width: 350rpx;
+  height: 66rpx;
+  position: absolute;
+  left: 194rpx;
+  top: 0;
+}
+.hc{
+  display: inline-block;
+  position: absolute;
+  right: 14rpx;
+  height: 44rpx;
+  width: 40rpx;
+  text-align: right;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  top: 12rpx;
+}
+.wei{
+  color: #fff;
+  position: relative;
+  margin: 126rpx auto 0;
+  height: 66rpx;
+}
+.wa{
+  display: inline-block;
+  width: 70rpx;
+  height: 40rx;
+  line-height: 40rpx;
+  font-size: 28rpx;
+  position: absolute;
+  top: 16rpx;
+  left: 20rpx;
+}
+.wb{
+  display: inline-block;
+  width: 350rpx;
+  height: 66rpx;
+  position: absolute;
+  left: 194rpx;
+  top: 0;
+}
+.wc{
+  display: inline-block;
+  position: absolute;
+  right: 14rpx;
+  height: 44rpx;
+  width: 40rpx;
+  text-align: right;
+  font-size: 32rpx;
+  line-height: 44rpx;
+  top: 12rpx;
+}
+.line{
+  width: 100%;
+  height: 6rpx;
+  background: #3e4655;
+  margin: 98rpx auto 0;
+}
+.tit{
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  color: #6f7988;
+  font-size: 24rpx;
+  text-align: center;
+  margin: 72rpx auto 0;
+}
+.but{
+  background: #F4B619;
+  border-radius: 55rpx;
+  color: rgba(255,255,255,1);
+  line-height: 110rpx;
+  font-size: 28rpx;
+  text-align: center;
+  margin: 50rpx auto 0;
+}
+.placeholderStyle{
+  color: #4B5058; 
+  font-size: 48rpx;
+  position: relative;
+}
+.picker{
+  font-family: DINAlternate-Bold;
+  color: #fff;
+  text-align: right;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 66rpx;
+  line-height: 50rpx;
+  font-size: 62rpx;
+}
+.hw{
+  height: 38rpx;
+  width: 38rpx;
+  border-radius: 50%;
+  background: green;
+  position: absolute;
+  left: 112rpx;
+  top: 18rpx;
+  display: inline-block;
+}
+.ya{
+  display: none;
+}
+.cs{
+  display: inline-block;
+  position: absolute;
+  top: 16rpx;
+  left: 376rpx;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  background: url(http://ll.linkfeeling.cn/img/oq.png) center no-repeat;
+}
+.es{
+  display: inline-block;
+  position: absolute;
+  top: 16rpx;
+  right: 22rpx;
+  width: 34rpx;
+  height: 34rpx;
+  border-radius: 50%;
+  background: greenyellow;
+}

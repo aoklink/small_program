@@ -1,0 +1,117 @@
+page{
+  background: #1D232D;
+  font-family: PingFangSC-Semibold;
+  text-align: center;
+  color: #fff;
+  width: 100%;
+  height: 100%;
+}
+.box{
+  width: 500rpx;
+  margin: auto;
+}
+.tu{
+  width: 200rpx;
+  height: 230rpx;
+  display: inline-block;
+  /* background: url(http://ll.linkfeeling.cn/img/oj.png) center no-repeat; */
+  margin: 142rpx auto 110rpx;
+}
+.tub{
+  width: 200rpx;
+  height: 230rpx;
+  display: inline-block;
+  /* background: url(http://ll.linkfeeling.cn/img/ok.png) center no-repeat; */
+  margin: 142rpx auto 110rpx;
+}
+.tit{
+  background: #35e0ad;
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 auto 60rpx;
+  border-radius: 60rpx;
+  width: 400rpx;
+  font-size: 36rpx;
+}
+.titb{
+  background: #61656C;
+  display: inline-block;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin: 0 auto 60rpx;
+  border-radius: 60rpx;
+  width: 400rpx;
+  font-size: 36rpx;
+}
+.shopbox{
+  width: 100%;
+  height: 100rpx;
+  display: inline-block;
+}
+.shopt{
+  display: inline-block;
+  width: 100%;
+  height: 34rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+  float: left;
+}
+.shopname{
+  display: inline-block;
+  width: 100%;
+  height: 50rpx;
+  margin: 20rpx auto 0;
+  float: left;
+  font-size: 36rpx;
+}
+.impot{
+  margin: 200rpx auto 0;
+  width: 100%;
+}
+.impotb{
+  margin: 62rpx auto 0;
+  width: 100%;
+}
+.up{
+  display: inline-block;
+  margin: auto;
+  width: 150rpx;
+  height: 34rpx;
+  position: relative;
+}
+.smstu{
+  display: inline-block;
+  background: url(http://ll.linkfeeling.cn/img/os.png) center no-repeat;
+  border-radius: 50%;
+  width: 26rpx;
+  position: absolute;
+  height: 26rpx;
+  top: 4rpx;
+  left: 0rpx;
+}
+.smstit{
+  position: absolute;
+  left: 40rpx;
+  display: inline-block;
+  height: 34rpx;
+  min-width: 100rpx;
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+.lin{
+  width: 100%;
+  height: 34rpx;
+  margin: 24rpx auto 0;
+  line-height: 34rpx;
+  font-size: 24rpx;
+}
+.fou{
+  width: 100%;
+  height: 34rpx;
+  line-height: 34rpx;
+  font-size: 24rpx;
+}
+  /* <view class='tu'></view>
+    <view class='lin'>{{'"临走时请归还手环，'}}</view>
+    <view class='fou'>{{'否则无法生成您的锻炼报告"'}} */

@@ -1,0 +1,62 @@
+page{
+  background: #1D232D;
+  font-family: PingFangSC-Semibold;
+}
+.box{
+  width: 640rpx;
+  color: #fff;
+  text-align: center;
+  margin: 62rpx auto 0;
+  letter-spacing: 4rpx;
+}
+.tit{
+  width: 100%;
+  font-size: 48rpx;
+  line-height: 66rpx;
+  height: 66rpx;
+  margin: 0 auto 6rpx;
+}
+.ta{
+  width: 640rpx;
+  height: 120rpx;
+  margin: 50rpx auto 0;
+  background: rgba(54,59,66,1);
+  border-radius: 60rpx;
+  line-height: 120rpx;
+  font-size: 32rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+}
+.tb{
+  width: 640rpx;
+  height: 120rpx;
+  margin: 50rpx auto 0;
+  background: #1AB486;
+  border-radius: 60rpx;
+  line-height: 120rpx;
+  font-size: 32rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+}
+.btn{
+  width: 560rpx;
+  height: 110rpx;
+  margin: 170rpx auto 0;
+  background: rgba(255,255,255,.3);
+  line-height: 110rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Semibold;
+  border-radius: 55rpx;
+  color: rgba(255,255,255,.3);
+}
+.baa{
+  width: 560rpx;
+  height: 110rpx;
+  margin: 170rpx auto 0;
+  background: #F4B619;
+  line-height: 110rpx;
+  font-size: 28rpx;
+  font-family: PingFangSC-Semibold;
+  border-radius: 55rpx;
+  color: rgba(255,255,255,1);
+}

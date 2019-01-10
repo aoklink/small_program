@@ -1,0 +1,144 @@
+{
+	"miniprogramRoot": "miniprogram/",
+	"cloudfunctionRoot": "cloudfunctions/",
+	"setting": {
+		"urlCheck": true,
+		"es6": true,
+		"postcss": true,
+		"minified": true,
+		"newFeature": true,
+		"autoAudits": false
+	},
+	"appid": "wxefc6bcecdc90d423",
+	"projectname": "lulu",
+	"libVersion": "2.2.5",
+	"condition": {
+		"search": {
+			"current": -1,
+			"list": []
+		},
+		"conversation": {
+			"current": -1,
+			"list": []
+		},
+		"plugin": {
+			"current": -1,
+			"list": []
+		},
+		"game": {
+			"list": []
+		},
+		"miniprogram": {
+			"current": 17,
+			"list": [
+				{
+					"id": -1,
+					"name": "db guide",
+					"pathName": "pages/databaseGuide/databaseGuide",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "lp",
+					"pathName": "pages/lp/lp",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "sms",
+					"pathName": "pages/sms/sms",
+					"query": ""
+				},
+				{
+					"id": 3,
+					"name": "shouquan",
+					"pathName": "pages/login/login",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "smscode",
+					"pathName": "pages/smscode/smscode",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "cellnumber",
+					"pathName": "pages/cellnumber/cellnumber",
+					"query": ""
+				},
+				{
+					"id": 6,
+					"name": "information",
+					"pathName": "pages/information/information",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "test",
+					"pathName": "pages/test/test",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "link",
+					"pathName": "pages/link/link",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "yuanhuan",
+					"pathName": "pages/charts/ring/ring",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "dail",
+					"pathName": "pages/sportdatail/sportdatail",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "lcl",
+					"pathName": "pages/lcl/lcl",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "lclyzy",
+					"pathName": "pages/lcl/lcl",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mydata",
+					"pathName": "pages/mydata/mydata",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "webview",
+					"pathName": "pages/webview/webview",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "a",
+					"pathName": "pages/a/a",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "sportgoal",
+					"pathName": "pages/sportgoal/sportgoal",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "testhate",
+					"pathName": "pages/testhate/testhate"
+				}
+			]
+		}
+	}
+}

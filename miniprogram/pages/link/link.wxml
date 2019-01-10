@@ -1,0 +1,99 @@
+<view hidden="{{nono}}" class='jjmmbox'>
+<view wx:if="{{canIUse}}">
+    <view class='headerhh'>
+        <image class='imahh'></image>
+    </view>
+ 
+    <view class='contenthh'>
+        <view>领客菲力申请获取以下权限</view>
+        <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+ 
+    <button class='bottomhh' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
+</view>
+ 
+<view wx:else>请升级微信版本</view>
+</view>
+<view class='nini' hidden='{{nono}}'></view>
+<view class='box'>
+  <view class='head'>
+    <view class='tou' style='background: url({{olo}}) center no-repeat;background-size: 100%;'></view>
+    <view class='name'>{{pl}}</view>
+    <view class='hbox'bindtap="mycell">
+      <view class='tu'></view>
+      <view class='mh'>我的手环</view>
+    </view>
+  </view>
+  <view class='sum'>
+    <!-- <view class='stit'>我的数据<span class="sr">></span></view> -->
+    <view class='stit'>我的数据</view>
+    <view class="shll">
+      <view class='shloo'>
+        <view class='sba'>运动总时长</view>
+        <view class='bbqpa'></view>
+        <view class='{{oka?"sbb":"sbh"}}'>{{smi}}</view>
+        <view class='sbc'>分钟</view>
+      </view>
+      <view class='shloo'>
+        <view class='ssti'>消耗总热量</view>
+        <view class='bbqpb'></view>
+        <view class='{{oka?"sbd":"sdb"}}'>{{skc}}</view>
+        <view class='sbe'>kc</view>
+      </view>
+    </view>
+  </view>
+  <view class='msp'>
+    <view class='msa'>
+      <view class='msaa koa'></view>
+      <view class='msab'>
+        <view class='msabu'>跑步机</view>
+        <view class='msabd'>共计 {{pbj}} 分钟</view>
+      </view>
+      <view class='msac'>
+        <view class='msacu'>消耗</view>
+        <!-- <view class='{{soka?"msacp":"msacd"}}'>{{mrun}}</view> -->
+        <view class='{{mrun*1>"-1"?"msacd":"msacp"}}'>{{mrun}}</view>
+      </view>
+      <view class='msad'>kc</view>
+    </view>
+    <view class='msa'>
+      <view class='msaa kob'></view>
+      <view class='msab'>
+        <view class='msabu'>椭圆机</view>
+        <view class='msabd'>共计 {{tyj}} 分钟</view>
+      </view>
+      <view class='msac'>
+        <view class='msacu'>消耗</view>
+        <view class='{{myy*1>"-1"?"msacd":"msacp"}}'>{{myy}}</view>
+      </view>
+      <view class='msad'>kc</view>
+    </view>
+    <view class='msa'>
+      <view class='msaa koc'></view>
+      <view class='msab'>
+        <view class='msabu'>单车</view>
+        <view class='msabd'>共计 {{dc}} 分钟</view>
+      </view>
+      <view class='msac'>
+        <view class='msacu'>消耗</view>
+        <view class='{{mzy*1>"-1"?"msacd":"msacp"}}'>{{mzy}}</view>
+      </view>
+      <view class='msad'>kc</view>
+    </view>
+    <view class='msa'>
+      <view class='msaa kod'></view>
+      <view class='msab'>
+        <view class='msabu'>力量训练</view>
+        <view class='msabd'>共计 {{llxl}} 分钟</view>
+      </view>
+      <view class='msac'>
+        <view class='msacu'>消耗</view>
+        <view class='{{mzy*1>"-1"?"msacd":"msacp"}}'>{{mzp}}</view>
+      </view>
+      <view class='msad'>kc</view>
+    </view>
+    <view class='botto' bindtap='prod'><span>查看详情</span></view>
+  </view> 
+</view>

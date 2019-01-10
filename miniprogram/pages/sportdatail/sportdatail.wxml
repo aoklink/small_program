@@ -1,0 +1,188 @@
+<view class='box'>
+  <view class='hbox'>
+    <view class='hl'>
+      <view class='ha'>坚持打卡</view>
+      <view class='hb'>第 <span class="hd">{{'54'}}</span> 天</view>
+    </view>
+    <view class='hm'>
+      <view class='ha'>运动总时长</view>
+      <view class='hb hh'><span class="hc">{{7171}}</span> 分钟</view>
+    </view>
+    <view class='hr'>
+      <view class='ha'>消耗总热量</view>
+      <view class='hb hh'><span class="hc">{{131313}}</span> kc</view>
+    </view>
+  </view>
+  <view class='mbox'>
+    <view class='myzy'>
+      <view class='ma'>
+        <view>运动分析</view>
+        <view>{{'2028年12月14日'}}</view>
+      </view>
+      <view class='mb'>
+        <view class='mbl'>
+          <view class='mbla'>
+            <view class='mbna'>跑步机</view>
+            <view class='mbdd'><span>{{22}}</span> 分钟</view>
+          </view>
+          <view class='mbla'>
+            <view class='mbna'>椭圆机</view>
+            <view class='mbdd'><span>{{22}}</span> 分钟</view>
+          </view>
+          <view class='mbla'>
+            <view class='mbna'>单车</view>
+            <view class='mbdd'><span>{{22}}</span> 分钟</view>
+          </view>
+          <view class='mbla'>
+            <view class='mbna'>力量训练</view>
+            <view class='mbdd'><span>{{22}}</span> 分钟</view>
+          </view>
+        </view>
+        <view class='mbr'>
+          <view class='mbrn'>运动时长</view>
+          <view class='mbrd'><span class="mbcl"></span><span class="mbnm">{{22}}</span> <span class="mbrr">分钟</span></view>
+        </view>
+      </view>
+      <view class='mpa'>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+          </view>
+        </view>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+          </view>
+        </view>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+          </view>
+        </view>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+          </view>
+        </view>
+      </view>
+      <view class='mc'>
+        <view class='mctit'>热量消耗</view>
+        <view class='mb'>
+          <view class='mbl'>
+            <view class='mbla'>
+              <view class='mbna'>跑步机</view>
+              <view class='mbdd'><span>{{22}}</span> kc</view>
+            </view>
+            <view class='mbla'>
+              <view class='mbna'>椭圆机</view>
+              <view class='mbdd'><span>{{22}}</span> kc</view>
+            </view>
+            <view class='mbla'>
+              <view class='mbna'>单车</view>
+              <view class='mbdd'><span>{{22}}</span> kc</view>
+            </view>
+            <view class='mbla'>
+              <view class='mbna'>力量训练</view>
+              <view class='mbdd'><span>{{22}}</span> kc</view>
+            </view>
+          </view>
+          <view class='mbr'>
+            <view class='mbrn' style="text-align:center">消耗热量</view>
+            <view class='mbrd'><span class="mbcl"></span><span class="mbnm">{{22}}</span> <span class="mbrr">kc</span></view>
+          </view>
+        </view>
+      </view>
+      <view class='mpa'>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+          </view>
+        </view>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+          </view>
+        </view>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+          </view>
+        </view>
+        <view class='mpab'>
+          <view class='mpabl'></view>
+          <view class='mpabr'>
+            <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='mtbox'>
+  </view>
+  <view class='mkbox'>
+    <view class='mkc'>
+      <view class='mktit'>运动功效分布</view>
+      <view class='mksmt'>
+        <view class='mkclo'></view>
+        <view class='mkcrr'>运动 <span class="mkooa">{{sptime}} </span><span class="mkoob">分钟 </span><span class="mkooc">主要集中在</span><span class="mkood">{{spgong}}</span></view>
+      </view>
+      <view class='cirl'>
+        <view class="container">
+          <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+          <canvas canvas-id='cana' class='cana'></canvas>
+</view>
+      </view>
+      <view class='mkpro'>
+        <view class='mkbb'>
+          <view class='mkbd'>
+            <view class='mkvv'>激活放松</view>
+            <view class='mkyy'><span>{{15}}</span>分钟</view>
+          </view>
+          <view class='mktd' style='width:{{wda+"rpx"}}'></view>
+        </view>
+        <view class='mkbb'>
+          <view class='mkbd'>
+            <view class='mkvv'>动态热身</view>
+            <view class='mkyy'><span>{{15}}</span>分钟</view>
+          </view>
+          <view class='mktd' style='width:{{wda+"rpx"}}'></view>
+        </view>
+        <view class='mkbb'>
+          <view class='mkbd'>
+            <view class='mkvv'>脂肪燃烧</view>
+            <view class='mkyy'><span>{{15}}</span>分钟</view>
+          </view>
+          <view class='mktd' style='width:{{wda+"rpx"}}'></view>
+        </view>
+        <view class='mkbb'>
+          <view class='mkbd'>
+            <view class='mkvv'>有氧耐力</view>
+            <view class='mkyy'><span>{{15}}</span>分钟</view>
+          </view>
+          <view class='mktd' style='width:{{wda+"rpx"}}'></view>
+        </view>
+        <view class='mkbb'>
+          <view class='mkbd'>
+            <view class='mkvv'>无氧耐力</view>
+            <view class='mkyy'><span>{{15}}</span>分钟</view>
+          </view>
+          <view class='mktd' style='width:{{wda+"rpx"}}'></view>
+        </view>
+        <view class='mkbb'>
+          <view class='mkbd'>
+            <view class='mkvv'>峰值锻炼</view>
+            <view class='mkyy'><span>{{15}}</span>分钟</view>
+          </view>
+          <view class='mktd' style='width:{{wda+"rpx"}}'></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

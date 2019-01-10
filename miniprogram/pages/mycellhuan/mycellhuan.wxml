@@ -1,0 +1,16 @@
+<view class="box">
+  <view class='{{otu?"tu":"tub"}}' style='background:url({{pj}}) center no-repeat'></view>
+  <view class="{{otu?'tit':'titb'}}">{{po}}</view>
+  <view class='shopbox' wx:if="{{otu}}">
+    <view class='shopt'>归属门店</view>
+    <view class='shopname'>{{ofci}}</view>
+  </view>
+  <view class='{{otu?"impot":"impotb"}}'>
+    <view class='up'>
+      <view class='smstu'></view>
+      <view class='smstit'>温馨提示</view>
+    </view>
+    <view class='lin'>{{'"临走时请归还手环，'}}</view>
+    <view class='fou'>{{'否则无法生成您的锻炼报告"'}}</view>
+  </view>
+</view>

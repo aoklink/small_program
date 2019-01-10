@@ -1,0 +1,7 @@
+<button bindtap="login">登录</button>
+<button bindtap="checksession">登录是否过期</button>
+<button  open-type="getUserInfo" bindgetuserinfo="info">点击授权</button>
+<text>{{city}}</text>
+<text>{{country}}</text>
+<text>{{nickName}}</text>
+<text>{{province}}</text>

@@ -1,0 +1,6 @@
+<input type='text' value='' name='mob' placeholder="请输入手机号" class='regCon-txt' placeholder-class='{{place}}' value='{{user.mob}}' bindinput='mobb' />
+<input type='text' value='' name='smcode' placeholder="请输入验证码" class='regCon-txt' placeholder-class='{{place}}' value='{{user.smcode}}' bindinput='smcode' />
+<button class='button' type='primary' bindtap='register'>go注册</button>
+<button bindtap='smscode'>点击获取验证码</button>
+<button class='button' type='primary' bindtap='login'>登陆</button>
+<button class='button' type='primary' bindtap='tt'>pppp</button>

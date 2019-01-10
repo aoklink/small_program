@@ -1,0 +1,10 @@
+<view class='box'>
+  <view class='tit'>您的运动现状？</view>
+  <view bindtap='yza' class='{{ok==="1"?"tb":"ta"}}' data-now='零基础'>零基础</view>
+  <view class='ts'>小菜鸟,平时不太运动,需要从入门开始</view>
+  <view bindtap='yzb' class='{{ok==="2"?"tb":"ta"}}' data-now='有点经验'>有点经验</view>
+  <view class='ts'>小有成就,有些运动常识,有一定的体力基础</view>
+  <view bindtap='yzc' class='{{ok==="3"?"tb":"ta"}}' data-now='经验丰富'>经验丰富</view>
+  <view class='ts'>老司机了,锻炼时间规律,能力超出你的想象</view>
+  <view class='{{kk?"btn":"baa"}}' bindtap='yzy'>继续(2/3)</view>
+</view>

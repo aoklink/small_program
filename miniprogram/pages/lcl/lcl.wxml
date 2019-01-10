@@ -1,0 +1,131 @@
+<view class="container container-fill">
+	<view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchmove="scrollTouchmove" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px">
+		<view class="section section01 {{scrollindex==0?'active':''}}">
+			<view class='lbox'>
+        <view class='mkc'>
+          <view class='lcl'>
+            <canvas canvas-id='yzy' class='yzy'></canvas>
+          </view>
+        </view>
+      </view>
+		</view>
+		<view class="section section05 {{scrollindex==4?'active':''}}" style="background: #9966FF;">
+			<text class="section-maintitle">无缝对接双创服5</text>
+			<text class="section-subtitle">cinoLiu--5</text>
+		</view>
+		<view class="section section02 {{scrollindex==1?'active':''}}" style="background: #f5f5f5;">
+			<view class='mbox'>
+        <view class='myzy'>
+            <view class='mb'>
+              <view class='mbl'>
+                <view class='mbla'>
+                  <view class='mbna'>跑步机</view>
+                  <view class='mbdd'><span>{{22}}</span> 分钟</view>
+                </view>
+                <view class='mbla'>
+                  <view class='mbna'>椭圆机</view>
+                  <view class='mbdd'><span>{{22}}</span> 分钟</view>
+                </view>
+                <view class='mbla'>
+                  <view class='mbna'>单车</view>
+                  <view class='mbdd'><span>{{22}}</span> 分钟</view>
+                </view>
+                <view class='mbla'>
+                  <view class='mbna'>力量训练</view>
+                  <view class='mbdd'><span>{{22}}</span> 分钟</view>
+                </view>
+              </view>
+              <view class='mbr'>
+                <view class='mbrn'>运动时长</view>
+                <view class='mbrd'><span class="mbcl"></span><span class="mbnm">{{22}}</span> <span class="mbrr">分钟</span></view>
+              </view>
+            </view>
+            <view class='mpa'>
+              <view class='mpab'>
+                <view class='mpabl'></view>
+                <view class='mpabr'>
+                  <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+                </view>
+              </view>
+              <view class='mpab'>
+                <view class='mpabl'></view>
+                <view class='mpabr'>
+                <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+              </view>
+            </view>
+            <view class='mpab'>
+              <view class='mpabl'></view>
+              <view class='mpabr'>
+                <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+              </view>
+            </view>
+            <view class='mpab'>
+              <view class='mpabl'></view>
+              <view class='mpabr'>
+                <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+              </view>
+            </view>
+          </view>
+          <view class='mc'>
+              <view class='mb'>
+                <view class='mbl'>
+                  <view class='mbla'>
+                    <view class='mbna'>跑步机</view>
+                      <view class='mbdd'><span>{{22}}</span> kc</view>
+                    </view>
+                    <view class='mbla'>
+                      <view class='mbna'>椭圆机</view>
+                      <view class='mbdd'><span>{{22}}</span> kc</view>
+                    </view>
+                    <view class='mbla'>
+                      <view class='mbna'>单车</view>
+                      <view cl  ass='mbdd'><span>{{22}}</span> kc</view>
+                    </view>
+                    <view class='mbla'>
+                      <view class='mbna'>力量训练</view>
+                    <view class='mbdd'><span>{{22}}</span> kc</view>
+                  </view>
+                </view>
+                <view class='mbr'>
+                  <view class='mbrn' style="text-align:center">消耗热量</view>
+                  <view class='mbrd'><span class="mbcl"></span><span class="mbnm">{{22}}</span> <span class="mbrr">kc</span></view>
+                </view>
+              </view>
+            </view>
+          <view class='mpa'>
+            <view class='mpab'>
+              <view class='mpabl'></view>
+              <view class='mpabr'>
+                <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+              </view>
+            </view>
+            <view class='mpab'>
+              <view class='mpabl'></view>
+              <view class='mpabr'>
+                <view class='mpros' style='width:{{wda+"rpx"}}'></view>
+              </view>
+            </view>
+            <view class='mpab'>
+              <view class='mpabl'></view>
+              <view class='mpabr'>
+                <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+              </view>
+            </view>
+            <view class='mpab'>
+              <view class='mpabl'></view>
+              <view class='mpabr'>
+                <view class='mpros' style='width:{{wdb+"rpx"}}'></view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+		</view>
+		<view class="section section03 {{scrollindex==2?'active':''}}" style="background: #f5f5f5;">
+
+		</view>
+		<view class="section section04 {{scrollindex==3?'active':''}}" style="background: #f5f5f5;">
+      
+		</view>
+	</view>
+</view>

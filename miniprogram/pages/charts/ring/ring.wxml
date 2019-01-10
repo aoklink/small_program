@@ -1,0 +1,5 @@
+<view class="container">
+    <canvas canvas-id="ringCanvas" class="canvas" bindtouchstart="touchHandler"></canvas>
+    <canvas canvas-id='cana' class='cana'></canvas>
+</view>
+

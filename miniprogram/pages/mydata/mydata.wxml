@@ -1,0 +1,24 @@
+<block wx:key="{{index}}" wx:for="{{yzydata}}">
+  <view class='box'  wx:if='{{spt}}'>
+    <view class='ta'></view>
+    <view class='tb' data-index='{{index}}'>{{ttbox[index]}}</view>
+    <view class='sb' bindtap='yzylb' data-yzy='{{item.bind_time}}'>
+      <view class='sl'>
+        <view class='slu'>运动时长</view>
+        <view class='yaa'></view>
+        <view class='sld'>{{item.time}} <span class="sldd">分钟</span></view>
+      </view>
+      <view class='sr'>
+        <view class='sru'>消耗热量</view>
+        <view class='ybb'></view>
+        <view class='srd'>{{item.kc}} <span class="srdd">kc</span></view>
+      </view>
+      <view class='ss'></view>
+    </view>
+  </view>
+</block>   
+<view class='boxb' wx:if='{{!spt}}'>
+  <view class='xbt'></view>
+  <view class='xbm'>无运动记录</view>
+  <view class='xbb'>"你也太懒了吧，小心又胖~了"</view>
+</view>

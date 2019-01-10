@@ -1,0 +1,50 @@
+<view class='box'>
+  <view class='sex'>
+    <view class='sa'>性别</view>
+    <view class='sb'>男</view>
+    <view bindtap='bsex' class='{{kk?"cs":"sc"}}' data-man="男"></view>
+    <view class='sd'>女</view>
+    <view bindtap='bsex' class='{{kk?"se":"es"}}' data-man="女"></view>
+  </view>
+  <view class='age'>
+    <view class='aa'>年龄</view>
+    <!-- <view class='{{ok?hw:ya}}'></view> -->
+    <!-- <input class='ab' placeholder='请输入您的年龄' placeholder-class="placeholderStyle" type='range'></input> -->
+    <view class="ab">
+      <!-- <view class="placeholderStyle">请选择您的年龄</view> -->
+      <picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+        <view class="picker">
+          {{array[index]}}
+        </view>
+      </picker>
+    </view>
+    <view class='ac'>岁</view>
+  </view>
+  <view class='hei'>
+    <view class='ha'>身高</view>
+    <view class="hb">
+      <!-- <view class="placeholderStyle">请选择您的身高</view> -->
+      <picker bindchange="bindPickerChangeb" value="{{pph}}" range="{{arrab}}">
+        <view class="picker">
+          {{arrab[pph]}}
+        </view>
+      </picker>
+    </view>
+    <view class='hc'>cm</view>
+  </view>
+  <view class='wei'>
+    <view class='wa'>体重</view>
+    <view class="wb">
+      <!-- <view class="placeholderStyle">请选择您的体重</view> -->
+      <picker bindchange="bindPickerChangec" value="{{ppw}}" range="{{arrac}}">
+        <view class="picker">
+          {{arrac[ppw]}}
+        </view>
+      </picker>
+    </view>
+    <view class='wc'>kg</view>
+  </view>
+  <view class='line'></view>
+  <view class='tit'>放心，我们将会对您的信息进行保密</view>
+  <view class='but' bindtap='gonext'>继续(1/3)</view>
+</view>

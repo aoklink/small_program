@@ -1,0 +1,23 @@
+<view class='box'>
+  <view class='pla'>输入验证码</view>
+  <view class='sbox'>
+    <view class='{{pl?"sl":"ss"}}'></view>
+    <view class='{{pl?"sr":"rr"}}'>{{yt}}</view>
+  </view>
+  <form bindsubmit="formSubmit">
+  <view class='content'>
+    <block wx:for="{{Length}}" wx:key="item">
+      <input class='iptbox' value="{{Value.length>=index+1?Value[index]:''}}" disabled password='{{ispassword}}' catchtap='Tap' bindfocus="zy">
+        <view class='{{index>cur ? "qqq" : "ppp" }}' data-index='{{index}}' hidden='{{}}'></view>
+      </input>
+    </block>
+  </view>
+  <input name="password" password="{{true}}" class='ipt' maxlength="{{Length}}" focus="{{isFocus}}" bindinput="Focus" value='{{jj}}'></input>
+  <view class='ptt'>当前手机号:  {{mob}}</view>
+
+  <view>
+    <button class="{{po?'btn-area':'pkk'}}" bindtap='repeat'>重新发送({{dat}})s</button>
+  </view>
+  </form>
+</view>
+

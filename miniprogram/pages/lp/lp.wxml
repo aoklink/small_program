@@ -1,0 +1,5 @@
+<input type='text' value='' name='mob' placeholder="请输入手机号" class='regCon-txt' placeholder-class='{{place}}' value='{{user.mob}}' bindinput='mobb' />
+<input type='text' value='' name='pas' placeholder="请输入密码" class='regCon-txt' placeholder-class='{{place}}' value='{{user.pas}}' bindinput='pass' />
+<button class='button' type='primary' bindtap='rp'>去注册</button>
+<button class='button' type='primary' bindtap='login'>登陆</button>
+<button class="welcom-button" bindtap="toHome">开启</button> 

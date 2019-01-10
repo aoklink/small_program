@@ -1,0 +1,18 @@
+<view class='albox'>
+  <view class='bind'>绑定手机号</view>
+  <view class='ct'>手机号
+    <view hidden='{{rrr}}' class='ree'>
+      <view class="rel"></view>
+      <view class="rer">{{tit}}</view>
+    </view>
+  </view>
+  <view class='numbox'>
+    <view class='numl'>+86</view>
+    <input class='numr' bindfocus="yz" placeholder='请输入您的手机号码' placeholder-class="placeholderStyle" value='{{yzy}}' bindinput='cyzy' focus='{{tr}}' bindblur="cy"  auto-focus maxlength="11" />
+    <!-- <view hidden='{{oo}}' class='err' bindtap='clean'></view> -->
+    <view hidden='{{oo}}' class='err' bindtap='clean'></view>
+  </view>
+  <view class='line'></view>
+  <view class='fil'>继续代表您同意<span class="bl">《领客相关用户协议》</span></view>
+  <view class="{{ok?'next':'acc'}}" bindtap='check'>下一步</view>
+</view>

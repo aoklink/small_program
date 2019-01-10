@@ -1,0 +1,17 @@
+.container{
+  position: relative;
+  background: yellow;
+}
+.canvas{
+  position: absolute;
+  top: 50rpx;
+  height: 400rpx;
+}
+.cana{
+  position: absolute;
+  top: 0rpx;
+  width: 100%;
+  height: 500rpx;
+  background: transparent;
+  display: block;
+}
