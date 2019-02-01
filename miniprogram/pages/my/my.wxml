@@ -1,0 +1,32 @@
+<view class='ubox'>
+  <view class='uba'>
+    <view class='tou'></view>
+    <view class='rtu'>
+      <view class='ruu'>最多只能写十二个字知道吗</view>
+      <view class='rdd'></view>
+    </view>
+  </view>
+  <view class='ubb'>修改信息</view>
+</view>
+<view class='dbox'>
+  <view class="ss">
+    <view>性别</view>
+    <view>女</view>
+  </view>
+  <view class="ss">
+    <view>年龄</view>
+    <view>18岁</view>
+  </view>
+  <view class="ss">
+    <view>身高</view>
+    <view>174cm</view>
+  </view>
+  <view class="ss">
+    <view>体重</view>
+    <view>70kg</view>
+  </view>
+  <view class="ss">
+    <view>目标</view>
+    <view>减脂</view>
+  </view>
+</view>

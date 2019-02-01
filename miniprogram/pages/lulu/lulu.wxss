@@ -1,0 +1,21 @@
+page{
+  background: #f6f6f6;
+  font-family: PingFangSC-Semibold;
+}
+.swiper-tab{
+  width: 100%;
+  border-bottom: 2rpx solid #ccc;
+  text-align: center;
+  height: 88rpx;
+  line-height: 88rpx;
+  font-weight: bold;
+}
+.swiper-tab-item{
+  display: inline-block;
+  width: 25%;
+  color:red;
+}
+.active{
+  color:aqua;
+  border-bottom: 4rpx solid red;
+}

@@ -1,18 +1,57 @@
+// pages/lulu/lulu.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    currentCon: 0,
+    currentTab: 0,
+    abox:[
+      {
+        a: '123',
+        b: '1345',
+        c: '999' 
+      },
+      {
+        a: '222',
+        b: '1345',
+        c: '999'
+      },
+      {
+        a: '333',
+        b: '1345',
+        c: '999'
+      }
+    ]  
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
 
   },
+  //滑动切换
+  swiperTab: function (e) {
+    var that = this;
+    that.setData({
+      currentTba: e.detail.current
+    });
+  },
+  //点击切换
+  clickTab: function (e) {
 
+    var that = this;
+
+    if (this.data.currentTab === e.target.dataset.current) {
+      return false;
+    } else {
+      that.setData({
+        currentTab: e.target.dataset.current
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

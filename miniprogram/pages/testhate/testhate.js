@@ -16,11 +16,11 @@ Page({
       url: 'https://ll.linkfeeling.cn/api/fitness/detail', // 仅为示例，并非真实的接口地址
       method: 'POST',
       data: {
-        "uid": '9c1b9a52f5d054de228dc8fc92fca5f8',
+        "uid": '4e0c7b0b6444cb3332bc3d6d438cf771',
         "user_type": 'trainee',
-        "request_time": '1547004086000',
+        "request_time": '1547199961000',
         "platform": 'small_program',
-        "tk":'a3f7ffac6a46c288c83bcf3095d5eda7',
+        "tk":'41c5d044e3efddac889762fa00b0714a',
         "network": 'wifi',
         "product_id": '123',
         "app_version": '001',

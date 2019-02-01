@@ -1,5 +1,11 @@
 {
   "pages": [
+    "pages/aa/aa",
+    "pages/bb/bb",
+    "pages/my/my",
+    "pages/lkfl/lkfl",
+    "pages/index/index",
+    "pages/lulu/lulu",
     "pages/link/link",
     "pages/testhate/testhate",
     "pages/yzy/yzy",
@@ -26,7 +32,6 @@
     "pages/openid/openid",
     "pages/home/home",
     "pages/test/test",
-    "pages/index/index",
     "pages/userConsole/userConsole",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -48,5 +53,36 @@
     "navigationBarBackgroundColor": "#1D232D",
     "navigationBarTitleText": "",
     "navigationBarTextStyle": "red"
+  },
+  "tabBar": {
+    "color": "#8892A0",
+    "selectedColor": "#444858",
+    "backgroundColor": "#fff",
+    "list": [
+      { 
+        "selectedIconPath": "img/cc.png",
+        "iconPath": "img/cc.png",
+        "pagePath": "pages/lulu/lulu",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "img/index.png",
+        "iconPath": "img/index.png",
+        "pagePath": "pages/mydata/mydata",
+        "text": "记录"
+      },
+      {
+        "selectedIconPath": "img/index.png",
+        "iconPath": "img/index.png",
+        "pagePath": "pages/mycellhuan/mycellhuan",
+        "text": "手环"
+      },
+      {
+        "selectedIconPath": "img/index.png",
+        "iconPath": "img/index.png",
+        "pagePath": "pages/webview/webview",
+        "text": "我"
+      }
+    ]
   }
 }

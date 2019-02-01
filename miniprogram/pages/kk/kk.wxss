@@ -1,1 +1,10 @@
-/* pages/kk/kk.wxss */
+.box{
+  width: 100%;
+  height: 612rpx;
+  background: #252D39;
+}
+.tup{
+  height: 80rpx;
+  width: 100%;
+  color: #fff;
+}
