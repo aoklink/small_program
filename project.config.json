@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -29,13 +29,14 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 19,
+			"current": 0,
 			"list": [
 				{
-					"id": -1,
-					"name": "db guide",
-					"pathName": "pages/databaseGuide/databaseGuide",
-					"query": ""
+					"id": 0,
+					"name": "sportdatail",
+					"pathName": "pages/sportdatail/sportdatail",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
@@ -140,15 +141,59 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "kk",
-					"pathName": "pages/kk/kk",
-					"query": ""
+					"id": 18,
+					"name": "share",
+					"pathName": "pages/sportdatail/sportdatail",
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": -1,
 					"name": "lulu",
-					"pathName": "pages/lulu/lulu"
+					"pathName": "pages/lulu/lulu",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "mycellhuan",
+					"pathName": "pages/mycellhuan/mycellhuan",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "my",
+					"pathName": "pages/my/my",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 22,
+					"name": "link",
+					"pathName": "pages/link/link",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ll",
+					"pathName": "pages/ll/ll",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "xx",
+					"pathName": "pages/xx/xx",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 25,
+					"name": "wl",
+					"pathName": "pages/wl/wl",
+					"query": "",
+					"scene": null
 				}
 			]
 		}

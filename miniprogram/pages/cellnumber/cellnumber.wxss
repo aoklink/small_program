@@ -1,6 +1,7 @@
 page{
   background: #1D232D;
   font-family: "苹方-简 中黑体";
+  letter-spacing: 2rpx;
 }
 .albox{
   width: 612rpx;
@@ -39,7 +40,7 @@ page{
   width: 58rpx;
   height: 100%;
   font-size: 32rpx;
-  font-family: 'DIN Alternate Bold';
+  font-family: 'FT';
 }
 .placeholderStyle{
   color: #4B5058;
@@ -51,7 +52,7 @@ page{
   margin-left: 60rpx;
   line-height: 50rpx;
   /* background: blue; */
-  font-family: DINAlternate-Bold;
+  font-family: 'FT';
 }
 .line{
   width: 100%;
@@ -85,9 +86,9 @@ page{
   position: absolute;
   right: 0;
   top: 20rpx;
-  width:30rpx;
-  height:30rpx;
-  background: #fff url(http://ll.linkfeeling.cn/img/oa.png) center no-repeat;
+  width:50rpx;
+  height:50rpx;
+  background: #1D232D url(http://ll.linkfeeling.cn/img/oa.png) center no-repeat;
   border-radius: 50%;
   text-align: center;
   line-height: 26rpx;

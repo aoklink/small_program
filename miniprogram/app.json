@@ -1,18 +1,18 @@
 {
   "pages": [
+    "pages/sportdatail/sportdatail",
+    "pages/my/my",
+    "pages/lulu/lulu",
+    "pages/index/index",
     "pages/aa/aa",
     "pages/bb/bb",
-    "pages/my/my",
     "pages/lkfl/lkfl",
-    "pages/index/index",
-    "pages/lulu/lulu",
     "pages/link/link",
     "pages/testhate/testhate",
     "pages/yzy/yzy",
     "pages/a/a",
     "pages/webview/webview",
     "pages/lcl/lcl",
-    "pages/sportdatail/sportdatail",
     "pages/login/login",
     "pages/mydata/mydata",
     "pages/mycellhuan/mycellhuan",
@@ -45,21 +45,22 @@
     "pages/charts/ring/ring",
     "pages/charts/area/area",
     "pages/pcweb/pcweb",
-    "pages/sharepage/sharepage"
-   
+    "pages/sharepage/sharepage",
+    "pages/ll/ll",
+    "pages/xx/xx"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1D232D",
     "navigationBarTitleText": "",
-    "navigationBarTextStyle": "red"
+    "navigationBarTextStyle": "black"
   },
   "tabBar": {
     "color": "#8892A0",
     "selectedColor": "#444858",
     "backgroundColor": "#fff",
     "list": [
-      { 
+      {
         "selectedIconPath": "img/cc.png",
         "iconPath": "img/cc.png",
         "pagePath": "pages/lulu/lulu",
@@ -80,7 +81,7 @@
       {
         "selectedIconPath": "img/index.png",
         "iconPath": "img/index.png",
-        "pagePath": "pages/webview/webview",
+        "pagePath": "pages/my/my",
         "text": "我"
       }
     ]

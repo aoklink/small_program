@@ -3,7 +3,7 @@ page{
   font-family: PingFangSC-Regular;
 }
 .box{
-  margin: 20rpx auto 0;
+  margin: 0rpx auto 0;
   width: 706rpx;
   height: 272rpx;
   position: relative;
@@ -48,7 +48,8 @@ page{
   display: inline-block;
   width: 40rpx;
   height: 34rpx;
-  background: url(http://ll.linkfeeling.cn/img/oo.png) center no-repeat;
+  background: url(http://img.linkfeeling.cn/img/list_item_time.png) center no-repeat;
+  background-size: 24rpx 24rpx;
   position: absolute;
   left: 18rpx;
   top: 20rpx;
@@ -62,13 +63,13 @@ page{
   top: 20rpx;
   line-height: 34rpx;
   font-size: 24rpx;
-  color: rgba(33,39,49,0.5);
+  color: #444858;
 }
 .sb{
   position: absolute;
   top: 72rpx;
   width: 100%;
-  height: 200rpx;
+  height: 170rpx;
   background: #fff;
   border-radius: 8rpx;
 }
@@ -83,7 +84,7 @@ page{
   position:absolute;
 width:270rpx;
 height:150rpx;
-left:410rpx;
+left:260rpx;
 top:40rpx;
 
 }
@@ -92,25 +93,27 @@ top:40rpx;
   height: 30rpx;
   position: absolute;
   top: 60rpx;
-  background: url(http://ll.linkfeeling.cn/img/on.png) center no-repeat;
+  /* background: url(http://ll.linkfeeling.cn/img/on.png) center no-repeat; */
 }
 .ybb{
   width: 26rpx;
   height: 30rpx;
   position: absolute;
   top: 60rpx;
-  background: url(http://ll.linkfeeling.cn/img/od.png) center no-repeat;
+  /* background: url(http://ll.linkfeeling.cn/img/od.png) center no-repeat; */
 }
 .ss{
   position: absolute;
-  width: 22rpx;
-  height: 22rpx;
+  width: 102rpx;
+  height: 50rpx;
   right: 38rpx;
-  top: 90rpx;
+  top: 65rpx;
   font-size: 22rpx;
-  line-height: 22rpx;
   text-align: center;
-  background: url(http://ll.linkfeeling.cn/img/om.png) center no-repeat;
+  background: #F4B619;
+  line-height: 50rpx;
+  border-radius: 55rpx;
+  color: #fff;
 }
 .slu{
   color:rgba(29,35,45,0.5);
@@ -123,6 +126,7 @@ top:40rpx;
 .sld{
   font-size: 56rpx;
   text-indent: 35rpx;
+  font-display: 'FT';
 }
 .sldd{
   font-size: 24rpx;
@@ -145,6 +149,7 @@ letter-spacing:2rpx;
 position:absolute;
 top:50rpx;
 left:40rpx;
+font-family: 'FT';
 
 }
 .srdd{

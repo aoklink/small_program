@@ -935,7 +935,8 @@ Page({
     pph: 50,
     ppw: 25,
     ok: false,
-    kk: true
+    kk: true,
+    fontFamily: 'FT'
   },
   bindPickerChange: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
@@ -981,7 +982,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.loadFontFace({
+      family: this.data.fontFamily,
+      source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+      success(res) {
+        console.log(res.status)
+      },
+      fail: function (res) {
+        console.log(res.status)
+      },
+      complete: function (res) {
+        console.log(res.status)
+      }
+    });
   },
 
   /**

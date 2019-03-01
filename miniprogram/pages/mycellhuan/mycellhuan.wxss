@@ -1,117 +1,133 @@
 page{
   background: #1D232D;
   font-family: PingFangSC-Semibold;
-  text-align: center;
   color: #fff;
   width: 100%;
   height: 100%;
+  letter-spacing: 2rpx;
 }
 .box{
-  width: 500rpx;
-  margin: auto;
-}
-.tu{
-  width: 200rpx;
-  height: 230rpx;
-  display: inline-block;
-  /* background: url(http://ll.linkfeeling.cn/img/oj.png) center no-repeat; */
-  margin: 142rpx auto 110rpx;
-}
-.tub{
-  width: 200rpx;
-  height: 230rpx;
-  display: inline-block;
-  /* background: url(http://ll.linkfeeling.cn/img/ok.png) center no-repeat; */
-  margin: 142rpx auto 110rpx;
-}
-.tit{
-  background: #35e0ad;
-  display: inline-block;
-  height: 100rpx;
-  line-height: 100rpx;
-  margin: 0 auto 60rpx;
-  border-radius: 60rpx;
-  width: 400rpx;
-  font-size: 36rpx;
-}
-.titb{
-  background: #61656C;
-  display: inline-block;
-  height: 100rpx;
-  line-height: 100rpx;
-  margin: 0 auto 60rpx;
-  border-radius: 60rpx;
-  width: 400rpx;
-  font-size: 36rpx;
-}
-.shopbox{
-  width: 100%;
-  height: 100rpx;
-  display: inline-block;
-}
-.shopt{
-  display: inline-block;
-  width: 100%;
-  height: 34rpx;
-  font-size: 24rpx;
-  line-height: 34rpx;
-  float: left;
-}
-.shopname{
-  display: inline-block;
-  width: 100%;
-  height: 50rpx;
-  margin: 20rpx auto 0;
-  float: left;
-  font-size: 36rpx;
-}
-.impot{
-  margin: 200rpx auto 0;
-  width: 100%;
-}
-.impotb{
-  margin: 62rpx auto 0;
-  width: 100%;
+  width: 618rpx;
+  margin: 60rpx auto 0;
 }
 .up{
-  display: inline-block;
-  margin: auto;
-  width: 150rpx;
-  height: 34rpx;
-  position: relative;
+  height: 104rpx;
+  width: 100%;
 }
-.smstu{
+.tu{
   display: inline-block;
-  background: url(http://ll.linkfeeling.cn/img/os.png) center no-repeat;
-  border-radius: 50%;
+  height: 104rpx;
+  width: 108rpx;
+  float: left;
+}
+.tit{
+  width: calc(100% - 150rpx);
+  height: 100%;
+  float: left;
+  font-size:48rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  line-height: 140rpx;
+  text-align: left;
+  text-indent: 16rpx;
+}
+.cellnum{
+  width: 508rpx;
+  height: 180rpx;
+  border: 1rpx solid rgba(80,88,103,1);
+  margin-left: 24rpx;
+  margin-top: 100rpx;
+}
+.cellnumb{
+  width: 508rpx;
+  height: 180rpx;
+  border: 1rpx solid rgba(80,88,103,1);
+  margin-left: 24rpx;
+  margin-top: 30rpx;
+}
+.cna{
+  width: 400rpx;
+  height: 40rpx;
+  margin: 40rpx auto 0 64rpx;
+  text-indent: 20rpx;
+  font-size: 24rpx;
+  line-height: 40rpx;
+}
+.butu{
+  width: 20rpx;
+  height: 100%;
+  float: left;
+}
+.buru{
+  width: calc(100%-50rpx);
+  float: left;
+}
+.bbdc{
+  height:44rpx;
+  font-size:32rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  margin: 20rpx auto 0 104rpx;
+  line-height: 44rpx;
+}
+.bbdcb{
+  height:50rpx;
+  font-size:36rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(255,255,255,1);
+  margin: 20rpx auto 0 104rpx;
+  line-height: 50rpx;
+}
+.bottom{
+  width: 500rpx;
+  margin: 90rpx auto 0 24rpx;
+}
+.bottoma{
+  width: 500rpx;
+  margin: 58rpx auto 0 24rpx;
+}
+.ba{
+  width: 100%;
+  height: 34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  line-height:34rpx;
+}
+.imp{
+  float: left;
   width: 26rpx;
-  position: absolute;
-  height: 26rpx;
-  top: 4rpx;
-  left: 0rpx;
+  height: 100%;
+  background: yellow;
 }
-.smstit{
-  position: absolute;
-  left: 40rpx;
-  display: inline-block;
-  height: 34rpx;
-  min-width: 100rpx;
-  font-size: 24rpx;
+.batit{
+  float: left;
+  height: 100%;
+  text-indent: 16rpx;
   line-height: 34rpx;
 }
-.lin{
-  width: 100%;
-  height: 34rpx;
-  margin: 24rpx auto 0;
-  line-height: 34rpx;
-  font-size: 24rpx;
-}
-.fou{
-  width: 100%;
+.bb{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
   height: 34rpx;
   line-height: 34rpx;
-  font-size: 24rpx;
+  text-indent: 13rpx;
+  margin-top: 20rpx;
+  letter-spacing: 2rpx;
 }
-  /* <view class='tu'></view>
-    <view class='lin'>{{'"临走时请归还手环，'}}</view>
-    <view class='fou'>{{'否则无法生成您的锻炼报告"'}} */
+.bc{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(255,255,255,1);
+  height: 34rpx;
+  line-height: 34rpx;
+  text-indent: 36rpx;
+  letter-spacing: 2rpx;
+}

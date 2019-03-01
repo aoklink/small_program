@@ -21,7 +21,8 @@ Page({
     pl: true,
     yt: "验证码已发送",
     po: true,
-    jj: ''
+    jj: '',
+    fontFamily: 'FT'
   },
   zy: function () {
     
@@ -139,6 +140,19 @@ Page({
       }
     },1000)
     console.log("repeat")
+    wx.loadFontFace({
+      family: this.data.fontFamily,
+      source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+      success(res) {
+        console.log(res.status)
+      },
+      fail: function (res) {
+        console.log(res.status)
+      },
+      complete: function (res) {
+        console.log(res.status)
+      }
+    });
   },
   onReady: function () {
   

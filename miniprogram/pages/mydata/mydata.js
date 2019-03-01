@@ -27,7 +27,8 @@ Page({
     ],
     yzydata: [],
     spt: true,
-    ttbox: []
+    ttbox: [],
+    fontFamily: 'FT'
   },
   yzylb: function (e) {
     console.log(e.currentTarget.dataset.yzy)
@@ -37,6 +38,58 @@ Page({
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
+    })
+  },
+  onPullDownRefresh: function () {
+    console.log(999)
+    wx.showNavigationBarLoading() //在标题栏中显示加载
+    let that = this
+    wx.request({
+      url: 'https://ll.linkfeeling.cn/api/fitness/list', // 仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: {
+        "pos": '0',
+        "uid": us.uid,
+        "user_type": us.ut,
+        "request_time": Date.parse(new Date()),
+        "platform": us.pt,
+        "tk": mmd.hexMD5(us.pi + ":" + us.ut + ":" + Date.parse(new Date())),
+        "network": us.nw,
+        "product_id": us.pi,
+        "app_version": us.av,
+        "flag": 'true',
+        "count": '7'
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data.data)
+        if (res.data.data.length < 1) {
+          that.setData({
+            spt: false
+          })
+        }
+        for (var i = 0; i < res.data.data.length; i++) {
+          res.data.data[i].time = Math.floor(res.data.data[i].time / 60000)
+        }
+        that.setData({
+          yzydata: res.data.data
+        })
+        for (var i = 0; i < res.data.data.length; i++) {
+          console.log(that.yzytime(new Date(parseInt(res.data.data[i].date_time))))
+          that.data.ttbox.push(that.yzytime(new Date(parseInt(res.data.data[i].date_time))))
+        }
+        console.log(that.data.ttbox)
+        that.setData({
+          ttbox: that.data.ttbox
+        })
+      },
+      fail: function (res) { },
+      complete: function (res) {
+        wx.hideNavigationBarLoading() //完成停止加载
+        wx.stopPullDownRefresh();
+      }
     })
   },
   /**
@@ -57,14 +110,16 @@ Page({
         "network": us.nw,
         "product_id": us.pi,
         "app_version": us.av,
-        "load_flag": 'true',
+        "flag": 'true',
         "count": '7'
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        console.log(res.data.data.length)
+        var res={}
+        res.data = { "msg": "ok", "data": [{ "img": "http://img.linkfeeling.cn/img/list_item_time.png", "date_time": "1550891741389", "calorie": 35, "time": 1560012 }, { "img": "http://img.linkfeeling.cn/img/list_item_time.png", "date_time": "1550738194457", "calorie": 50, "time": 2274393 }], "ok": "200" }
+        console.log(res.data.data)
         if(res.data.data.length < 1){
           that.setData({
             spt: false
@@ -77,15 +132,28 @@ Page({
           yzydata: res.data.data
         })
         for (var i = 0; i < res.data.data.length; i++) {
-          console.log(that.yzytime(new Date(parseInt(res.data.data[i].bind_time))))
-          that.data.ttbox.push(that.yzytime(new Date(parseInt(res.data.data[i].bind_time))))
+          console.log(that.yzytime(new Date(parseInt(res.data.data[i].date_time))))
+          that.data.ttbox.push(that.yzytime(new Date(parseInt(res.data.data[i].date_time))))
         }
         console.log(that.data.ttbox)
         that.setData({
           ttbox: that.data.ttbox
         })
       }
-    })
+    }),
+      wx.loadFontFace({
+        family: this.data.fontFamily,
+        source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+        success(res) {
+          console.log(res.status)
+        },
+        fail: function (res) {
+          console.log(res.status)
+        },
+        complete: function (res) {
+          console.log(res.status)
+        }
+      });
   },
   yzytime: function (no) {
     var date = no;

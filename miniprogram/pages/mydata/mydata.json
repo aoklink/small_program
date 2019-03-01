@@ -1,6 +1,8 @@
 {
-  "backgroundTextStyle": "#fff",
+  "backgroundTextStyle": "dark",
   "navigationBarBackgroundColor": "#fff",
-  "navigationBarTitleText": "我的运动",
-  "navigationBarTextStyle": "black"
+  "navigationBarTitleText": "运动记录",
+  "navigationBarTextStyle": "black",
+  "enablePullDownRefresh": true,
+  "onReachBottomDistance": 50
 }

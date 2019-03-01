@@ -12,7 +12,8 @@ Page({
     oo: true,
     ok: true,
     tit: '手机号已绑定，请重新输入',
-    rrr: true
+    rrr: true,
+    fontFamily: 'FT'
   },
   cy: function (e) {
     let that = this;
@@ -149,7 +150,19 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.loadFontFace({
+      family: this.data.fontFamily,
+      source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+      success(res) {
+        console.log(res.status)
+      },
+      fail: function (res) {
+        console.log(res.status)
+      },
+      complete: function (res) {
+        console.log(res.status)
+      }
+    });
   },
 
   /**

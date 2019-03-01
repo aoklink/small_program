@@ -73,6 +73,7 @@ page{
   color: #fff;
   font-size: 96rpx;
   position: relative;
+  font-family: 'FT';
 }
 .ipt{
   width: 0;
@@ -107,7 +108,7 @@ page{
   font-size: 28rpx;
   margin: 0rpx auto 0;
   text-align: center;
-  font-family: 'DIN Alternate Bold'
+  font-family: 'FT'
 }
 .qqq{
   display: inline-block;

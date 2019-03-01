@@ -197,7 +197,7 @@ page{
   position: relative;
 }
 .picker{
-  font-family: DINAlternate-Bold;
+  font-family: 'FT';
   color: #fff;
   text-align: right;
   position: absolute;

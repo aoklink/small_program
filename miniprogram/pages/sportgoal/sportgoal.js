@@ -66,7 +66,9 @@ Page({
           weight: us.weight,
           situation: us.situation,
           goal: us.goal,
-          wx_code: tty
+          wx_code: tty,
+          user_name: us.nickName,
+          head_icon: us.avatarUrl
         },
         header: {
           'content-type': 'application/json' // 默认值
@@ -76,7 +78,7 @@ Page({
           if(res.data.code == 200){
             us.uid = res.data.uid      
             wx.reLaunch({
-              url: '../link/link',
+              url: '../my/my',
             })
             // wx.navigateTo({
             //   url: '../link/link',

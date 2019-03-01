@@ -11,8 +11,13 @@ Page({
     ofci: '',
     po: '',
     url: '',
-    pj: ''
-  },
+    pj: '',
+    cellnum: 'ADC-23111',
+    shopname: '领客菲力健身房',
+    tita: '',
+    titb: '',
+    ok: 'true'
+   },
 
   /**
    * 生命周期函数--监听页面加载
@@ -32,14 +37,20 @@ Page({
         console.log(res.data)
         if (res.data.data.bind_status == false){
           that.setData({
-            po: '手环未绑定',
-            pj: 'http://ll.linkfeeling.cn/img/ok.png'
+            po: '手环暂未绑定',
+            pj: 'http://ll.linkfeeling.cn/img/ok.png',
+            tita: '“ 请向服务人员索取领客手环，',
+            titb: '否则无法统计到您的运动数据哦~ ”',
+            ok: true
           })
         }
         if (res.data.data.bind_status == true) {
           that.setData({
-            po: '手环已绑定',
-            pj: 'http://ll.linkfeeling.cn/img/oj.png'
+            po: '手环绑定成功',
+            pj: 'http://ll.linkfeeling.cn/img/oj.png',
+            tita: '“ 临走时请归还手环',
+            titb: '否则无法生成您的锻炼报告 ”',
+            ok: false
           })
         }
         that.setData({

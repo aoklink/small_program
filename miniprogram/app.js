@@ -19,7 +19,7 @@ App({
       ut: "trainee",
       rt: Date.parse(new Date()),
       pt: "small_program",
-      pi: "123",
+      pi: "Linkfeeling",
       sm: "pwd",
       av: "001",
       wx_code: "",
@@ -39,8 +39,10 @@ App({
     yzy: 'yangzeyuan',
     ctxPath: 'https://m.hao123.com/',
     lp: 'https://ll.linkfeeling.cn/api/',
+    fontFamily: 'FT'
   },
   onLoad: function (options) {
+    console.log('gg')
     let that = this;
     wx.getNetworkType({
       success: function (res) {
@@ -49,6 +51,19 @@ App({
           'user.nw': cc
         })
       }
-    })
+    }),
+    wx.loadFontFace({
+      family: this.globalData.fontFamily,
+      source: 'url("https://sungd.github.io/Pacifico.ttf")',
+      success(res) {
+        console.log(res.status)
+      },
+      fail: function (res) {
+        console.log(res.status)
+      },
+        complete: function (res) {
+        console.log(res.status)
+      }
+    });
   }
 })

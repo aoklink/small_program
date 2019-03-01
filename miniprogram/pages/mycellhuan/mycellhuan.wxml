@@ -1,16 +1,30 @@
-<view class="box">
-  <view class='{{otu?"tu":"tub"}}' style='background:url({{pj}}) center no-repeat'></view>
-  <view class="{{otu?'tit':'titb'}}">{{po}}</view>
-  <view class='shopbox' wx:if="{{otu}}">
-    <view class='shopt'>归属门店</view>
-    <view class='shopname'>{{ofci}}</view>
+<view class='box'>
+  <view class='up'>
+    <view class='tu' style='background:url({{pj}}) center no-repeat;background-size:100% 100%;'></view>
+    <view class='tit'>{{po}}</view>
   </view>
-  <view class='{{otu?"impot":"impotb"}}'>
-    <view class='up'>
-      <view class='smstu'></view>
-      <view class='smstit'>温馨提示</view>
+  <view hidden='{{ok}}'>
+    <view class='cellnum'>
+      <view class='cna'>
+        <view class='butu' style='background:url({{pj}}) center no-repeat;background-size:100% 100%;'></view>
+        <view class='buru'>手环编号</view>
+      </view>
+      <view class='bbdc'>{{cellnum}}</view>
     </view>
-    <view class='lin'>{{'"临走时请归还手环，'}}</view>
-    <view class='fou'>{{'否则无法生成您的锻炼报告"'}}</view>
+    <view class='cellnumb'>
+      <view class='cna'>
+        <view class='butu' style='background:url({{pj}}) center no-repeat;background-size:100% 100%;'></view>
+        <view class='buru'>归属门店</view>
+      </view>
+      <view class='bbdcb'>{{shopname}}</view>
+    </view>
+  </view>
+  <view class='{{ok?"bottoma":"bottom"}}'>
+    <view class='ba'>
+      <view class='imp' style='background:url({{pj}}) center no-repeat;background-size:26rpx 26rpx;'></view>
+      <view class='batit'>温馨提示</view>
+    </view>
+    <view class='bb'>{{tita}}</view>
+    <view class='bc'>{{titb}}</view>
   </view>
 </view>
