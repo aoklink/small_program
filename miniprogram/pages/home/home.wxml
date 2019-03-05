@@ -1,2 +1,64 @@
-<view>
+<view hidden="{{nono}}" class='jjmmbox'>
+<view wx:if="{{canIUse}}">
+    <view class='headerhh'>
+        <image class='imahh'></image>
+    </view>
+ 
+    <view class='contenthh'>
+        <view>领客菲力申请获取以下权限</view>
+        <text>获得你的公开信息(昵称，头像等)</text>
+    </view>
+ 
+    <button class='bottomhh' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+        授权登录
+    </button>
+</view>
+ 
+<view wx:else>请升级微信版本</view>
+</view>
+<view class='nini' hidden='{{nono}}'></view>
+<view class='ubox'>
+  <view class='uba'>
+    <view class='tou' style='background:url({{head_icon}}) center no-repeat red;background-size:100% 100%;'></view>
+    <view class='ruu'>{{'技术硬过皮卡丘亿亿亿亿二二'}}</view>
+    <view class='rdd'></view>
+  </view>
+  <swiper class='lunbo' autoplay='true' interval='3000'>
+    <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image></swiper-item>
+    <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image></swiper-item>
+    <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image></swiper-item>
+  </swiper>
+  <view class='upl'>
+    <span></span>
+    <span>{{99}} 张</span>
+  </view>
+  <view class='uplf'>
+    <view>营业时间</view>
+    <view></view>
+    <view>周一至周五</view>
+    <view>{{'8:00-22:00'}}</view>
+    <view>周六至周日</view>
+    <view>{{'8:00-22:00'}}</view>
+  </view>
+  <view class='utup'>
+    <view>{{'领客菲力滨江旗舰店'}}</view>
+    <view>{{'杭州市滨江区丙申路188号'}}</view>
+    <view></view>
+  </view>
+  <view class='utdw'>
+    <span wx:key="index" wx:for="{{yb}}">{{item}}</span>
+  </view>
+  <view class='uact'>
+    <view class='uactit'>课程活动</view>
+    <view class='uacbox' wx:key="index" wx:for="{{act}}">
+      <view class='uactu'></view>
+      <view class='uacrr'>
+        <view class='uacpro'>{{}}</view>
+        <view class='uacdoo'>
+          <view class='uacpri'>￥{{19.9}}</view>
+          <view class='uacyuy'>预约</view>
+        </view>
+      </view>
+    </view>
+  </view>
 </view>

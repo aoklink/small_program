@@ -1,1 +1,297 @@
-/* pages/home/home.wxss */
+page{
+  background: #FFF;
+  font-family:PingFangSC-Medium;
+  /* height: 100%;
+  width: 100%; */
+  /* box-sizing:border-box; */
+  /* overflow: hidden; */
+}
+.jjmmbox{
+  width: 100%;
+  height: 100%;
+}
+.nini{
+  height: 1000rpx;
+  width: 100%;
+}
+.tou{
+  display: inline-block;
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  background: yellow;
+}
+.headerhh {
+    margin: 90rpx 0 90rpx 50rpx;
+    border-bottom: 1px solid #ccc;
+    text-align: center;
+    width: 650rpx;
+    height: 300rpx;
+    line-height: 450rpx;
+}
+.headerhh image {
+    width: 200rpx;
+    height: 200rpx;
+}
+ 
+.contenthh {
+    margin-left: 50rpx;
+    margin-bottom: 90rpx;
+}
+ 
+.contenthh text {
+    display: block;
+    color: #9d9d9d;
+    margin-top: 40rpx;
+}
+.bottomhh {
+    border-radius: 80rpx;
+    margin: 70rpx 50rpx;
+    font-size: 35rpx;
+}
+.imahh{
+  display: inline-block;
+  background: url(https://img.wzfzl.cn/uploads/allimg/170225/3-1F225092U3-50.jpg);
+  background-size: 100% 100%;
+}
+.uba{
+  height: 122rpx;
+  width: 100%;
+  box-sizing: border-box;
+  border-bottom: 1rpx solid rgba(74,76,87,0.1);
+}
+.ubox{
+  position: relative;
+}
+.tou{
+  float: left;
+  width: 78rpx;
+  height: 78rpx;
+  box-sizing: content-box;
+  background: greenyellow;
+  border-radius: 50%;
+  margin: 24rpx auto auto 34rpx;
+}
+.rtu{
+  width: calc(100% - 200rpx);
+  height: 100%;
+  float: left;
+  margin-left: 48rpx;
+}
+.ruu{
+  height: 50rpx;
+  width: 480rpx;
+  margin: 38rpx 0 0 26rpx;
+  color: #272A38;
+  font-size:36rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:600;
+  display: inline-block;
+  line-height: 50rpx;
+}
+.rdd{
+  float: right;
+  width: 100rpx;
+  height: 100%;
+  display: inline-block;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 8rpx 16rpx;
+}
+.lunbo{
+  width: 100%;
+  height: 352rpx;
+  box-sizing: border-box;
+  margin-top: 32rpx;
+}
+.lunbo image{
+  width: 690rpx;
+  height: 100%;
+  box-sizing: border-box;
+  background: pink;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  border-radius: 8rpx;
+}
+.upl{
+  display: inline-block;
+  width: 110rpx;
+  height: 36rpx;
+  position: absolute;
+  background: #000;
+  top: 444rpx;
+  right: 58rpx;
+}
+.upl span:nth-of-type(1){
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  display: inline-block;
+  width: 24rpx;
+  height: 100%;
+  margin-left: 16rpx;
+  background-size: 24rpx 19rpx;
+}
+.upl span:nth-of-type(2){
+  position: absolute;
+  display: inline-block;
+  height: 100%;
+  left: 50rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  font-size:18rpx;
+  color: #fff;
+  line-height: 36rpx;
+}
+.uplf{
+  width: 150rpx;
+  height: 278rpx;
+  background:rgba(255,199,56,0.8);
+  border-radius:8rpx;
+  position: absolute;
+  top: 196rpx;
+  left: 62rpx;
+}
+.uplf view:nth-of-type(1){
+  width: 100%;
+  margin-top: 20rpx;
+  height: 34rpx;
+  text-align: center;
+  font-size:24rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(39,42,56,1);
+  letter-spacing: 2rpx;
+  line-height:34rpx;
+}
+.uplf view:nth-of-type(2){
+  width: 120rpx;
+  margin: 12rpx 0 0 14rpx;
+  height: 2rpx;
+  background:rgba(68,72,88,1);
+}
+.uplf view:nth-of-type(3){
+  width: 100%;
+  margin-top: 12rpx;
+  height: 28rpx;
+  text-align: center;
+  font-size:20rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(68,72,88,0.8);
+  line-height:28rpx;
+  letter-spacing: 2rpx;
+}
+.uplf view:nth-of-type(4){
+  width: 100%;
+  margin-top: 20rpx;
+  height:28rpx;
+  font-size:28rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(39,42,56,1);
+  line-height:28rpx;
+  text-align: center;
+}
+.uplf view:nth-of-type(5){
+  width: 100%;
+  margin-top: 10rpx;
+  height: 28rpx;
+  text-align: center;
+  font-size:20rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(68,72,88,0.8);
+  line-height:28rpx;
+  letter-spacing: 2rpx;
+}
+.uplf view:nth-of-type(6){
+  width: 100%;
+  margin-top: 20rpx;
+  height:28rpx;
+  font-size:28rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(39,42,56,1);
+  line-height:28rpx;
+  text-align: center;
+}
+.utup{
+  height: 146rpx;
+  width: 100%;
+  position: relative;
+}
+.utup view:nth-of-type(1){
+  height: 66rpx;
+  margin-top: 40rpx;
+  background: pink;
+  line-height: 66rpx;
+  font-size:48rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(39,42,56,1);
+  text-indent: 38rpx;
+}
+.utup view:nth-of-type(2){
+  height: 34rpx;
+  margin-top: 20rpx;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat;
+  background-size: 24rpx 29rpx;
+  background-position: 40rpx center;
+  line-height: 34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(151,154,159,1);
+  text-indent: 76rpx;
+}
+.utup view:nth-of-type(3){
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  position: absolute;
+  right: 58rpx;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 80rpx 80rpx;
+  top: 20rpx;
+}
+.utdw{
+  width: 664rpx;
+  height: 180rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid rgba(74,76,87,0.1);
+  margin: 0 auto;
+  padding: 30rpx 0 0 0rpx;
+}
+.utdw span{
+  display: inline-block;
+  float: left;
+  height: 50rpx;
+  background:rgba(74,76,87,0.1);
+  padding: 0 32rpx;
+  border-radius: 25rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(39,42,56,1);
+  line-height: 50rpx;
+  margin: 0 10rpx 10rpx 0;
+}
+.uact{
+  height: 1000rpx;
+  width: 100%; 
+  border-top: solid 22rpx rgba(247,247,247,1);
+  border-bottom: solid 22rpx rgba(247,247,247,1);
+  box-sizing: border-box;
+}
+.uactit{
+  height: 66rpx;
+  line-height: 66rpx;
+  width: 100%;
+  font-size:48rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  color:rgba(39,42,56,1);
+  text-indent: 40rpx;
+  margin: 40rpx 0 50rpx;
+}
+.uacbox{
+  height: 160rpx;
+  
+}

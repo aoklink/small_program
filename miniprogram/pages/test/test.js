@@ -87,12 +87,34 @@ Page({
                     wx.canvasToTempFilePath({
                       canvasId: 'shareCanvas',
                       success: function (res) {
+                        console.log(123)
                         wx.saveImageToPhotosAlbum({
                           filePath: res.tempFilePath,
                           success: function (res) {
+                            console.log(456)
                             wx.showToast({
                               title: '分享图片已保存到相册'
                             })
+                          },
+                          fail: function (res) {
+                            console.log(res)
+                            console.log(789)
+                            if (res.errMsg === "saveImageToPhotosAlbum:fail:auth denied") {
+                              console.log("打开设置窗口");
+                              wx.openSetting({
+                                success(settingdata) {
+                                  console.log(settingdata)
+                                  if (settingdata.authSetting["scope.writePhotosAlbum"]) {
+                                    console.log("获取权限成功，再次点击图片保存到相册")
+                                  } else {
+                                    console.log("获取权限失败")
+                                  }
+                                },
+                                fail: function () {
+                                  console.log(999)
+                                }
+                              })
+                            }
                           }
                         })
                       }

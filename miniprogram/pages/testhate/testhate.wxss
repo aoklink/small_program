@@ -1,19 +1,13 @@
 page{
-  background: #eee;
+  width: 100%;
+  height: 100%;
+  background: #999;
 }
-.share{
-  width: 300px;
-  height: 380px;
-  position: fixed;
-  left: 0;
-  right: 0;
-  top: 0;
-  bottom: 100rpx;
-  margin: auto;
-}
-.btn-box{
-  padding: 1060rpx 60rpx 0 60rpx;
-}
-button{
-  background: darkturquoise;
+ 
+.saveImg,.openSetting{
+  position: absolute;
+  bottom: 10px;
+  width: 90%;
+  left: 5%;
+  height: 50px;
 }

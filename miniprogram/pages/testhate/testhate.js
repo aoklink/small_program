@@ -1,125 +1,163 @@
+var app = getApp();
+var us = getApp().globalData.userInfo
+var mmd = require('../../utils/mmd.js');
+// pages/a/a.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    sharebg: 'http://qiniu.jnwtv.com/H520181206092255188568494.png', // 分享底部背景图
-    shareTitle: '哈哈哈男孩从小就没有地位，看来一万个心酸哈哈哈男孩从小就没有地位，看来一万个心酸', // 分享标题
-    shareCoverImg: 'http://qiniu.jnwtv.com/H520181210164154569520223.jpeg', // 分享封面图
-    shareQrImg: 'http://qiniu.jnwtv.com/H520181210164146322557972.jpg', // 分享小程序二维码
-    userInfo: {
-      headImg: 'http://qiniu.jnwtv.com/H520181210164138180428653.jpg', //用户头像
-      nickName: '打豆豆', // 昵称
-    },
-    seeDate: '2018-12-04', //看视频日期
-  },
-  onLoad: function (options) {
 
   },
-  downloadImg: function () {
+    /*
+   * 保存到相册
+  */
+  save: function () {
+   
+  },
+ 
+  handleSetting: function(e){
     let that = this;
-    // 创建画布
-    const ctx = wx.createCanvasContext('shareCanvas')
-    // 白色背景
-    ctx.setFillStyle('#fff')
-    ctx.fillRect(0, 0, 300, 380)
-    ctx.draw()
-    // 下载底部背景图
-    wx.getImageInfo({
-      src: that.data.sharebg,
-      success: (res1) => {
-        ctx.drawImage(res1.path, 0, 250, 300, 130)
-        // 下载视频封面图
-        wx.getImageInfo({
-          src: that.data.shareCoverImg,
-          success: (res2) => {
-            ctx.drawImage(res2.path, 0, 0, 300, 168)
-            // 分享标题
-            // ctx.setTextAlign('center')    // 文字居中
-            ctx.setFillStyle('#000')  // 文字颜色：黑色
-            ctx.setFontSize(20)         // 文字字号：20px
-            if (that.data.shareTitle.length <= 14) {
-              // 不用换行
-              ctx.fillText(that.data.shareTitle, 10, 200, 280)
-            } else if (that.data.shareTitle.length <= 28) {
-              // 两行
-              let firstLine = that.data.shareTitle.substring(0, 14);
-              let secondLine = that.data.shareTitle.substring(14, 27);
-              ctx.fillText(firstLine, 10, 200, 280)
-              ctx.fillText(secondLine, 10, 224, 280)
-            } else {
-              // 超过两行
-              let firstLine = that.data.shareTitle.substring(0, 14);
-              let secondLine = that.data.shareTitle.substring(14, 27) + '...';
-              ctx.fillText(firstLine, 10, 200, 280)
-              ctx.fillText(secondLine, 10, 224, 280)
-            }
-
-            // 下载二维码
-            wx.getImageInfo({
-              src: that.data.shareQrImg,
-              success: (res3) => {
-                let qrImgSize = 70
-                ctx.drawImage(res3.path, 212, 256, qrImgSize, qrImgSize)
-                ctx.stroke()
-                ctx.draw(true)
-
-                // 用户昵称
-                ctx.setFillStyle('#000')  // 文字颜色：黑色
-                ctx.setFontSize(14) // 文字字号：16px
-                ctx.fillText(that.data.userInfo.nickName, 38, 284)
-                // 观看日期
-                ctx.setFillStyle('#999')  // 文字颜色：黑色
-                ctx.setFontSize(10)       // 文字字号：16px
-                ctx.fillText('在' + that.data.seeDate + '观看这个视频', 38, 298)
-
-                // 下载用户头像
-                wx.getImageInfo({
-                  src: that.data.userInfo.headImg,
-                  success: (res4) => {
-                    // 先画圆形，制作圆形头像(圆心x，圆心y，半径r)
-                    ctx.arc(22, 284, 12, 0, Math.PI * 2, false)
-                    ctx.clip()
-                    // 绘制头像图片
-                    let headImgSize = 24
-                    ctx.drawImage(res4.path, 10, 272, headImgSize, headImgSize)
-                    // ctx.stroke() // 圆形边框
-                    ctx.draw(true)
-
-                    // 保存到相册
-                    wx.canvasToTempFilePath({
-                      canvasId: 'shareCanvas',
-                      success: function (res) {
-                        wx.saveImageToPhotosAlbum({
-                          filePath: res.tempFilePath,
-                          success: function (res) {
-                            wx.showToast({
-                              title: '分享图片已保存到相册'
-                            })
-                          },
-                          fail: function (res) {
-                            console.log(res)
-                            if (res.errMsg === "saveImageToPhotosAlbum:fail:auth denied") {
-                              console.log("打开设置窗口");
-                              wx.openSetting({
-                                success(settingdata) {
-                                  console.log(settingdata)
-                                  if (settingdata.authSetting["scope.writePhotosAlbum"]) {
-                                    console.log("获取权限成功，再次点击图片保存到相册")
-                                  } else {
-                                    console.log("获取权限失败")
-                                  }
-                                }
-                              })
-                            }
-                          }
-                        })
-                      }
-                    }, this)
-                  }
-                })
+    // 对用户的设置进行判断，如果没有授权，即使用户返回到保存页面，显示的也是“去授权”按钮；同意授权之后才显示保存按钮
+    if (!e.detail.authSetting['scope.writePhotosAlbum']) {
+      wx.showModal({
+        title: '警告',
+        content: '若不打开授权，则无法将图片保存在相册中！',
+        showCancel: false
+      })
+      that.setData({
+        saveImgBtnHidden: true,
+        openSettingBtnHidden: false
+      })
+    }else{
+      wx.showModal({
+        title: '提示',
+        content: '您已授权，赶紧将图片保存在相册中吧！',
+        showCancel: false
+      })
+      that.setData({
+        saveImgBtnHidden: false,
+        openSettingBtnHidden: true
+      })
+    }
+  },
+ 
+  savaImageToPhoto: function(){
+    let that = this;
+    wx.showLoading({
+      title: '努力生成中...'
+    })
+    wx.canvasToTempFilePath({
+      x: 0,
+      y: 0,
+      width: that.data.winWidth,
+      height: that.data.winHeight - 70,
+      destWidth: that.data.winWidth,
+      destHeight: that.data.winHeight - 70,
+      canvasId: 'shareImg',
+      success: function (res) {
+        wx.hideLoading()
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success(res) {
+            wx.showModal({
+              content: '图片已保存到相册了',
+              showCancel: false,
+              confirmText: '朕知道啦',
+              confirmColor: '#72B9C3',
+              success: function (res) {
+                if (res.confirm) {
+                  console.log('用户点击确定');
+                  that.setData({
+                    hidden: true
+                  })
+                }
               }
             })
           }
         })
+      },
+      fail: function (res) {
+        console.log(res)
       }
     })
+  },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    var that = this;
+    //获取相册授权
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.writePhotosAlbum']) {
+          wx.authorize({
+            scope: 'scope.writePhotosAlbum',
+            success() {//这里是用户同意授权后的回调
+              that.savaImageToPhoto();
+            },
+            fail() {//这里是用户拒绝授权后的回调
+              that.setData({
+                saveImgBtnHidden: true,
+                openSettingBtnHidden: false
+              })
+            }
+          })
+        } else {//用户已经授权过了
+          that.savaImageToPhoto();
+        }
+      }
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide: function () {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload: function () {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh: function () {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+
   }
 })

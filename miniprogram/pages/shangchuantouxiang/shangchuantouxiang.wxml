@@ -1,0 +1,54 @@
+<!--
+变量说明：
+windowHeight ：设备的窗口的高度
+windowWidth ： 设备的窗口的宽度
+actionSheetHidden ： 组件是否显示
+actionSheetItems ：组件菜单项
+-->
+<view class="page__bd" style="height: {{windowHeight * 0.8}}px; width: {{windowWidth}}px;">
+    <view class="weui-cells weui-cells_after-title me-info"
+    style="top:{{windowHeight * 0.4}}px;">
+        <view class="weui-cell">
+            <view class="weui-cell__hd" style="position: relative;margin-right: 10px;">
+                <image src="{{userImg}}" style="width: 50px; height: 50px; display: block;border-radius:25px;" bindtap="clickImage"/>
+            </view>
+            <view class="weui-cell__bd">
+                <navigator url="../login/login" >
+                点击登录</navigator>
+                <view style="font-size: 13px;color: #888888;">摘要信息</view>
+            </view>
+        </view>
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+                <view style="display: inline-block; vertical-align: middle">发布博客</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+                <view style="display: inline-block; vertical-align: middle">信息列表</view>
+                <view class="weui-badge" style="margin-left: 5px;">8</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">详细信息</view>
+        </view>
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+                <view style="display: inline-block; vertical-align: middle">个人资料</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+        <view class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">
+                <view style="display: inline-block; vertical-align: middle">设置</view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+        </view>
+    </view>
+    <action-sheet hidden="{{actionSheetHidden}}" bindchange="actionSheetbindchange">
+        <block wx:for="{{actionSheetItems}}" wx:key="unique">
+            <action-sheet-item bindtap="{{item.bindtap}}">{{item.txt}}</action-sheet-item>
+        </block>
+        <action-sheet-cancel class="cancel">取消</action-sheet-cancel>
+    </action-sheet>
+</view>
+<button class='btn1' bindtap='bind_tal'>电话联系</button>

@@ -1,6 +1,4 @@
-<view class='share'>
-  <canvas canvas-id="shareCanvas" style="width:300px;height:380px"></canvas>
-</view>
-<view class='btn-box'>
-  <button bindtap='downloadImg'>分享到朋友圈</button>
-</view>
+<canvas canvas-id="shareImg" style="width:100%;height:100%;"></canvas>
+<button type='primary' class='saveImg' bindtap='save' hidden='{{saveImgBtnHidden}}'>保存图片</button>
+<button type='primary' class='openSetting' open-type="openSetting"
+bindopensetting='handleSetting' hidden='{{openSettingBtnHidden}}'>去授权</button>

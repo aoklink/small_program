@@ -11,7 +11,7 @@
 	},
 	"appid": "wxefc6bcecdc90d423",
 	"projectname": "lulu",
-	"libVersion": "2.2.5",
+	"libVersion": "2.6.1",
 	"condition": {
 		"search": {
 			"current": -1,
@@ -29,7 +29,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 0,
+			"current": 26,
 			"list": [
 				{
 					"id": 0,
@@ -192,6 +192,13 @@
 					"id": 25,
 					"name": "wl",
 					"pathName": "pages/wl/wl",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "touxiang",
+					"pathName": "pages/shangchuantouxiang/shangchuantouxiang",
 					"query": "",
 					"scene": null
 				}
