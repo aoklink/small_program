@@ -1,7 +1,1 @@
-<button bindtap="login">登录</button>
-<button bindtap="checksession">登录是否过期</button>
-<button  open-type="getUserInfo" bindgetuserinfo="info">点击授权</button>
-<text>{{city}}</text>
-<text>{{country}}</text>
-<text>{{nickName}}</text>
-<text>{{province}}</text>
+<map id="map" longitude="{{longitude}}" latitude="{{latitude}}" markers="{{markers}}" controls="{{controls}}" circles="{{circles}}" polyline="{{polyline}}" bindregionchange="regionChange" bindcontroltap='controlClick' style="width: 100%; height:300px;"></map>

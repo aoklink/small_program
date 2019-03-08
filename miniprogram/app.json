@@ -1,5 +1,8 @@
 {
   "pages": [
+    "pages/select/select",
+    "pages/myhouse/myhouse",
+    "pages/activity/activity",
     "pages/home/home",
     "pages/index/index",
     "pages/my/my",
@@ -47,8 +50,14 @@
     "pages/pcweb/pcweb",
     "pages/sharepage/sharepage",
     "pages/ll/ll",
-    "pages/xx/xx"
+    "pages/xx/xx",
+    "pages/map/map"
   ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#1D232D",
@@ -63,7 +72,7 @@
       {
         "selectedIconPath": "img/cc.png",
         "iconPath": "img/cc.png",
-        "pagePath": "pages/lulu/lulu",
+        "pagePath": "pages/home/home",
         "text": "首页"
       },
       {

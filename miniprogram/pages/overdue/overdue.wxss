@@ -1,1 +1,7 @@
-/* pages/overdue/overdue.wxss */
+.pre-box{width: 100%;height: auto;margin-top: 20px;}
+.swiper-pre{height: 814rpx;background: #F6F6F6;width: 100%;text-align: center}
+.pre-product{position: relative;background: #FFF;margin-right:200px;}
+.pre-img{width: 100%;height: 450rpx;}
+swiper-item{
+  /* width: 300rpx !important */
+}

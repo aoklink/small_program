@@ -1,0 +1,41 @@
+page{
+  width: 100%;
+  background: #F7F7F7;
+}
+.box{
+  width: 690rpx;
+  height: 230rpx;
+  background: #fff;
+  margin: 30rpx;
+  border-radius: 8rpx;
+}
+.left{
+  float: left;
+  display: inline-block;
+  width: 170rpx;
+  height: 170rpx;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 170rpx 170rpx;
+  margin: 30rpx auto auto 28rpx;
+}
+.right{
+  float: left;
+  margin-left: 30rpx;
+}
+.top{
+  margin-top: 30rpx;
+  height:50rpx;
+  font-size:36rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(0,0,0,1);
+  line-height:50rpx;
+}
+.bottom{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(29,35,45,0.5);
+  line-height:34rpx;
+  margin-top: 10rpx;
+}

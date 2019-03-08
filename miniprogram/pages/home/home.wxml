@@ -17,16 +17,15 @@
 <view wx:else>请升级微信版本</view>
 </view>
 <view class='nini' hidden='{{nono}}'></view>
-<view class='ubox'>
+<view class='ubox' hidden='{{!nono}}'>
+  <view hidden='{{bgbg}}'>
   <view class='uba'>
     <view class='tou' style='background:url({{head_icon}}) center no-repeat red;background-size:100% 100%;'></view>
     <view class='ruu'>{{'技术硬过皮卡丘亿亿亿亿二二'}}</view>
     <view class='rdd'></view>
   </view>
   <swiper class='lunbo' autoplay='true' interval='3000'>
-    <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image></swiper-item>
-    <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image></swiper-item>
-    <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image></swiper-item>
+    <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}"><image src='{{item}}'></image></swiper-item>
   </swiper>
   <view class='upl'>
     <span></span>
@@ -43,7 +42,7 @@
   <view class='utup'>
     <view>{{'领客菲力滨江旗舰店'}}</view>
     <view>{{'杭州市滨江区丙申路188号'}}</view>
-    <view></view>
+    <view bindtap='gomap'></view>
   </view>
   <view class='utdw'>
     <span wx:key="index" wx:for="{{yb}}">{{item}}</span>
@@ -51,14 +50,37 @@
   <view class='uact'>
     <view class='uactit'>课程活动</view>
     <view class='uacbox' wx:key="index" wx:for="{{act}}">
-      <view class='uactu'></view>
+      <view class='uactu' style='background: url("{{item.url}}") no-repeat center;background-size: 160rpx 160rpx;'></view>
       <view class='uacrr'>
-        <view class='uacpro'>{{}}</view>
+        <view class='uacpro'>{{item.tit}}</view>
         <view class='uacdoo'>
-          <view class='uacpri'>￥{{19.9}}</view>
-          <view class='uacyuy'>预约</view>
+          <view class='uacpri'>￥{{item.price}}</view>
+          <view class='uacyuy' bindtap='call'>预约</view>
         </view>
       </view>
     </view>
+    <view class='uall'>查看全部</view>
+    <cover-view class='prema' bindtap='call'>
+      <cover-view>课程</cover-view>
+      <cover-view>预约</cover-view>
+    </cover-view>
+
   </view>
+  <view class='ucoach'>
+    <view class='uconame'>教练</view>
+    <swiper class='luncoa' display-multiple-items="2.5">
+      <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image><view class='coaname'>桃子</view><view class='coabox'><span>专业</span><span>专12d业</span><span>专erfwearf业</span></view></swiper-item> 
+      <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image><view class='coaname'>桃子</view><view class='coabox'><span>专业</span><span>专12d业</span><span>专erfwearf业</span></view></swiper-item>
+      <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image><view class='coaname'>桃子</view><view class='coabox'><span>专业</span><span>专12d业</span><span>专erfwearf业</span></view></swiper-item>
+      <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image><view class='coaname'>桃子</view><view class='coabox'><span>专业</span><span>专12d业</span><span>专erfwearf业</span></view></swiper-item>
+      <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image><view class='coaname'>桃子</view><view class='coabox'><span>专业</span><span>专12d业</span><span>专erfwearf业</span><span>专12d业</span></view></swiper-item>
+      <swiper-item><image src='http://ll.linkfeeling.cn/img/ok.png'></image><view class='coaname'>桃子</view><view class='coabox'><span>专业</span><span>专12d业</span><span>专erfwearf业</span></view></swiper-item>
+    </swiper>
+  </view>
+  </view>
+</view>
+<view class='{{bg?"imgbg":"imgbgg"}}'>
+  <swiper class='bggb' current="{{current}}">
+    <swiper-item bindtap="fullno" wx:key="index" wx:for="{{imgboxa}}"><image src='{{item}}' mode="widthFix"></image></swiper-item>
+  </swiper>
 </view>

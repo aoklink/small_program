@@ -1,56 +1,37 @@
-<view hidden="{{nono}}" class='jjmmbox'>
-<view wx:if="{{canIUse}}">
-    <view class='headerhh'>
-        <image class='imahh'></image>
-    </view>
- 
-    <view class='contenthh'>
-        <view>领客菲力申请获取以下权限</view>
-        <text>获得你的公开信息(昵称，头像等)</text>
-    </view>
- 
-    <button class='bottomhh' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
-        授权登录
-    </button>
-</view>
- 
-<view wx:else>请升级微信版本</view>
-</view>
-<view class='nini' hidden='{{nono}}'></view>
 <view class='ubox'>
   <view class='uba'>
-    <view class='tou' style='background:url({{head_icon}}) center no-repeat;background-size:100% 100%;'></view>
-    <view class='rtu'>
-      <view class='ruu'>{{name}}</view>
-      <view class='rdd' style='background:url({{head_icon}}) left center no-repeat;background-size:20rpx 34rpx;'></view>
-    </view>
+    <!-- <view class='tou' style='background:url({{head_icon}}) center no-repeat;background-size:100% 100%;'></view> -->
+    <view class='tou' style='background:yellow'></view>
   </view>
-  <view class='ubb'>修改信息</view>
+  <view class='ubb'><view class='ruu'><span>{{'技术硬过皮卡丘'}}</span><span></span></view>
+      <view class='rdd' style='background:url({{head_icon}}) left center no-repeat;background-size:20rpx 34rpx;'></view></view>
 </view>
+<view class='edit' bindtap='goselect'>
+  <span></span>
+  <span>点击编辑个人信息</span>
+  <span></span> 
+</view>
+<view class='line'></view>
 <view class='dbox'>
   <view class="ss">
-    <span style='background:url({{head_icon}}) left center no-repeat;background-size:56rpx 56rpx;'></span>
-    <view>性别</view>
-    <view>{{sex}}</view>
+    <span class="sspl"></span>
+    <view>我的手环</view>
+    <view><span>{{'未绑定'}}</span></view>
+    <view></view>
   </view>
+  <view class='ssli'></view>
   <view class="ss">
-    <span style='background:url({{head_icon}}) left center no-repeat;background-size:56rpx 56rpx;'></span>
-    <view>年龄</view>
-    <view><span>{{age}}</span>岁</view>
+    <span class="sspl"></span>
+    <view>运动报告</view>
+    <view class='ubu'><span>{{'2份新报告'}}</span></view>
+    <view></view>
   </view>
+  <view class='ssli'></view>
   <view class="ss">
-    <span style='background:url({{head_icon}}) left center no-repeat;background-size:56rpx 56rpx;'></span>
-    <view>身高</view>
-    <view><span>{{height}}</span>cm</view>
+    <span class="sspl"></span>
+    <view>我的健身房</view>
+    <span class='rhb' bindtap="gohouse"></span>
   </view>
-  <view class="ss">
-    <span style='background:url({{head_icon}}) left center no-repeat;background-size:56rpx 56rpx;'></span>
-    <view>体重</view>
-    <view><span>{{weight}}</span>kg</view>
-  </view>
-  <view class="ss">
-    <span style='background:url({{head_icon}}) left center no-repeat;background-size:56rpx 56rpx;'></span>
-    <view>目标</view>
-    <view>{{goal}}</view>
-  </view>
+  <view class='ssli'></view>
 </view>
+<view class='botmm'>更多精彩，敬请期待</view>

@@ -1,8 +1,6 @@
 {
   "backgroundTextStyle": "dark",
   "navigationBarBackgroundColor": "#1D232D",
-  "navigationBarTitleText": "我",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {},
-  "disableScroll": true
+  "navigationBarTitleText": "",
+  "navigationBarTextStyle": "white"
 }

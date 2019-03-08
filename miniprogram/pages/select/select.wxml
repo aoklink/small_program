@@ -1,0 +1,63 @@
+<picker bindchange="bindPickerChangex" value="{{jh}}" range="{{arrax}}">
+  <view class='box'>
+    <view>性别</view>
+    <span></span>
+    <view class='kkl'>
+      <view class="picker">
+          {{arrax[jh]}}
+      </view>
+    </view>
+  </view>
+</picker>
+<view class='sline'></view>
+<picker bindchange="bindPickerChange" value="{{index}}" range="{{array}}">
+  <view class='box'>
+    <view>年龄</view>
+    <span></span>
+    <view class='kkl'>
+    <view class="ollo">岁</view>
+      <view class="picker">
+          {{array[index]}}
+      </view>
+    </view>
+  </view>
+</picker>
+<view class='sline'></view>
+<picker bindchange="bindPickerChangeb" value="{{pph}}" range="{{arrab}}">
+<view class='box'>
+    <view>身高</view>
+    <span></span>
+    <view class='kkl'>
+    <view class="ollo">cm</view>
+      <view class="picker">
+          {{arrab[pph]}}
+      </view>
+    </view>
+  </view>
+</picker>
+<view class='sline'></view>
+<picker bindchange="bindPickerChangec" value="{{ppw}}" range="{{arrac}}">
+<view class='box'>
+    <view>体重</view>
+    <span></span>
+    <view class='kkl'>
+    <view class="ollo">kg</view>
+      <view class="picker">
+          {{arrac[ppw]}}
+      </view>
+    </view>
+  </view>
+</picker>
+<view class='sline'></view>
+<picker bindchange="bindPickerChangey" value="{{kp}}" range="{{arrak}}">
+  <view class='box'>
+    <view>目标</view>
+    <span></span>
+    <view class='kkl'>
+      <view class="picker">
+          {{arrak[kp]}}
+      </view>
+    </view>
+  </view>
+</picker>
+<view class='sline'></view>

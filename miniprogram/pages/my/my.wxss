@@ -1,10 +1,8 @@
 page{
   background: #F6F6F6;
   font-family:PingFangSC-Medium;
-  height: 100%;
   width: 100%;
   box-sizing:border-box;
-  overflow: hidden;
 }
 .jjmmbox{
   width: 100%;
@@ -389,38 +387,33 @@ page{
 .ubox{
   width:100%;
   height:314rpx;
-  background: linear-gradient(90deg,rgba(29,35,45,1) 0%,rgba(47,56,72,1) 100%);
+  background: #1D232D;
   box-shadow:0rpx 4rpx 42rpx 0rpx rgba(23,31,45,0.09);
   box-sizing: border-box;
-  padding: 38rpx 0 42rpx 46rpx;
+  padding: 46rpx 0 40rpx 64rpx;
 }
 .uba{
-  height: 130rpx;
+  height: 126rpx;
   width: 100%;
   box-sizing: border-box;
 }
 .ubb{
-  height: 60rpx;
-  width: 160rpx;
+  height: 56rpx;
   box-sizing: border-box;
-  border: 1rpx solid #fff;
-  margin-top: 44rpx;
+  margin-top: 32rpx;
   color: #fff;
   font-size: 24rpx;
-  text-align: center;
-  line-height: 60rpx;
+  line-height: 56rpx;
   letter-spacing: 2rpx;
-  border-radius: 30rpx;
+  position: relative;
 }
 .tou{
   float: left;
-  width: 114rpx;
-  height: 114rpx;
-  box-sizing: content-box;
+  width: 126rpx;
+  height: 126rpx;
+  box-sizing: border-box;
   background: yellow;
-  border: 8rpx solid #fff;
   border-radius: 50%;
-  margin-left: 16rpx;
 }
 .rtu{
   width: calc(100% - 200rpx);
@@ -429,14 +422,14 @@ page{
   margin-left: 48rpx;
 }
 .ruu{
-  height: 44rpx;
+  height: 56rpx;
   width: 100%;
-  margin-top: 22rpx;
   color: #fff;
-  font-size:32rpx;
-  font-family:PingFangSC-Medium;
-  font-weight:500;
   display: inline-block;
+  line-height: 56rpx;
+  font-size:40rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
 }
 .rdd{
   width: 100%;
@@ -453,35 +446,161 @@ page{
 }
 .ss{
   width: 100%;
-  height: 118rpx;
-  border-bottom: 1rpx solid rgba(50,58,74,0.1);
+  height: 134rpx;
   box-sizing: border-box;
-  line-height: 118rpx;
+  line-height: 134rpx;
   font-size: 28rpx;
   position: relative;
   letter-spacing: 2rpx;
+  margin-top: 2rpx;
 }
 .ss view:nth-of-type(1){
   float: left;
-  margin-left: 92rpx;
+  margin-left: 20rpx;
   display: inline-block;
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(39,42,56,1);
 }
 .ss view:nth-of-type(2){
-  float: right;
-  margin-right: 62rpx;
+  width: 120rpx;
+  height: 40rpx;
+  background:rgba(255,102,102,1);
+  border-radius:20rpx;
+  right: 82rpx;
+  top: 44rpx;
   display: inline-block;
-  position: relative;
+  position: absolute;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+}
+.ss view:nth-of-type(3){
+  width: 80rpx;
+  height: 100%;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 8rpx 16rpx;
+  display: inline-block;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  float: right;
 }
 .ss view:nth-of-type(2) span{
-  position: static;
+  width: 120rpx;
+  height: 40rpx;
+  right: 0rpx;
+  top: -47rpx;
   display: inline-block;
-  font-family: 'FT' !important;
+  position: absolute;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  text-align: center;
+  color: #fff;
 }
-.ss span{
+.ss .sspl{
   display: inline-block;
+  width: 60rpx;
+  height: 100%;
+  float: left;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 60rpx 60rpx;
+}
+.ssli{
+  background: rgba(151,151,151,0.2);
+  width: 678rpx;
+  height: 1rpx;
+  display: inline-block;
+  float: right;
+}
+.uall{
+  width: 644rpx;
+  height: 94rpx;
+  margin: 6rpx auto 0;
+  background: #ECEDEE;
+}
+.ruu span:nth-of-type(1){
+  height: 56rpx;
+  display: inline-block;
+  line-height: 56rpx;
+  font-size:40rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  float: left;
+}
+.ruu span:nth-of-type(2){
   width: 56rpx;
   height: 56rpx;
-  position: absolute;
-  top: 28rpx;
-  left: 12rpx;
+  display: inline-block;
+  background: blue;
+  margin-left: 16rpx;
+  border-radius: 50%;
+}
+.edit{
+  width: 100%;
+  height: 80rpx;
+  background: rgba(255,223,127,1);
+}
+.edit span{
+  display: inline-block;
+  float: left;
+  height: 80rpx;
+}
+.edit span:nth-of-type(1){
+  width: 24rpx;
+  margin-left: 28rpx;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 24rpx 24rpx;
+}
+.edit span:nth-of-type(2){
+  line-height: 80rpx;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(39,42,56,1);
+  margin-left: 4rpx;
+}
+.edit span:nth-of-type(3){
+  float: right;
+  width: 24rpx;
+  margin-right: 48rpx;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 8rpx 16rpx;
+}
+.line{
+  width: 100%;
+  height: 38rpx;
+  border-bottom: 1rpx solid rgba(151,151,151,0.2);
+}
+.rhb{
+  width: 80rpx;
+  height: 100%;
+  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background-size: 8rpx 16rpx;
+  display: inline-block;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  float: right;
+}
+.ubu{
+  width: 160rpx !important;
+  background: #1AB486 !important;
+}
+.ubu span{
+  width: 100% !important;
+}
+.botmm{
+  height:28rpx;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(151,154,159,1);
+  line-height:28rpx;
+  width: 100%;
+  display: inline-block;
+  margin: 205rpx auto 34rpx;
+  text-align: center;
 }
