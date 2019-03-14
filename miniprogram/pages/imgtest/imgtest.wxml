@@ -1,0 +1,1 @@
+<button type='primary' bindtap='choose'>选择照片</button>
