@@ -1,25 +1,29 @@
-// pages/aa/aa.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
-  },
-  go: function () {
-    wx.navigateTo({
-      url: '../bb/bb',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    // markers: [{
+    //   iconPath: "", //浮标样式
+    //   id: 0,
+    //   latitude: 30.1782620143, //浮标位置
+    //   longitude: 120.1411628723,
+    //   width: 35,  //浮标大小
+    //   height: 45
+    // }],
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.openLocation({
+      latitude: 30.1782620143, //目的地位置
+      longitude: 120.1411628723,
+      scale: 15,
+      name: '领客菲力健身房', //自定义
+      address: '杭州市滨江区浦沿街道东信大道66号启迪楼202' //自定义
+    })
   },
 
   /**
@@ -47,7 +51,12 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    // wx.reLaunch({
+    //   url: '../home/home'
+    // })
+    wx.navigateBack({
+      delta: 1   //默认值是1
+    })
   },
 
   /**

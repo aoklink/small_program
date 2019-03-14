@@ -96,9 +96,18 @@ Page({
       phoneNumber: '13654917649' //仅为示例，并非真实的电话号码
     })
   },
+  mapp: function () {
+    wx.openLocation({
+      latitude: 30.1782620143, //目的地位置
+      longitude: 120.1411628723,
+      scale: 15,
+      name: '领客菲力健身房', //自定义
+      address: '杭州市滨江区浦沿街道东信大道66号启迪楼202' //自定义
+    })
+  },
   gomap: function () {
     wx.navigateTo({
-      url: '../map/map',
+      url: '../mapc/mapc',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},

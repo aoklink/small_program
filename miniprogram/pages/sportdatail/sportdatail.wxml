@@ -2,16 +2,206 @@
   <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
   <!-- 第一页 -->
     <view class="section section01 {{scrollindex==0?'active':''}}" style='background:#1D232D'> 
-      <view class='cont ybox'>
-        <view class='ytit'>运动曲线分布</view> 
-        <view class='ytmsg'><span class="ytu"></span><span class="ytc">运动时间占比</span><span class="ynum">{{60}}</span><span class="ybfb">%</span></view>
-        <view class='yc'>
-          <canvas class='yydqx' style="width: {{305*ck}}px; height: {{200*ck}}px;" canvas-id="ydqx"></canvas>
+      <view class='cont fbox'>
+        <view class='ftou'></view>
+        <view class='fname'>技术硬过皮卡丘</view>
+        <view class='floc'><span></span>打卡地址</view>
+        <view class='flit'>
+          <view>{{'领客菲力健身房'}}</view>
+          <view>{{'杭州市滨江区东方通信科技园'}}</view>
         </view>
+        <view class='fsum'>
+          <view class='fsl'>
+            <view><span></span>连续打卡</view>
+            <view><span>{{12}}</span>天</view>
+          </view>
+          <view class='fsr'>
+            <view><span></span>运动总时长</view>
+            <view><span>{{10}}</span>分钟</view>
+          </view>
+          <view class='fsr'>
+            <view><span></span>消耗总热量</view>
+            <view><span>{{900}}</span>千卡</view>
+          </view>
+        </view>
+        <view class='fws'>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </view>
+        <view class='fbottom'>向上滑动查看更多</view>
       </view>
     </view> 
   <!-- 第二页 -->
-    <view class="section section02 {{scrollindex==1?'active':''}}" style='background:#1D232D'> 
+    <view class="section section02 {{scrollindex==1?'active':''}}" style='background:#fff'> 
+      <view class='cont tbox'>
+        <view class='tup'>
+          <view class='tusb'>
+            <view class='ttit'>本次运动时长</view>
+            <view class='tnum'><span>{{124}}</span>分钟</view>
+            <view class='tlu'>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </view>
+          </view>
+        </view>
+        <view class='tcom'>
+            <view>本周截止目前，</view>
+            <view>您运动时长超过此健身房 <span>{{'60%'}}</span> 的健身者</view>
+          </view>
+        <view class='tdo'>
+          <view class='tdbh'>
+            <view class='tlbh'>
+              <view class='tldd'>
+                <view class='tlup'>
+                  <view>有氧</view>
+                  <view><span>{{66}}</span> 分钟</view>
+                </view>
+                <view class='tldo'></view>
+              </view>
+              <view class='tldd'>
+                <view class='tlup'>
+                  <view>HIIT</view>
+                  <view><span>{{66}}</span> 分钟</view>
+                </view>
+                <view class='tldo tldoa'></view>
+              </view>
+              <view class='tldd'>
+                <view class='tlup'>
+                  <view>力量</view>
+                  <view><span>{{66}}</span> 分钟</view>
+                </view>
+                <view class='tldo tldob'></view>
+              </view>
+            </view>
+            <view class='tbottom'>向上滑动查看更多</view>
+          </view>
+        </view>
+      </view>
+    </view> 
+  <!-- 第三页 -->
+    <view class="section section03 {{scrollindex==2?'active':''}}" style='background:#fff'>  
+      <view class='cont tbox'>
+        <view class='tup'>
+          <view class='tusb'>
+            <view class='ttit'>本次消耗热量</view>
+            <view class='tnum'><span>{{'72,235'}}</span>千卡</view>
+            <view class='tlu'>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </view>
+          </view>
+        </view>
+        <view class='tcom'>
+            <view>本周截止目前，</view>
+            <view>您运动时长超过此健身房 <span>{{'60%'}}</span> 的健身者</view>
+          </view>
+        <view class='tdo'>
+          <view class='tdbh'>
+            <view class='tlbhb'>
+              <view class='tldd'>
+                <view class='tlup'>
+                  <view>有氧</view>
+                  <view><span>{{66}}</span> 千卡</view>
+                </view>
+                <view class='tldo'></view>
+              </view>
+              <view class='tldd'>
+                <view class='tlup'>
+                  <view>HIIT</view>
+                  <view><span>{{66}}</span> 千卡</view>
+                </view>
+                <view class='tldo tldoa'></view>
+              </view>
+            </view>
+            <view class='tbottom'>向上滑动查看更多</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  <!-- 第四页 -->
+    <view class="section section04 {{scrollindex==3?'active':''}}" style='background:#1D232D'> 
+      <view class='cont qbox'>
+        <view class='qup'>
+          <view class='qupx'>
+            <view>运动曲线分布</view>
+            <view>运动时间占比 <span>{{60}}</span> %</view>
+          </view>
+        </view>
+        <view class='qdo'>
+          <view class='qcup'>
+            <span></span>
+            <span>有氧</span>
+            <span></span>
+            <span>力量</span>
+            <span></span>
+            <span>HIIT</span>
+            <span></span>
+            <span>未运动</span>
+          </view>
+          <view class='canont'>
+            <canvas class='qydqx' style="width: {{332*ck}}px; height: {{332*ck}}px;" canvas-id="ydqx"></canvas>
+          </view>
+          <view class='qbottom'>向上滑动查看更多</view>
+        </view>
+      </view>
+    </view>
+    <!-- 第五页 -->
+    <view class="section section05 {{scrollindex==4?'active':''}}" style='background:#fff'> 
+      <view class='cont tbox'>
+        <view class='tup'>
+          <view class='tusb'>
+            <view class='ttit'>力量训练</view>
+            <view class='tnum'>最大重量 <span> {{'235'}}</span>kg</view>
+            <view class='tlu'>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </view>
+          </view>
+        </view>
+        <view class='tcom'>
+            <view>本周截止目前，</view>
+            <view>您运动时长超过此健身房<span>{{'60%'}}</span>的健身者</view>
+          </view>
+        <view class='tdo'>
+          <view class='tdbh'>
+            <view class='tdml'>动作最大重量</view>
+            <view class='tdcc'>
+              <view>
+                <span>{{100}}</span>
+                <span>{{50}}</span>  
+                <span>{{0}}</span>
+              </view>
+              <view bindtap='showa'><span class="tdna" wx:if="{{howa}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
+              <view bindtap='showb'><span class="tdna" wx:if="{{howb}}"><span>{{'向上推胸'}}</span><span>{{102}}kg</span></span></view>
+              <view bindtap='showc'><span class="tdna" wx:if="{{howc}}"><span>{{'向上推胸'}}</span><span>{{103}}kg</span></span></view>
+              <view bindtap='showd'><span class="tdna" wx:if="{{howd}}"><span>{{'向上推胸'}}</span><span>{{104}}kg</span></span></view>
+              <view bindtap='showe'><span class="tdna" wx:if="{{howe}}"><span>{{'向上推胸'}}</span><span>{{500}}kg</span></span></view>
+              <view bindtap='showf'><span class="tdna" wx:if="{{howf}}"><span>{{'向上推胸'}}</span><span>{{600}}kg</span></span></view>
+              <view bindtap='showg'><span class="tdna" wx:if="{{howg}}"><span>{{'向上推胸'}}</span><span>{{700}}kg</span></span></view>
+              <view bindtap='showh'><span class="tdna tdnb" wx:if="{{howh}}"><span>{{'向上推胸'}}</span><span>{{800}}kg</span></span></view>
+              <view bindtap='showi'><span class="tdna tdnb" wx:if="{{howi}}"><span>{{'向上推胸'}}</span><span>{{900}}kg</span></span></view>
+              <view bindtap='showj'><span class="tdna tdnb" wx:if="{{howj}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
+            </view>
+            <view class='tbottom'>向上滑动查看更多</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 第六页 -->
+    <view class="section section06 {{scrollindex==5?'active':''}}" style='background:#1D232D'> 
       <view class='cont hbox'>
         <view class='htit'>心率功效统计</view> 
         <view class='htmsg'><span class="htu"></span><span class="htc">运动 <span>78</span> 分钟<span></span>主要集中在<span>{{'脂肪燃烧'}}</span></span></view>
@@ -19,22 +209,44 @@
           <view class='hcp'>
             <canvas class='hxlgx' style="width: {{305*ck}}px; height: {{200*ck}}px;" canvas-id="xlgx"></canvas>
           </view>
-        </view>
-      </view>
-    </view> 
-  <!-- 第三页 -->
-    <view class="section section03 {{scrollindex==2?'active':''}}" style='background:blue'>  
-      <view class='cont'>
-        <view class='cont-body'>
-          <view>three</view>
+          <view class='hcd'>
+            <view class='hcbd'>
+              <view class='hcpp'>
+                <view>激活放松 <span>{{661}}</span> 分钟</view>
+                <view class="hyya"></view>
+              </view>
+              <view class='hcpp'>
+                <view>动态热身 <span>{{661}}</span> 分钟</view>
+                <view class="hyyb"></view>
+              </view>
+            </view>
+            <view class='hcbd'>
+              <view class='hcpp'>
+                <view>脂肪燃烧 <span>{{661}}</span> 分钟</view>
+                <view class="hyyc"></view>
+              </view>
+              <view class='hcpp'>
+                <view>有氧耐力 <span>{{661}}</span> 分钟</view>
+                <view class="hyyd"></view>
+              </view>
+            </view>
+            <view class='hcbd'>
+              <view class='hcpp'>
+                <view>无氧耐力 <span>{{661}}</span> 分钟</view>
+                <view class="hyye"></view>
+              </view>
+              <view class='hcpp'>
+                <view>峰值锻炼 <span>{{661}}</span> 分钟</view>
+                <view class="hyyf"></view>
+              </view>
+            </view> 
+          </view>
         </view>
       </view>
     </view>
-  <!-- 第四页 -->
-    <view class="section section04 {{scrollindex==3?'active':''}}" style='background:green'> 
-      <view class='cont'>
-        
-      </view>
+    <!-- 第六页 -->
+    <view class="section section06 {{scrollindex==5?'active':''}}" style='background:#1D232D'> 
+      
     </view>
   </view> 
 </view> 

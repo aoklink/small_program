@@ -1,2 +1,1 @@
-<!--pages/bb/bb.wxml-->
-<text>pages/bb/bb.wxml</text>
+<view bindtap="go">bbbbbbb</view>

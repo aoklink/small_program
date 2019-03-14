@@ -42,7 +42,8 @@
   <view class='utup'>
     <view>{{'领客菲力滨江旗舰店'}}</view>
     <view>{{'杭州市滨江区丙申路188号'}}</view>
-    <view bindtap='gomap'></view>
+    <!-- <view bindtap='gomap'></view> -->
+    <view bindtap='mapp'></view>
   </view>
   <view class='utdw'>
     <span wx:key="index" wx:for="{{yb}}">{{item}}</span>

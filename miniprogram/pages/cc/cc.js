@@ -1,4 +1,4 @@
-// pages/aa/aa.js
+// pages/cc/cc.js
 Page({
 
   /**
@@ -7,14 +7,7 @@ Page({
   data: {
 
   },
-  go: function () {
-    wx.navigateTo({
-      url: '../bb/bb',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
-  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -47,7 +40,9 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-
+    wx.navigateBack({
+      delta: 1   //默认值是1
+    })
   },
 
   /**

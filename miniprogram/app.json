@@ -1,15 +1,13 @@
 {
   "pages": [
+    "pages/home/home",
     "pages/select/select",
     "pages/myhouse/myhouse",
     "pages/activity/activity",
-    "pages/home/home",
     "pages/index/index",
     "pages/my/my",
     "pages/sportdatail/sportdatail",
     "pages/lulu/lulu",
-    "pages/aa/aa",
-    "pages/bb/bb",
     "pages/lkfl/lkfl",
     "pages/link/link",
     "pages/testhate/testhate",
@@ -35,6 +33,7 @@
     "pages/kk/kk",
     "pages/openid/openid",
     "pages/test/test",
+    "pages/mapc/mapc",
     "pages/shangchuantouxiang/shangchuantouxiang",
     "pages/storageConsole/storageConsole",
     "pages/databaseGuide/databaseGuide",
@@ -51,7 +50,9 @@
     "pages/sharepage/sharepage",
     "pages/ll/ll",
     "pages/xx/xx",
-    "pages/map/map"
+    "pages/aa/aa",
+    "pages/bb/bb",
+    "pages/cc/cc"
   ],
   "permission": {
     "scope.userLocation": {
