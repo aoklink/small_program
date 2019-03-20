@@ -14,13 +14,14 @@ page{
   display: inline-block;
   width: 170rpx;
   height: 170rpx;
-  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
-  background-size: 170rpx 170rpx;
   margin: 30rpx auto auto 28rpx;
+  box-sizing: border-box;
 }
 .right{
   float: left;
   margin-left: 30rpx;
+  width: calc(100% - 230rpx);
+  box-sizing: border-box;
 }
 .top{
   margin-top: 30rpx;

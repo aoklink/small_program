@@ -1,4 +1,6 @@
-// pages/myhouse/myhouse.js
+var app = getApp();
+var mmd = require('../../utils/mmd.js');
+var us = getApp().globalData.userInfo
 Page({
 
   /**
@@ -12,7 +14,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      address: us.address,
+      name: us.shopname,
+      logo: us.shoplogo
+    })
+    
   },
 
   /**

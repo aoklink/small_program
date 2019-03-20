@@ -63,6 +63,14 @@ Page({
       complete: function (res) { },
     })
   },
+  godetal: function () {
+    wx.navigateTo({
+      url: '../sportdatail/sportdatail',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
   prod: function () {
     wx.navigateTo({
       url: '../mydata/mydata',
@@ -82,6 +90,14 @@ Page({
   gohouse: function () {
     wx.navigateTo({
       url: '../myhouse/myhouse',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  gocellhuan: function () {
+    wx.navigateTo({
+      url: '../mycellhuan/mycellhuan',
       success: function(res) {},
       fail: function(res) {},
       complete: function(res) {},
@@ -347,7 +363,8 @@ Page({
                                 goal: res.data.data.goal,
                                 weight: res.data.data.weight,
                                 head_icon: res.data.data.head_icon,
-                                height: res.data.data.stature
+                                height: res.data.data.stature,
+                                pkk: res.data.data.gender == '男' ? 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/boy.png' : 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/girl.png'
                               })
                             }
                           }

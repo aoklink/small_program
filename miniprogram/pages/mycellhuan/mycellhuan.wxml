@@ -21,7 +21,7 @@
   </view>
   <view class='{{ok?"bottoma":"bottom"}}'>
     <view class='ba'>
-      <view class='imp' style='background:url({{pj}}) center no-repeat;background-size:26rpx 26rpx;'></view>
+      <view class='imp' style='background:url({{pp}}) center no-repeat;background-size:26rpx 26rpx;'></view>
       <view class='batit'>温馨提示</view>
     </view>
     <view class='bb'>{{tita}}</view>

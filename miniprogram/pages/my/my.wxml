@@ -1,36 +1,37 @@
 <view class='ubox'>
-  <view class='uba'>
-    <!-- <view class='tou' style='background:url({{head_icon}}) center no-repeat;background-size:100% 100%;'></view> -->
-    <view class='tou' style='background:yellow'></view>
+  <view class='uba' bindtap='goselect'>
+    <view class='tou' style='background:url({{head_icon}}) left center no-repeat;background-size:126rpx 126rpx;'></view>
+    <view class='ur'></view>
   </view>
-  <view class='ubb'><view class='ruu'><span>{{'技术硬过皮卡丘'}}</span><span></span></view>
-      <view class='rdd' style='background:url({{head_icon}}) left center no-repeat;background-size:20rpx 34rpx;'></view></view>
+  <view class='ubb'>
+    <view class='ruu'><span>{{name}}</span><span style="background: url({{pkk}}) no-repeat center;background-size:56rpx 56rpx;"></span></view>
+  </view>
 </view>
-<view class='edit' bindtap='goselect'>
+<!-- <view class='edit' bindtap='goselect'>
   <span></span>
   <span>点击编辑个人信息</span>
   <span></span> 
-</view>
+</view> -->
 <view class='line'></view>
 <view class='dbox'>
-  <view class="ss">
+  <view class="ss" bindtap='gocellhuan'>
     <span class="sspl"></span>
     <view>我的手环</view>
     <view><span>{{'未绑定'}}</span></view>
     <view></view>
   </view>
   <view class='ssli'></view>
-  <view class="ss">
-    <span class="sspl"></span>
+  <view class="ss" bindtap='prod'>
+    <span class="ssa"></span>
     <view>运动报告</view>
-    <view class='ubu'><span>{{'2份新报告'}}</span></view>
+    <view class='ubu'><span>{{'2份未读'}}</span></view>
     <view></view>
   </view>
   <view class='ssli'></view>
-  <view class="ss">
-    <span class="sspl"></span>
+  <view class="ss" bindtap="gohouse">
+    <span class="ssb"></span>
     <view>我的健身房</view>
-    <span class='rhb' bindtap="gohouse"></span>
+    <span class='rhb'></span>
   </view>
   <view class='ssli'></view>
 </view>

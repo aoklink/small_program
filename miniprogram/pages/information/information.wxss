@@ -35,12 +35,13 @@ page{
 .sc{
   display: inline-block;
   position: absolute;
-  top: 16rpx;
-  left: 376rpx;
-  width: 34rpx;
-  height: 34rpx;
+  top: 11rpx;
+  left: 368rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: #4b5058;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/register/g_ok.png) center no-repeat;
+  background-size: 34rpx 34rpx;
 }
 .sd{
   display: inline-block;
@@ -55,12 +56,13 @@ page{
 .se{
   display: inline-block;
   position: absolute;
-  top: 16rpx;
-  right: 22rpx;
-  width: 34rpx;
-  height: 34rpx;
+  top: 11rpx;
+  right: 14rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: url(http://ll.linkfeeling.cn/img/op.png) center no-repeat;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/register/g_ok.png) center no-repeat;
+  background-size: 34rpx 34rpx;
 }
 .age{
   color: #fff;
@@ -223,20 +225,22 @@ page{
 .cs{
   display: inline-block;
   position: absolute;
-  top: 16rpx;
-  left: 376rpx;
-  width: 34rpx;
-  height: 34rpx;
+  top: 11rpx;
+  left: 368rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: url(http://ll.linkfeeling.cn/img/oq.png) center no-repeat;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/register/51.png) center no-repeat;
+  background-size: 34rpx 34rpx;
 }
 .es{
   display: inline-block;
   position: absolute;
-  top: 16rpx;
-  right: 22rpx;
-  width: 34rpx;
-  height: 34rpx;
+  top: 11rpx;
+  right: 14rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
-  background: url(http://ll.linkfeeling.cn/img/oq.png) center no-repeat;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/register/51.png) center no-repeat;
+  background-size: 34rpx 34rpx;
 }

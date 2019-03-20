@@ -21,7 +21,7 @@ page{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  background: url(http://ll.linkfeeling.cn/img/ol.png) center no-repeat;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mydata/none.png) center no-repeat;
 }
 .xbm{
   position: absolute;
@@ -48,7 +48,7 @@ page{
   display: inline-block;
   width: 40rpx;
   height: 34rpx;
-  background: url(http://img.linkfeeling.cn/img/list_item_time.png) center no-repeat;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mydata/clock.png) center no-repeat;
   background-size: 24rpx 24rpx;
   position: absolute;
   left: 18rpx;
@@ -126,7 +126,7 @@ top:40rpx;
 .sld{
   font-size: 56rpx;
   text-indent: 35rpx;
-  font-display: 'FT';
+  font-family: 'FT';
 }
 .sldd{
   font-size: 24rpx;

@@ -19,10 +19,10 @@
 <view class='nini' hidden='{{nono}}'></view>
 <view class='ubox' hidden='{{!nono}}'>
   <view hidden='{{bgbg}}'>
-  <view class='uba' bindtap="gomy">
-    <view class='tou' style='background:url({{olo}}) center no-repeat;background-size:78rpx 78rpx;'></view>
+  <view class='uba'>
+    <view class='tou' style='background:url({{head_icon}}) center no-repeat red;background-size:100% 100%;'></view>
     <view class='ruu'>{{'技术硬过皮卡丘亿亿亿亿二二'}}</view>
-    <view class='rdd'></view>
+    <view class='rdd' bindtap="gomy"></view>
   </view>
   <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>
     <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}"><image src='{{item}}'></image></swiper-item>
@@ -42,6 +42,7 @@
   <view class='utup'>
     <view>{{shopname}}</view>
     <view>{{shopadd}}</view>
+    <!-- <view bindtap='gomap'></view> -->
     <view bindtap='mapp'></view>
   </view>
   <view class='utdw'>
@@ -82,8 +83,3 @@
     <swiper-item bindtap="fullno" wx:key="item" wx:for="{{imgboxb}}"><image src='{{item}}' mode="widthFix"></image></swiper-item>
   </swiper>
 </view> -->
-<view class='bottom'>
-  <span></span>
-  <view>领客菲力（杭州）健康技术有限公司</view>
-  <view>提供方案技术服务</view>
-</view>

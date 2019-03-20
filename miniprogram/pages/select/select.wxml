@@ -1,3 +1,14 @@
+<view class='op'>
+  <view class='cb'>头像</view>
+  <view class='hbb'></view>
+</view>
+<view class='sline'></view>
+<view class='oox'>
+  <view class='bgh'>昵称</view>
+  <input class='ngn' value='小米' bindblur="njj"></input>
+  <view class='rro'></view>
+</view>
+<view class='sline'></view>
 <picker bindchange="bindPickerChangex" value="{{jh}}" range="{{arrax}}">
   <view class='box'>
     <view>性别</view>

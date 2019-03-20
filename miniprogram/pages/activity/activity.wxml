@@ -1,22 +1,22 @@
 <view class='ubox' hidden='{{!nono}}'>
   <view hidden='{{bgbg}}'>
-  <swiper class='lunbo' autoplay='true' interval='3000'>
-    <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}"><image src='{{item}}'></image></swiper-item>
+  <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>
+    <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{pbox.lun}}" data-index="{{index}}"><image src='{{item}}'></image></swiper-item>
   </swiper>
   <view class='upl'>查看课程图片</view>
   <view class='utup'>
     <view>{{'新手体验课1节，价值299元'}}</view>
-    <view>{{'仅售18.88元，价值670元「预售」一对一泰拳私教，节假日通用'}}</view>
+    <!-- <view>{{'仅售18.88元，价值670元「预售」一对一泰拳私教，节假日通用'}}</view> -->
   </view>
   <view class='uact'>
-    <view class='uactit'>课程活动<span>￥{{19.9}}</span></view>
-    <view class='ucontent'><text>1、健身功效：泰拳训练有很好的健身功能，能够让人全身放松，达到减压作用，更能排毒养颜。\n 2、塑身功效：泰拳是高热量、高消耗运动，长期练习可以达到提臀、瘦身、瘦腿、束腰、等等一系…</text></view>
+    <view class='uactit'>课程活动<span>￥{{plpr}}</span></view>
+    <view class='ucontent'><text>{{ptttp}}</text></view>
     <view class='uall' bindtap='call'>预约课程<span></span></view>
   </view>
   </view>
 </view>
 <view class='{{bg?"imgbg":"imgbgg"}}'>
-  <swiper class='bggb' current="{{current}}">
-    <swiper-item bindtap="fullno" wx:key="index" wx:for="{{imgboxa}}"><image src='{{item}}' mode="widthFix"></image></swiper-item>
+  <swiper class='bggb' current="{{current}}" circular='true'>
+    <swiper-item bindtap="fullno" wx:key="index" wx:for="{{pbox.lun}}"><image src='{{item}}' mode="widthFix"></image></swiper-item>
   </swiper>
 </view>

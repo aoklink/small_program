@@ -1,7 +1,7 @@
 <view class='box'>
-  <view class='left'></view>
+  <view class='left' style='background:url({{logo}}) center no-repeat;background-size: 170rpx 170rpx;'></view>
   <view class='right'>
-    <view class='top'>Fitting GYM西溪店</view>
-    <view class='bottom'>杭州市西湖区西溪银泰</view>
+    <view class='top'>{{name}}</view>
+    <view class='bottom'>{{address}}</view>
   </view>
 </view>

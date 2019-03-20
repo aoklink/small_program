@@ -32,14 +32,20 @@ App({
       nickName: '',
       avatarUrl: '',
       uid: '',
-      usname: ''
+      usname: '',
+      shopcell: ''
     },
     bindtime: '',
     ccc: '',
     yzy: 'yangzeyuan',
     ctxPath: 'https://m.hao123.com/',
     lp: 'https://ll.linkfeeling.cn/api/',
-    fontFamily: 'FT'
+    fontFamily: 'FT',
+    inpp: '',
+    aclun: [],
+    address: '',
+    shopname: '',
+    shoplogo: ''
   },
   onLoad: function (options) {
     console.log('gg')

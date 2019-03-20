@@ -38,19 +38,21 @@ Page({
         if (res.data.data.bind_status == false){
           that.setData({
             po: '手环暂未绑定',
-            pj: 'http://ll.linkfeeling.cn/img/ok.png',
+            pj: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/cell.png',
             tita: '“ 请向服务人员索取领客手环，',
             titb: '否则无法统计到您的运动数据哦~ ”',
-            ok: true
+            ok: true,
+            pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
           })
         }
         if (res.data.data.bind_status == true) {
           that.setData({
             po: '手环绑定成功',
-            pj: 'http://ll.linkfeeling.cn/img/oj.png',
+            pj: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/cell.png',
             tita: '“ 临走时请归还手环',
             titb: '否则无法生成您的锻炼报告 ”',
-            ok: false
+            ok: false,
+            pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
           })
         }
         that.setData({

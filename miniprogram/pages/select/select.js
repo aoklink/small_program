@@ -942,6 +942,42 @@ Page({
     kk: true,
     fontFamily: 'FT'
   },
+  njj: function(e) {
+    console.log(e.detail.value)
+    wx.request({
+      url: 'https://ll.linkfeeling.cn/api/user/account_info',
+      method: 'POST',
+      data: {
+        uid: us.uid,
+        user_type: us.ut,
+        request_time: us.rt,
+        platform: us.pt,
+        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+        login_type: "wx",
+        network: us.nw,
+        product_id: us.pi,
+        app_version: us.av
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        if (res.data.code == 200) {
+          that.setData({
+            sex: res.data.data.gender,
+            age: res.data.data.age,
+            name: res.data.data.name,
+            goal: res.data.data.goal,
+            weight: res.data.data.weight,
+            head_icon: res.data.data.head_icon,
+            height: res.data.data.stature,
+            pkk: res.data.data.gender == '男' ? 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/boy.png' : 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/girl.png'
+          })
+        }
+      }
+    })
+  },
   bindPickerChangey: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
     this.setData({

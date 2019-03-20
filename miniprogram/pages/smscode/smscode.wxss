@@ -23,9 +23,10 @@ page{
   width: 30rpx;
   height: 30rpx;
   border-radius: 50%;
-  background: url(http://ll.linkfeeling.cn/img/oq.png) center no-repeat;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/register/45.png) center no-repeat;
   position: absolute;
   top: 5rpx;
+  background-size: 30rpx 30rpx;
 }
 .ss{
   width: 30rpx;

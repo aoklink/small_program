@@ -1,10 +1,12 @@
+var app = getApp()
+var us = getApp().globalData.userInfo
+var mmd = require('../../utils/mmd.js');
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    fontFamily: 'FT',
     scrollindex: 0,  //当前页面的索引值
     totalnum: 6,  //总共页面数
     starty: 0,  //开始的位置x
@@ -207,7 +209,7 @@ Page({
     })
     wx.loadFontFace({
       family: this.data.fontFamily,
-      source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+      source: 'url("http://www.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
       success(res) {
         console.log(res.status)
       },
@@ -217,23 +219,62 @@ Page({
       complete: function (res) {
         console.log(res.status)
       }
-    });   
+    }); 
+    // wx.request({
+    //   url: 'https://ll.linkfeeling.cn/api/user/account_info',
+    //   method: 'POST',
+    //   data: {
+    //     uid: us.uid,
+    //     user_type: us.ut,
+    //     request_time: us.rt,
+    //     platform: us.pt,
+    //     tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+    //     login_type: "wx",
+    //     network: us.nw,
+    //     product_id: us.pi,
+    //     app_version: us.av
+    //   },
+    //   header: {
+    //     'content-type': 'application/json' // 默认值
+    //   },
+    //   success(res) {
+    //     console.log(res.data)
+    //     if (res.data.code == 200) {
+    //       that.setData({
+    //         name: res.data.data.name,
+    //         head_icon: res.data.data.head_icon,
+    //       })
+    //     }
+    //   }
+    // })
   },
   onReady: function() {
     var that = this
     wx.request({
-      url: 'https://ll.linkfeeling.cn/api/fitness/bracelet',
+      url: 'https://ll.linkfeeling.cn/api/fitness/detail',
       method: 'POST',
+      // data: {
+      //   uid: us.uid,
+      //   user_type: us.ut,
+      //   request_time: us.rt,
+      //   platform: us.pt,
+      //   tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+      //   login_type: "wx",
+      //   network: us.nw,
+      //   product_id: us.pi,
+      //   app_version: us.av
+      // },
       data: {
-        // uid: us.uid,
-        // user_type: us.ut,
-        // request_time: us.rt,
-        // platform: us.pt,
-        // tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
-        // login_type: "wx",
-        // network: us.nw,
-        // product_id: us.pi,
-        // app_version: us.av
+        uid: 'e50c0b2cbea000118c7c2fb63d49d542',
+        date_time: "1552978917000",
+        user_type: us.ut,
+        request_time: us.rt,
+        platform: us.pt,
+        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+        login_type: "wx",
+        network: us.nw,
+        product_id: us.pi,
+        app_version: us.av
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -243,15 +284,15 @@ Page({
         console.log(res.data)
         if (res.data.code == 200) {
 
-          var res
-          res = { "code": "200", "msg": "ok", "data": { "day_num": "1", "total_time": "12000000", "total_time_img": "http://img.linkfeeling.cn/total_time.png", "total_calorie": "900", "total_calorie_img": "http://img.linkfeeing.cn/total_calorie.png", "gym_name": "领客菲力", "site": "杭州市滨江区东方通信科技园", 
-          "categories_imgs": [{ "category_name": "有氧运动", "imgs": ["http://ll.linkfeeling.cn/img/or.png", "http://ll.linkfeeling.cn/img/or.png", "http://ll.linkfeeling.cn/img/or.png"], 
-          "chart_from_color": "#ABCDEF", "chart_to_color": "#ABCDEF" }, { "category_name": "HIIT", "chart_from_color": "#ABCDEF", "chart_to_color": "#ABCDEF", "imgs": [] }], 
-          "categories_data": [{ "start_time": "1546672649000", "end_time": "1546701449133", "category_name": "有氧运动", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 72, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 122, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 142, "extra": "" }] }, { "start_time": "1546683360000", "end_time": "1546683560000", "category_name": "力量", "duration": 200000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 96, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 182, "extra": { "field_name": "power", "field_value": 120 } }, { "effect": 0, "calorie": 5, "heart_rate": 82, "extra": { "field_name": "power", "field_value": 80 } }] }, { "start_time": "1546701449133", "end_time": "1546701449133", "category_name": "空闲", "duration": 4000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 92, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 72, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 132, "extra": { "field_name": "power", "field_value": 100 } }] }, { "start_time": "1546701449133", "end_time": "1546701449133", "category_name": "有氧运动", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 152, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 192, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 132, "extra": "" }] }, { "start_time": "1546683860000", "end_time": "1546684160000", "category_name": "力量", "duration": 300000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 96, "extra": { "field_name": "power", "field_value": 30 } }, { "effect": 0, "calorie": 5, "heart_rate": 182, "extra": { "field_name": "power", "field_value": 120 } }, { "effect": 0, "calorie": 5, "heart_rate": 82, "extra": { "field_name": "power", "field_value": 80 } }] }, { "start_time": "1546701449133", "end_time": "1546683449000", "category_name": "HIIT", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 112 }, { "effect": 0, "calorie": 5, "heart_rate": 62 }, { "effect": 0, "calorie": 5, "heart_rate": 72 }] }], 
-          "run_effects": [{ "effect": 0, "name": "激活放松", "time": 200000 }, { "effect": 1, "name": "动态热身", "time": 400000 }, { "effect": 2, "name": "脂肪燃烧", "time": 100000 }, { "effect": 3, "name": "有氧耐力", "time": 400000 }, { "effect": 4, "name": "无氧耐力", "time": 300000 }, { "effect": 5, "name": "峰值锻炼", "time": 300000 }] } }
-          var data
-          data = res.data.categories_data
-          console.log(data)
+          // var res
+          // res = { "code": "200", "msg": "ok", "data": { "day_num": "1", "total_time": "12000000", "total_time_img": "http://img.linkfeeling.cn/total_time.png", "total_calorie": "900", "total_calorie_img": "http://img.linkfeeing.cn/total_calorie.png", "gym_name": "领客菲力", "site": "杭州市滨江区东方通信科技园", 
+          // "categories_imgs": [{ "category_name": "有氧运动", "imgs": ["http://ll.linkfeeling.cn/img/or.png", "http://ll.linkfeeling.cn/img/or.png", "http://ll.linkfeeling.cn/img/or.png"], 
+          // "chart_from_color": "#ABCDEF", "chart_to_color": "#ABCDEF" }, { "category_name": "HIIT", "chart_from_color": "#ABCDEF", "chart_to_color": "#ABCDEF", "imgs": [] }], 
+          // "categories_data": [{ "start_time": "1546672649000", "end_time": "1546701449133", "category_name": "有氧运动", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 72, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 122, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 142, "extra": "" }] }, { "start_time": "1546683360000", "end_time": "1546683560000", "category_name": "力量", "duration": 200000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 96, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 182, "extra": { "field_name": "power", "field_value": 120 } }, { "effect": 0, "calorie": 5, "heart_rate": 82, "extra": { "field_name": "power", "field_value": 80 } }] }, { "start_time": "1546701449133", "end_time": "1546701449133", "category_name": "空闲", "duration": 4000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 92, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 72, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 132, "extra": { "field_name": "power", "field_value": 100 } }] }, { "start_time": "1546701449133", "end_time": "1546701449133", "category_name": "有氧运动", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 152, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 192, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 132, "extra": "" }] }, { "start_time": "1546683860000", "end_time": "1546684160000", "category_name": "力量", "duration": 300000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 96, "extra": { "field_name": "power", "field_value": 30 } }, { "effect": 0, "calorie": 5, "heart_rate": 182, "extra": { "field_name": "power", "field_value": 120 } }, { "effect": 0, "calorie": 5, "heart_rate": 82, "extra": { "field_name": "power", "field_value": 80 } }] }, { "start_time": "1546701449133", "end_time": "1546683449000", "category_name": "HIIT", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 112 }, { "effect": 0, "calorie": 5, "heart_rate": 62 }, { "effect": 0, "calorie": 5, "heart_rate": 72 }] }], 
+          // "run_effects": [{ "effect": 0, "name": "激活放松", "time": 200000 }, { "effect": 1, "name": "动态热身", "time": 400000 }, { "effect": 2, "name": "脂肪燃烧", "time": 100000 }, { "effect": 3, "name": "有氧耐力", "time": 400000 }, { "effect": 4, "name": "无氧耐力", "time": 300000 }, { "effect": 5, "name": "峰值锻炼", "time": 300000 }] } }
+          // var data
+          // data = res.data.categories_data
+          // console.log(data)
           let rpx
           //获取屏幕宽度，获取自适应单位
           wx.getSystemInfo({
@@ -263,262 +304,273 @@ Page({
               console.log(rpx)
             },
           })
-          var data = {
-            "code": "200",
-            "msg": "ok",
-            "data":
-            {
-              "day_num": "1",
-              "total_time": "12000000",
-              "total_time_img": "http://img.linkfeeling.cn/total_time.png",
-              "total_calorie": "900",
-              "total_calorie_img": "http://img.linkfeeing.cn/total_calorie.png",
-              "gym_name": "领客菲力",
-              "site": "杭州市滨江区东方通信科技园",
-              "categories_data":
-                [{
-                  "server_time": "1546672649000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "70",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546672769000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "120",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546672889000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "100",
-                  "result": 1,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673009000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "150",
-                  "result": 3,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673129000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "100",
-                  "result": 5,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673249000",
-                  "event_time": "1546683560000",
-                  "device_category": "力量",
-                  "heart_rate": "80",
-                  "result": 2,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673369000",
-                  "event_time": "1546683560000",
-                  "device_category": "力量",
-                  "heart_rate": "90",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673489000",
-                  "event_time": "1546683560000",
-                  "device_category": "力量",
-                  "heart_rate": "90",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673609000",
-                  "event_time": "1546683560000",
-                  "device_category": "力量",
-                  "heart_rate": "120",
-                  "result": 1,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673729000",
-                  "event_time": "1546683560000",
-                  "device_category": "力量",
-                  "heart_rate": "180",
-                  "result": 5,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673849133",
-                  "event_time": "1546701449133",
-                  "device_category": "空闲",
-                  "heart_rate": "160",
-                  "result": 3,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546673969133",
-                  "event_time": "1546701449133",
-                  "device_category": "空闲",
-                  "heart_rate": "110",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                }, {
-                  "server_time": "1546674089133",
-                  "event_time": "1546701449133",
-                  "device_category": "空闲",
-                  "heart_rate": "60",
-                  "result": 3,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674209133",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "70",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674329000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "180",
-                  "result": 1,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674449000",
-                  "event_time": "1546701449133",
-                  "device_category": "有氧运动",
-                  "heart_rate": "180",
-                  "result": 4,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674569000",
-                  "event_time": "1546684160000",
-                  "device_category": "力量",
-                  "heart_rate": "200",
-                  "result": 4,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674689000",
-                  "event_time": "1546684160000",
-                  "device_category": "力量",
-                  "heart_rate": "120",
-                  "result": 5,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674809000",
-                  "event_time": "1546684160000",
-                  "device_category": "力量",
-                  "heart_rate": "80",
-                  "result": 3,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546674929000",
-                  "event_time": "1546684160000",
-                  "device_category": "力量",
-                  "heart_rate": "60",
-                  "result": 2,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546675049000",
-                  "event_time": "1546684160000",
-                  "device_category": "力量",
-                  "heart_rate": "80",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546675169133",
-                  "event_time": "1546683449000",
-                  "device_category": "HIIT",
-                  "heart_rate": "80",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546675289133",
-                  "event_time": "1546683449000",
-                  "device_category": "HIIT",
-                  "heart_rate": "110",
-                  "result": 2,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                },
-                {
-                  "server_time": "1546675409133", 
- 		              "event_time": "1546683449000",
-                  "device_category": "HIIT",
-                  "heart_rate": "80",
-                  "result": 0,
-                  "device_name": "",
-                  "extra": [],
-                  "kc": 5.67
-                }]
-            }
-          }
-          data = data.data.categories_data
-
+          // var data = {
+          //   "code": "200",
+          //   "msg": "ok",
+          //   "data":
+          //   {
+          //     "day_num": "1",
+          //     "total_time": "12000000",
+          //     "total_time_img": "http://img.linkfeeling.cn/total_time.png",
+          //     "total_calorie": "900",
+          //     "total_calorie_img": "http://img.linkfeeing.cn/total_calorie.png",
+          //     "gym_name": "领客菲力",
+          //     "site": "杭州市滨江区东方通信科技园",
+          //     "categories_data":
+          //       [{
+          //         "server_time": "1546672649000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "70",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546672769000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "120",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546672889000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "100",
+          //         "result": 1,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673009000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "150",
+          //         "result": 3,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673129000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "100",
+          //         "result": 5,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673249000",
+          //         "event_time": "1546683560000",
+          //         "device_category": "力量",
+          //         "heart_rate": "80",
+          //         "result": 2,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673369000",
+          //         "event_time": "1546683560000",
+          //         "device_category": "力量",
+          //         "heart_rate": "90",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673489000",
+          //         "event_time": "1546683560000",
+          //         "device_category": "力量",
+          //         "heart_rate": "90",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673609000",
+          //         "event_time": "1546683560000",
+          //         "device_category": "力量",
+          //         "heart_rate": "120",
+          //         "result": 1,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673729000",
+          //         "event_time": "1546683560000",
+          //         "device_category": "力量",
+          //         "heart_rate": "180",
+          //         "result": 5,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673849133",
+          //         "event_time": "1546701449133",
+          //         "device_category": "空闲",
+          //         "heart_rate": "160",
+          //         "result": 3,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546673969133",
+          //         "event_time": "1546701449133",
+          //         "device_category": "空闲",
+          //         "heart_rate": "110",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       }, {
+          //         "server_time": "1546674089133",
+          //         "event_time": "1546701449133",
+          //         "device_category": "空闲",
+          //         "heart_rate": "60",
+          //         "result": 3,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674209133",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "70",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674329000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "180",
+          //         "result": 1,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674449000",
+          //         "event_time": "1546701449133",
+          //         "device_category": "有氧运动",
+          //         "heart_rate": "180",
+          //         "result": 4,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674569000",
+          //         "event_time": "1546684160000",
+          //         "device_category": "力量",
+          //         "heart_rate": "200",
+          //         "result": 4,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674689000",
+          //         "event_time": "1546684160000",
+          //         "device_category": "力量",
+          //         "heart_rate": "120",
+          //         "result": 5,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674809000",
+          //         "event_time": "1546684160000",
+          //         "device_category": "力量",
+          //         "heart_rate": "80",
+          //         "result": 3,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546674929000",
+          //         "event_time": "1546684160000",
+          //         "device_category": "力量",
+          //         "heart_rate": "60",
+          //         "result": 2,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546675049000",
+          //         "event_time": "1546684160000",
+          //         "device_category": "力量",
+          //         "heart_rate": "80",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546675169133",
+          //         "event_time": "1546683449000",
+          //         "device_category": "HIIT",
+          //         "heart_rate": "80",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546675289133",
+          //         "event_time": "1546683449000",
+          //         "device_category": "HIIT",
+          //         "heart_rate": "110",
+          //         "result": 2,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       },
+          //       {
+          //         "server_time": "1546675409133", 
+ 		      //         "event_time": "1546683449000",
+          //         "device_category": "HIIT",
+          //         "heart_rate": "80",
+          //         "result": 0,
+          //         "device_name": "",
+          //         "extra": [],
+          //         "kc": 5.67
+          //       }]
+          //   }
+          // }
+          // data = data.data.categories_data
+          var data = res.data.data
+          console.log(data)
+          that.setData({
+            olo: data.head_icon,
+            oll: data.user_name,
+            scc: data.day_num
+          })
+          data = data.items
+          // console.log((data[data.length - 1].server_time - data[0].server_time) / 60000)
+          that.setData({
+            sctime: Math.ceil((data[data.length - 1].server_time - data[0].server_time)/60000)
+          })
           //运动曲线canvas
           const lcl = wx.createCanvasContext('ydqx')
           var ck = that.data.ck
@@ -630,66 +682,251 @@ Page({
           var rund = 0
           var rune = 0
           var runf = 0
+          console.log(data)
+          var scccal = 0
+          var xcc = 0
+          var yqc = 0
           for (var i = 0; i < data.length-1; i++){
+            //总热量
+            scccal = scccal + parseFloat(data[i].kc)
+            //本次消耗热量
+            if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
+              xcc = xcc + parseFloat(data[i].kc)
+            }
+            if (data[i].device_name == 'hiit') {
+              yqc = yqc + parseFloat(data[i].kc)
+            }
             //运动曲线
-            if (data[i + 1].device_category == data[i].device_category) {
+            if (data[i + 1].device_name == data[i].device_name) {
               buc.run_data.push(data[i].heart_rate)
-              console.log(buc)
+              // console.log(buc)
             }
-            if (data[i + 1].device_category != data[i].device_category){
-              buc.device_category = data[i].device_category
-              buc.duration = data[i].server_time - data[cha].server_time
-              buc.run_data.push(data[i].heart_rate)
-              cha = i+1
-              arrbox.push(buc) 
-              console.log(arrbox)
-              buc = {}
-              buc.run_data = []
+            if (data[i + 1].device_name != data[i].device_name){
+              if(i==1){
+                buc.device_name = data[i].device_name
+                buc.duration = data[i].server_time - data[cha].server_time
+                buc.run_data.push(data[i].heart_rate)
+                cha = i 
+                arrbox.push(buc)
+                buc = {}
+                buc.run_data = []
+              }else{
+                buc.device_name = data[i].device_name
+                buc.duration = data[i].server_time - data[cha].server_time
+                buc.run_data.push(data[i].heart_rate)
+                cha = i
+                arrbox.push(buc) 
+                buc = {}
+                buc.run_data = []
+              }
             }
+            
             //心率统计
             if (data[i].result == 0){
-              runa = parseInt(runa) + parseInt(data[i].server_time)
+              if(i==0){
+                runa = 0
+              }else{
+                runa = parseInt(runa) + parseInt(data[i].server_time - data[i - 1].server_time)
+              }
             }
             if (data[i].result == 1) {
-              runb = parseInt(runb) + parseInt(data[i].server_time)
+              if (i == 0) {
+                runb = 0
+              } else {
+                runb = parseInt(runb) + parseInt(data[i].server_time - data[i - 1].server_time)
+              }
             }
             if (data[i].result == 2) {
-              runc = parseInt(runc) + parseInt(data[i].server_time)
+              if (i == 0) {
+                runc = 0
+              } else {
+                runc = parseInt(runc) + parseInt(data[i].server_time - data[i - 1].server_time)
+              }
             }
             if (data[i].result == 3) {
-              rund = parseInt(rund) + parseInt(data[i].server_time)
+              if (i == 0) {
+                rund = 0
+              } else {
+                rund = parseInt(rund) + parseInt(data[i].server_time - data[i - 1].server_time)
+              }
             }
             if (data[i].result == 4) {
-              rune = parseInt(rune) + parseInt(data[i].server_time)
+              if (i == 0) {
+                rune = 0
+              } else {
+                rune = parseInt(rune) + parseInt(data[i].server_time - data[i - 1].server_time)
+              }
             }
             if (data[i].result == 5) {
-              runf = parseInt(runa) + parseInt(data[i].server_time)
+              if (i == 0) {
+                runf = 0
+              } else {
+                runf = parseInt(runf) + parseInt(data[i].server_time - data[i - 1].server_time)
+              }
             }
           }
-
+          var bigl = 0
+          xcc>yqc?bigl=xcc:bigl=yqc
+          console.log(scccal)
+          that.setData({
+            scccal: Math.ceil(scccal),
+            xcc: Math.ceil(xcc),
+            yqc: Math.ceil(yqc),
+            xbb: xcc/bigl*610 + 10,
+            yqa: yqc/bigl*610 + 10
+          })
           run_effects.push(runa)
           run_effects.push(runb)
           run_effects.push(runc)
           run_effects.push(rund)
           run_effects.push(rune)
           run_effects.push(runf)
-          run_effects.splice(data[data.length - 1].result, 1, (run_effects[data[data.length - 1].result] + parseInt(data[data.length - 1].server_time)))
-    //       console.log(run_effects)
+          // run_effects.splice(data[data.length - 1].result, 1, (run_effects[data[data.length - 1].result] + parseInt(data[data.length - 1].server_time)))
+          console.log(run_effects)
+          //心率功效时间排序
+          var zyx = JSON.parse(JSON.stringify(run_effects));
+          zyx.sort(function (a, b) {
+            return b - a;
+          });
+          var pcp = 0
+          for(var p=0;p<run_effects.length;p++){
+            pcp = pcp + run_effects[p]
+          }
+          console.log(zyx)
+          var pbig = zyx[0]
+          var nob = 0
+          var kobb
+          //主要集中在
+          for (var p = 0; p < run_effects.length; p++){
+            if(pbig == run_effects[p]){
+              nob = p
+            }
+          }
+          if(nob == 0){
+            kobb = '激活放松'
+          }
+          if (nob == 1) {
+            kobb = '动态热身'
+          }
+          if (nob == 2) {
+            kobb = '脂肪燃烧'
+          }
+          if (nob == 3) {
+            kobb = '有氧耐力'
+          }
+          if (nob == 4) {
+            kobb = '无氧耐力'
+          }
+          if (nob == 5) {
+            kobb = '峰值锻炼'
+          }
+          console.log(run_effects[2])
+          that.setData({
+            pcp: Math.ceil(pcp/60000),
+            kobb: kobb,
+            yaa: Math.ceil(run_effects[0] / 60000),
+            ybb: Math.ceil(run_effects[1] / 60000),
+            ycc: Math.ceil(run_effects[2] / 60000),
+            ydd: Math.ceil(run_effects[3] / 60000),
+            yee: Math.ceil(run_effects[4] / 60000),
+            yff: Math.ceil(run_effects[5] / 60000),
+            yya: run_effects[0] / pbig * 250 + 10,
+            yyb: run_effects[1] / pbig * 250 + 10,
+            yyc: run_effects[2] / pbig * 250 + 10,
+            yyd: run_effects[3] / pbig * 250 + 10,
+            yye: run_effects[4] / pbig * 250 + 10,
+            yyf: run_effects[5] / pbig * 250 + 10
+          })
 
-          buc.device_category = data[data.length-1].device_category
+          buc.device_name = data[data.length - 1].device_name
           buc.duration = data[data.length - 1].server_time - data[cha].server_time
           buc.run_data.push(data[data.length - 1].heart_rate)
+          // console.log(arrbox)
+          // console.log(buc)
           arrbox.push(buc)
-          console.log(arrbox)
+          // console.log(arrbox)
           data = arrbox 
           console.log(data)
+
+          var acc = 0 
+          var bcc = 0 
+          var ccc = 0 
+          var xcc = 0
+          var ycc = 0
+ 
+          //tuc【跑步机，椭圆机，单车，哑铃，杠铃，飞鸟】
+          var tuc = [0,0,0,0,0,0]
           for (var i = 0; i < data.length; i++) {
             ssuummdur = ssuummdur + data[i].duration
+            //本次运动时长
+            if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1){
+              acc = acc + data[i].duration
+            }
+            if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
+              bcc = bcc + data[i].duration
+            }
+            if (data[i].device_name == 'hiit') {
+              ccc = ccc + data[i].duration
+            }
+            //运动图标
+            if (data[i].device_name.indexOf("跑步机") > -1){
+              tuc.splice(0,1,1)
+            }
+            if (data[i].device_name.indexOf("椭圆机") > -1) {
+              tuc.splice(1, 1, 1)
+            }
+            if (data[i].device_name.indexOf("单车") > -1) {
+              tuc.splice(2, 1, 1)
+            }
+            if (data[i].device_name.indexOf("哑铃") > -1) {
+              tuc.splice(3, 1, 1)
+            }
+            if (data[i].device_name.indexOf("杠铃") > -1) {
+              tuc.splice(4, 1, 1)
+            }
+            if (data[i].device_name.indexOf("飞鸟") > -1) {
+              tuc.splice(5, 1, 1)
+            }
           }
+          console.log(tuc)
+          //分配图标
+          var ytu = [
+            'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/a.png',
+            'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/f.png',
+            'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/d.png',
+            'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/b.png',
+            'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/e.png',
+            'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/c.png'
+          ]
+          for(var i=0;i<tuc.length;i++){
+            if(tuc[i]>0){
+              tuc.splice(i,1,ytu[i])
+            }
+          }
+          var otup = []
+          for(var i=0;i<tuc.length;i++){
+            console.log(tuc[i].length)
+            if(tuc[i].length>5){
+              otup.push(tuc[i])
+            }
+          }
+          var bigb
+          acc > bcc ? bigb=acc:bigb=bcc
+          bigb>ccc?bigb=bigb:bigb=ccc
+          that.setData({
+            otup: otup,
+            acc: Math.ceil(acc/60000),
+            bcc: Math.ceil(bcc/60000),
+            ccc: Math.ceil(ccc/60000),
+            pcc: Math.ceil(acc / 60000) + Math.ceil(bcc / 60000) + Math.ceil(ccc / 60000),
+            abb: acc / bigb * 610 + 10,
+            bbb: bcc / bigb * 610 + 10,
+            cbb: ccc / bigb * 610 + 10
+          })
           for (var i = 0; i < data.length; i++) {
             lcl.beginPath()
             lcl.lineWidth = 0.5 
-            if (data[i].device_category == "有氧运动") {
+            if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1){
               lcl.strokeStyle = 'rgba(255,255,255,0)'
               lcl.fillStyle = '#FFD450'
               var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -697,7 +934,7 @@ Page({
               linearGradient1.addColorStop(1, 'rgba(255,236,178,0.2)');
               lcl.fillStyle = linearGradient1;
             }
-            if (data[i].device_category == "力量") {
+            if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
               lcl.strokeStyle = 'rgba(255,255,255,0)'
               lcl.fillStyle = '#398EFF'
               var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -705,7 +942,7 @@ Page({
               linearGradient1.addColorStop(1, 'rgba(199,223,255,0.2)');
               lcl.fillStyle = linearGradient1;
             }
-            if (data[i].device_category == "HIIT") {
+            if (data[i].device_name == "hiit") {
               lcl.strokeStyle = 'rgba(255,255,255,0)'
               lcl.fillStyle = '#FF5E7F'
               var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -713,7 +950,7 @@ Page({
               linearGradient1.addColorStop(1, 'rgba(255,93,127,0.2)');
               lcl.fillStyle = linearGradient1;
             }
-            if (data[i].device_category == "空闲") {
+            if (data[i].device_name == "") {
               lcl.strokeStyle = 'rgba(255,255,255,0)'
               lcl.fillStyle = '#7E879C'
               var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -723,17 +960,23 @@ Page({
             }
 
             lcl.lineWidth = 0.5
-            console.log(data[i].run_data.length)
-            console.log(data[i].run_data[data[i].run_data.length - 1])
-            console.log(kk * data[i].run_data[data[i].run_data.length - 1] + bb)
+            // console.log(data[i].run_data.length)
+            // console.log(data[i].run_data[data[i].run_data.length - 1])
+            // console.log(kk * data[i].run_data[data[i].run_data.length - 1] + bb)
             lcl.moveTo((lefttop + data[i].duration / ssuummdur * 274) * ck, (kk * data[i].run_data[data[i].run_data.length - 1] + bb) * ck)
             sumddp = sumddp + data[i].duration / ssuummdur * 274
             lcl.lineTo(sumddp * ck, 317 * ck)
             lcl.lineTo((sumddp - data[i].duration / ssuummdur * 274) * ck, 317 * ck)
             lcl.lineTo((sumddp - data[i].duration / ssuummdur * 274) * ck, (kk * lasttop + bb) * ck)
             for (var j = 0; j < data[i].run_data.length; j++) {
-              lcl.lineTo((lefttop + (j + 1) * data[i].duration / ssuummdur * 274 / data[i].run_data.length) * ck, (kk * data[i].run_data[j] + bb) * ck)
-              console.log(kk * data[i].run_data[j] + bb)
+              if (data[i].run_data[j]<45){
+                
+              
+              lcl.lineTo((lefttop + (j + 1) * data[i].duration / ssuummdur * 274 / data[i].run_data.length) * ck, (kk * 45 + bb) * ck)
+              // console.log(kk * data[i].run_data[j] + bb)
+              }else{
+                lcl.lineTo((lefttop + (j + 1) * data[i].duration / ssuummdur * 274 / data[i].run_data.length) * ck, (kk * data[i].run_data[j] + bb) * ck)
+              }
             } 
             lcl.fill() 
             lcl.stroke() 
@@ -750,28 +993,30 @@ Page({
           
           for (var i = 0; i < data.length; i++) {
             lcl.beginPath()
-            lcl.lineWidth = 0.5
-            if (data[i].device_category == "有氧运动") {
+            lcl.lineWidth = 1
+            if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
               lcl.strokeStyle = '#FFD450'
             }
-            if (data[i].device_category == "力量") {
+            if (data[i].device_name == "力量") {
               lcl.strokeStyle = '#398EFF'
             }
-            if (data[i].device_category == "HIIT") {
+            if (data[i].device_name == "hiit") {
               lcl.strokeStyle = '#FF5E7F'
             }
-            if (data[i].device_category == "空闲") {
+            if (data[i].device_name == "") {
               lcl.strokeStyle = '#7E879C'
             }
 
-            lcl.lineWidth = 0.5
+            // lcl.lineWidth = 0.5
 
             sumddp = sumddp + data[i].duration / ssuummdur * 274
             lcl.moveTo((sumddp - data[i].duration / ssuummdur * 274) * ck, (kk * lasttop + bb) * ck)
             for (var j = 0; j < data[i].run_data.length; j++) {
-              // console.log(data[i].run_data[j].heart_rate)
-              lcl.lineTo((lefttop + (j + 1) * data[i].duration / ssuummdur * 274 / data[i].run_data.length) * ck, (kk * data[i].run_data[j] + bb) * ck)
-
+              if (data[i].run_data[j] < 45) {
+                lcl.lineTo((lefttop + (j + 1) * data[i].duration / ssuummdur * 274 / data[i].run_data.length) * ck, (kk * 45 + bb) * ck)
+              }else{
+                lcl.lineTo((lefttop + (j + 1) * data[i].duration / ssuummdur * 274 / data[i].run_data.length) * ck, (kk * data[i].run_data[j] + bb) * ck)
+              }
             }
 
             lcl.stroke()
@@ -968,7 +1213,7 @@ Page({
           yzy.fillText(suaax == 4 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[0] / opo * 100) - Math.floor(ydgxbox[1] / opo * 100) - Math.floor(ydgxbox[3] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[4] / opo * 100) + "%", 0 * ck, 155 * ck)
           yzy.fillText(suaax == 1 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[4] / opo * 100) - Math.floor(ydgxbox[0] / opo * 100) - Math.floor(ydgxbox[3] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[1] / opo * 100) + "%", 283 * ck, 35 * ck)
           yzy.fillText(suaax == 3 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[4] / opo * 100) - Math.floor(ydgxbox[1] / opo * 100) - Math.floor(ydgxbox[0] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[3] / opo * 100) + "%", 283 * ck, 98 * ck)
-          yzy.fillText(suaax == 5 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[4] / opo * 100) - Math.floor(ydgxbox[1] / opo * 100) - Math.floor(ydgxbox[3] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[0] / opo * 100) + "%", 283 * ck, 155 * ck)
+          yzy.fillText(suaax == 5 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[4] / opo * 100) - Math.floor(ydgxbox[1] / opo * 100) - Math.floor(ydgxbox[3] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[5] / opo * 100) + "%", 283 * ck, 155 * ck)
           yzy.draw()
         }
       }

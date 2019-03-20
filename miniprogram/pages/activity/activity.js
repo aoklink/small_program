@@ -7,9 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pbox: [],
     current: 2,
     imgboxa: ['http://ll.linkfeeling.cn/img/ok.png', 'http://ll.linkfeeling.cn/img/ok.png', 'http://ll.linkfeeling.cn/img/ok.png'],
-    fontFamily: 'FT',
     nono: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     ppy: '',
@@ -93,7 +93,7 @@ Page({
   },
   call: function () {
     wx.makePhoneCall({
-      phoneNumber: '13654917649' //仅为示例，并非真实的电话号码
+      phoneNumber: us.shopcell //仅为示例，并非真实的电话号码
     })
   },
   gomap: function () {
@@ -414,9 +414,15 @@ Page({
     //   }
     // })
     //   ,
+    this.setData({
+      pbox : us.aclun[us.inpp],
+      plpr: us.aclun[us.inpp].price_info,
+      ptttp: us.aclun[us.inpp].content
+    }),
+      console.log(this.data.pbox)
     wx.loadFontFace({
       family: this.data.fontFamily,
-      source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+      source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
       success(res) {
         console.log(res.status)
       },

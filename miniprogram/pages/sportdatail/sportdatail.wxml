@@ -3,25 +3,27 @@
   <!-- 第一页 -->
     <view class="section section01 {{scrollindex==0?'active':''}}" style='background:#1D232D'> 
       <view class='cont fbox'>
-        <view class='ftou'></view>
-        <view class='fname'>技术硬过皮卡丘</view>
-        <view class='floc'><span></span>打卡地址</view>
-        <view class='flit'>
-          <view>{{'领客菲力健身房'}}</view>
-          <view>{{'杭州市滨江区东方通信科技园'}}</view>
+        <view class='ftou' style='background:url({{olo}}) center no-repeat;background-size:112rpx 112rpx;'></view>
+        <view class='fname'>{{oll}}</view>
+        <view>
+          <view class='floc'><span></span>打卡地址</view>
+          <view class='flit'>
+            <view>{{'领客菲力健身房'}}</view>
+            <view>{{'杭州市滨江区东方通信科技园'}}</view>
+          </view>
         </view>
         <view class='fsum'>
           <view class='fsl'>
             <view><span></span>连续打卡</view>
-            <view><span>{{12}}</span>天</view>
+            <view><span>{{scc}}</span>天</view>
           </view>
           <view class='fsr'>
             <view><span></span>运动总时长</view>
-            <view><span>{{10}}</span>分钟</view>
+            <view><span>{{sctime}}</span>分钟</view>
           </view>
-          <view class='fsr'>
+          <view class='fsr fsb'>
             <view><span></span>消耗总热量</view>
-            <view><span>{{900}}</span>千卡</view>
+            <view><span>{{scccal}}</span>千卡</view>
           </view>
         </view>
         <view class='fws'>
@@ -41,13 +43,9 @@
         <view class='tup'>
           <view class='tusb'>
             <view class='ttit'>本次运动时长</view>
-            <view class='tnum'><span>{{124}}</span>分钟</view>
+            <view class='tnum'><span>{{pcc}}</span>分钟</view>
             <view class='tlu'>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span wx:for="{{otup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 80rpx 80rpx;"></span>
             </view>
           </view>
         </view>
@@ -61,23 +59,23 @@
               <view class='tldd'>
                 <view class='tlup'>
                   <view>有氧</view>
-                  <view><span>{{66}}</span> 分钟</view>
+                  <view><span>{{acc}}</span> 分钟</view>
                 </view>
-                <view class='tldo'></view>
+                <view class='tldo' style='width:{{abb}}rpx'></view>
               </view>
               <view class='tldd'>
                 <view class='tlup'>
                   <view>HIIT</view>
-                  <view><span>{{66}}</span> 分钟</view>
+                  <view><span>{{ccc}}</span> 分钟</view>
                 </view>
-                <view class='tldo tldoa'></view>
+                <view class='tldo tldoa' style='width:{{bbb}}rpx'></view>
               </view>
               <view class='tldd'>
                 <view class='tlup'>
                   <view>力量</view>
-                  <view><span>{{66}}</span> 分钟</view>
+                  <view><span>{{bcc}}</span> 分钟</view>
                 </view>
-                <view class='tldo tldob'></view>
+                <view class='tldo tldob' style='width:{{cbb}}rpx'></view>
               </view>
             </view>
             <view class='tbottom'>向上滑动查看更多</view>
@@ -91,13 +89,9 @@
         <view class='tup'>
           <view class='tusb'>
             <view class='ttit'>本次消耗热量</view>
-            <view class='tnum'><span>{{'72,235'}}</span>千卡</view>
+            <view class='tnum'><span>{{scccal}}</span>千卡</view>
             <view class='tlu'>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span wx:for="{{otup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 80rpx 80rpx;"></span>
             </view>
           </view>
         </view>
@@ -111,16 +105,16 @@
               <view class='tldd'>
                 <view class='tlup'>
                   <view>有氧</view>
-                  <view><span>{{66}}</span> 千卡</view>
+                  <view><span>{{xcc}}</span> 千卡</view>
                 </view>
-                <view class='tldo'></view>
+                <view class='tldo' style='width:{{xbb}}rpx'></view>
               </view>
               <view class='tldd'>
                 <view class='tlup'>
                   <view>HIIT</view>
-                  <view><span>{{66}}</span> 千卡</view>
+                  <view><span>{{yqc}}</span> 千卡</view>
                 </view>
-                <view class='tldo tldoa'></view>
+                <view class='tldo tldoa' style='width:{{yqa}}rpx'></view>
               </view>
             </view>
             <view class='tbottom'>向上滑动查看更多</view>
@@ -203,43 +197,47 @@
     <!-- 第六页 -->
     <view class="section section06 {{scrollindex==5?'active':''}}" style='background:#1D232D'> 
       <view class='cont hbox'>
-        <view class='htit'>心率功效统计</view> 
-        <view class='htmsg'><span class="htu"></span><span class="htc">运动 <span>78</span> 分钟<span></span>主要集中在<span>{{'脂肪燃烧'}}</span></span></view>
-        <view class='hc'>
-          <view class='hcp'>
-            <canvas class='hxlgx' style="width: {{305*ck}}px; height: {{200*ck}}px;" canvas-id="xlgx"></canvas>
-          </view>
-          <view class='hcd'>
-            <view class='hcbd'>
-              <view class='hcpp'>
-                <view>激活放松 <span>{{661}}</span> 分钟</view>
-                <view class="hyya"></view>
-              </view>
-              <view class='hcpp'>
-                <view>动态热身 <span>{{661}}</span> 分钟</view>
-                <view class="hyyb"></view>
-              </view>
+        <view class='hpup'>
+          <view class='htit'>心率功效统计</view> 
+          <view class='htmsg'><span class="htu"></span><span class="htc">运动 <span>{{pcp}}</span> 分钟<span></span>主要集中在<span>{{kobb}}</span></span></view>
+        </view>
+        <view class='hpdo'>
+          <view class='hc'>
+            <view class='hcp'>
+              <canvas class='hxlgx' style="width: {{305*ck}}px; height: {{200*ck}}px;" canvas-id="xlgx"></canvas>
             </view>
-            <view class='hcbd'>
-              <view class='hcpp'>
-                <view>脂肪燃烧 <span>{{661}}</span> 分钟</view>
-                <view class="hyyc"></view>
+            <view class='hcd'>
+              <view class='hcbd'>
+                <view class='hcpp'>
+                  <view>激活放松 <span>{{yaa}}</span> 分钟</view>
+                  <view class="hyya" style='width:{{yya}}rpx'></view>
+                </view>
+                <view class='hcpp'>
+                  <view>动态热身 <span>{{ybb}}</span> 分钟</view>
+                  <view class="hyyb" style='width:{{yyb}}rpx'></view>
+                </view>
               </view>
-              <view class='hcpp'>
-                <view>有氧耐力 <span>{{661}}</span> 分钟</view>
-                <view class="hyyd"></view>
+              <view class='hcbd'>
+                <view class='hcpp'>
+                  <view>脂肪燃烧 <span>{{ycc}}</span> 分钟</view>
+                  <view class="hyyc" style='width:{{yyc}}rpx'></view>
+                </view>
+                <view class='hcpp'>
+                  <view>有氧耐力 <span>{{ydd}}</span> 分钟</view>
+                  <view class="hyyd" style='width:{{yyd}}rpx'></view>
+                </view>
               </view>
+              <view class='hcbd'>
+                <view class='hcpp'>
+                  <view>无氧耐力 <span>{{yee}}</span> 分钟</view>
+                  <view class="hyye" style='width:{{yye}}rpx'></view>
+                </view>
+                <view class='hcpp'>
+                  <view>峰值锻炼 <span>{{yff}}</span> 分钟</view>
+                  <view class="hyyf" style='width:{{yyf}}rpx'></view>
+                </view>
+              </view> 
             </view>
-            <view class='hcbd'>
-              <view class='hcpp'>
-                <view>无氧耐力 <span>{{661}}</span> 分钟</view>
-                <view class="hyye"></view>
-              </view>
-              <view class='hcpp'>
-                <view>峰值锻炼 <span>{{661}}</span> 分钟</view>
-                <view class="hyyf"></view>
-              </view>
-            </view> 
           </view>
         </view>
       </view>

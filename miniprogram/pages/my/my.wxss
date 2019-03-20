@@ -386,11 +386,11 @@ page{
 
 .ubox{
   width:100%;
-  height:314rpx;
+  height:416rpx;
   background: #1D232D;
   box-shadow:0rpx 4rpx 42rpx 0rpx rgba(23,31,45,0.09);
   box-sizing: border-box;
-  padding: 46rpx 0 40rpx 64rpx;
+  padding: 106rpx 0 40rpx 64rpx;
 }
 .uba{
   height: 126rpx;
@@ -400,7 +400,7 @@ page{
 .ubb{
   height: 56rpx;
   box-sizing: border-box;
-  margin-top: 32rpx;
+  margin-top: 58rpx;
   color: #fff;
   font-size: 24rpx;
   line-height: 56rpx;
@@ -415,6 +415,14 @@ page{
   background: yellow;
   border-radius: 50%;
 }
+.ur{
+  float: right;
+  width: 14rpx;
+  height: 20rpx;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/wr.png) center no-repeat;
+  margin: 60rpx 50rpx auto auto;
+  background-size: 14rpx 20rpx;
+}
 .rtu{
   width: calc(100% - 200rpx);
   height: 100%;
@@ -423,7 +431,6 @@ page{
 }
 .ruu{
   height: 56rpx;
-  width: 100%;
   color: #fff;
   display: inline-block;
   line-height: 56rpx;
@@ -479,8 +486,8 @@ page{
 .ss view:nth-of-type(3){
   width: 80rpx;
   height: 100%;
-  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
-  background-size: 8rpx 16rpx;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/r.png) no-repeat center;
+  background-size: 14rpx 20rpx;
   display: inline-block;
   font-size:24rpx;
   font-family:PingFangSC-Regular;
@@ -505,7 +512,7 @@ page{
   width: 60rpx;
   height: 100%;
   float: left;
-  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/cell.png) no-repeat center;
   background-size: 60rpx 60rpx;
 }
 .ssli{
@@ -534,9 +541,7 @@ page{
   width: 56rpx;
   height: 56rpx;
   display: inline-block;
-  background: blue;
   margin-left: 16rpx;
-  border-radius: 50%;
 }
 .edit{
   width: 100%;
@@ -551,7 +556,7 @@ page{
 .edit span:nth-of-type(1){
   width: 24rpx;
   margin-left: 28rpx;
-  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/pen.png) no-repeat center;
   background-size: 24rpx 24rpx;
 }
 .edit span:nth-of-type(2){
@@ -566,8 +571,8 @@ page{
   float: right;
   width: 24rpx;
   margin-right: 48rpx;
-  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
-  background-size: 8rpx 16rpx;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/r.png) no-repeat center;
+  background-size: 14rpx 20rpx;
 }
 .line{
   width: 100%;
@@ -577,8 +582,8 @@ page{
 .rhb{
   width: 80rpx;
   height: 100%;
-  background: url(http://ll.linkfeeling.cn/img/ok.png) no-repeat center;
-  background-size: 8rpx 16rpx;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/r.png) no-repeat center;
+  background-size: 14rpx 20rpx;
   display: inline-block;
   font-size:24rpx;
   font-family:PingFangSC-Regular;
@@ -601,6 +606,22 @@ page{
   line-height:28rpx;
   width: 100%;
   display: inline-block;
-  margin: 205rpx auto 34rpx;
+  margin: 286rpx auto 34rpx;
   text-align: center;
+}
+.ssa{
+  display: inline-block;
+  width: 60rpx;
+  height: 100%;
+  float: left;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/report.png) center no-repeat;
+  background-size: 60rpx 60rpx;
+}
+.ssb{
+  display: inline-block;
+  width: 60rpx;
+  height: 100%;
+  float: left;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/house.png) center no-repeat;
+  background-size: 60rpx 60rpx;
 }
