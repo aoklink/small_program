@@ -1,5 +1,12 @@
 var app = getApp()
 var us = getApp().globalData.userInfo
+var mmd = require('../../utils/mmd.js');
+var bname
+var bsex
+var bage
+var bheight
+var bweight
+var bgoal
 Page({
 
   /**
@@ -943,9 +950,13 @@ Page({
     fontFamily: 'FT'
   },
   njj: function(e) {
+    bname = us.nickName
     console.log(e.detail.value)
+    bname = e.detail.value
+  },
+  save: function () {
     wx.request({
-      url: 'https://ll.linkfeeling.cn/api/user/account_info',
+      url: 'https://ll.linkfeeling.cn/api/user/update/info',
       method: 'POST',
       data: {
         uid: us.uid,
@@ -956,67 +967,84 @@ Page({
         login_type: "wx",
         network: us.nw,
         product_id: us.pi,
-        app_version: us.av
+        app_version: us.av,
+        user_name: bname,
+        gender: bsex,
+        age: bage,
+        stature: bheight,
+        weight: bweight,
+        goal: bgoal
+        // head_icon: 
+        
+        
+        
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
         console.log(res.data)
-        if (res.data.code == 200) {
-          that.setData({
-            sex: res.data.data.gender,
-            age: res.data.data.age,
-            name: res.data.data.name,
-            goal: res.data.data.goal,
-            weight: res.data.data.weight,
-            head_icon: res.data.data.head_icon,
-            height: res.data.data.stature,
-            pkk: res.data.data.gender == '男' ? 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/boy.png' : 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/girl.png'
-          })
+        if(res.data.code == 200){
+          us.sex = bsex
+          us.age = bage
+          us.height = bheight
+          us.weight = bweight
+          us.goal = bgoal
+          us.nickName = bname
+          // us.avatarUrl = res.data.data.head_icon
         }
       }
     })
   },
   bindPickerChangey: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
+    bgoal = us.goal
     this.setData({
       kp: e.detail.value
     })
-    console.log(this.data.arrax[e.detail.value])
-    us.goal = this.data.arrax[e.detail.value]
+    console.log(this.data.arrak[e.detail.value])
+    bgoal = this.data.arrak[e.detail.value]
+    // us.goal = this.data.arrak[e.detail.value]
   },
   bindPickerChange: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
+    bage = us.age
     this.setData({
       index: e.detail.value
     })
     console.log(this.data.array[e.detail.value])
-    us.age = this.data.array[e.detail.value]
+    bage = this.data.array[e.detail.value]
+    // us.age = this.data.array[e.detail.value]
   },
   bindPickerChangex: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
+    bsex = us.sex
     this.setData({
       jh: e.detail.value
     })
     console.log(this.data.arrax[e.detail.value])
-    us.sex = this.data.arrax[e.detail.value]
+    bsex = this.data.arrax[e.detail.value]
+    // us.sex = this.data.arrax[e.detail.value]
   },
   bindPickerChangeb: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
+    bheight = us.height
     this.setData({
       pph: e.detail.value
     })
     console.log(this.data.arrab[e.detail.value])
-    us.height = this.data.arrab[e.detail.value]
+    bheight = this.data.arrab[e.detail.value]
+    // us.height = this.data.arrab[e.detail.value]
   },
   bindPickerChangec: function (e) {
     // console.log('picker发送选择改变，携带值为', e.detail.value)
+    bweight = us.weight
     this.setData({
       ppw: e.detail.value
     })
     console.log(this.data.arrac[e.detail.value])
-    us.height = this.data.arrac[e.detail.value]
+    bweight = this.data.arrac[e.detail.value]
+    // us.weight = this.data.arrac[e.detail.value]
   },
   bsex: function (e) {
     let that = this
@@ -1038,19 +1066,42 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.loadFontFace({
-      family: this.data.fontFamily,
-      source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
-      success(res) {
-        console.log(res.status)
-      },
-      fail: function (res) {
-        console.log(res.status)
-      },
-      complete: function (res) {
-        console.log(res.status)
-      }
-    });
+    console.log(us.goal)
+    var kjn
+    if(us.goal == '减脂'){
+      kjn = 0
+    }
+    if (us.goal == '局部塑形') {
+      kjn = 1
+    }
+    if (us.goal == '增肌') {
+      kjn = 2
+    }
+    if (us.goal == '保持健康') {
+      kjn = 3
+    }
+    this.setData({
+      head: us.avatarUrl,
+      name: us.nickName,
+      jh: us.sex == '男' ? 0 : 1,
+      index: us.age - 14,
+      pph: us.height - 120,
+      ppw: us.weight - 35,
+      kp: kjn
+    })
+    // wx.loadFontFace({
+    //   family: this.data.fontFamily,
+    //   source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+    //   success(res) {
+    //     console.log(res.status)
+    //   },
+    //   fail: function (res) {
+    //     console.log(res.status)
+    //   },
+    //   complete: function (res) {
+    //     console.log(res.status)
+    //   }
+    // });
   },
 
   /**

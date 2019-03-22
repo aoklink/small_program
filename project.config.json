@@ -12,6 +12,8 @@
 	"appid": "wxefc6bcecdc90d423",
 	"projectname": "lulu",
 	"libVersion": "2.6.1",
+	"simulatorType": "wechat",
+	"simulatorPluginLibVersion": {},
 	"condition": {
 		"search": {
 			"current": -1,
@@ -135,15 +137,16 @@
 					"query": ""
 				},
 				{
-					"id": -1,
-					"name": "testhate",
+					"id": 17,
+					"name": "saveimg",
 					"pathName": "pages/testhate/testhate",
-					"query": ""
+					"query": "",
+					"scene": null
 				},
 				{
 					"id": 18,
 					"name": "share",
-					"pathName": "pages/sportdatail/sportdatail",
+					"pathName": "pages/sharepage/sharepage",
 					"query": "",
 					"scene": null
 				},
@@ -252,9 +255,9 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "select",
-					"pathName": "pages/select/select",
+					"id": 34,
+					"name": "yzy",
+					"pathName": "pages/yzy/yzy",
 					"query": "",
 					"scene": null
 				}

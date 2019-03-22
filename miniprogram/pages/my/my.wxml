@@ -7,11 +7,6 @@
     <view class='ruu'><span>{{name}}</span><span style="background: url({{pkk}}) no-repeat center;background-size:56rpx 56rpx;"></span></view>
   </view>
 </view>
-<!-- <view class='edit' bindtap='goselect'>
-  <span></span>
-  <span>点击编辑个人信息</span>
-  <span></span> 
-</view> -->
 <view class='line'></view>
 <view class='dbox'>
   <view class="ss" bindtap='gocellhuan'>

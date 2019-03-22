@@ -33,7 +33,10 @@ App({
       avatarUrl: '',
       uid: '',
       usname: '',
-      shopcell: ''
+      shopcell: '',
+      gan: '',
+      gana: '',
+      ganb: ''
     },
     bindtime: '',
     ccc: '',

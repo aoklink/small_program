@@ -111,3 +111,16 @@
   background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/select/r.png) center no-repeat;
   background-size: 10rpx 16rpx;
 }
+.save{
+  width:600rpx;
+  height:100rpx;
+  background:rgba(39,42,56,1);
+  border-radius:59rpx;
+  margin: 94rpx auto 0;
+  line-height: 100rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Semibold;
+  font-weight:600;
+  text-align: center;
+  color:rgba(255,255,255,1);
+}

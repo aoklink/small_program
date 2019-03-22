@@ -1,6 +1,6 @@
 <view class='share'>
-  <canvas canvas-id="shareCanvas" style="width:300px;height:380px"></canvas>
+  <canvas canvas-id="shareCanvas" style="width:244px;height:434px"></canvas>
 </view>
 <view class='btn-box'>
-  <button bindtap='downloadImg'>分享到朋友圈</button>
+  <button bindtap='downloadImg'>保存图片</button>
 </view>

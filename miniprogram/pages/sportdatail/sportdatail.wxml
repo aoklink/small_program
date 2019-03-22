@@ -1,7 +1,18 @@
+<view class='uiuyy' bindtap='oppo'>
+        <span></span>
+        <view class='uiu'>分享</view>
+      </view>
 <view class="swiper-cont container-fill"> 
+<view class='bbj' hidden='{{tot}}'>
+  <view class='bbnb'>
+    <button data-info='{{order}}'  open-type="share" hover-class='none' plain="true" class='bbll'>微信好友</button>
+    <view class='bbrr' bindtap='bttg'>生成图片</view>
+  </view>
+  <view class='bbnp' bindtap='kta'>取消</view>
+</view>
   <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
   <!-- 第一页 -->
-    <view class="section section01 {{scrollindex==0?'active':''}}" style='background:#1D232D'> 
+    <view class="section section01 {{scrollindex==0?'active':''}}" style='background:#272A38'> 
       <view class='cont fbox'>
         <view class='ftou' style='background:url({{olo}}) center no-repeat;background-size:112rpx 112rpx;'></view>
         <view class='fname'>{{oll}}</view>
@@ -21,7 +32,7 @@
             <view><span></span>运动总时长</view>
             <view><span>{{sctime}}</span>分钟</view>
           </view>
-          <view class='fsr fsb'>
+          <view class='fsb'>
             <view><span></span>消耗总热量</view>
             <view><span>{{scccal}}</span>千卡</view>
           </view>
@@ -123,12 +134,12 @@
       </view>
     </view>
   <!-- 第四页 -->
-    <view class="section section04 {{scrollindex==3?'active':''}}" style='background:#1D232D'> 
+    <view class="section section04 {{scrollindex==3?'active':''}}" style='background:#272A38'> 
       <view class='cont qbox'>
         <view class='qup'>
           <view class='qupx'>
             <view>运动曲线分布</view>
-            <view>运动时间占比 <span>{{60}}</span> %</view>
+            <view>运动时间占比 <span>{{oloz}}</span> %</view>
           </view>
         </view>
         <view class='qdo'>
@@ -195,7 +206,7 @@
       </view>
     </view>
     <!-- 第六页 -->
-    <view class="section section06 {{scrollindex==5?'active':''}}" style='background:#1D232D'> 
+    <view class="section section06 {{scrollindex==5?'active':''}}" style='background:#272A38'> 
       <view class='cont hbox'>
         <view class='hpup'>
           <view class='htit'>心率功效统计</view> 

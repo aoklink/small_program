@@ -222,7 +222,7 @@ page{
   height: 66rpx;
   margin-top: 54rpx;
   line-height: 66rpx;
-  font-size:48rpx;
+  font-size:40rpx;
   font-family:PingFangSC-Semibold;
   font-weight:600;
   color:rgba(39,42,56,1);
@@ -284,7 +284,7 @@ page{
   height: 66rpx;
   line-height: 66rpx;
   width: 100%;
-  font-size:48rpx;
+  font-size:40rpx;
   font-family:PingFangSC-Semibold;
   font-weight:600;
   color:rgba(39,42,56,1);
@@ -371,7 +371,7 @@ page{
   height: 66rpx;
   text-indent: 40rpx;
   margin-top: 40rpx;
-  font-size:48rpx;
+  font-size:40rpx;
   font-family:PingFangSC-Semibold;
   font-weight:600;
   color:rgba(39,42,56,1);

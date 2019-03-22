@@ -381,7 +381,7 @@ Page({
                           nono: true,
                         })
                         wx.request({
-                          url: app.globalData.lp+'/platform/gym/info',
+                          url: app.globalData.lp+'platform/gym/info',
                           method: 'POST',
                           data: {
                             uid: us.uid,

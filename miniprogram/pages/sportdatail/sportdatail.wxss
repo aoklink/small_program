@@ -345,7 +345,7 @@ page{
   margin-left: 37rpx;
   height: 36rpx;
   display: inline-block;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/cal/.png) no-repeat center;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/cal.png) no-repeat center;
   background-size: 40rpx 40rpx;
 }
 
@@ -562,7 +562,7 @@ page{
 .tup{
   height: 43%;
   box-sizing: border-box;
-  background: #1D232D;
+  background: #272A38;
   position: relative;
 }
 .tdo{
@@ -971,4 +971,85 @@ page{
     width:100%;
     margin-bottom: 110rpx;
   }
+}
+.uiuyy{
+  position: fixed;
+  height: 112rpx;
+  width: 200rpx;
+  top: 28rpx;
+  right: 0;
+  z-index: 99;
+}
+.uiuyy span{
+  position: absolute;
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/tt.png) no-repeat center;
+  background-size: 28rpx 28rpx;
+  width: 28rpx;
+  height: 28rpx;
+  top: 44rpx;
+  right: 82rpx;
+  z-index: 99;
+}
+.uiu{
+  position: absolute;
+  top: 30rpx;
+  height: 56rpx;
+  width: 144rpx;
+  right: 0;
+  background:rgba(255,212,80,1);
+  border-radius:200rpx 0rpx 0rpx 200rpx;
+  font-size:22rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(39,42,56,1);
+  line-height:56rpx;
+  text-indent: 72rpx;
+}
+.bbj{
+  height: 348rpx;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  z-index: 99;
+  background: #fff;
+}
+.bbnb{
+  height: 216rpx;
+  width: 100%;
+  border-bottom: 20rpx solid #F4F5F9;
+}
+.bbnp{
+  height: 112rpx;
+  width: 100%;
+  text-align: center;
+  line-height: 112rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(39,42,56,1);
+}
+.bbll,.bbrr{
+  position: relative;
+  width: 50%;
+  box-sizing: border-box;
+  height: 100%;
+  float: left;
+  text-align: center;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(39,42,56,1);
+  line-height:318rpx;
+}
+.bbll{
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/bb.png) no-repeat center 34rpx;
+  background-size: 88rpx 88rpx;
+}
+.bbrr{
+  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/cc.png) no-repeat center 34rpx;
+  background-size: 88rpx 88rpx;
+}
+button{
+  border: 0 !important;
+  padding: 0;
 }

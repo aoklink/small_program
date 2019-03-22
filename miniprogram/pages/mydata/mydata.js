@@ -47,9 +47,22 @@ Page({
     wx.request({
       url: 'https://ll.linkfeeling.cn/api/fitness/list', // 仅为示例，并非真实的接口地址
       method: 'POST',
+      // data: {
+      //   "pos": '0',
+      //   "uid": us.uid,
+      //   "user_type": us.ut,
+      //   "request_time": Date.parse(new Date()),
+      //   "platform": us.pt,
+      //   "tk": mmd.hexMD5(us.pi + ":" + us.ut + ":" + Date.parse(new Date())),
+      //   "network": us.nw,
+      //   "product_id": us.pi,
+      //   "app_version": us.av,
+      //   "flag": 'true',
+      //   "count": '7'
+      // },
       data: {
-        "pos": '0',
-        "uid": us.uid,
+        "pos": '1',
+        "uid": 'e50c0b2cbea000118c7c2fb63d49d542',
         "user_type": us.ut,
         "request_time": Date.parse(new Date()),
         "platform": us.pt,
@@ -58,12 +71,14 @@ Page({
         "product_id": us.pi,
         "app_version": us.av,
         "flag": 'true',
-        "count": '7'
+        "count": '4'
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        // var res={}
+        // res.data = { "msg": "ok", "data": [{ "img": "http://img.linkfeeling.cn/img/list_item_time.png", "date_time": "1550891741389", "calorie": 35, "time": 1560012 }, { "img": "http://img.linkfeeling.cn/img/list_item_time.png", "date_time": "1550738194457", "calorie": 50, "time": 2274393 }], "ok": "200" }
         console.log(res.data.data)
         if (res.data.data.length < 1) {
           that.setData({
@@ -84,13 +99,21 @@ Page({
         that.setData({
           ttbox: that.data.ttbox
         })
-      },
-      fail: function (res) { },
-      complete: function (res) {
-        wx.hideNavigationBarLoading() //完成停止加载
-        wx.stopPullDownRefresh();
       }
-    })
+    }),
+      wx.loadFontFace({
+        family: this.data.fontFamily,
+        source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
+        success(res) {
+          console.log(res.status)
+        },
+        fail: function (res) {
+          console.log(res.status)
+        },
+        complete: function (res) {
+          console.log(res.status)
+        }
+      });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -124,7 +147,7 @@ Page({
         "product_id": us.pi,
         "app_version": us.av,
         "flag": 'true',
-        "count": '7'
+        "count": '4'
       },
       header: {
         'content-type': 'application/json' // 默认值

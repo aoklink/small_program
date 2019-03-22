@@ -15,7 +15,7 @@ Page({
     margintop: 0,  //滑动下拉距离
     fontFamily: 'DINAlternate-Bold',
     ck: 1,
-
+    tot: true
   },
   scrollTouchstart: function (e) {
     let py = e.touches[0].pageY;
@@ -165,6 +165,54 @@ Page({
       howj: true
     })
   },
+  oppo: function () {
+    this.setData({
+      tot: false
+    })
+  },
+  kta: function(){
+    var that = this
+    console.log(99)
+    that.setData({
+      tot: true
+    })
+  },
+  bttg: function () {
+    this.setData({
+      tot: true
+    })
+    wx.navigateTo({
+      url: '../test/test',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  onShareAppMessage: function (res) {
+    var that = this
+    that.setData({
+      tot: true
+    })
+    // let gbid = res.target.dataset.info.order_id;
+    return {
+      title: '分享',
+      path: '/pages/home/home',
+      // imageUrl: 'https://......./img/groupshare.png',  //用户分享出去的自定义图片大小为5:4,
+      success: function (res) {
+        // 转发成功
+        wx.showToast({
+          title: "分享成功",
+          icon: 'success',
+          duration: 2000
+        })
+        
+        // console.log(998)
+      },
+      fail: function (res) {
+        // 分享失败
+      },
+    }
+  },
   scrollTouchend: function (e) {
     let py = e.changedTouches[0].pageY;
     let d = this.data;
@@ -209,7 +257,7 @@ Page({
     })
     wx.loadFontFace({
       family: this.data.fontFamily,
-      source: 'url("http://www.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
+      source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
       success(res) {
         console.log(res.status)
       },
@@ -219,7 +267,7 @@ Page({
       complete: function (res) {
         console.log(res.status)
       }
-    }); 
+    });
     // wx.request({
     //   url: 'https://ll.linkfeeling.cn/api/user/account_info',
     //   method: 'POST',
@@ -283,16 +331,6 @@ Page({
 
         console.log(res.data)
         if (res.data.code == 200) {
-
-          // var res
-          // res = { "code": "200", "msg": "ok", "data": { "day_num": "1", "total_time": "12000000", "total_time_img": "http://img.linkfeeling.cn/total_time.png", "total_calorie": "900", "total_calorie_img": "http://img.linkfeeing.cn/total_calorie.png", "gym_name": "领客菲力", "site": "杭州市滨江区东方通信科技园", 
-          // "categories_imgs": [{ "category_name": "有氧运动", "imgs": ["http://ll.linkfeeling.cn/img/or.png", "http://ll.linkfeeling.cn/img/or.png", "http://ll.linkfeeling.cn/img/or.png"], 
-          // "chart_from_color": "#ABCDEF", "chart_to_color": "#ABCDEF" }, { "category_name": "HIIT", "chart_from_color": "#ABCDEF", "chart_to_color": "#ABCDEF", "imgs": [] }], 
-          // "categories_data": [{ "start_time": "1546672649000", "end_time": "1546701449133", "category_name": "有氧运动", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 72, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 122, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 142, "extra": "" }] }, { "start_time": "1546683360000", "end_time": "1546683560000", "category_name": "力量", "duration": 200000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 96, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 182, "extra": { "field_name": "power", "field_value": 120 } }, { "effect": 0, "calorie": 5, "heart_rate": 82, "extra": { "field_name": "power", "field_value": 80 } }] }, { "start_time": "1546701449133", "end_time": "1546701449133", "category_name": "空闲", "duration": 4000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 92, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 72, "extra": { "field_name": "power", "field_value": 100 } }, { "effect": 0, "calorie": 5, "heart_rate": 132, "extra": { "field_name": "power", "field_value": 100 } }] }, { "start_time": "1546701449133", "end_time": "1546701449133", "category_name": "有氧运动", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 152, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 192, "extra": "" }, { "effect": 0, "calorie": 5, "heart_rate": 132, "extra": "" }] }, { "start_time": "1546683860000", "end_time": "1546684160000", "category_name": "力量", "duration": 300000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 96, "extra": { "field_name": "power", "field_value": 30 } }, { "effect": 0, "calorie": 5, "heart_rate": 182, "extra": { "field_name": "power", "field_value": 120 } }, { "effect": 0, "calorie": 5, "heart_rate": 82, "extra": { "field_name": "power", "field_value": 80 } }] }, { "start_time": "1546701449133", "end_time": "1546683449000", "category_name": "HIIT", "duration": 2000000, "run_data": [{ "effect": 0, "calorie": 5, "heart_rate": 112 }, { "effect": 0, "calorie": 5, "heart_rate": 62 }, { "effect": 0, "calorie": 5, "heart_rate": 72 }] }], 
-          // "run_effects": [{ "effect": 0, "name": "激活放松", "time": 200000 }, { "effect": 1, "name": "动态热身", "time": 400000 }, { "effect": 2, "name": "脂肪燃烧", "time": 100000 }, { "effect": 3, "name": "有氧耐力", "time": 400000 }, { "effect": 4, "name": "无氧耐力", "time": 300000 }, { "effect": 5, "name": "峰值锻炼", "time": 300000 }] } }
-          // var data
-          // data = res.data.categories_data
-          // console.log(data)
           let rpx
           //获取屏幕宽度，获取自适应单位
           wx.getSystemInfo({
@@ -304,261 +342,7 @@ Page({
               console.log(rpx)
             },
           })
-          // var data = {
-          //   "code": "200",
-          //   "msg": "ok",
-          //   "data":
-          //   {
-          //     "day_num": "1",
-          //     "total_time": "12000000",
-          //     "total_time_img": "http://img.linkfeeling.cn/total_time.png",
-          //     "total_calorie": "900",
-          //     "total_calorie_img": "http://img.linkfeeing.cn/total_calorie.png",
-          //     "gym_name": "领客菲力",
-          //     "site": "杭州市滨江区东方通信科技园",
-          //     "categories_data":
-          //       [{
-          //         "server_time": "1546672649000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "70",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546672769000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "120",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546672889000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "100",
-          //         "result": 1,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673009000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "150",
-          //         "result": 3,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673129000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "100",
-          //         "result": 5,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673249000",
-          //         "event_time": "1546683560000",
-          //         "device_category": "力量",
-          //         "heart_rate": "80",
-          //         "result": 2,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673369000",
-          //         "event_time": "1546683560000",
-          //         "device_category": "力量",
-          //         "heart_rate": "90",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673489000",
-          //         "event_time": "1546683560000",
-          //         "device_category": "力量",
-          //         "heart_rate": "90",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673609000",
-          //         "event_time": "1546683560000",
-          //         "device_category": "力量",
-          //         "heart_rate": "120",
-          //         "result": 1,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673729000",
-          //         "event_time": "1546683560000",
-          //         "device_category": "力量",
-          //         "heart_rate": "180",
-          //         "result": 5,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673849133",
-          //         "event_time": "1546701449133",
-          //         "device_category": "空闲",
-          //         "heart_rate": "160",
-          //         "result": 3,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546673969133",
-          //         "event_time": "1546701449133",
-          //         "device_category": "空闲",
-          //         "heart_rate": "110",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       }, {
-          //         "server_time": "1546674089133",
-          //         "event_time": "1546701449133",
-          //         "device_category": "空闲",
-          //         "heart_rate": "60",
-          //         "result": 3,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674209133",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "70",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674329000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "180",
-          //         "result": 1,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674449000",
-          //         "event_time": "1546701449133",
-          //         "device_category": "有氧运动",
-          //         "heart_rate": "180",
-          //         "result": 4,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674569000",
-          //         "event_time": "1546684160000",
-          //         "device_category": "力量",
-          //         "heart_rate": "200",
-          //         "result": 4,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674689000",
-          //         "event_time": "1546684160000",
-          //         "device_category": "力量",
-          //         "heart_rate": "120",
-          //         "result": 5,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674809000",
-          //         "event_time": "1546684160000",
-          //         "device_category": "力量",
-          //         "heart_rate": "80",
-          //         "result": 3,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546674929000",
-          //         "event_time": "1546684160000",
-          //         "device_category": "力量",
-          //         "heart_rate": "60",
-          //         "result": 2,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546675049000",
-          //         "event_time": "1546684160000",
-          //         "device_category": "力量",
-          //         "heart_rate": "80",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546675169133",
-          //         "event_time": "1546683449000",
-          //         "device_category": "HIIT",
-          //         "heart_rate": "80",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546675289133",
-          //         "event_time": "1546683449000",
-          //         "device_category": "HIIT",
-          //         "heart_rate": "110",
-          //         "result": 2,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       },
-          //       {
-          //         "server_time": "1546675409133", 
- 		      //         "event_time": "1546683449000",
-          //         "device_category": "HIIT",
-          //         "heart_rate": "80",
-          //         "result": 0,
-          //         "device_name": "",
-          //         "extra": [],
-          //         "kc": 5.67
-          //       }]
-          //   }
-          // }
-          // data = data.data.categories_data
+
           var data = res.data.data
           console.log(data)
           that.setData({
@@ -566,11 +350,13 @@ Page({
             oll: data.user_name,
             scc: data.day_num
           })
+          us.gan = data.day_num
           data = data.items
           // console.log((data[data.length - 1].server_time - data[0].server_time) / 60000)
           that.setData({
             sctime: Math.ceil((data[data.length - 1].server_time - data[0].server_time)/60000)
           })
+          us.gana = Math.ceil((data[data.length - 1].server_time - data[0].server_time) / 60000)
           //运动曲线canvas
           const lcl = wx.createCanvasContext('ydqx')
           var ck = that.data.ck
@@ -775,6 +561,7 @@ Page({
             xbb: xcc/bigl*610 + 10,
             yqa: yqc/bigl*610 + 10
           })
+          us.ganb = Math.ceil(scccal)
           run_effects.push(runa)
           run_effects.push(runb)
           run_effects.push(runc)
@@ -913,6 +700,8 @@ Page({
           var bigb
           acc > bcc ? bigb=acc:bigb=bcc
           bigb>ccc?bigb=bigb:bigb=ccc
+          us.otup = otup
+          // console.log(otup)
           that.setData({
             otup: otup,
             acc: Math.ceil(acc/60000),
@@ -922,6 +711,9 @@ Page({
             abb: acc / bigb * 610 + 10,
             bbb: bcc / bigb * 610 + 10,
             cbb: ccc / bigb * 610 + 10
+          })
+          that.setData({
+            oloz: Math.floor(that.data.pcc / that.data.sctime *100)
           })
           for (var i = 0; i < data.length; i++) {
             lcl.beginPath()

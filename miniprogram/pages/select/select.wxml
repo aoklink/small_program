@@ -1,11 +1,11 @@
 <view class='op'>
   <view class='cb'>头像</view>
-  <view class='hbb'></view>
+  <view class='hbb' style='background:url({{head}}) no-repeat center;;background-size: 126rpx 126rpx;'></view>
 </view>
 <view class='sline'></view>
 <view class='oox'>
   <view class='bgh'>昵称</view>
-  <input class='ngn' value='小米' bindblur="njj"></input>
+  <input class='ngn' value='{{name}}' bindblur="njj"></input>
   <view class='rro'></view>
 </view>
 <view class='sline'></view>
@@ -72,3 +72,4 @@
   </view>
 </picker>
 <view class='sline'></view>
+<view class='save' bindtap='save'>保存</view>
