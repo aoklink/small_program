@@ -73,7 +73,8 @@ Page({
   },
   prod: function () {
     wx.navigateTo({
-      url: '../mydata/mydata',
+      // url: '../mydata/mydata',
+      url: '../yzy/yzy',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -151,7 +152,7 @@ Page({
           weight: res.data.data.weight,
           head_icon: res.data.data.head_icon,
           height: res.data.data.stature,
-          pkk: res.data.data.gender == '男' ? 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/boy.png' : 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/girl.png'
+          pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png'
         })
         us.sex = res.data.data.gender
         us.age =  res.data.data.age
@@ -162,20 +163,59 @@ Page({
         us.avatarUrl = res.data.data.head_icon
       }
     })
-    ,
-      wx.loadFontFace({
-        family: this.data.fontFamily,
-        source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
-        success(res) {
-          console.log(res.status)
-        },
-        fail: function (res) {
-          console.log(res.status)
-        },
-        complete: function (res) {
-          console.log(res.status)
+    wx.request({
+      url: 'https://ll.linkfeeling.cn/api/fitness/bracelet', // 仅为示例，并非真实的接口地址
+      method: 'POST',
+      data: {
+        uid: us.uid
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        if (res.data.data.bind_status == false) {
+          that.setData({
+            binp: '未绑定',
+            po: '手环暂未绑定',
+            pj: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/cell.png',
+            tita: '“ 请向服务人员索取领客手环，',
+            titb: '否则无法统计到您的运动数据哦~ ”',
+            ok: true,
+            pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
+          })
         }
-      });
+        if (res.data.data.bind_status == true) {
+          that.setData({
+            binp: '已绑定',
+            po: '手环绑定成功',
+            pj: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/cell.png',
+            tita: '“ 临走时请归还手环',
+            titb: '否则无法生成您的锻炼报告 ”',
+            ok: false,
+            pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
+          })
+        }
+        that.setData({
+          ofci: res.data.data.gym_name,
+          otu: res.data.data.bind_status
+        })
+      }
+    })
+    // ,
+    //   wx.loadFontFace({
+    //     family: this.data.fontFamily,
+    //     source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
+    //     success(res) {
+    //       console.log(res.status)
+    //     },
+    //     fail: function (res) {
+    //       console.log(res.status)
+    //     },
+    //     complete: function (res) {
+    //       console.log(res.status)
+    //     }
+    //   });
   },
 
   /**

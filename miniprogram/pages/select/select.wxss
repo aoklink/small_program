@@ -72,7 +72,7 @@
   right: 38rpx;
   width: 128rpx;
   height: 128rpx;
-  border-radius: 50%;
+  /* border-radius: 50%; */
   background: yellow;
 }
 .oox{

@@ -12,7 +12,7 @@
   <view class="ss" bindtap='gocellhuan'>
     <span class="sspl"></span>
     <view>我的手环</view>
-    <view><span>{{'未绑定'}}</span></view>
+    <view><span>{{binp}}</span></view>
     <view></view>
   </view>
   <view class='ssli'></view>

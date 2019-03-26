@@ -345,7 +345,7 @@ page{
   margin-left: 37rpx;
   height: 36rpx;
   display: inline-block;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/cal.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/cal.png) no-repeat center;
   background-size: 40rpx 40rpx;
 }
 
@@ -384,7 +384,7 @@ page{
   margin-left: 58rpx;
   height: 36rpx;
   display: inline-block;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/call.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/call.png) no-repeat center;
   background-size: 40rpx 40rpx;
 }
 .fsl view:nth-of-type(1){
@@ -422,7 +422,7 @@ page{
   margin-left: 37rpx;
   height: 36rpx;
   display: inline-block;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/time.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/time.png) no-repeat center;
   background-size: 40rpx 40rpx;
 }
 
@@ -467,37 +467,37 @@ page{
 .fws span:nth-of-type(1){
   width: 80rpx;
   height: 80rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/a.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/a.png) no-repeat center;
   background-size: 80rpx 80rpx;
 } 
 .fws span:nth-of-type(2){
   width: 80rpx;
   height: 80rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/f.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/f.png) no-repeat center;
   background-size: 80rpx 80rpx;
 }
 .fws span:nth-of-type(3){
   width: 80rpx;
   height: 80rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/e.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/e.png) no-repeat center;
   background-size: 80rpx 80rpx;
 }
 .fws span:nth-of-type(4){
   width: 80rpx;
   height: 80rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/b.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/b.png) no-repeat center;
   background-size: 80rpx 80rpx;
 }
 .fws span:nth-of-type(5){
   width: 80rpx;
   height: 80rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/c.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/c.png) no-repeat center;
   background-size: 80rpx 80rpx;
 }
 .fws span:nth-of-type(6){
   width: 80rpx;
   height: 80rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/d.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/d.png) no-repeat center;
   background-size: 80rpx 80rpx;
 }
 .flit{
@@ -540,7 +540,7 @@ page{
   height: 100%;
   float: left;
   margin-left: 40rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/location.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/location.png) no-repeat center;
   background-size: 32rpx 32rpx;
 }
 .fbottom{
@@ -622,7 +622,7 @@ page{
   top: 38%;
   height: 130rpx;
   width: 650rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/bg.png) center no-repeat;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/bg.png) center no-repeat;
   background-size: 650rpx 130rpx;
   left: 50%;
   transform: translateX(-50%);
@@ -982,7 +982,7 @@ page{
 }
 .uiuyy span{
   position: absolute;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/tt.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/tt.png) no-repeat center;
   background-size: 28rpx 28rpx;
   width: 28rpx;
   height: 28rpx;
@@ -1042,11 +1042,11 @@ page{
   line-height:318rpx;
 }
 .bbll{
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/bb.png) no-repeat center 34rpx;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/bb.png) no-repeat center 34rpx;
   background-size: 88rpx 88rpx;
 }
 .bbrr{
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/cc.png) no-repeat center 34rpx;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/cc.png) no-repeat center 34rpx;
   background-size: 88rpx 88rpx;
 }
 button{

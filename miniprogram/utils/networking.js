@@ -1,20 +1,22 @@
-
+var app = getApp()
+var us = getApp().globalData.userInfo
+var mmd = require('mmd.js');
 function gainData(count, pos, success, fail) {
   wx.request({
     url: "https://ll.linkfeeling.cn/api/fitness/list",//接口地址  
     method: 'POST',
     data: {
       "pos": pos,
-      "uid": 'e50c0b2cbea000118c7c2fb63d49d542',
-      "user_type": "trainee",
+      "uid": us.uid,
+      "user_type": us.ut,
       "request_time": Date.parse(new Date()),
-      "platform": "small_program",
-      "tk": "0be543b011c2c1247c80051a42449b46",
-      "network": "4G",
-      "product_id": "Linkfeeling",
-      "app_version": "001",
+      "platform": us.pt,
+      "tk": mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+      "network": us.nw,
+      "product_id": us.pi,
+      "app_version": us.av,
       "flag": 'true',
-      "count": '5'
+      "count": '10'
     },
     header: {
       'content-type': 'application/json'

@@ -21,7 +21,7 @@ page{
   position: absolute;
   left: 50%;
   transform: translateX(-50%);
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mydata/none.png) center no-repeat;
+  background: url(https://img.linkfeeling.cn/wx_small/mydata/none.png) center no-repeat;
 }
 .xbm{
   position: absolute;
@@ -48,7 +48,7 @@ page{
   display: inline-block;
   width: 40rpx;
   height: 34rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mydata/clock.png) center no-repeat;
+  background: url(https://img.linkfeeling.cn/wx_small/mydata/clock.png) center no-repeat;
   background-size: 24rpx 24rpx;
   position: absolute;
   left: 18rpx;

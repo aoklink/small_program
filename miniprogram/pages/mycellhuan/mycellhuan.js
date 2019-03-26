@@ -13,7 +13,7 @@ Page({
     url: '',
     pj: '',
     cellnum: 'ADC-23111',
-    shopname: '领客菲力健身房',
+    shopname: 'Linkfeeling',
     tita: '',
     titb: '',
     ok: 'true'

@@ -172,11 +172,91 @@ Page({
             pl: e.detail.userInfo.nickName
           })
           console.log(e.detail.userInfo)
+          // wx.request({
+          //   url: app.globalData.lp + 'user/login', // 仅为示例，并非真实的接口地址
+          //   method: 'POST',
+          //   data: {
+          //     wx_code: that.data.ppy,
+          //     user_type: us.ut,
+          //     request_time: us.rt,
+          //     platform: us.pt,
+          //     tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+          //     login_type: "wx",
+          //     network: us.nw,
+          //     product_id: us.pi,
+          //     app_version: us.av
+          //   },
+          //   header: {
+          //     'content-type': 'application/json' // 默认值
+          //   },
+          //   success(res) {
+          //     if (res.data.code == 103) {
+          //       wx.navigateTo({
+          //         url: '../cellnumber/cellnumber',
+          //         // url: '../information/information',
+          //         success: function (res) { },
+          //         fail: function (res) { },
+          //         complete: function (res) { },
+          //       })
+          //     } else if (res.data.code == 200) {
+          //       // wx.navigateTo({
+          //       //   url: '../link/link',
+          //       //   success: function (res) { },
+          //       //   fail: function (res) { },
+          //       //   complete: function (res) { },
+          //       // })
+          //       that.setData({
+          //         nono: true,
+
+          //       })
+          //       us.uid = res.data.data.uid
+          //       var uusso = res.data.data.uid
+          //       console.log(res.data.data.uid)
+          //       wx.request({
+          //         url: 'https://ll.linkfeeling.cn/api/fitness/summary', // 仅为示例，并非真实的接口地址
+          //         method: 'POST',
+          //         data: {
+          //           "uid": uusso,
+          //           "user_type": us.ut,
+          //           "request_time": Date.parse(new Date()),
+          //           "platform": us.pt,
+          //           "tk": mmd.hexMD5(us.pi + ":" + us.ut + ":" + Date.parse(new Date())),
+          //           "network": us.nw,
+          //           "product_id": us.pi,
+          //           "app_version": us.av
+          //         },
+          //         header: {
+          //           'content-type': 'application/json' // 默认值
+          //         },
+          //         success(res) {
+          //           if (res.data.code == 200) {
+          //             console.log(res.data.data.summary)
+          //             let vc = res.data.data.summary
+                      
+          //             // 本地数据
+          //             that.setData({
+          //               oka: false,
+          //               // smi: res.data.data.total_time,
+          //               // skc: res.data.data.total_kc
+          //               smi: Math.floor(res.data.data.total_time / 60000),
+          //               skc: res.data.data.total_kc
+          //             })
+          //           }
+          //           else {
+          //             console.log(res.data)
+          //           }
+          //         }
+
+
+          //       })
+          //     }
+          //   }
+          // })
           wx.request({
             url: app.globalData.lp + 'user/login', // 仅为示例，并非真实的接口地址
             method: 'POST',
             data: {
-              wx_code: that.data.ppy,
+              wx_code: that.data.hcc,
               user_type: us.ut,
               request_time: us.rt,
               platform: us.pt,
@@ -190,6 +270,8 @@ Page({
               'content-type': 'application/json' // 默认值
             },
             success(res) {
+              console.log(res.data)
+
               if (res.data.code == 103) {
                 wx.navigateTo({
                   url: '../cellnumber/cellnumber',
@@ -198,82 +280,140 @@ Page({
                   fail: function (res) { },
                   complete: function (res) { },
                 })
-              } else if (res.data.code == 200) {
-                // wx.navigateTo({
-                //   url: '../link/link',
-                //   success: function (res) { },
-                //   fail: function (res) { },
-                //   complete: function (res) { },
-                // })
+              }
+              else if (res.data.code == 200) {
+                console.log(res.data.data)
+                us.uid = res.data.data.uid
                 that.setData({
                   nono: true,
-
                 })
-                us.uid = res.data.uid
-                var uusso = res.data.uid
                 wx.request({
-                  url: 'https://ll.linkfeeling.cn/api/fitness/summary', // 仅为示例，并非真实的接口地址
+                  url: app.globalData.lp + 'platform/gym/info',
                   method: 'POST',
                   data: {
-                    "uid": uusso,
-                    "user_type": us.ut,
-                    "request_time": Date.parse(new Date()),
-                    "platform": us.pt,
-                    "tk": mmd.hexMD5(us.pi + ":" + us.ut + ":" + Date.parse(new Date())),
-                    "network": us.nw,
-                    "product_id": us.pi,
-                    "app_version": us.av
+                    uid: us.uid,
+                    user_type: us.ut,
+                    request_time: us.rt,
+                    platform: us.pt,
+                    tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+                    login_type: "wx",
+                    network: us.nw,
+                    product_id: us.pi,
+                    app_version: us.av,
+                    gym_name: '领客菲力概念店'
                   },
                   header: {
                     'content-type': 'application/json' // 默认值
                   },
                   success(res) {
+                    console.log(res)
                     if (res.data.code == 200) {
-                      console.log(res.data.data.summary)
-                      let vc = res.data.data.summary
-                      for (let i = 0; i < vc.length; i++) {
-                        console.log(vc[i])
-                        if (vc[i].name == '跑步机') {
-                          that.setData({
-                            pbj: Math.floor(vc[i].time / 60000),
-                            mrun: vc[i].kc,
-                          })
-                          console.log(that.data.pbj)
-                        }
-                        if (vc[i].name == '椭圆机') {
-                          that.setData({
-                            tyj: Math.floor(vc[i].time / 60000),
-                            myy: vc[i].kc,
-                          })
-                        }
-                        if (vc[i].name == '单车') {
-                          that.setData({
-                            dc: Math.floor(vc[i].time / 60000),
-                            mzy: vc[i].kc,
-                          })
-                        }
-                        if (vc[i].name == '力量训练') {
-                          that.setData({
-                            llxl: Math.floor(vc[i].time / 60000),
-                            mzp: vc[i].kc,
-                          })
-                        }
+                      // console.log(res.data.data)
+                      // console.log(typeof (res.data.data))
+                      // console.log(res.data.data.info)
+                      // console.log(typeof (res.data.data.info.display_img_urls))
+                      // console.log(res.data.data.info.display_img_urls)
+                      //
+                      var str1 = res.data.data.info.display_img_urls
+                      var arr1 = []
+                      var leng1
+                      leng1 = str1.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                      for (var i = 0; i < leng1.length; i++) {
+                        arr1.push(leng1[i].replace(/(^"*)|("*$)/g, ""))
                       }
-                      // 本地数据
+                      // console.log(arr1)
+                      us.shopcell = res.data.data.info.phone
+                      us.address = res.data.data.info.address
+                      us.shopname = res.data.data.info.name
+                      us.shoplogo = res.data.data.info.logo_url
                       that.setData({
-                        oka: false,
-                        // smi: res.data.data.total_time,
-                        // skc: res.data.data.total_kc
-                        smi: Math.floor(res.data.data.total_time / 60000),
-                        skc: res.data.data.total_kc
+                        shopadd: res.data.data.info.address,
+                        shopname: res.data.data.info.name,
+                        opqc: arr1.length,
+                        imgboxa: arr1,
+                        cell: res.data.data.info.phone
+                      })
+                      // console.log(that.data.imgboxa)
+                      // console.log(res.data.data.class)
+                      // console.log(res.data.data.class.length)
+                      var yby = []
+                      for (var i = 0; i < res.data.data.class.length; i++) {
+                        var str = res.data.data.class[i].img_urls
+                        var arr = []
+                        var leng
+                        leng = str.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                        for (var j = 0; j < leng.length; j++) {
+                          arr.push(leng[j].replace(/(^"*)|("*$)/g, ""))
+                        }
+                        // console.log(arr)
+                        res.data.data.class[i].lun = arr
+                        yby.push(arr[0])
+                        // console.log(yby)
+                      }
+                      // console.log(yby)
+                      for (var i = 0; i < res.data.data.class.length; i++) {
+                        res.data.data.class[i].popl = yby[i]
+                      }
+                      // console.log(res.data.data.class)
+                      us.aclun = res.data.data.class
+                      that.setData({
+                        act: res.data.data.class
+                      })
+                      if (that.data.act.length < 4) {
+                        that.setData({
+                          seeall: true
+                        })
+                      }
+                      //coach
+                      var yby = []
+                      for (var i = 0; i < res.data.data.coach.length; i++) {
+                        var str = res.data.data.coach[i].img_url
+                        var arr = []
+                        var leng
+                        leng = str.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                        for (var j = 0; j < leng.length; j++) {
+                          arr.push(leng[j].replace(/(^"*)|("*$)/g, ""))
+                        }
+                        // console.log(arr)
+                        yby.push(arr[0])
+                        // console.log(yby)
+                      }
+
+                      // console.log(res.data.data.coach[1].label)
+
+                      // console.log(res.data.data.coach)
+                      var opl = []
+                      for (var i = 0; i < res.data.data.coach.length; i++) {
+                        var str = res.data.data.coach[i].label
+                        var parr = str.split(' ');
+                        // console.log(parr)
+                        res.data.data.coach[i].lab = parr
+                      }
+                      for (var i = 0; i < res.data.data.coach.length; i++) {
+                        res.data.data.coach[i].popl = yby[i]
+                      }
+                      var yyb = []
+                      for (var i = res.data.data.coach.length - 1; i >= 0; i--) {
+                        yyb.push(res.data.data.coach[i])
+                      }
+                      // console.log(res.data.data.coach[1].lab[0])
+                      that.setData({
+                        opll: yyb
+                      })
+                      //健身房标签
+                      var opl = []
+
+                      var str = res.data.data.info.label
+                      var parr = str.split(' ');
+                      // console.log(parr)
+                      res.data.data.info.lab = parr
+
+
+                      that.setData({
+                        yb: parr
                       })
                     }
-                    else {
-                      console.log(res.data)
-                    }
                   }
-
-
                 })
               }
             }

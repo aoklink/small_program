@@ -12,7 +12,7 @@
         <view class='sr'>
           <view class='sru'>消耗热量</view>
           <view class='ybb'></view>
-          <view class='srd'>{{item.calorie}} <span class="srdd">千卡</span></view>
+          <view class='srd'>{{item.cal}} <span class="srdd">千卡</span></view>
         </view>
         <view class='ss'>查看</view>
       </view>
@@ -20,8 +20,8 @@
   </block> 
   <view class='boxb' wx:if='{{!spt}}'>
     <view class='xbt'></view>
-    <view class='xbm'>无运动记录</view>
-    <view class='xbb'>"你也太懒了吧，小心又胖~了"</view>
+    <view class='xbm'>您还没有运动记录</view>
+    <view class='xbb'>"你也太懒了吧，小心又胖了~"</view>
   </view>
   <view class="load_more" hidden="{{!loading}}">
     <view class="load_loading"></view>

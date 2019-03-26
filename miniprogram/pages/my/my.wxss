@@ -497,22 +497,21 @@ page{
 .ss view:nth-of-type(2) span{
   width: 120rpx;
   height: 40rpx;
-  right: 0rpx;
-  top: -47rpx;
   display: inline-block;
-  position: absolute;
+  float: left;
   font-size:24rpx;
   font-family:PingFangSC-Regular;
   font-weight:400;
   text-align: center;
   color: #fff;
+  line-height: 40rpx
 }
 .ss .sspl{
   display: inline-block;
   width: 60rpx;
   height: 100%;
   float: left;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/cell.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/my/cell.png) no-repeat center;
   background-size: 60rpx 60rpx;
 }
 .ssli{
@@ -556,7 +555,7 @@ page{
 .edit span:nth-of-type(1){
   width: 24rpx;
   margin-left: 28rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/pen.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/my/pen.png) no-repeat center;
   background-size: 24rpx 24rpx;
 }
 .edit span:nth-of-type(2){
@@ -571,7 +570,7 @@ page{
   float: right;
   width: 24rpx;
   margin-right: 48rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/r.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/my/r.png) no-repeat center;
   background-size: 14rpx 20rpx;
 }
 .line{
@@ -582,7 +581,7 @@ page{
 .rhb{
   width: 80rpx;
   height: 100%;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/r.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/my/r.png) no-repeat center;
   background-size: 14rpx 20rpx;
   display: inline-block;
   font-size:24rpx;
@@ -614,7 +613,7 @@ page{
   width: 60rpx;
   height: 100%;
   float: left;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/report.png) center no-repeat;
+  background: url(https://img.linkfeeling.cn/wx_small/my/report.png) center no-repeat;
   background-size: 60rpx 60rpx;
 }
 .ssb{
@@ -622,6 +621,6 @@ page{
   width: 60rpx;
   height: 100%;
   float: left;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/my/house.png) center no-repeat;
+  background: url(https://img.linkfeeling.cn/wx_small/my/house.png) center no-repeat;
   background-size: 60rpx 60rpx;
 }

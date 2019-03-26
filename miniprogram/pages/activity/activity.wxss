@@ -91,7 +91,7 @@ page{
   font-family:PingFangSC-Semibold;
   font-weight:600;
   color:rgba(39,42,56,1);
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/activity/open.png) no-repeat 40rpx center;
+  background: url(https://img.linkfeeling.cn/wx_small/activity/open.png) no-repeat 40rpx center;
   background-size: 40rpx 40rpx;
 }
 .uall{
@@ -111,11 +111,11 @@ page{
   display: inline-block;
   width: 36rpx;
   height: 36rpx;
-  background: url(https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/activity/clock.png) no-repeat center;
+  background: url(https://img.linkfeeling.cn/wx_small/activity/clock.png) no-repeat center;
   right: 58rpx;
   top: 40rpx;
   position: absolute;
-  background-size: 40rpx 40rpx;
+  background-size: 36rpx 36rpx;
 }
 .imgbg{
   display: none;

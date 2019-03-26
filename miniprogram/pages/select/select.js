@@ -991,7 +991,19 @@ Page({
           us.weight = bweight
           us.goal = bgoal
           us.nickName = bname
+          wx.showToast({
+            title: '保存成功',
+            icon: '',     //默认值是success,就算没有icon这个值，就算有其他值最终也显示success
+            duration: 2000,      //停留时间
+          })
+
           // us.avatarUrl = res.data.data.head_icon
+          // wx.navigateTo({
+          //   url: '../my/my',
+          //   success: function(res) {},
+          //   fail: function(res) {},
+          //   complete: function(res) {},
+          // })
         }
       }
     })
@@ -1066,29 +1078,77 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(us.goal)
-    var kjn
-    if(us.goal == '减脂'){
-      kjn = 0
-    }
-    if (us.goal == '局部塑形') {
-      kjn = 1
-    }
-    if (us.goal == '增肌') {
-      kjn = 2
-    }
-    if (us.goal == '保持健康') {
-      kjn = 3
-    }
-    this.setData({
-      head: us.avatarUrl,
-      name: us.nickName,
-      jh: us.sex == '男' ? 0 : 1,
-      index: us.age - 14,
-      pph: us.height - 120,
-      ppw: us.weight - 35,
-      kp: kjn
+    var that = this
+    wx.request({
+      url: 'https://ll.linkfeeling.cn/api/user/account_info',
+      method: 'POST',
+      data: {
+        uid: us.uid,
+        user_type: us.ut,
+        request_time: us.rt,
+        platform: us.pt,
+        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+        login_type: "wx",
+        network: us.nw,
+        product_id: us.pi,
+        app_version: us.av
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+        us.sex = res.data.data.gender
+        us.age = res.data.data.age
+        us.height = res.data.data.stature
+        us.weight = res.data.data.weight
+        us.goal = res.data.data.goal
+        us.nickName = res.data.data.name
+        us.head_icon = res.data.data.head_icon
+        that.setData({
+          sex: res.data.data.gender,
+          age: res.data.data.age,
+          name: res.data.data.name,
+          goal: res.data.data.goal,
+          weight: res.data.data.weight,
+          head_icon: res.data.data.head_icon,
+          height: res.data.data.stature,
+          pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png'
+        })
+        us.sex = res.data.data.gender
+        us.age = res.data.data.age
+        us.height = res.data.data.stature
+        us.weight = res.data.data.weight
+        us.goal = res.data.data.goal
+        us.nickName = res.data.data.name
+        us.avatarUrl = res.data.data.head_icon
+        console.log(us.goal)
+        var kjn
+        if (us.goal == '减脂') {
+          kjn = 0
+        }
+        if (us.goal == '局部塑形') {
+          kjn = 1
+        }
+        if (us.goal == '增肌') {
+          kjn = 2
+        }
+        if (us.goal == '保持健康') {
+          kjn = 3
+        }
+        console.log(us.age)
+        that.setData({
+          head: us.avatarUrl,
+          name: us.usname,
+          jh: us.sex == '男' ? 0 : 1,
+          index: us.age - 14,
+          pph: us.height - 120,
+          ppw: us.weight - 35,
+          kp: kjn
+        })
+      }
     })
+    
     // wx.loadFontFace({
     //   family: this.data.fontFamily,
     //   source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',

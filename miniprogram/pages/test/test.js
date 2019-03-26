@@ -3,17 +3,18 @@ var us = getApp().globalData.userInfo
 var mmd = require('../../utils/mmd.js');
 Page({
   data: {
-    sharebg: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/share/wg.png', // 分享底部背景图
+    sharebg: 'https://ll.linkfeeling.cn/wx/wg.png', // 分享底部背景图
     shareTitle: '哈哈哈男孩从小就没有地位，看来一万个心酸哈哈哈男孩从小就没有地位，看来一万个心酸', // 分享标题
-    shareCoverImg: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/share/bg.png', // 分享封面图
-    shareQrImg: 'http://qiniu.jnwtv.com/H520181210164146322557972.jpg', // 分享小程序二维码
+    shareCoverImg: 'https://ll.linkfeeling.cn/wx/bg.png', // 分享封面图
+    shareQrImg: 'https://ll.linkfeeling.cn/wx/linkfeeling_gh.jpg', // 分享小程序二维码
   
-    headImg: 'http://qiniu.jnwtv.com/H520181210164138180428653.jpg', //用户头像
+    headImg: '', //用户头像
     nickName: '打豆豆', // 昵称
 
     seeDate: '2018-12-04', //看视频日期
   },
   onLoad: function (options) {
+    console.log(111)
     this.setData({
       nickName : us.nickName,
       gan: us.gan,
@@ -28,7 +29,7 @@ Page({
     ctx.setFillStyle('#fff')
     ctx.fillRect(0, 0, 244, 434)
     ctx.draw()
-    
+    console.log(999)
     // 下载底部背景图
     wx.getImageInfo({
       src: that.data.sharebg,

@@ -123,7 +123,7 @@ Page({
     let that = this;
     that.setData({
       loading: true,  //把"上拉加载"的变量设为false，显示 
-      pos: that.data.pos + 5
+      pos: that.data.pos + 10
 
     })
     // 上拉获取更多数据
@@ -153,6 +153,7 @@ Page({
       }
       for (var i = 0; i < data.length; i++) {
         data[i].time = Math.floor(data[i].time / 60000)
+        data[i].cal = Math.ceil(data[i].calorie)
       }
       that.setData({
         yzydata: data

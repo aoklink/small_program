@@ -21,7 +21,7 @@
   <view hidden='{{bgbg}}'>
   <view class='uba' bindtap="gomy">
     <view class='tou' style='background:url({{olo}}) center no-repeat;background-size:78rpx 78rpx;'></view>
-    <view class='ruu'>{{'技术硬过皮卡丘亿亿亿亿二二'}}</view>
+    <view class='ruu'>{{pl}}</view>
     <view class='rdd'></view>
   </view>
   <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>

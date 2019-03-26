@@ -15,7 +15,7 @@ page{
   border-bottom: 42rpx solid #DEDEDE; 
 }
 .btn-box{
-  padding: 1060rpx 60rpx 0 60rpx;
+  padding: 1060rpx 60rpx 82rpx 60rpx;
 }
 button{
   width:600rpx;

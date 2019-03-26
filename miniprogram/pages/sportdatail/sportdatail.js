@@ -301,8 +301,22 @@ Page({
     wx.request({
       url: 'https://ll.linkfeeling.cn/api/fitness/detail',
       method: 'POST',
+      data: {
+        uid: us.uid,
+        // uid: "e50c0b2cbea000118c7c2fb63d49d542",
+        user_type: us.ut,
+        request_time: us.rt,
+        platform: us.pt,
+        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+        login_type: "wx",
+        network: us.nw,
+        product_id: us.pi,
+        app_version: us.av,
+        date_time: app.globalData.bindtime
+      },
       // data: {
-      //   uid: us.uid,
+      //   uid: 'e50c0b2cbea000118c7c2fb63d49d542',
+      //   date_time: "1552978917000",
       //   user_type: us.ut,
       //   request_time: us.rt,
       //   platform: us.pt,
@@ -312,18 +326,6 @@ Page({
       //   product_id: us.pi,
       //   app_version: us.av
       // },
-      data: {
-        uid: 'e50c0b2cbea000118c7c2fb63d49d542',
-        date_time: "1552978917000",
-        user_type: us.ut,
-        request_time: us.rt,
-        platform: us.pt,
-        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
-        login_type: "wx",
-        network: us.nw,
-        product_id: us.pi,
-        app_version: us.av
-      },
       header: {
         'content-type': 'application/json' // 默认值
       },

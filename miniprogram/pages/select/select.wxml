@@ -1,6 +1,6 @@
 <view class='op'>
   <view class='cb'>头像</view>
-  <view class='hbb' style='background:url({{head}}) no-repeat center;;background-size: 126rpx 126rpx;'></view>
+  <view class='hbb' style='background:url({{head}}) no-repeat center;background-size: 128rpx 128rpx;border-radius: 50%'></view>
 </view>
 <view class='sline'></view>
 <view class='oox'>

@@ -3,6 +3,6 @@
   "navigationBarBackgroundColor": "#fff",
   "navigationBarTextStyle": "black",
   "onReachBottomDistance": 50,
-  "navigationBarTitleText": "下拉刷新，上拉加载",
+  "navigationBarTitleText": "运动报告",
   "enablePullDownRefresh": true
 }
