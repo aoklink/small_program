@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 34,
+			"current": 36,
 			"list": [
 				{
 					"id": 0,
@@ -259,6 +259,20 @@
 					"id": 34,
 					"name": "yzy",
 					"pathName": "pages/yzy/yzy",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "index",
+					"pathName": "pages/index/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "font",
+					"pathName": "pages/font/font",
 					"query": "",
 					"scene": null
 				}

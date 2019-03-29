@@ -1,0 +1,31 @@
+.a{
+  height: 40rpx;
+  width: 100%;
+  font-size: 32rpx;
+  text-align: center;
+  color: red;
+  font-family: FTa;
+}
+.b{
+  height: 40rpx;
+  width: 100%;
+  font-size: 32rpx;
+  text-align: center;
+  color: blue;
+}
+.c{
+  height: 40rpx;
+  width: 100%;
+  font-size: 32rpx;
+  text-align: center;
+  color: blue;
+  font-family: FTb;
+}
+.d{
+  height: 40rpx;
+  width: 100%;
+  font-size: 32rpx;
+  text-align: center;
+  color: blue;
+  font-family: FTc;
+}

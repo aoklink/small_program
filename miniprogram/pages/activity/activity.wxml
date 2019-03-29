@@ -5,7 +5,7 @@
   </swiper>
   <view class='upl'>查看课程图片</view>
   <view class='utup'>
-    <view>{{'新手体验课1节，价值299元'}}</view>
+    <view>{{title}}</view>
     <!-- <view>{{'仅售18.88元，价值670元「预售」一对一泰拳私教，节假日通用'}}</view> -->
   </view>
   <view class='uact'>

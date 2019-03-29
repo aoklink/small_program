@@ -2,6 +2,5 @@
   "backgroundTextStyle": "light",
   "navigationBarBackgroundColor": "#272A38",
   "navigationBarTitleText": "运动详情",
-  "navigationBarTextStyle": "white",
-  "disableScroll": true
+  "navigationBarTextStyle": "white"
 }

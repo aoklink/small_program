@@ -147,7 +147,7 @@ Page({
         that.setData({
           sex: res.data.data.gender,
           age: res.data.data.age,
-          name: res.data.data.name,
+          name: decodeURIComponent(res.data.data.name),
           goal: res.data.data.goal,
           weight: res.data.data.weight,
           head_icon: res.data.data.head_icon,
@@ -159,7 +159,7 @@ Page({
         us.height =  res.data.data.stature
         us.weight = res.data.data.weight
         us.goal = res.data.data.goal
-        us.nickName = res.data.data.name
+        us.nickName = decodeURIComponent(res.data.data.name)
         us.avatarUrl = res.data.data.head_icon
       }
     })

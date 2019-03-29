@@ -52,7 +52,8 @@
     "pages/aa/aa",
     "pages/bb/bb",
     "pages/cc/cc",
-    "pages/imgtest/imgtest"
+    "pages/imgtest/imgtest",
+    "pages/font/font"
   ],
   "permission": {
     "scope.userLocation": {

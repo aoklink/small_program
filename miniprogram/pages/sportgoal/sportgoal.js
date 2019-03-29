@@ -47,6 +47,7 @@ Page({
     let that = this
     if (this.data.kk === false) {
       let tty = that.data.ww_co
+      var oname = encodeURIComponent(us.nickName)
       wx.request({
         url: app.globalData.lp +'user/register', // 仅为示例，并非真实的接口地址
         method: 'POST',
@@ -67,7 +68,7 @@ Page({
           situation: us.situation,
           goal: us.goal,
           wx_code: tty,
-          user_name: us.nickName,
+          user_name: oname,
           head_icon: us.avatarUrl
         },
         header: {
@@ -78,7 +79,7 @@ Page({
           if(res.data.code == 200){
             us.uid = res.data.uid      
             wx.reLaunch({
-              url: '../my/my',
+              url: '../home/home',
             })
             // wx.navigateTo({
             //   url: '../link/link',

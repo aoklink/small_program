@@ -417,7 +417,8 @@ Page({
     this.setData({
       pbox : us.aclun[us.inpp],
       plpr: us.aclun[us.inpp].price_info,
-      ptttp: us.aclun[us.inpp].content
+      ptttp: us.aclun[us.inpp].content,
+      title: us.aclun[us.inpp].title
     }),
       console.log(this.data.pbox)
     wx.loadFontFace({

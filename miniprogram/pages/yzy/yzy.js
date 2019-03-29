@@ -159,7 +159,7 @@ Page({
         yzydata: data
       })
       for (var i = 0; i < data.length; i++) {
-        that.data.ttbox.push(that.yzytime(new Date(parseInt(data[i].date_time))))
+        that.data.ttbox.push(that.yzytime(new Date(parseInt(data[i].bind_time))))
       }
       console.log(that.data.ttbox)
       that.setData({

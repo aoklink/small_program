@@ -1,19 +1,30 @@
-<view class='uiuyy' bindtap='oppo'>
-        <span></span>
-        <view class='uiu'>分享</view>
-      </view>
-<view class="swiper-cont container-fill"> 
-<view class='bbj' hidden='{{tot}}'>
-  <view class='bbnb'>
-    <button data-info='{{order}}'  open-type="share" hover-class='none' plain="true" class='bbll'>微信好友</button>
-    <view class='bbrr' bindtap='bttg'>生成图片</view>
+<view class='load' hidden='{{dodo}}'></view>
+<view class='sharebox' hidden='{{isok}}'>
+  <view class='yhbuu'>
+    <view class='share'>
+      <canvas canvas-id="shareCanvas" style="width:244px;height:434px"></canvas>
+    </view>
+    <view class='btn-box'>
+      <button class='butty' bindtap='downloadImg'>保存图片</button>
+    </view>
   </view>
-  <view class='bbnp' bindtap='kta'>取消</view>
 </view>
+<view class="swiper-cont container-fill" style='background:#272A38;' hidden='{{!dodo}}'> 
   <view class="scroll-fullpage" bindtouchstart="scrollTouchstart" bindtouchend="scrollTouchend" style="transform:translateY(-{{scrollindex*100}}%);margin-top: {{margintop}}px"> 
   <!-- 第一页 -->
     <view class="section section01 {{scrollindex==0?'active':''}}" style='background:#272A38'> 
       <view class='cont fbox'>
+        <view class='bbj' hidden='{{tot}}'>
+          <view class='bbnb'>
+            <button data-info='{{order}}'  open-type="share" hover-class='none' plain="true" class='bbll'>微信好友</button>
+            <view class='bbrr' bindtap='bttg'>生成图片</view>
+          </view>
+          <view class='bbnp' bindtap='kta'>取消</view>
+        </view>
+        <view class='uiuyy' bindtap='oppo' hidden='{{oyo}}'>
+          <span></span>
+          <view class='uiu'>分享</view>
+        </view>
         <view class='ftou' style='background:url({{olo}}) center no-repeat;background-size:112rpx 112rpx;'></view>
         <view class='fname'>{{oll}}</view>
         <view>
@@ -254,8 +265,8 @@
       </view>
     </view>
     <!-- 第六页 -->
-    <view class="section section06 {{scrollindex==5?'active':''}}" style='background:#1D232D'> 
+    <!-- <view class="section section07 {{scrollindex==6?'active':''}}" style='background:#fff'> 
       
-    </view>
+    </view> -->
   </view> 
 </view> 

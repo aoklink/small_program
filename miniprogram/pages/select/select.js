@@ -940,11 +940,11 @@ Page({
         name: '141'
       },
     ],
-    jh: 0,
-    kp: 0,
-    index: 10,
-    pph: 50,
-    ppw: 25,
+    jh: '',
+    kp: '',
+    index: '',
+    pph: '',
+    ppw: '',
     ok: false,
     kk: true,
     fontFamily: 'FT'
@@ -955,6 +955,7 @@ Page({
     bname = e.detail.value
   },
   save: function () {
+    var oname = encodeURIComponent(bname)
     wx.request({
       url: 'https://ll.linkfeeling.cn/api/user/update/info',
       method: 'POST',
@@ -968,7 +969,7 @@ Page({
         network: us.nw,
         product_id: us.pi,
         app_version: us.av,
-        user_name: bname,
+        user_name: oname,
         gender: bsex,
         age: bage,
         stature: bheight,
@@ -1098,29 +1099,29 @@ Page({
       },
       success(res) {
         console.log(res.data)
+        // us.sex = res.data.data.gender
+        // us.age = res.data.data.age
+        // us.height = res.data.data.stature
+        // us.weight = res.data.data.weight
+        // us.goal = res.data.data.goal
+        // us.nickName = res.data.data.name
+        // us.head_icon = res.data.data.head_icon
+        // that.setData({
+        //   sex: res.data.data.gender,
+        //   age: res.data.data.age,
+        //   name: res.data.data.name,
+        //   goal: res.data.data.goal,
+        //   weight: res.data.data.weight,
+        //   head_icon: res.data.data.head_icon,
+        //   height: res.data.data.stature,
+        //   pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png'
+        // })
         us.sex = res.data.data.gender
         us.age = res.data.data.age
         us.height = res.data.data.stature
         us.weight = res.data.data.weight
         us.goal = res.data.data.goal
-        us.nickName = res.data.data.name
-        us.head_icon = res.data.data.head_icon
-        that.setData({
-          sex: res.data.data.gender,
-          age: res.data.data.age,
-          name: res.data.data.name,
-          goal: res.data.data.goal,
-          weight: res.data.data.weight,
-          head_icon: res.data.data.head_icon,
-          height: res.data.data.stature,
-          pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png'
-        })
-        us.sex = res.data.data.gender
-        us.age = res.data.data.age
-        us.height = res.data.data.stature
-        us.weight = res.data.data.weight
-        us.goal = res.data.data.goal
-        us.nickName = res.data.data.name
+        us.nickName = decodeURIComponent(res.data.data.name)
         us.avatarUrl = res.data.data.head_icon
         console.log(us.goal)
         var kjn
@@ -1139,7 +1140,7 @@ Page({
         console.log(us.age)
         that.setData({
           head: us.avatarUrl,
-          name: us.usname,
+          name: us.nickName,
           jh: us.sex == '男' ? 0 : 1,
           index: us.age - 14,
           pph: us.height - 120,

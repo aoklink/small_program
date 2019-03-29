@@ -3,7 +3,7 @@
     <view class='box'  wx:if='{{spt}}'>
       <view class='ta'></view>
       <view class='tb' data-index='{{index}}'>{{ttbox[index]}}</view>
-      <view class='sb' bindtap='yzylb' data-yzy='{{item.date_time}}'>
+      <view class='sb' bindtap='yzylb' data-yzy='{{item.bind_time}}'>
         <view class='sl'>
           <view class='slu'>运动时长</view>
           <view class='yaa'></view>
