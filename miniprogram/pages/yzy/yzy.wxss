@@ -241,3 +241,18 @@ font-family: 'FT';
   font-size: 24rpx;
 
 }
+.new{
+  width:70rpx;
+  height:32rpx;
+  background:rgba(26,180,134,1);
+  border-radius:16rpx;
+  text-align: center;
+  line-height: 32rpx;
+  color: #fff;
+  font-size:20rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  position: absolute;
+  top: -12rpx;
+  right: -6rpx;
+}

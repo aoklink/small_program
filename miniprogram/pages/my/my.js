@@ -126,7 +126,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://ll.linkfeeling.cn/api/user/account_info',
+      url: 'https://ll.linkfeeling.cn/api/userdata/personal/info',
       method: 'POST',
       data: {
         uid: us.uid,
@@ -144,37 +144,7 @@ Page({
       },
       success(res) {
         console.log(res.data)
-        that.setData({
-          sex: res.data.data.gender,
-          age: res.data.data.age,
-          name: decodeURIComponent(res.data.data.name),
-          goal: res.data.data.goal,
-          weight: res.data.data.weight,
-          head_icon: res.data.data.head_icon,
-          height: res.data.data.stature,
-          pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png'
-        })
-        us.sex = res.data.data.gender
-        us.age =  res.data.data.age
-        us.height =  res.data.data.stature
-        us.weight = res.data.data.weight
-        us.goal = res.data.data.goal
-        us.nickName = decodeURIComponent(res.data.data.name)
-        us.avatarUrl = res.data.data.head_icon
-      }
-    })
-    wx.request({
-      url: 'https://ll.linkfeeling.cn/api/fitness/bracelet', // 仅为示例，并非真实的接口地址
-      method: 'POST',
-      data: {
-        uid: us.uid
-      },
-      header: {
-        'content-type': 'application/json' // 默认值
-      },
-      success(res) {
-        console.log(res.data)
-        if (res.data.data.bind_status == false) {
+        if (res.data.data.is_bind == false) {
           that.setData({
             binp: '未绑定',
             po: '手环暂未绑定',
@@ -185,7 +155,7 @@ Page({
             pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
           })
         }
-        if (res.data.data.bind_status == true) {
+        if (res.data.data.is_bind == true) {
           that.setData({
             binp: '已绑定',
             po: '手环绑定成功',
@@ -195,27 +165,30 @@ Page({
             ok: false,
             pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
           })
+          us.bracelet_id = res.data.data.bracelet_id
         }
         that.setData({
-          ofci: res.data.data.gym_name,
-          otu: res.data.data.bind_status
+          sex: res.data.data.gender,
+          age: res.data.data.age,
+          name: decodeURIComponent(res.data.data.user_name),
+          goal: res.data.data.goal,
+          weight: res.data.data.weight,
+          head_icon: res.data.data.head_icon,
+          height: res.data.data.stature,
+          pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png',
+          // ofci: res.data.data.gym_name,
+          otu: res.data.data.is_bind,
+          report_num: res.data.data.report_num
         })
+        us.sex = res.data.data.gender
+        us.age =  res.data.data.age
+        us.height =  res.data.data.stature
+        us.weight = res.data.data.weight
+        us.goal = res.data.data.goal
+        us.nickName = decodeURIComponent(res.data.data.name)
+        us.avatarUrl = res.data.data.head_icon
       }
     })
-    // ,
-    //   wx.loadFontFace({
-    //     family: this.data.fontFamily,
-    //     source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
-    //     success(res) {
-    //       console.log(res.status)
-    //     },
-    //     fail: function (res) {
-    //       console.log(res.status)
-    //     },
-    //     complete: function (res) {
-    //       console.log(res.status)
-    //     }
-    //   });
   },
 
   /**

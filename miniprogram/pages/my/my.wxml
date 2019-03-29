@@ -19,7 +19,7 @@
   <view class="ss" bindtap='prod'>
     <span class="ssa"></span>
     <view>运动报告</view>
-    <view class='ubu'><span>{{'2份未读'}}</span></view>
+    <view class='ubu'><span>{{report_num}}份未读</span></view>
     <view></view>
   </view>
   <view class='ssli'></view>

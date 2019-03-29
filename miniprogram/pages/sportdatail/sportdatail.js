@@ -295,6 +295,40 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     })  
+    let rpx
+    //获取屏幕宽度，获取自适应单位
+    wx.getSystemInfo({
+      success: function (res) {
+        rpx = res.windowWidth / 375;
+        console.log(res.windowWidth / 375)
+        that.setData({
+          ck: res.windowWidth / 375
+        })
+        console.log(rpx)
+      }
+    })
+    wx.request({
+      url: 'https://ll.linkfeeling.cn/api/fitness/sport_report/update',
+      method: 'POST',
+      data: {
+        uid: us.uid,
+        user_type: us.ut,
+        request_time: us.rt,
+        platform: us.pt,
+        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+        login_type: "wx",
+        network: us.nw,
+        product_id: us.pi,
+        app_version: us.av,
+        bind_time: app.globalData.bindtime
+      },
+      header: {
+        'content-type': 'application/json' // 默认值
+      },
+      success(res) {
+        console.log(res.data)
+      }
+    })
   },
   onReady: function() {
     var that = this
@@ -448,7 +482,7 @@ Page({
         lcl.beginPath()
         lcl.lineWidth = 0.5
         if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
-          lcl.strokeStyle = 'rgba(255,255,255,0)'
+          lcl.setStrokeStyle = 'rgba(255,255,255,0)'
           lcl.fillStyle = '#FFD450'
           var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
           linearGradient1.addColorStop(0, '#FFD450');
@@ -456,7 +490,7 @@ Page({
           lcl.fillStyle = linearGradient1;
         }
         if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
-          lcl.strokeStyle = 'rgba(255,255,255,0)'
+          lcl.setStrokeStyle = 'rgba(255,255,255,0)'
           lcl.fillStyle = '#398EFF'
           var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
           linearGradient1.addColorStop(0, '#398EFF');
@@ -464,7 +498,7 @@ Page({
           lcl.fillStyle = linearGradient1;
         }
         if (data[i].device_name == "hiit") {
-          lcl.strokeStyle = 'rgba(255,255,255,0)'
+          lcl.setStrokeStyle = 'rgba(255,255,255,0)'
           lcl.fillStyle = '#FF5E7F'
           var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
           linearGradient1.addColorStop(0, '#FF5E7F');
@@ -472,7 +506,7 @@ Page({
           lcl.fillStyle = linearGradient1;
         }
         if (data[i].device_name == "") {
-          lcl.strokeStyle = 'rgba(255,255,255,0)'
+          lcl.setStrokeStyle = 'rgba(255,255,255,0)'
           lcl.fillStyle = '#7E879C'
           var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
           linearGradient1.addColorStop(0, '#7E879C');
@@ -514,16 +548,16 @@ Page({
         lcl.beginPath()
         lcl.lineWidth = 1
         if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
-          lcl.strokeStyle = '#FFD450'
+          lcl.setStrokeStyle = '#FFD450'
         }
         if (data[i].device_name == "力量") {
-          lcl.strokeStyle = '#398EFF'
+          lcl.setStrokeStyle = '#398EFF'
         }
         if (data[i].device_name == "hiit") {
-          lcl.strokeStyle = '#FF5E7F'
+          lcl.setStrokeStyle = '#FF5E7F'
         }
         if (data[i].device_name == "") {
-          lcl.strokeStyle = '#7E879C'
+          lcl.setStrokeStyle = '#7E879C'
         }
 
         // lcl.lineWidth = 0.5
@@ -1031,18 +1065,6 @@ Page({
 
           console.log(res.data)
           if (res.data.code == 200) {
-            let rpx
-            //获取屏幕宽度，获取自适应单位
-            wx.getSystemInfo({
-              success: function (res) {
-                rpx = res.windowWidth / 375;
-                console.log(res.windowWidth / 375)
-                there.setData({
-                  ck: res.windowWidth / 375
-                })
-                console.log(rpx)
-              }
-            })
 
             var data = res.data.data
             console.log(data)
@@ -1087,15 +1109,6 @@ Page({
                 tuc.splice(5, 1, 1)
               }
             }
-            //分配图标
-            // var ytu = [
-            //   'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/a.png',
-            //   'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/f.png',
-            //   'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/d.png',
-            //   'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/b.png',
-            //   'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/e.png',
-            //   'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/sportdatail/c.png'
-            // ]
             for (var i = 0; i < tuc.length; i++) {
               if (tuc[i] > 0) {
                 tuc.splice(i, 1, there.data.ytu[i])
@@ -1113,96 +1126,365 @@ Page({
             // console.log(scccal)
             there.setData({
               scccal: Math.ceil(scccal),
-              dodo: true
+              dodo: true,
+              otup: otup,
             })
+            ////////////////////////////////////////////
+            //生成图片
+            var locolurl
+            wx.downloadFile({
+              url: us.avatarUrl,
+              success: res => {
+                // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
+                if (res.statusCode === 200) {
+                  console.log(res.tempFilePath)
+                  locolurl = res.tempFilePath//将下载下来的地址给data中的变量变量
+                  // 创建画布
+                  var ctx = wx.createCanvasContext('shareCanvas')
+                  // 白色背景
+                  ctx.beginPath()
+                  ctx.setFillStyle('#fff')
+                  ctx.fillRect(0, 0, 244, 434)
+                  // 下载底部背景图
+                  wx.getImageInfo({
+                    src: there.data.sharebg,
+                    success: (res1) => {
+                      ctx.drawImage(res1.path, 0, 319, 244, 115)
+
+                      // 下载顶部图
+                      // ctx.beginPath()
+                      wx.getImageInfo({
+                        src: there.data.shareCoverImg,
+                        success: (res2) => {
+                          ctx.drawImage(res2.path, 0, 0, 244, 319)
+
+                          // 下载二维码
+                          wx.getImageInfo({
+                            src: there.data.shareQrImg,
+                            success: (res3) => {
+                              let qrImgSize = 59
+                              ctx.drawImage(res3.path, 172, 359, qrImgSize, qrImgSize)
+                              ctx.stroke()
+                              // ctx.draw(true)
+
+                              // 用户昵称
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(12) // 文字字号：16px
+                              ctx.fillText(there.data.oll, 22, 70)
+                              // 打卡天数
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(12) // 文字字号：16px
+                              ctx.fillText(there.data.scc, 21, 200)
+                              //天字
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(10) // 文字字号：16px
+                              var lon = String(there.data.scc).length * 15 + 21
+                              ctx.fillText('天', lon, 200)
+                              //时长
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(12) // 文字字号：16px
+                              ctx.fillText(there.data.sctime, 21, 256)
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(10) // 文字字号：16px
+                              var lon = String(there.data.sctime).length * 10 + 21
+                              ctx.fillText('分钟', lon, 256)
+
+                              //热量
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(12) // 文字字号：16px
+                              ctx.fillText(there.data.scccal, 88, 256)
+                              ctx.setFillStyle('#fff')  // 文字颜色：黑色
+                              ctx.setFontSize(10) // 文字字号：16px
+                              var lon = String(there.data.scccal).length * 10 + 88
+                              ctx.fillText('千卡', lon, 256)
+
+                              ctx.arc(72, 35, 12, 0, Math.PI * 2, false)
+                              // console.log(there.data.otup)
+
+                              // 下载用户头像
+                              wx.getImageInfo({
+                                src: locolurl,
+                                success: (res4) => {
+                                  //先画圆形，制作圆形头像(圆心x，圆心y，半径r)
+                                  ctx.arc(32, 35, 12, 0, Math.PI * 2, false)
+                                  // ctx.clip()
+                                  console.log(99)
+                                  // 绘制头像图片
+                                  var headImgSize = 24
+                                  ctx.drawImage(res4.path, 20, 23, headImgSize, headImgSize)
+                                  var ppk
+
+                                  if (there.data.otup.length == 0) {
+                                    ctx.draw(true)
+                                    there.setData({
+                                      oyo: false,
+                                    })
+                                  }
+                                  if (there.data.otup.length == 1) {
+                                    ppk = (20 + 27 * 0)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[0],
+                                      success: (res6) => {
+                                        ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                        ctx.draw(true)
+                                        there.setData({
+                                          oyo: false,
+                                        })
+                                      }
+                                    })
+                                  }
+                                  if (there.data.otup.length == 2) {
+                                    console.log(299)
+                                    ppk = (20 + 27 * 0)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[0],
+                                      success: (res6) => {
+                                        ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                        ppk = (20 + 27 * 1)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[1],
+                                          success: (res7) => {
+                                            ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                            ctx.draw(true)
+                                            there.setData({
+                                              oyo: false,
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                  if (there.data.otup.length == 3) {
+                                    console.log(399)
+                                    ppk = (20 + 27 * 0)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[0],
+                                      success: (res6) => {
+                                        ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                        ppk = (20 + 27 * 1)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[1],
+                                          success: (res7) => {
+                                            ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                            ppk = (20 + 27 * 2)
+                                            wx.getImageInfo({
+                                              src: there.data.otup[2],
+                                              success: (res8) => {
+                                                ctx.drawImage(res8.path, ppk, 275, 20, 20)
+                                                ctx.draw(true)
+                                                there.setData({
+                                                  oyo: false,
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                  if (there.data.otup.length == 4) {
+                                    console.log(499)
+                                    ppk = (20 + 27 * 0)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[0],
+                                      success: (res6) => {
+                                        ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                        ppk = (20 + 27 * 1)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[1],
+                                          success: (res7) => {
+                                            ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                            ppk = (20 + 27 * 2)
+                                            wx.getImageInfo({
+                                              src: there.data.otup[2],
+                                              success: (res8) => {
+                                                ctx.drawImage(res8.path, ppk, 275, 20, 20)
+                                                ppk = (20 + 27 * 3)
+                                                wx.getImageInfo({
+                                                  src: there.data.otup[3],
+                                                  success: (res9) => {
+                                                    ctx.drawImage(res9.path, ppk, 275, 20, 20)
+                                                    ctx.draw(true)
+                                                    there.setData({
+                                                      oyo: false,
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                  if (there.data.otup.length == 5) {
+                                    console.log(599)
+                                    ppk = (20 + 27 * 0)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[0],
+                                      success: (res6) => {
+                                        ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                        ppk = (20 + 27 * 1)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[1],
+                                          success: (res7) => {
+                                            ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                            ppk = (20 + 27 * 2)
+                                            wx.getImageInfo({
+                                              src: there.data.otup[2],
+                                              success: (res8) => {
+                                                ctx.drawImage(res8.path, ppk, 275, 20, 20)
+                                                ppk = (20 + 27 * 3)
+                                                wx.getImageInfo({
+                                                  src: there.data.otup[3],
+                                                  success: (res9) => {
+                                                    ctx.drawImage(res9.path, ppk, 275, 20, 20)
+                                                    ppk = (20 + 27 * 4)
+                                                    wx.getImageInfo({
+                                                      src: there.data.otup[4],
+                                                      success: (res10) => {
+                                                        ctx.drawImage(res10.path, ppk, 275, 20, 20)
+                                                        ctx.draw(true)
+                                                        there.setData({
+                                                          oyo: false,
+                                                        })
+                                                      }
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                  if (there.data.otup.length == 6) {
+                                    console.log(599)
+                                    ppk = (20 + 27 * 0)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[0],
+                                      success: (res6) => {
+                                        ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                        ppk = (20 + 27 * 1)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[1],
+                                          success: (res7) => {
+                                            ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                            ppk = (20 + 27 * 2)
+                                            wx.getImageInfo({
+                                              src: there.data.otup[2],
+                                              success: (res8) => {
+                                                ctx.drawImage(res8.path, ppk, 275, 20, 20)
+                                                ppk = (20 + 27 * 3)
+                                                wx.getImageInfo({
+                                                  src: there.data.otup[3],
+                                                  success: (res9) => {
+                                                    ctx.drawImage(res9.path, ppk, 275, 20, 20)
+                                                    ppk = (20 + 27 * 4)
+                                                    wx.getImageInfo({
+                                                      src: there.data.otup[4],
+                                                      success: (res10) => {
+                                                        ctx.drawImage(res10.path, ppk, 275, 20, 20)
+                                                        ppk = (20 + 27 * 5)
+                                                        wx.getImageInfo({
+                                                          src: there.data.otup[5],
+                                                          success: (res11) => {
+                                                            ctx.drawImage(res11.path, ppk, 275, 20, 20)
+                                                            ctx.draw(true)
+                                                            there.setData({
+                                                              oyo: false,
+                                                            })
+                                                          }
+                                                        })
+                                                      }
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                }
+                              })
+                            }
+                          })
+                        }
+                      })
+                    }
+                  })
+                }
+              }, fail: res => {
+                console.log(res);
+              }
+            })
+            //////////////////////////////////
             console.log("页面出现")
-            // us.ganb = Math.ceil(scccal)
-            //运动曲线canvas
-            const lcl = wx.createCanvasContext('ydqx')
-            var ck = there.data.ck
 
-            console.log(ck)
-            lcl.beginPath();
-            lcl.lineWidth = 0.5
-            // lcl.setStrokeStyle('blue');
-            // lcl.moveTo(233 * ck, 105 * ck)
-            // lcl.lineTo(305 * ck, 105 * ck)
-            var cfont = 10 * ck + "px Arial"
-            lcl.setFontSize(10)
-            lcl.setFillStyle("rgba(50, 69, 96, 1)")
-            lcl.fillText("200", 0 * ck, 10 * ck)
-            lcl.fillText("180", 0 * ck, 50 * ck)
-            lcl.fillText("160", 0 * ck, 90 * ck)
-            lcl.fillText("140", 0 * ck, 130 * ck)
-            lcl.fillText("120", 0 * ck, 170 * ck)
-            lcl.fillText("100", 0 * ck, 210 * ck)
-            lcl.fillText("80", 0 * ck, 250 * ck)
-            lcl.stroke();
-
-            lcl.beginPath();
-            lcl.lineWidth = 0.5
-            lcl.setFillStyle("rgba(111,121,136,1)")
-            lcl.fillText("峰值", 310 * ck, 10 * ck)
-            lcl.fillText("锻炼", 310 * ck, 23 * ck)
-            lcl.fillText("无氧", 310 * ck, 50 * ck)
-            lcl.fillText("锻炼", 310 * ck, 63 * ck)
-            lcl.fillText("有氧", 310 * ck, 90 * ck)
-            lcl.fillText("耐力", 310 * ck, 103 * ck)
-            lcl.fillText("脂肪", 310 * ck, 130 * ck)
-            lcl.fillText("燃烧", 310 * ck, 143 * ck)
-            lcl.fillText("动态", 310 * ck, 170 * ck)
-            lcl.fillText("热身", 310 * ck, 183 * ck)
-            lcl.fillText("激活", 310 * ck, 210 * ck)
-            lcl.fillText("放松", 310 * ck, 223 * ck)
-            lcl.stroke();
-
-            lcl.beginPath();
-            lcl.lineWidth = 0.5
-            lcl.setStrokeStyle('rgba(175,193,212,0.5)');
-            lcl.setLineDash([3 * ck, 3 * ck])
-            lcl.moveTo(26 * ck, 7 * ck);
-            lcl.lineTo(300 * ck, 7 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(26 * ck, 47 * ck);
-            lcl.lineTo(300 * ck, 47 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(26 * ck, 87 * ck);
-            lcl.lineTo(300 * ck, 87 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(26 * ck, 127 * ck);
-            lcl.lineTo(300 * ck, 127 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(26 * ck, 167 * ck);
-            lcl.lineTo(300 * ck, 167 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.setLineDash([3 * ck, 3 * ck])
-            lcl.moveTo(26 * ck, 207 * ck);
-            lcl.lineTo(300 * ck, 207 * ck);
-            lcl.stroke()
-
-            lcl.beginPath();
-            lcl.lineWidth = 0.5
-            lcl.setLineDash([0, 0])
-            lcl.moveTo(26 * ck, 7 * ck);
-            lcl.lineTo(26 * ck, 317 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(300 * ck, 7 * ck);
-            lcl.lineTo(300 * ck, 317 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(117 * ck, 7 * ck);
-            lcl.lineTo(117 * ck, 317 * ck);
-            lcl.stroke()
-            lcl.beginPath();
-            lcl.moveTo(208 * ck, 7 * ck);
-            lcl.lineTo(208 * ck, 317 * ck);
-            lcl.stroke()
+            console.log(data)
+            var llmax = 0
+            //10个最大力量值
+            var jjm = []
+            var sumjjm = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            for(var i=0;i<data.length;i++){
+              llmax < data[i].gravity ? llmax = data[i].gravity : llmax = llmax
+              if (data[i].gravity>0){
+                sumjjm.push(data[i].gravity)
+              }
+            } 
+            sumjjm.sort(function (a, b) {
+              return b - a
+            });
+            jjm = sumjjm.slice(0,9)
+            if(llmax>0){
+              there.setData({
+                fka: jjm[0] / llmax * 347 + 28,
+                fkb: jjm[1] / llmax * 347 + 28,
+                fkc: jjm[2] / llmax * 347 + 28,
+                fkd: jjm[3] / llmax * 347 + 28,
+                fke: jjm[4] / llmax * 347 + 28,
+                fkf: jjm[5] / llmax * 347 + 28,
+                fkg: jjm[6] / llmax * 347 + 28,
+                fkh: jjm[7] / llmax * 347 + 28,
+                fki: jjm[8] / llmax * 347 + 28,
+                fkj: jjm[9] / llmax * 347 + 28
+              })
+            }else{
+              there.setData({
+                fka: 28,
+                fkb: 28,
+                fkc: 28,
+                fkd: 28,
+                fke: 28,
+                fkf: 28,
+                fkg: 28,
+                fkh: 28,
+                fki: 28,
+                fkj: 28
+              })
+            }
+            //力量图标bce
+            var lltup = []
+            for (var i = 0;i<there.data.otup.length;i++){
+              if (there.data.otup[i] == 'https://ll.linkfeeling.cn/wx/c.png'){
+                lltup.push(there.data.otup[i])
+              }
+              if (there.data.otup[i] == 'https://ll.linkfeeling.cn/wx/b.png') {
+                lltup.push(there.data.otup[i])
+              }
+              if (there.data.otup[i] == 'https://ll.linkfeeling.cn/wx/e.png') {
+                lltup.push(there.data.otup[i])
+              } 
+            }
+            console.log(llmax)
+            there.setData({
+              llmax: llmax,
+              lltup: lltup,
+              kkkmid: llmax>0?Math.floor(parseFloat(llmax)*5)/10:''
+            })
 
             //canvas运动曲线分布图表
             // console.log(data)
@@ -1219,9 +1501,18 @@ Page({
             var buc = {}
             var ftime = data[0].server_time
             var etime = data[data.length - 1].server_time
+            
             try {
-              wx.setStorageSync(app.globalData.bindtime + 'ftime', ftime)
-              wx.setStorageSync(app.globalData.bindtime + 'etime', etime)
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ftime',
+                data: ftime
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'etime',
+                data: etime
+              })
+              // wx.setStorageSync(app.globalData.bindtime + 'ftime', ftime)
+              // wx.setStorageSync(app.globalData.bindtime + 'etime', etime)
             } catch (e) {
               console.log("缓存失败")
             }
@@ -1317,12 +1608,21 @@ Page({
             }
             var bigl = 0
             xcc > yqc ? bigl = xcc : bigl = yqc
-            there.setData({
-              xcc: Math.ceil(xcc),
-              yqc: Math.ceil(yqc),
-              xbb: xcc / bigl * 610 + 10,
-              yqa: yqc / bigl * 610 + 10
-            })
+            if (bigl !== 0){
+              there.setData({
+                xcc: Math.ceil(xcc),
+                yqc: Math.ceil(yqc),
+                xbb: xcc / bigl * 610 + 10,
+                yqa: yqc / bigl * 610 + 10
+              })
+            }else{
+              there.setData({
+                xcc: Math.ceil(xcc),
+                yqc: Math.ceil(yqc),
+                xbb: 10,
+                yqa: 10
+              })
+            }
             run_effects.push(runa)
             run_effects.push(runb)
             run_effects.push(runc)
@@ -1394,11 +1694,7 @@ Page({
             arrbox.push(buc)
             // console.log(arrbox)
             data = arrbox
-            try {
-              wx.setStorageSync(app.globalData.bindtime + 'data', data)
-            } catch (e) {
-              console.log("缓存失败")
-            }
+            
             // console.log(data)
 
             var acc = 0
@@ -1407,7 +1703,7 @@ Page({
             var xcc = 0
             var ycc = 0
 
-
+           
             for (var i = 0; i < data.length; i++) {
               ssuummdur = ssuummdur + data[i].duration
               //本次运动时长
@@ -1426,7 +1722,6 @@ Page({
             bigb > ccc ? bigb = bigb : bigb = ccc
 
             there.setData({
-              otup: otup,
               acc: Math.ceil(acc / 60000),
               bcc: Math.ceil(bcc / 60000),
               ccc: Math.ceil(ccc / 60000),
@@ -1438,11 +1733,108 @@ Page({
             there.setData({
               oloz: Math.floor(there.data.pcc / there.data.sctime * 100)
             })
+            
+            try {
+              wx.setStorage({
+                key: app.globalData.bindtime + 'data',
+                data: data
+              })
+              // wx.setStorageSync(app.globalData.bindtime + 'data', data)
+            } catch (e) {
+              console.log("缓存失败")
+            }
+            //运动曲线canvas
+            const lcl = wx.createCanvasContext('ydqx')
+            var ck = there.data.ck
+
+            console.log(ck)
+            lcl.beginPath();
+            lcl.lineWidth = 0.5
+            // lcl.setStrokeStyle('blue');
+            // lcl.moveTo(233 * ck, 105 * ck)
+            // lcl.lineTo(305 * ck, 105 * ck)
+            var cfont = 10 * ck + "px Arial"
+            lcl.setFontSize(10)
+            lcl.setFillStyle("rgba(50, 69, 96, 1)")
+            lcl.fillText("200", 0 * ck, 10 * ck)
+            lcl.fillText("180", 0 * ck, 50 * ck)
+            lcl.fillText("160", 0 * ck, 90 * ck)
+            lcl.fillText("140", 0 * ck, 130 * ck)
+            lcl.fillText("120", 0 * ck, 170 * ck)
+            lcl.fillText("100", 0 * ck, 210 * ck)
+            lcl.fillText("80", 0 * ck, 250 * ck)
+            lcl.stroke();
+
+            lcl.beginPath();
+            lcl.lineWidth = 0.5
+            lcl.setFillStyle("rgba(111,121,136,1)")
+            lcl.fillText("峰值", 310 * ck, 10 * ck)
+            lcl.fillText("锻炼", 310 * ck, 23 * ck)
+            lcl.fillText("无氧", 310 * ck, 50 * ck)
+            lcl.fillText("锻炼", 310 * ck, 63 * ck)
+            lcl.fillText("有氧", 310 * ck, 90 * ck)
+            lcl.fillText("耐力", 310 * ck, 103 * ck)
+            lcl.fillText("脂肪", 310 * ck, 130 * ck)
+            lcl.fillText("燃烧", 310 * ck, 143 * ck)
+            lcl.fillText("动态", 310 * ck, 170 * ck)
+            lcl.fillText("热身", 310 * ck, 183 * ck)
+            lcl.fillText("激活", 310 * ck, 210 * ck)
+            lcl.fillText("放松", 310 * ck, 223 * ck)
+            lcl.stroke();
+
+            lcl.beginPath();
+            lcl.lineWidth = 0.5
+            lcl.setStrokeStyle('rgba(175,193,212,0.5)');
+            lcl.setLineDash([3 * ck, 3 * ck])
+            lcl.moveTo(26 * ck, 7 * ck);
+            lcl.lineTo(300 * ck, 7 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(26 * ck, 47 * ck);
+            lcl.lineTo(300 * ck, 47 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(26 * ck, 87 * ck);
+            lcl.lineTo(300 * ck, 87 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(26 * ck, 127 * ck);
+            lcl.lineTo(300 * ck, 127 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(26 * ck, 167 * ck);
+            lcl.lineTo(300 * ck, 167 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.setLineDash([3 * ck, 3 * ck])
+            lcl.moveTo(26 * ck, 207 * ck);
+            lcl.lineTo(300 * ck, 207 * ck);
+            lcl.stroke()
+
+            lcl.beginPath();
+            lcl.lineWidth = 0.5
+            lcl.setLineDash([0, 0])
+            lcl.moveTo(26 * ck, 7 * ck);
+            lcl.lineTo(26 * ck, 317 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(300 * ck, 7 * ck);
+            lcl.lineTo(300 * ck, 317 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(117 * ck, 7 * ck);
+            lcl.lineTo(117 * ck, 317 * ck);
+            lcl.stroke()
+            lcl.beginPath();
+            lcl.moveTo(208 * ck, 7 * ck);
+            lcl.lineTo(208 * ck, 317 * ck);
+            lcl.stroke()
+
             for (var i = 0; i < data.length; i++) {
               lcl.beginPath()
               lcl.lineWidth = 0.5
               if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
-                lcl.strokeStyle = 'rgba(255,255,255,0)'
+                lcl.setStrokeStyle = 'rgba(255,255,255,0)'
                 lcl.fillStyle = '#FFD450'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
                 linearGradient1.addColorStop(0, '#FFD450');
@@ -1450,7 +1842,7 @@ Page({
                 lcl.fillStyle = linearGradient1;
               }
               if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
-                lcl.strokeStyle = 'rgba(255,255,255,0)'
+                lcl.setStrokeStyle = 'rgba(255,255,255,0)'
                 lcl.fillStyle = '#398EFF'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
                 linearGradient1.addColorStop(0, '#398EFF');
@@ -1458,7 +1850,7 @@ Page({
                 lcl.fillStyle = linearGradient1;
               }
               if (data[i].device_name == "hiit") {
-                lcl.strokeStyle = 'rgba(255,255,255,0)'
+                lcl.setStrokeStyle = 'rgba(255,255,255,0)'
                 lcl.fillStyle = '#FF5E7F'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
                 linearGradient1.addColorStop(0, '#FF5E7F');
@@ -1466,7 +1858,7 @@ Page({
                 lcl.fillStyle = linearGradient1;
               }
               if (data[i].device_name == "") {
-                lcl.strokeStyle = 'rgba(255,255,255,0)'
+                lcl.setStrokeStyle = 'rgba(255,255,255,0)'
                 lcl.fillStyle = '#7E879C'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
                 linearGradient1.addColorStop(0, '#7E879C');
@@ -1510,16 +1902,16 @@ Page({
               lcl.beginPath()
               lcl.lineWidth = 1
               if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
-                lcl.strokeStyle = '#FFD450'
+                lcl.setStrokeStyle = '#FFD450'
               }
               if (data[i].device_name == "力量") {
-                lcl.strokeStyle = '#398EFF'
+                lcl.setStrokeStyle = '#398EFF'
               }
               if (data[i].device_name == "hiit") {
-                lcl.strokeStyle = '#FF5E7F'
+                lcl.setStrokeStyle = '#FF5E7F'
               }
               if (data[i].device_name == "") {
-                lcl.strokeStyle = '#7E879C'
+                lcl.setStrokeStyle = '#7E879C'
               }
 
               // lcl.lineWidth = 0.5
@@ -1548,10 +1940,26 @@ Page({
             var kboc = there.getDd(new Date(parseInt(parseInt(ftime) + parseInt((etime - ftime) / 3 * 2))))
             var kbod = there.getDd(new Date(parseInt(etime)))
             try {
-              wx.setStorageSync(app.globalData.bindtime + 'kboa', kboa)
-              wx.setStorageSync(app.globalData.bindtime + 'kbob', kbob)
-              wx.setStorageSync(app.globalData.bindtime + 'kboc', kboc)
-              wx.setStorageSync(app.globalData.bindtime + 'kbod', kbod)
+              wx.setStorage({
+                key: app.globalData.bindtime + 'kboa',
+                data: kboa
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'kbob',
+                data: kbob
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'kboc',
+                data: kboc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'kbod',
+                data: kbod
+              })
+              // wx.setStorageSync(app.globalData.bindtime + 'kboa', kboa)
+              // wx.setStorageSync(app.globalData.bindtime + 'kbob', kbob)
+              // wx.setStorageSync(app.globalData.bindtime + 'kboc', kboc)
+              // wx.setStorageSync(app.globalData.bindtime + 'kbod', kbod)
             } catch (e) {
               console.log("缓存失败")
             }
@@ -1586,7 +1994,11 @@ Page({
             var ydgxbox
             ydgxbox = run_effects
             try {
-              wx.setStorageSync(app.globalData.bindtime + 'ydgxbox', ydgxbox)
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ydgxbox',
+                data: ydgxbox
+              })
+              // wx.setStorageSync(app.globalData.bindtime + 'ydgxbox', ydgxbox)
             } catch (e) {
               console.log("缓存失败")
             }
@@ -1632,11 +2044,31 @@ Page({
             x4 = -0.5 + (Math.floor((a1 + a2 + a3 + a4) / (a1 + a2 + a3 + a4 + a5 + a6) * 1000) / 1000) * 2;
             x5 = -0.5 + (Math.floor((a1 + a2 + a3 + a4 + a5) / (a1 + a2 + a3 + a4 + a5 + a6) * 1000) / 1000) * 2;
             try {
-              wx.setStorageSync(app.globalData.bindtime + 'x1', x1)
-              wx.setStorageSync(app.globalData.bindtime + 'x2', x2)
-              wx.setStorageSync(app.globalData.bindtime + 'x3', x3)
-              wx.setStorageSync(app.globalData.bindtime + 'x4', x4)
-              wx.setStorageSync(app.globalData.bindtime + 'x5', x5)
+              wx.setStorage({
+                key: app.globalData.bindtime + 'x1',
+                data: x1
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'x2',
+                data: x2
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'x3',
+                data: x3
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'x4',
+                data: x4
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'x5',
+                data: x5
+              })
+              // wx.setStorageSync(app.globalData.bindtime + 'x1', x1)
+              // wx.setStorageSync(app.globalData.bindtime + 'x2', x2)
+              // wx.setStorageSync(app.globalData.bindtime + 'x3', x3)
+              // wx.setStorageSync(app.globalData.bindtime + 'x4', x4)
+              // wx.setStorageSync(app.globalData.bindtime + 'x5', x5)
             } catch (e) {
               console.log("缓存失败")
             }
@@ -1752,345 +2184,182 @@ Page({
             yzy.fillText(suaax == 3 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[4] / opo * 100) - Math.floor(ydgxbox[1] / opo * 100) - Math.floor(ydgxbox[0] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[3] / opo * 100) + "%", 283 * ck, 98 * ck)
             yzy.fillText(suaax == 5 ? (100 - Math.floor(ydgxbox[2] / opo * 100) - Math.floor(ydgxbox[4] / opo * 100) - Math.floor(ydgxbox[1] / opo * 100) - Math.floor(ydgxbox[3] / opo * 100) - Math.floor(ydgxbox[5] / opo * 100)) + "%" : Math.floor(ydgxbox[5] / opo * 100) + "%", 283 * ck, 155 * ck)
             yzy.draw()
-            //生成图片
-            var locolurl
-            wx.downloadFile({
-              url: us.avatarUrl,
-              success: res => {
-                // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
-                // console.log(res)
-                if (res.statusCode === 200) {
-                  console.log(res.tempFilePath)
-                  locolurl = res.tempFilePath//将下载下来的地址给data中的变量变量
-                }
-                // console.log(90)
-                there.setData({
-                  headImg: locolurl
-                })
-              }, fail: res => {
-                console.log(res);
-              }
-            })
-            console.log(90)
-            // var that = this;
-            // 创建画布
-
-            var ctx = wx.createCanvasContext('shareCanvas')
-            // 白色背景
-            ctx.beginPath()
-            ctx.setFillStyle('#fff')
-            ctx.fillRect(0, 0, 244, 434)
-
-            // console.log(999)
-            // ctx.beginPath()
-            // 下载底部背景图
-            wx.getImageInfo({
-              src: there.data.sharebg,
-              success: (res1) => {
-                ctx.drawImage(res1.path, 0, 319, 244, 115)
-
-                // 下载顶部图
-                // ctx.beginPath()
-                wx.getImageInfo({
-                  src: there.data.shareCoverImg,
-                  success: (res2) => {
-                    ctx.drawImage(res2.path, 0, 0, 244, 319)
-
-                    // 下载二维码
-                    wx.getImageInfo({
-                      src: there.data.shareQrImg,
-                      success: (res3) => {
-                        let qrImgSize = 59
-                        ctx.drawImage(res3.path, 172, 359, qrImgSize, qrImgSize)
-                        ctx.stroke()
-                        // ctx.draw(true)
-
-                        // 用户昵称
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(12) // 文字字号：16px
-                        ctx.fillText(there.data.oll, 22, 70)
-                        // 打卡天数
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(12) // 文字字号：16px
-                        ctx.fillText(there.data.scc, 21, 200)
-                        //天字
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(10) // 文字字号：16px
-                        var lon = String(there.data.scc).length * 15 + 21
-                        ctx.fillText('天', lon, 200)
-                        //时长
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(12) // 文字字号：16px
-                        ctx.fillText(there.data.sctime, 21, 256)
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(10) // 文字字号：16px
-                        var lon = String(there.data.sctime).length * 10 + 21
-                        ctx.fillText('分钟', lon, 256)
-
-                        //热量
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(12) // 文字字号：16px
-                        ctx.fillText(there.data.scccal, 88, 256)
-                        ctx.setFillStyle('#fff')  // 文字颜色：黑色
-                        ctx.setFontSize(10) // 文字字号：16px
-                        var lon = String(there.data.scccal).length * 10 + 88
-                        ctx.fillText('千卡', lon, 256)
-
-                        ctx.arc(72, 35, 12, 0, Math.PI * 2, false)
-                        // console.log(there.data.otup)
-
-                        // 下载用户头像
-                        wx.getImageInfo({
-                          src: there.data.headImg,
-                          success: (res4) => {
-                            //先画圆形，制作圆形头像(圆心x，圆心y，半径r)
-                            ctx.arc(32, 35, 12, 0, Math.PI * 2, false)
-                            // ctx.clip()
-                            console.log(99)
-                            // 绘制头像图片
-                            let headImgSize = 24
-                            ctx.drawImage(res4.path, 20, 23, headImgSize, headImgSize)
-                            var ppk
-
-                            if (there.data.otup.length == 0) {
-                              ctx.draw(true)
-                              there.setData({
-                                oyo: false,
-                              })
-                            }
-                            if (there.data.otup.length == 1) {
-                              ppk = (20 + 27 * 0)
-                              wx.getImageInfo({
-                                src: there.data.otup[0],
-                                success: (res6) => {
-                                  ctx.drawImage(res6.path, ppk, 275, 20, 20)
-                                  ctx.draw(true)
-                                  there.setData({
-                                    oyo: false,
-                                  })
-                                }
-                              })
-                            }
-                            if (there.data.otup.length == 2) {
-                              console.log(299)
-                              ppk = (20 + 27 * 0)
-                              wx.getImageInfo({
-                                src: there.data.otup[0],
-                                success: (res6) => {
-                                  ctx.drawImage(res6.path, ppk, 275, 20, 20)
-                                  ppk = (20 + 27 * 1)
-                                  wx.getImageInfo({
-                                    src: there.data.otup[1],
-                                    success: (res7) => {
-                                      ctx.drawImage(res7.path, ppk, 275, 20, 20)
-                                      ctx.draw(true)
-                                      there.setData({
-                                        oyo: false,
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }
-                            if (there.data.otup.length == 3) {
-                              console.log(399)
-                              ppk = (20 + 27 * 0)
-                              wx.getImageInfo({
-                                src: there.data.otup[0],
-                                success: (res6) => {
-                                  ctx.drawImage(res6.path, ppk, 275, 20, 20)
-                                  ppk = (20 + 27 * 1)
-                                  wx.getImageInfo({
-                                    src: there.data.otup[1],
-                                    success: (res7) => {
-                                      ctx.drawImage(res7.path, ppk, 275, 20, 20)
-                                      ppk = (20 + 27 * 2)
-                                      wx.getImageInfo({
-                                        src: there.data.otup[2],
-                                        success: (res8) => {
-                                          ctx.drawImage(res8.path, ppk, 275, 20, 20)
-                                          ctx.draw(true)
-                                          there.setData({
-                                            oyo: false,
-                                          })
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }
-                            if (there.data.otup.length == 4) {
-                              console.log(499)
-                              ppk = (20 + 27 * 0)
-                              wx.getImageInfo({
-                                src: there.data.otup[0],
-                                success: (res6) => {
-                                  ctx.drawImage(res6.path, ppk, 275, 20, 20)
-                                  ppk = (20 + 27 * 1)
-                                  wx.getImageInfo({
-                                    src: there.data.otup[1],
-                                    success: (res7) => {
-                                      ctx.drawImage(res7.path, ppk, 275, 20, 20)
-                                      ppk = (20 + 27 * 2)
-                                      wx.getImageInfo({
-                                        src: there.data.otup[2],
-                                        success: (res8) => {
-                                          ctx.drawImage(res8.path, ppk, 275, 20, 20)
-                                          ppk = (20 + 27 * 3)
-                                          wx.getImageInfo({
-                                            src: there.data.otup[3],
-                                            success: (res9) => {
-                                              ctx.drawImage(res9.path, ppk, 275, 20, 20)
-                                              ctx.draw(true)
-                                              there.setData({
-                                                oyo: false,
-                                              })
-                                            }
-                                          })
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }
-                            if (there.data.otup.length == 5) {
-                              console.log(599)
-                              ppk = (20 + 27 * 0)
-                              wx.getImageInfo({
-                                src: there.data.otup[0],
-                                success: (res6) => {
-                                  ctx.drawImage(res6.path, ppk, 275, 20, 20)
-                                  ppk = (20 + 27 * 1)
-                                  wx.getImageInfo({
-                                    src: there.data.otup[1],
-                                    success: (res7) => {
-                                      ctx.drawImage(res7.path, ppk, 275, 20, 20)
-                                      ppk = (20 + 27 * 2)
-                                      wx.getImageInfo({
-                                        src: there.data.otup[2],
-                                        success: (res8) => {
-                                          ctx.drawImage(res8.path, ppk, 275, 20, 20)
-                                          ppk = (20 + 27 * 3)
-                                          wx.getImageInfo({
-                                            src: there.data.otup[3],
-                                            success: (res9) => {
-                                              ctx.drawImage(res9.path, ppk, 275, 20, 20)
-                                              ppk = (20 + 27 * 4)
-                                              wx.getImageInfo({
-                                                src: there.data.otup[4],
-                                                success: (res10) => {
-                                                  ctx.drawImage(res10.path, ppk, 275, 20, 20)
-                                                  ctx.draw(true)
-                                                  there.setData({
-                                                    oyo: false,
-                                                  })
-                                                }
-                                              })
-                                            }
-                                          })
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }
-                            if (there.data.otup.length == 6) {
-                              console.log(599)
-                              ppk = (20 + 27 * 0)
-                              wx.getImageInfo({
-                                src: there.data.otup[0],
-                                success: (res6) => {
-                                  ctx.drawImage(res6.path, ppk, 275, 20, 20)
-                                  ppk = (20 + 27 * 1)
-                                  wx.getImageInfo({
-                                    src: there.data.otup[1],
-                                    success: (res7) => {
-                                      ctx.drawImage(res7.path, ppk, 275, 20, 20)
-                                      ppk = (20 + 27 * 2)
-                                      wx.getImageInfo({
-                                        src: there.data.otup[2],
-                                        success: (res8) => {
-                                          ctx.drawImage(res8.path, ppk, 275, 20, 20)
-                                          ppk = (20 + 27 * 3)
-                                          wx.getImageInfo({
-                                            src: there.data.otup[3],
-                                            success: (res9) => {
-                                              ctx.drawImage(res9.path, ppk, 275, 20, 20)
-                                              ppk = (20 + 27 * 4)
-                                              wx.getImageInfo({
-                                                src: there.data.otup[4],
-                                                success: (res10) => {
-                                                  ctx.drawImage(res10.path, ppk, 275, 20, 20)
-                                                  ppk = (20 + 27 * 5)
-                                                  wx.getImageInfo({
-                                                    src: there.data.otup[5],
-                                                    success: (res11) => {
-                                                      ctx.drawImage(res11.path, ppk, 275, 20, 20)
-                                                      ctx.draw(true)
-                                                      there.setData({
-                                                        oyo: false,
-                                                      })
-                                                    }
-                                                  })
-                                                }
-                                              })
-                                            }
-                                          })
-                                        }
-                                      })
-                                    }
-                                  })
-                                }
-                              })
-                            }
-                          }
-                        })
-                      }
-                    })
-                  }
-                })
-              }
-            })
+            
+            
             try {
-              wx.setStorageSync(app.globalData.bindtime + 'scccal', there.data.scccal)
-              wx.setStorageSync(app.globalData.bindtime + 'scc', there.data.scc)
-              wx.setStorageSync(app.globalData.bindtime + 'sctime', there.data.sctime)
-              wx.setStorageSync(app.globalData.bindtime + 'olo', there.data.olo)
-              wx.setStorageSync(app.globalData.bindtime + 'oll', there.data.oll)
-              wx.setStorageSync(app.globalData.bindtime + 'pcc', there.data.pcc)
-              wx.setStorageSync(app.globalData.bindtime + 'otup', there.data.otup)
-              wx.setStorageSync(app.globalData.bindtime + 'acc', there.data.acc)
-              wx.setStorageSync(app.globalData.bindtime + 'abb', there.data.abb)
-              wx.setStorageSync(app.globalData.bindtime + 'ccc', there.data.ccc)
-              wx.setStorageSync(app.globalData.bindtime + 'bbb', there.data.bbb)
-              wx.setStorageSync(app.globalData.bindtime + 'bcc', there.data.bcc)
-              wx.setStorageSync(app.globalData.bindtime + 'cbb', there.data.cbb)
-              wx.setStorageSync(app.globalData.bindtime + 'xcc', there.data.xcc)
-              wx.setStorageSync(app.globalData.bindtime + 'xbb', there.data.xbb)
-              wx.setStorageSync(app.globalData.bindtime + 'yqc', there.data.yqc)
-              wx.setStorageSync(app.globalData.bindtime + 'yqa', there.data.yqa)
-              wx.setStorageSync(app.globalData.bindtime + 'oloz', there.data.oloz)
-              wx.setStorageSync(app.globalData.bindtime + 'pcp', there.data.pcp)
-              wx.setStorageSync(app.globalData.bindtime + 'kobb', there.data.kobb)
-              wx.setStorageSync(app.globalData.bindtime + 'yaa', there.data.yaa)
-              wx.setStorageSync(app.globalData.bindtime + 'yya', there.data.yya)
-              wx.setStorageSync(app.globalData.bindtime + 'yyb', there.data.yyb)
-              wx.setStorageSync(app.globalData.bindtime + 'ybb', there.data.ybb)
-              wx.setStorageSync(app.globalData.bindtime + 'ycc', there.data.ycc)
-              wx.setStorageSync(app.globalData.bindtime + 'yyc', there.data.yyc)
-              wx.setStorageSync(app.globalData.bindtime + 'ydd', there.data.ydd)
-              wx.setStorageSync(app.globalData.bindtime + 'yyd', there.data.yyd)
-              wx.setStorageSync(app.globalData.bindtime + 'yee', there.data.yee)
-              wx.setStorageSync(app.globalData.bindtime + 'yye', there.data.yye)
-              wx.setStorageSync(app.globalData.bindtime + 'yff', there.data.yff)
-              wx.setStorageSync(app.globalData.bindtime + 'yyf', there.data.yyf)
-              wx.setStorageSync(app.globalData.bindtime + 'ck', there.data.ck)
-              there.setData({
-                oyo: false,
+              wx.setStorage({
+                key: app.globalData.bindtime + 'scccal',
+                data: there.data.scccal
               })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'scc',
+                data: there.data.scc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'sctime',
+                data: there.data.sctime
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'olo',
+                data: there.data.olo
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'oll',
+                data: there.data.oll
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'pcc',
+                data: there.data.pcc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'otup',
+                data: there.data.otup
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'acc',
+                data: there.data.acc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'abb',
+                data: there.data.abb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ccc',
+                data: there.data.ccc
+              })
+
+              wx.setStorage({
+                key: app.globalData.bindtime + 'bbb',
+                data: there.data.bbb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'bcc',
+                data: there.data.bcc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'cbb',
+                data: there.data.cbb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'xcc',
+                data: there.data.xcc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'xbb',
+                data: there.data.xbb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yqc',
+                data: there.data.yqc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yqa',
+                data: there.data.yqa
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'oloz',
+                data: there.data.oloz
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'pcp',
+                data: there.data.pcp
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'kobb',
+                data: there.data.kobb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yaa',
+                data: there.data.yaa
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yya',
+                data: there.data.yya
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yyb',
+                data: there.data.yyb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ybb',
+                data: there.data.ybb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yyb',
+                data: there.data.yyb
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ycc',
+                data: there.data.ycc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yyc',
+                data: there.data.yyc
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ydd',
+                data: there.data.ydd
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yyd',
+                data: there.data.yyd
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yee',
+                data: there.data.yee
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yye',
+                data: there.data.yye
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yff',
+                data: there.data.yff
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'yyf',
+                data: there.data.yyf
+              })
+              wx.setStorage({
+                key: app.globalData.bindtime + 'ck',
+                data: there.data.ck
+              })
+              // wx.setStorageSync(app.globalData.bindtime + 'scccal', there.data.scccal)
+              // wx.setStorageSync(app.globalData.bindtime + 'scc', there.data.scc)
+              // wx.setStorageSync(app.globalData.bindtime + 'sctime', there.data.sctime)
+              // wx.setStorageSync(app.globalData.bindtime + 'olo', there.data.olo)
+              // wx.setStorageSync(app.globalData.bindtime + 'oll', there.data.oll)
+              // wx.setStorageSync(app.globalData.bindtime + 'pcc', there.data.pcc)
+              // wx.setStorageSync(app.globalData.bindtime + 'otup', there.data.otup)
+              // wx.setStorageSync(app.globalData.bindtime + 'acc', there.data.acc)
+              // wx.setStorageSync(app.globalData.bindtime + 'abb', there.data.abb)
+              // wx.setStorageSync(app.globalData.bindtime + 'ccc', there.data.ccc)
+              // wx.setStorageSync(app.globalData.bindtime + 'bbb', there.data.bbb)
+              // wx.setStorageSync(app.globalData.bindtime + 'bcc', there.data.bcc)
+              // wx.setStorageSync(app.globalData.bindtime + 'cbb', there.data.cbb)
+              // wx.setStorageSync(app.globalData.bindtime + 'xcc', there.data.xcc)
+              // wx.setStorageSync(app.globalData.bindtime + 'xbb', there.data.xbb)
+              // wx.setStorageSync(app.globalData.bindtime + 'yqc', there.data.yqc)
+              // wx.setStorageSync(app.globalData.bindtime + 'yqa', there.data.yqa)
+              // wx.setStorageSync(app.globalData.bindtime + 'oloz', there.data.oloz)
+              // wx.setStorageSync(app.globalData.bindtime + 'pcp', there.data.pcp)
+              // wx.setStorageSync(app.globalData.bindtime + 'kobb', there.data.kobb)
+              // wx.setStorageSync(app.globalData.bindtime + 'yaa', there.data.yaa)
+              // wx.setStorageSync(app.globalData.bindtime + 'yya', there.data.yya)
+              // wx.setStorageSync(app.globalData.bindtime + 'yyb', there.data.yyb)
+              // wx.setStorageSync(app.globalData.bindtime + 'ybb', there.data.ybb)
+              // wx.setStorageSync(app.globalData.bindtime + 'ycc', there.data.ycc)
+              // wx.setStorageSync(app.globalData.bindtime + 'yyc', there.data.yyc)
+              // wx.setStorageSync(app.globalData.bindtime + 'ydd', there.data.ydd)
+              // wx.setStorageSync(app.globalData.bindtime + 'yyd', there.data.yyd)
+              // wx.setStorageSync(app.globalData.bindtime + 'yee', there.data.yee)
+              // wx.setStorageSync(app.globalData.bindtime + 'yye', there.data.yye)
+              // wx.setStorageSync(app.globalData.bindtime + 'yff', there.data.yff)
+              // wx.setStorageSync(app.globalData.bindtime + 'yyf', there.data.yyf)
+              // wx.setStorageSync(app.globalData.bindtime + 'ck', there.data.ck)
+              // there.setData({
+              //   oyo: false,
+              // })
             } catch (e) {
               console.log("缓存失败")
             }

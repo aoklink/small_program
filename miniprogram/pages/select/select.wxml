@@ -1,4 +1,4 @@
-<view class='op'>
+<view class='op' bindtap='choose'>
   <view class='cb'>头像</view>
   <view class='hbb' style='background:url({{head}}) no-repeat center;background-size: 128rpx 128rpx;border-radius: 50%'></view>
 </view>

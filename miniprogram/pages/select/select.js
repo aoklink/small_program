@@ -1,6 +1,8 @@
 var app = getApp()
 var us = getApp().globalData.userInfo
-var mmd = require('../../utils/mmd.js');
+var mmd = require('../../utils/mmd.js')
+var uploadImage = require('../../utils/uploadFile.js');
+var util = require('../../utils/util.js');
 var bname
 var bsex
 var bage
@@ -947,15 +949,63 @@ Page({
     ppw: '',
     ok: false,
     kk: true,
-    fontFamily: 'FT'
+    fontFamily: 'FT',
+    bname: ''
   },
   njj: function(e) {
-    bname = us.nickName
     console.log(e.detail.value)
-    bname = e.detail.value
+    this.data.bname = e.detail.value
+  },
+  //选择照片
+  choose: function () {
+    var that = this
+    wx.chooseImage({
+      count: 9, // 默认最多一次选择9张图
+      sizeType: ['original', 'compressed'], // 可以指定是原图还是压缩图，默认二者都有
+      sourceType: ['album', 'camera'], // 可以指定来源是相册还是相机，默认二者都有
+      success: function (res) {
+        // 返回选定照片的本地文件路径列表，tempFilePath可以作为img标签的src属性显示图片
+        var tempFilePaths = res.tempFilePaths;
+        var nowTime = util.formatTime(new Date());
+
+        //支持多图上传
+        for (var i = 0; i < res.tempFilePaths.length; i++) {
+          //显示消息提示框
+          wx.showLoading({
+            title: '上传中' + (i + 1) + '/' + res.tempFilePaths.length,
+            mask: true
+          })
+
+          //上传图片
+          //你的域名下的/cbb文件下的/当前年月日文件下的/图片.png
+          //图片路径可自行修改
+          uploadImage(res.tempFilePaths[i], 'user/account/' + nowTime + '/',
+            function (result) {
+              console.log("======上传成功图片地址为：", result);
+              that.setData({
+                head: result
+              })
+              wx.hideLoading();
+            }, function (result) {
+              console.log("======上传失败======", result);
+              wx.showToast({
+                title: '上传失败',
+                icon: '',     //默认值是success,就算没有icon这个值，就算有其他值最终也显示success
+                duration: 2000,      //停留时间
+              })
+              wx.hideLoading()
+            }
+          )
+        }
+      }
+    })
   },
   save: function () {
-    var oname = encodeURIComponent(bname)
+    var that = this
+    console.log(that.data.bname)
+    console.log(encodeURIComponent(that.data.bname))
+    var oname = encodeURIComponent(that.data.bname)
+    console.log(oname)
     wx.request({
       url: 'https://ll.linkfeeling.cn/api/user/update/info',
       method: 'POST',
@@ -974,8 +1024,8 @@ Page({
         age: bage,
         stature: bheight,
         weight: bweight,
-        goal: bgoal
-        // head_icon: 
+        goal: bgoal,
+        head_icon: that.data.head
         
         
         
@@ -991,7 +1041,7 @@ Page({
           us.height = bheight
           us.weight = bweight
           us.goal = bgoal
-          us.nickName = bname
+          us.nickName = oname
           wx.showToast({
             title: '保存成功',
             icon: '',     //默认值是success,就算没有icon这个值，就算有其他值最终也显示success
@@ -1099,23 +1149,6 @@ Page({
       },
       success(res) {
         console.log(res.data)
-        // us.sex = res.data.data.gender
-        // us.age = res.data.data.age
-        // us.height = res.data.data.stature
-        // us.weight = res.data.data.weight
-        // us.goal = res.data.data.goal
-        // us.nickName = res.data.data.name
-        // us.head_icon = res.data.data.head_icon
-        // that.setData({
-        //   sex: res.data.data.gender,
-        //   age: res.data.data.age,
-        //   name: res.data.data.name,
-        //   goal: res.data.data.goal,
-        //   weight: res.data.data.weight,
-        //   head_icon: res.data.data.head_icon,
-        //   height: res.data.data.stature,
-        //   pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png'
-        // })
         us.sex = res.data.data.gender
         us.age = res.data.data.age
         us.height = res.data.data.stature
@@ -1141,6 +1174,7 @@ Page({
         that.setData({
           head: us.avatarUrl,
           name: us.nickName,
+          bname: us.nickName,
           jh: us.sex == '男' ? 0 : 1,
           index: us.age - 14,
           pph: us.height - 120,
@@ -1149,20 +1183,6 @@ Page({
         })
       }
     })
-    
-    // wx.loadFontFace({
-    //   family: this.data.fontFamily,
-    //   source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
-    //   success(res) {
-    //     console.log(res.status)
-    //   },
-    //   fail: function (res) {
-    //     console.log(res.status)
-    //   },
-    //   complete: function (res) {
-    //     console.log(res.status)
-    //   }
-    // });
   },
 
   /**

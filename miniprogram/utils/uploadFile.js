@@ -42,6 +42,9 @@ const uploadFile = function (filePath, dir, successc, failc) {
       'signature': signature,
       'success_action_status': '200',
     },
+    // header: {
+    //   'content-type': 'application/json' // 默认值
+    // },
     success: function (res) {
       if (res.statusCode != 200) {
         failc(new Error('上传错误:' + JSON.stringify(res)))
@@ -73,10 +76,12 @@ const getPolicyBase64 = function () {
 
 const getSignature = function (policyBase64) {
   const accesskey = env.AccessKeySecret;
+
   const bytes = Crypto.HMAC(Crypto.SHA1, policyBase64, accesskey, {
     asBytes: true
   });
   const signature = Crypto.util.bytesToBase64(bytes);
+
   return signature;
 }
 

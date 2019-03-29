@@ -12,7 +12,7 @@ Page({
     po: '',
     url: '',
     pj: '',
-    cellnum: 'ADC-23111',
+    cellnum: '',
     shopname: 'Linkfeeling',
     tita: '',
     titb: '',
@@ -24,19 +24,28 @@ Page({
    */
   onLoad: function (options) {
     var that = this
-     wx.request({
-       url: 'https://ll.linkfeeling.cn/api/fitness/bracelet', // 仅为示例，并非真实的接口地址
+    wx.request({
+      url: 'https://ll.linkfeeling.cn/api/userdata/personal/info',
       method: 'POST',
       data: {
-        uid: us.uid
+        uid: us.uid,
+        user_type: us.ut,
+        request_time: us.rt,
+        platform: us.pt,
+        tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+        login_type: "wx",
+        network: us.nw,
+        product_id: us.pi,
+        app_version: us.av
       },
       header: {
         'content-type': 'application/json' // 默认值
       },
       success(res) {
         console.log(res.data)
-        if (res.data.data.bind_status == false){
+        if (res.data.data.is_bind == false) {
           that.setData({
+            binp: '未绑定',
             po: '手环暂未绑定',
             pj: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/cell.png',
             tita: '“ 请向服务人员索取领客手环，',
@@ -45,20 +54,18 @@ Page({
             pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
           })
         }
-        if (res.data.data.bind_status == true) {
+        if (res.data.data.is_bind == true) {
           that.setData({
+            binp: '已绑定',
             po: '手环绑定成功',
             pj: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/cell.png',
             tita: '“ 临走时请归还手环',
             titb: '否则无法生成您的锻炼报告 ”',
             ok: false,
-            pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png'
+            pp: 'https://link-imgs.oss-cn-hangzhou.aliyuncs.com/wx_small/mycellhuan/warn.png',
+            cellnum: us.bracelet_id
           })
         }
-        that.setData({
-          ofci: res.data.data.gym_name,
-          otu: res.data.data.bind_status
-        })
       }
     })
   },

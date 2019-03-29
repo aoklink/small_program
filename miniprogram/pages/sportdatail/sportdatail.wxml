@@ -90,14 +90,14 @@
                   <view>HIIT</view>
                   <view><span>{{ccc}}</span> 分钟</view>
                 </view>
-                <view class='tldo tldoa' style='width:{{bbb}}rpx'></view>
+                <view class='tldo tldoa' style='width:{{cbb}}rpx'></view>
               </view>
               <view class='tldd'>
                 <view class='tlup'>
                   <view>力量</view>
                   <view><span>{{bcc}}</span> 分钟</view>
                 </view>
-                <view class='tldo tldob' style='width:{{cbb}}rpx'></view>
+                <view class='tldo tldob' style='width:{{bbb}}rpx'></view>
               </view>
             </view>
             <view class='tbottom'>向上滑动查看更多</view>
@@ -177,13 +177,9 @@
         <view class='tup'>
           <view class='tusb'>
             <view class='ttit'>力量训练</view>
-            <view class='tnum'>最大重量 <span> {{'235'}}</span>kg</view>
+            <view class='tnum'>最大重量 <span> {{llmax}}</span>kg</view>
             <view class='tlu'>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
+              <span wx:for="{{lltup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 80rpx 80rpx;"></span>
             </view>
           </view>
         </view>
@@ -196,11 +192,11 @@
             <view class='tdml'>动作最大重量</view>
             <view class='tdcc'>
               <view>
-                <span>{{100}}</span>
-                <span>{{50}}</span>  
+                <span>{{llmax>0?llmax:''}}</span>
+                <span>{{kkkmid}}</span>  
                 <span>{{0}}</span>
               </view>
-              <view bindtap='showa'><span class="tdna" wx:if="{{howa}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
+              <!-- <view bindtap='showa'><span class="tdna" wx:if="{{howa}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
               <view bindtap='showb'><span class="tdna" wx:if="{{howb}}"><span>{{'向上推胸'}}</span><span>{{102}}kg</span></span></view>
               <view bindtap='showc'><span class="tdna" wx:if="{{howc}}"><span>{{'向上推胸'}}</span><span>{{103}}kg</span></span></view>
               <view bindtap='showd'><span class="tdna" wx:if="{{howd}}"><span>{{'向上推胸'}}</span><span>{{104}}kg</span></span></view>
@@ -209,7 +205,17 @@
               <view bindtap='showg'><span class="tdna" wx:if="{{howg}}"><span>{{'向上推胸'}}</span><span>{{700}}kg</span></span></view>
               <view bindtap='showh'><span class="tdna tdnb" wx:if="{{howh}}"><span>{{'向上推胸'}}</span><span>{{800}}kg</span></span></view>
               <view bindtap='showi'><span class="tdna tdnb" wx:if="{{howi}}"><span>{{'向上推胸'}}</span><span>{{900}}kg</span></span></view>
-              <view bindtap='showj'><span class="tdna tdnb" wx:if="{{howj}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
+              <view bindtap='showj'><span class="tdna tdnb" wx:if="{{howj}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view> -->
+              <view style='height:{{fka}}rpx'><span class="tdna" wx:if="{{howa}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
+              <view style='height:{{fkb}}rpx'><span class="tdna" wx:if="{{howb}}"><span>{{'向上推胸'}}</span><span>{{102}}kg</span></span></view>
+              <view style='height:{{fkc}}rpx'><span class="tdna" wx:if="{{howc}}"><span>{{'向上推胸'}}</span><span>{{103}}kg</span></span></view>
+              <view style='height:{{fkd}}rpx'><span class="tdna" wx:if="{{howd}}"><span>{{'向上推胸'}}</span><span>{{104}}kg</span></span></view>
+              <view style='height:{{fke}}rpx'><span class="tdna" wx:if="{{howe}}"><span>{{'向上推胸'}}</span><span>{{500}}kg</span></span></view>
+              <view style='height:{{fkf}}rpx'><span class="tdna" wx:if="{{howf}}"><span>{{'向上推胸'}}</span><span>{{600}}kg</span></span></view>
+              <view style='height:{{fkg}}rpx'><span class="tdna" wx:if="{{howg}}"><span>{{'向上推胸'}}</span><span>{{700}}kg</span></span></view>
+              <view style='height:{{fkh}}rpx'><span class="tdna tdnb" wx:if="{{howh}}"><span>{{'向上推胸'}}</span><span>{{800}}kg</span></span></view>
+              <view style='height:{{fki}}rpx'><span class="tdna tdnb" wx:if="{{howi}}"><span>{{'向上推胸'}}</span><span>{{900}}kg</span></span></view>
+              <view style='height:{{fkj}}rpx'><span class="tdna tdnb" wx:if="{{howj}}"><span>{{'向上推胸'}}</span><span>{{100}}kg</span></span></view>
             </view>
             <view class='tbottom'>向上滑动查看更多</view>
           </view>

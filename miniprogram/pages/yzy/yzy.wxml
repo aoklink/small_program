@@ -15,6 +15,7 @@
           <view class='srd'>{{item.cal}} <span class="srdd">千卡</span></view>
         </view>
         <view class='ss'>查看</view>
+        <view class='new' hidden='{{item.is_read}}'>New</view>
       </view>
     </view>
   </block> 
