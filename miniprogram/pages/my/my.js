@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    report: false,
     nono: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     ppy: '',
@@ -178,7 +179,8 @@ Page({
           pkk: res.data.data.gender == '男' ? 'https://img.linkfeeling.cn/wx_small/my/boy.png' : 'https://img.linkfeeling.cn/wx_small/my/girl.png',
           // ofci: res.data.data.gym_name,
           otu: res.data.data.is_bind,
-          report_num: res.data.data.report_num
+          report_num: res.data.data.report_num,
+          // report: res.data.data.report_num == 0 ? 'fasle' : 'true'
         })
         us.sex = res.data.data.gender
         us.age =  res.data.data.age
@@ -202,7 +204,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad();
   },
 
   /**

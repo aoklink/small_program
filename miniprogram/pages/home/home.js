@@ -5,8 +5,6 @@ var us = getApp().globalData.userInfo
 
 //当前测试lp为link123
 
-
-
 //////////////////////
 Page({
 
@@ -14,6 +12,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pt: Math.random(),
     current: 2,
     // imgboxa: [],
     imgboxa: [],
@@ -166,6 +165,7 @@ Page({
       wx.getUserInfo({
         success: function (res) {
           console.log("授权成功")
+          wx.setStorageSync('userInfo', res.userInfo)
           console.log(res.userInfo.nickName)
           // if (res.userInfo.nickName.match(/\ud83c[\udf00-\udfff]|\ud83d[\udc00-\ude4f]|\ud83d[\ude80-\udeff]/g) != null) {
           //   res.userInfo.nickName = 'vip用户';
@@ -202,7 +202,7 @@ Page({
                 success(res) {
                   console.log(res.data)
 
-                  if (res.data.code == 103) {
+                  if (res.data.code == 103) {-
                     wx.navigateTo({
                       url: '../cellnumber/cellnumber',
                       // url: '../information/information',
@@ -438,6 +438,7 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
+              wx.setStorageSync('userInfo', res.userInfo)
               console.log("授权成功")
               console.log(res.userInfo.nickName)
               // if (res.userInfo.nickName.match(/\ud83c[\udf00-\udfff]|\ud83d[\udc00-\ude4f]|\ud83d[\ude80-\udeff]/g) != null) {
@@ -692,7 +693,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.onLoad()
   },
 
   /**

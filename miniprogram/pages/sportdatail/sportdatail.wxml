@@ -48,14 +48,9 @@
             <view><span>{{scccal}}</span>千卡</view>
           </view>
         </view>
-        <view class='fws'>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </view>
+        <view class='tlu'>
+              <span wx:for="{{otup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 80rpx 80rpx;"></span>
+            </view>
         <view class='fbottom'>向上滑动查看更多</view>
       </view>
     </view> 

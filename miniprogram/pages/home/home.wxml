@@ -27,7 +27,7 @@
   </view>
   <view class='uhub'>
   <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>
-    <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}"><image src='{{item}}'></image></swiper-item>
+    <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}"><image src='{{item}}?m={{pt}}'></image></swiper-item>
   </swiper>
   </view>
   <view class='upl'>
@@ -54,7 +54,7 @@
     <view class='uactit'>课程活动</view>
     <view class='{{seeall?"":"hblu"}}'>
       <view class='uacbox' wx:key="index" wx:for="{{act}}" bindtap="gopp" data-inpp='{{index}}'>
-        <view class='uactu' style='background: url("{{item.popl}}") no-repeat center;background-size: 160rpx 160rpx;'></view>
+        <view class='uactu' style='background: url("{{item.popl}}?m={{pt}}") no-repeat center;background-size: 160rpx 160rpx;'></view>
         <!-- <view class='uactu' style='background: yellow no-repeat center;background-size: 160rpx 160rpx;'></view> -->
         <view class='uacrr'>
           <view class='uacpro'>{{item.title}}</view>
@@ -75,7 +75,7 @@
   <view class='ucoach'>
     <view class='uconame'>教练</view>
     <swiper class='luncoa' display-multiple-items="2.5">
-      <swiper-item wx:key="index" wx:for="{{opll}}"><image src='{{item.popl}}'></image><view class='coaname'>{{item.name}}</view><view class='coabox'><span wx:for="{{item.lab}}" wx:for-item="items" wx:key="index">{{items}}</span></view></swiper-item> 
+      <swiper-item wx:key="index" wx:for="{{opll}}"><image src='{{item.popl}}?m={{pt}}'></image><view class='coaname'>{{item.name}}</view><view class='coabox'><span wx:for="{{item.lab}}" wx:for-item="items" wx:key="index">{{items}}</span></view></swiper-item> 
     </swiper>
   </view>
   </view>

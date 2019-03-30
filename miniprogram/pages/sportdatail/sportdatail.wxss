@@ -379,7 +379,7 @@ page{
   font-weight:500;
   margin: 26rpx 10rpx 0 auto;
   letter-spacing: 0;
-  font-size:96rpx;
+  font-size:72rpx;
   font-family:DINAlternate-Bold;
   color:rgba(255,255,255,1);
   line-height:96rpx;
@@ -417,7 +417,7 @@ page{
   font-weight:500;
   margin: 26rpx 10rpx 0 auto;
   letter-spacing: 0;
-  font-size:96rpx;
+  font-size:72rpx;
   font-family:DINAlternate-Bold;
   color:rgba(255,255,255,1);
   line-height:96rpx;
@@ -456,7 +456,7 @@ page{
   font-weight:500;
   margin: 26rpx 10rpx 0 auto;
   letter-spacing: 0;
-  font-size:96rpx;
+  font-size:72rpx;
   font-family:DINAlternate-Bold;
   color:rgba(255,255,255,1);
   line-height:96rpx;

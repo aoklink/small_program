@@ -593,8 +593,15 @@ page{
   width: 160rpx !important;
   background: #1AB486 !important;
 }
+.ubua{
+  background: #F6F6F6 !important;
+}
 .ubu span{
   width: 100% !important;
+}
+.ubua span{
+  width: 100% !important;
+  color: #F6F6F6 !important;
 }
 .botmm{
   height:28rpx;
