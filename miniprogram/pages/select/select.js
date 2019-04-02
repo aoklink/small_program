@@ -1025,10 +1025,7 @@ Page({
         stature: bheight,
         weight: bweight,
         goal: bgoal,
-        head_icon: that.data.head
-        
-        
-        
+        head_icon: that.data.head 
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -1047,14 +1044,18 @@ Page({
             icon: '',     //默认值是success,就算没有icon这个值，就算有其他值最终也显示success
             duration: 2000,      //停留时间
           })
-
-          // us.avatarUrl = res.data.data.head_icon
-          // wx.navigateTo({
-          //   url: '../my/my',
-          //   success: function(res) {},
-          //   fail: function(res) {},
-          //   complete: function(res) {},
-          // })
+        }else{
+          wx.showModal({
+            title: '提示',
+            content: '上传失败',
+            success(res) {
+              if (res.confirm) {
+                console.log('用户点击确定')
+              } else if (res.cancel) {
+                console.log('用户点击取消')
+              }
+            }
+          })
         }
       }
     })

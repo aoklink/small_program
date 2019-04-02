@@ -1,5 +1,6 @@
 var app = getApp();
 var mmd = require('../../utils/mmd.js');
+var user = require('../../utils/user.js');
 var us = getApp().globalData.userInfo
 //////////////////////
 
@@ -165,8 +166,22 @@ Page({
       wx.getUserInfo({
         success: function (res) {
           console.log("授权成功")
+          console.log(res.userInfo)
           wx.setStorageSync('userInfo', res.userInfo)
-          console.log(res.userInfo.nickName)
+          wx.setStorage({
+            key: 'userInfo',
+            data: res.userInfo
+          })
+          // wx.setStorageSync('username', res.userInfo.nickName)
+          // wx.setStorage({
+          //   key: 'username',
+          //   data: res.userInfo.nickName
+          // })
+          // console.log(user.name)
+          user.name = res.userInfo.nickName
+          user.head = res.userInfo.avatarUrl
+          console.log(user.name)
+          // console.log(res.userInfo.nickName)
           // if (res.userInfo.nickName.match(/\ud83c[\udf00-\udfff]|\ud83d[\udc00-\ude4f]|\ud83d[\ude80-\udeff]/g) != null) {
           //   res.userInfo.nickName = 'vip用户';
           // }
@@ -438,9 +453,18 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
+              console.log(res.userInfo)
               wx.setStorageSync('userInfo', res.userInfo)
+              wx.setStorage({
+                key: 'userInfo',
+                data: res.userInfo
+              })
               console.log("授权成功")
               console.log(res.userInfo.nickName)
+              console.log(user.name)
+              user.name = res.userInfo.nickName
+              user.head = res.userInfo.avatarUrl
+              console.log(user.name)
               // if (res.userInfo.nickName.match(/\ud83c[\udf00-\udfff]|\ud83d[\udc00-\ude4f]|\ud83d[\ude80-\udeff]/g) != null) {
               //   res.userInfo.nickName = 'vip用户';
               // }
@@ -674,19 +698,19 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-    wx.loadFontFace({
-      family: this.data.fontFamily,
-      source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
-      success(res) {
-        console.log(res.status)
-      },
-      fail: function (res) {
-        console.log(res.status)
-      },
-      complete: function (res) {
-        console.log(res.status)
-      }
-    });
+    // wx.loadFontFace({
+    //   family: this.data.fontFamily,
+    //   source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
+    //   success(res) {
+    //     console.log(res.status)
+    //   },
+    //   fail: function (res) {
+    //     console.log(res.status)
+    //   },
+    //   complete: function (res) {
+    //     console.log(res.status)
+    //   }
+    // });
   },
 
   /**

@@ -17,7 +17,9 @@
 <view wx:else>请升级微信版本</view>
 </view>
 <view class='nini' hidden='{{nono}}'></view>
-<view class='load' hidden='{{!yoyo}}'></view>
+<view class='load' hidden='{{!yoyo}}'> 
+  <image class='loadimg' src='https://img.linkfeeling.cn/wx_small/home/loading.gif?m={{pt}}'></image>
+</view>
 <view class='ubox' hidden='{{yoyo}}'>
   <view hidden='{{bgbg}}'>
   <view class='uba' bindtap="gomy">

@@ -24,10 +24,10 @@
     <view class='xbm'>您还没有运动记录</view>
     <view class='xbb'>"你也太懒了吧，小心又胖了~"</view>
   </view>
-  <view class="load_more" hidden="{{!loading}}">
+  <!-- <view class="load_more" hidden="{{!loading}}">
     <view class="load_loading"></view>
     <view class="load-tips">正在加载……</view>
   </view>
-  <view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view>
+  <view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view> -->
 
 </view>

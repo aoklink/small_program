@@ -71,7 +71,7 @@ Page({
    */
   onLoad: function (options) {
     //获取初始化数据 
-    this.gainLoadingListData()
+    // this.gainLoadingListData()
   },
 
   /**
@@ -85,7 +85,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.onLoad()
+    this.gainLoadingListData()
   },
 
   /**
@@ -141,6 +141,10 @@ Page({
    */
   gainLoadingListData: function () {
     let that = this;
+    that.setData({
+      yzydata: [],
+      ttbox: []
+    })
     let pos = that.data.pos;
     let userCode = that.data.userCode;
     var count
@@ -152,12 +156,15 @@ Page({
         })
       }
       for (var i = 0; i < data.length; i++) {
-        data[i].time = Math.floor(data[i].time / 60000)
+        data[i].time = Math.round(data[i].time / 60000)
         data[i].cal = Math.ceil(data[i].calorie)
       }
       that.setData({
-        yzydata: data
+        yzydata: data,
+        ttbox: []
       })
+      console.log(that.data.yzydata)
+      console.log(that.data.ttbox)
       for (var i = 0; i < data.length; i++) {
         that.data.ttbox.push(that.yzytime(new Date(parseInt(data[i].bind_time))))
       }
@@ -166,10 +173,10 @@ Page({
         ttbox: that.data.ttbox
       })
       wx.stopPullDownRefresh(); // 数据请求成功后，停止刷新
-      var yzydata = data;
-      that.setData({
-        yzydata: yzydata,
-      })
+      // var yzydata = data;
+      // that.setData({
+      //   yzydata: yzydata,
+      // })
     }, function (message) {
       console.log("message=", message)
     })
@@ -188,6 +195,23 @@ Page({
     networking.gainData(count, pos, function (data) {
       console.log(data)
       if (data.length != 0) { // 数组不为空
+        for (var i = 0; i < data.length; i++) {
+          data[i].time = Math.round(data[i].time / 60000)
+          data[i].cal = Math.ceil(data[i].calorie)
+        }
+        console.log(data)
+        var ttbox = that.data.ttbox
+        console.log(ttbox)
+        for (var i = 0; i < data.length; i++) {
+          ttbox.push(that.yzytime(new Date(parseInt(data[i].bind_time))))
+        }
+        console.log(ttbox)
+        that.setData({
+          ttbox: that.data.ttbox
+        })
+        // that.setData({
+        //   yzydata: data
+        // })
         var yzydata = that.data.yzydata.concat(data);
         for (var index in yzydata) {
           var date = new Date(yzydata[index].orderTime)
@@ -206,6 +230,7 @@ Page({
           var format = dateStr
           yzydata[index].orderTime = format;
         }
+        
         that.setData({
           yzydata: yzydata,
           loading: true,  //把"上拉加载"的变量设为false，显示 

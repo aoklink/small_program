@@ -1,6 +1,7 @@
 var app = getApp()
 var us = getApp().globalData.userInfo
 var mmd = require('../../utils/mmd.js');
+var user = require('../../utils/user.js');
 Page({
 
   /**
@@ -48,7 +49,7 @@ Page({
     if (this.data.kk === false) {
       let tty = that.data.ww_co
       const userInfo = wx.getStorageSync('userInfo')
-      var oname = encodeURIComponent(us.nickName || userInfo.nickName)
+      var oname = encodeURIComponent(us.nickName || userInfo.nickName || user.name)
       wx.request({
         url: app.globalData.lp +'user/register', // 仅为示例，并非真实的接口地址
         method: 'POST',
@@ -70,7 +71,7 @@ Page({
           goal: us.goal,
           wx_code: tty,
           user_name: oname,
-          head_icon: us.avatarUrl || userInfo.avatarUrl
+          head_icon: us.avatarUrl || userInfo.avatarUrl || user.head 
         },
         header: {
           'content-type': 'application/json' // 默认值

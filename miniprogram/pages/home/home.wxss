@@ -534,6 +534,16 @@ page{
   height: 100%;
   position: fixed;
   z-index: 99;
-  background: url(https://img.linkfeeling.cn/wx_small/home/loading.gif) no-repeat center;
-  background-size: 266rpx 200rpx;
+  background: #272A38;
+}
+.loadimg{
+  /* background: url(https://img.linkfeeling.cn/wx_small/home/loading.gif) no-repeat center;
+  background-size: 32rpx 32rpx; */
+  position: absolute;
+  width: 64rpx;
+  height: 64rpx;
+  top: 50%;
+  left: 50%;
+  transform:translate(-50%,-50%);
+  animation:rotating 1.2s linear infinite;
 }

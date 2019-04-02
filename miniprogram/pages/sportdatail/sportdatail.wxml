@@ -1,4 +1,6 @@
-<view class='load' hidden='{{dodo}}'></view>
+<view class='load' hidden='{{dodo}}'>
+  <image class='loadimg' src='https://img.linkfeeling.cn/wx_small/home/loading.gif?m={{pt}}'></image>
+</view>
 <view class='sharebox' hidden='{{isok}}'>
   <view class='yhbuu'>
     <view class='share'>
