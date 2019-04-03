@@ -1,1 +1,14 @@
-<web-view src=""></web-view>
+<view class='hbox'>
+  <view class='head'>
+    <view class='htou' style='background:url({{head}}) center no-repeat;background-size:68rpx 68rpx;'></view>
+    <view class='hname'>{{hname}}</view>
+    <view class='hadd'>{{haddress}}</view>
+    <view class='htit'>运动评分</view>
+    <view class='hscore'>{{hscore}}</view>
+  </view>
+  <view class='hlu'>
+    <span wx:for="{{otup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 56rpx 56rpx;"></span>
+  </view>
+</view>
+<view>
+</view>

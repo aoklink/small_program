@@ -1,4 +1,3 @@
-// pages/lulu/lulu.js
 Page({
 
   /**

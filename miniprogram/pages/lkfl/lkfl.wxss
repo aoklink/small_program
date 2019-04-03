@@ -1,1 +1,76 @@
-/* pages/lkfl/lkfl.wxss */
+.hbox{
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  background: pink;
+}
+.head{
+  height: 272rpx;
+  width: 650rpx;
+  box-sizing: border-box;
+  margin: 0 48rpx 0 52rpx;
+  position: relative;
+}
+.htou{
+  height: 68rpx;
+  width: 68rpx;
+  border-radius: 50%;
+  position: absolute;
+  top: 48rpx;
+}
+.hname{
+  height: 50rpx;
+  position: absolute;
+  top: 140rpx;
+  line-height: 50rpx;
+  font-size:36rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(39,42,56,1);
+}
+.hadd{
+  height:32rpx;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(147,148,155,1);
+  line-height:32rpx;
+  top: 204rpx;
+  position: absolute;
+  left: 32rpx;
+}
+.htit{
+  width:50rpx;
+  height:56rpx;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(39,42,56,1);
+  line-height:28rpx;
+  top: 72rpx;
+  right: 6rpx;
+  position: absolute;
+  text-align: right;
+}
+.hscore{
+  height:96rpx;
+  font-size:96rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(39,42,56,1);
+  line-height:116rpx;
+  position: absolute;
+  top: 176rpx;
+  right: 0;
+}
+.hlu{
+  height: 56rpx;
+  margin-left: 52rpx;
+}
+.hlu span{
+  width: 56rpx;
+  height: 56rpx;
+  float: left;
+  background-size: 56rpx 56rpx;
+  margin-right: 10rpx;
+  border-radius: 50%;
+}
