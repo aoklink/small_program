@@ -279,15 +279,15 @@ Page({
     var date = no;
     var seperator1 = "-";
     var seperator2 = ":";
-    var month = date.getMonth() + 1;
-    var strDate = date.getDate();
-    if(month >= 1 && month <= 9) {
-    month = "0" + month;
+    var hour = date.getHours()
+    var smin = date.getMinutes()
+    if (hour >= 1 && hour <= 9) {
+      hour = "0" + hour;
     }
-    if (strDate >= 0 && strDate <= 9) {
-      strDate = "0" + strDate;
+    if (smin >= 0 && smin <= 9) {
+      smin = "0" + smin;
     }
-    var currentdate = date.getHours() + seperator2 + date.getMinutes();
+    var currentdate = hour + seperator2 + smin;
     return currentdate;
   },
   onLoad: function() {

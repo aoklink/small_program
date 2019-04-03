@@ -54,15 +54,27 @@ Page({
     var seperator2 = ":";
     var month = date.getMonth() + 1;
     var strDate = date.getDate();
+    var shour = date.getHours()
+    var smin = date.getMinutes()
+    var ssec = date.getSeconds()
     if (month >= 1 && month <= 9) {
       month = "0" + month;
     }
     if (strDate >= 0 && strDate <= 9) {
       strDate = "0" + strDate;
     }
+    if (shour >= 0 && shour <= 9) {
+      shour = "0" + shour
+    }
+    if (smin >= 0 && smin <= 9) {
+      smin = "0" + smin
+    }
+    if (ssec >= 0 && ssec <= 9) {
+      ssec = "0" + ssec
+    }
     var currentdate = date.getFullYear() + seperator1 + month + seperator1 + strDate
-      + " " + date.getHours() + seperator2 + date.getMinutes()
-      + seperator2 + date.getSeconds();
+      + " " + shour + seperator2 + smin
+      + seperator2 + ssec;
     console.log(currentdate)
     return currentdate;
   },
