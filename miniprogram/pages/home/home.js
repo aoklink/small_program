@@ -165,8 +165,10 @@ Page({
       var that = this
       wx.getUserInfo({
         success: function (res) {
-          console.log("授权成功")
+          console.log("授权成功", res)
           console.log(res.userInfo)
+          var uee = res.encryptedData
+          var uvv = res.iv
           wx.setStorageSync('userInfo', res.userInfo)
           wx.setStorage({
             key: 'userInfo',
@@ -178,6 +180,8 @@ Page({
           //   data: res.userInfo.nickName
           // })
           // console.log(user.name)
+          user.uee = uee
+          user.uvv = uvv
           user.name = res.userInfo.nickName
           user.head = res.userInfo.avatarUrl
           console.log(user.name)
@@ -197,6 +201,9 @@ Page({
           wx.login({
             success: function (res) {
               console.log(res.code)
+              that.setData({
+                hcc: res.code
+              })
               wx.request({
                 url: app.globalData.lp + 'user/login', // 仅为示例，并非真实的接口地址
                 method: 'POST',
@@ -209,7 +216,9 @@ Page({
                   login_type: "wx",
                   network: us.nw,
                   product_id: us.pi,
-                  app_version: us.av
+                  app_version: us.av,
+                  wx_data: uee,
+                  wx_iv: uvv
                 },
                 header: {
                   'content-type': 'application/json' // 默认值
@@ -442,9 +451,9 @@ Page({
       //获取code
       success: function (res) {
         console.log(res)
-        that.setData({
-          hcc: res.code
-        })
+        // that.setData({
+        //   hcc: res.code
+        // })
       }
     }),
     // 查看是否授权
@@ -453,7 +462,9 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
-              console.log(res.userInfo)
+              console.log("手按",res)
+              var uee = res.encryptedData
+              var uvv = res.iv
               wx.setStorageSync('userInfo', res.userInfo)
               wx.setStorage({
                 key: 'userInfo',
@@ -462,6 +473,8 @@ Page({
               console.log("授权成功")
               console.log(res.userInfo.nickName)
               console.log(user.name)
+              user.uee = uee
+              user.uvv = uvv
               user.name = res.userInfo.nickName
               user.head = res.userInfo.avatarUrl
               console.log(user.name)
@@ -480,6 +493,9 @@ Page({
               wx.login({
                 success: function (res) {
                   console.log(res.code)
+                  that.setData({
+                    hcc: res.code
+                  })
                   wx.request({
                     url: app.globalData.lp + 'user/login', // 仅为示例，并非真实的接口地址
                     method: 'POST',
@@ -492,7 +508,9 @@ Page({
                       login_type: "wx",
                       network: us.nw,
                       product_id: us.pi,
-                      app_version: us.av
+                      app_version: us.av,
+                      wx_data: uee,
+                      wx_iv: uvv
                     },
                     header: {
                       'content-type': 'application/json' // 默认值

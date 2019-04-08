@@ -2,6 +2,7 @@ var app = getApp()
 var us = getApp().globalData.userInfo
 var mmd = require('../../utils/mmd.js');
 const doAuth = require('../../utils/doAuth.js')
+var user = require('../../utils/user.js');
 Page({
 
   /**
@@ -33,7 +34,8 @@ Page({
             'https://ll.linkfeeling.cn/wx/d.png',
             'https://ll.linkfeeling.cn/wx/b.png',
             'https://ll.linkfeeling.cn/wx/e.png',
-            'https://ll.linkfeeling.cn/wx/c.png'
+            'https://ll.linkfeeling.cn/wx/c.png',
+            'https://ll.linkfeeling.cn/wx/g.png'
           ]
   },
   scrollTouchstart: function (e) {
@@ -312,6 +314,7 @@ Page({
       method: 'POST',
       data: {
         uid: us.uid,
+        // uid: "7e44bc47069d2016144e175778a11359",
         user_type: us.ut,
         request_time: us.rt,
         platform: us.pt,
@@ -321,6 +324,7 @@ Page({
         product_id: us.pi,
         app_version: us.av,
         bind_time: app.globalData.bindtime
+        // bind_time: "1554726910001"
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -739,7 +743,7 @@ Page({
       //生成图片
       var locolurl
       wx.downloadFile({
-        url: us.avatarUrl,
+        url: user.head,
         success: res => {
           // 只要服务器有响应数据，就会把响应内容写入文件并进入 success 回调，业务需要自行判断是否下载到了想要的内容
           // console.log(res)
@@ -1030,6 +1034,62 @@ Page({
                           }
                         })
                       }
+                      if (there.data.otup.length == 7) {
+                        console.log(599)
+                        ppk = (20 + 27 * 0)
+                        wx.getImageInfo({
+                          src: there.data.otup[0],
+                          success: (res6) => {
+                            ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                            ppk = (20 + 27 * 1)
+                            wx.getImageInfo({
+                              src: there.data.otup[1],
+                              success: (res7) => {
+                                ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                ppk = (20 + 27 * 2)
+                                wx.getImageInfo({
+                                  src: there.data.otup[2],
+                                  success: (res8) => {
+                                    ctx.drawImage(res8.path, ppk, 275, 20, 20)
+                                    ppk = (20 + 27 * 3)
+                                    wx.getImageInfo({
+                                      src: there.data.otup[3],
+                                      success: (res9) => {
+                                        ctx.drawImage(res9.path, ppk, 275, 20, 20)
+                                        ppk = (20 + 27 * 4)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[4],
+                                          success: (res10) => {
+                                            ctx.drawImage(res10.path, ppk, 275, 20, 20)
+                                            ppk = (20 + 27 * 5)
+                                            wx.getImageInfo({
+                                              src: there.data.otup[5],
+                                              success: (res11) => {
+                                                ctx.drawImage(res11.path, ppk, 275, 20, 20)
+                                                ppk = (20 + 27 * 6)
+                                                wx.getImageInfo({
+                                                  src: there.data.otup[6],
+                                                  success: (res11) => {
+                                                    ctx.drawImage(res11.path, ppk, 275, 20, 20)
+                                                    ctx.draw(true)
+                                                    there.setData({
+                                                      oyo: false,
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                    })
+                                  }
+                                })
+                              }
+                            })
+                          }
+                        })
+                      }
                     }
                   })
                 }
@@ -1046,7 +1106,7 @@ Page({
         method: 'POST',
         data: {
           uid: us.uid,
-          // uid: "9c1b9a52f5d054de228dc8fc92fca5f8",
+          // uid: "7e44bc47069d2016144e175778a11359",
           user_type: us.ut,
           request_time: us.rt,
           platform: us.pt,
@@ -1056,7 +1116,7 @@ Page({
           product_id: us.pi,
           app_version: us.av,
           bind_time: app.globalData.bindtime
-          // bind_time: "1553844250094"
+          // bind_time: "1554726910001"
           // uid: us.uid,
         },
         header: {
@@ -1086,8 +1146,8 @@ Page({
                 })
 
                 var scccal = 0
-                //tuc【跑步机，椭圆机，单车，哑铃，杠铃，飞鸟】
-                var tuc = [0, 0, 0, 0, 0, 0]
+                //tuc【跑步机，椭圆机，单车，哑铃，杠铃，飞鸟, hiit】
+                var tuc = [0, 0, 0, 0, 0, 0, 0]
                 for (var i = 0; i < data.length - 1; i++) {
                   //总热量
                   scccal = scccal + parseFloat(data[i].calorie)
@@ -1110,6 +1170,9 @@ Page({
                   }
                   if (data[i].device_name.indexOf("飞鸟") > -1) {
                     tuc.splice(5, 1, 1)
+                  }
+                  if (data[i].device_name.indexOf("hiit") > -1 || data[i].device_name.indexOf("HIIT") > -1) {
+                    tuc.splice(6, 1, 1)
                   }
                 }
                 for (var i = 0; i < tuc.length; i++) {
@@ -2163,6 +2226,62 @@ Page({
                                                                 ctx.draw(true)
                                                                 there.setData({
                                                                   oyo: false,
+                                                                })
+                                                              }
+                                                            })
+                                                          }
+                                                        })
+                                                      }
+                                                    })
+                                                  }
+                                                })
+                                              }
+                                            })
+                                          }
+                                        })
+                                      }
+                                      if (there.data.otup.length == 7) {
+                                        console.log(599)
+                                        ppk = (20 + 27 * 0)
+                                        wx.getImageInfo({
+                                          src: there.data.otup[0],
+                                          success: (res6) => {
+                                            ctx.drawImage(res6.path, ppk, 275, 20, 20)
+                                            ppk = (20 + 27 * 1)
+                                            wx.getImageInfo({
+                                              src: there.data.otup[1],
+                                              success: (res7) => {
+                                                ctx.drawImage(res7.path, ppk, 275, 20, 20)
+                                                ppk = (20 + 27 * 2)
+                                                wx.getImageInfo({
+                                                  src: there.data.otup[2],
+                                                  success: (res8) => {
+                                                    ctx.drawImage(res8.path, ppk, 275, 20, 20)
+                                                    ppk = (20 + 27 * 3)
+                                                    wx.getImageInfo({
+                                                      src: there.data.otup[3],
+                                                      success: (res9) => {
+                                                        ctx.drawImage(res9.path, ppk, 275, 20, 20)
+                                                        ppk = (20 + 27 * 4)
+                                                        wx.getImageInfo({
+                                                          src: there.data.otup[4],
+                                                          success: (res10) => {
+                                                            ctx.drawImage(res10.path, ppk, 275, 20, 20)
+                                                            ppk = (20 + 27 * 5)
+                                                            wx.getImageInfo({
+                                                              src: there.data.otup[5],
+                                                              success: (res11) => {
+                                                                ctx.drawImage(res11.path, ppk, 275, 20, 20)
+                                                                ppk = (20 + 27 * 6)
+                                                                wx.getImageInfo({
+                                                                  src: there.data.otup[6],
+                                                                  success: (res11) => {
+                                                                    ctx.drawImage(res11.path, ppk, 275, 20, 20)
+                                                                    ctx.draw(true)
+                                                                    there.setData({
+                                                                      oyo: false,
+                                                                    })
+                                                                  }
                                                                 })
                                                               }
                                                             })

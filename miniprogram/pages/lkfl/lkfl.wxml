@@ -1,14 +1,106 @@
-<view class='hbox'>
-  <view class='head'>
-    <view class='htou' style='background:url({{head}}) center no-repeat;background-size:68rpx 68rpx;'></view>
-    <view class='hname'>{{hname}}</view>
-    <view class='hadd'>{{haddress}}</view>
-    <view class='htit'>运动评分</view>
-    <view class='hscore'>{{hscore}}</view>
+<page>  
+  <view class='hbox'>
+    <view class='hup'>
+      <view class='head'>
+        <view class='htou' style='background:url({{head}}) center no-repeat;background-size:68rpx 68rpx;'></view>
+        <view class='hname'>{{hname}}</view>
+        <view class='hadd'>{{haddress}}</view>
+        <view class='htit'>运动评分</view>
+        <view class='hscore'>{{hscore}}</view>
+      </view>
+      <view class='hlu'>
+        <span wx:for="{{otup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 56rpx 56rpx;"></span>
+      </view>
+    </view>
+    <view class='hdo'>  
+      <view class='hsas'><image src='https://img.linkfeeling.cn/wx_small/sportdatail/location.png'></image>您的本次运动相当于消耗了{{'一份全家桶'}}</view>
+      <view class='hseries'>
+        <view class='hstou'><image src='https://img.linkfeeling.cn/wx_small/sportdatail/location.png'></image></view>
+        <view class='hscall'>连续打卡</view>
+        <view class='hsnum'><span>{{12}}</span> 天</view>
+      </view>
+      <view class='hseries'>
+        <view class='hstou'><image src='https://img.linkfeeling.cn/wx_small/sportdatail/location.png'></image></view>
+        <view class='hscall'>运动总时长</view>
+        <view class='hsnuma'><span>{{212}}</span> 分钟</view>
+      </view>
+      <view class='hseries'>
+        <view class='hstou'><image src='https://img.linkfeeling.cn/wx_small/sportdatail/location.png'></image></view>
+        <view class='hscall'>消耗总热量</view>
+        <view class='hsnumb'><span>{{1200}}</span> 千卡</view>
+      </view>
+      <view class='hbottom'>
+        <view>{{27}}</view>
+        <view>{{'Mar.2019'}}</view>
+        <view>{{'脸蛋是天生的，身材可不是！'}}</view>
+        <view>上滑查看</view>
+      </view>
+    </view>
   </view>
-  <view class='hlu'>
-    <span wx:for="{{otup}}" wx:key="{{index}}" style="background: url({{item}}) center no-repeat;background-size: 56rpx 56rpx;"></span>
+  <view class='kbox'>
+    <view class='kcont'>
+      <view class='ktime'>本次运动时长</view>
+      <view class='ksumt'><span>{{104}}</span> 分钟</view>
+      <view class='klin'>
+        <view class='koy'>
+        <view class='koa'>跑步机</view>
+        <view class='kob'><span>{{66}}</span> 分钟</view>
+        </view>
+        <view class='koy'>
+          <view class='koa'>椭圆机</view>
+          <view class='kob'><span>{{33}}</span> 分钟</view>
+        </view>
+      </view>
+      <view class='kpro'>
+        <view>本周截止目前,</view>
+        <view>您本次运动时长超过此健身房 <span> {{60}}% </span> 健身者</view>
+      </view>
+      <view class='kboot'>
+        <view class='kleft'>
+          <canvas></canvas>
+        </view>
+        <view class='kright'>
+          <view class='kboa'>{{'跑步机'}}是你最喜欢的器械</view>
+          <view class='kbob'>累计已使用{{299}}分钟</view>
+          <view class='kboc'>历史运动时长占比</view>
+          <view class='kbod'>{{'跑步机'}}</view>
+          <view class='kboe'>{{25}}%</view>
+          <view class='kbof'></view>
+        </view>
+      </view>
+    </view>
   </view>
-</view>
-<view>
-</view>
+  <view class='kbox'>
+    <view class='kcont'>
+      <view class='ftime'>本次消耗热量</view>
+      <view class='ksumt'><span>{{104}}</span> kcal</view>
+      <view class='flin'>
+        <view class='koy'>
+        <view class='koa'>跑步机</view>
+        <view class='kob'><span>{{66}}</span> 分钟</view>
+        </view>
+        <view class='koy'>
+          <view class='koa'>椭圆机</view>
+          <view class='kob'><span>{{33}}</span> 分钟</view>
+        </view>
+      </view>
+      <view class='kpro'>
+        <view>本周截止目前,</view>
+        <view>您本次运动时长超过此健身房 <span> {{60}}% </span> 健身者</view>
+      </view>
+      <view class='kboot'>
+        <view class='kleft'>
+          <canvas></canvas>
+        </view>
+        <view class='kright'>
+          <view class='kboa'>{{'跑步机'}}是你最喜欢的器械</view>
+          <view class='kbob'>累计已使用{{299}}分钟</view>
+          <view class='kboc'>历史运动时长占比</view>
+          <view class='kbod'>{{'跑步机'}}</view>
+          <view class='kboe'>{{25}}%</view>
+          <view class='kbof'></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</page>

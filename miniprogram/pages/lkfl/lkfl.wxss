@@ -1,11 +1,16 @@
+page{
+  width: 100%;
+  height: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
 .hbox{
   width: 100%;
   height: 100%;
   box-sizing: border-box;
-  background: pink;
 }
 .head{
-  height: 272rpx;
+  height: 200rpx;
   width: 650rpx;
   box-sizing: border-box;
   margin: 0 48rpx 0 52rpx;
@@ -16,12 +21,12 @@
   width: 68rpx;
   border-radius: 50%;
   position: absolute;
-  top: 48rpx;
+  top: 0rpx;
 }
 .hname{
   height: 50rpx;
   position: absolute;
-  top: 140rpx;
+  top: 92rpx;
   line-height: 50rpx;
   font-size:36rpx;
   font-family:PingFangSC-Medium;
@@ -35,9 +40,12 @@
   font-weight:400;
   color:rgba(147,148,155,1);
   line-height:32rpx;
-  top: 204rpx;
+  top: 156rpx;
   position: absolute;
-  left: 32rpx;
+  left: 0rpx;
+  text-indent: 32rpx;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/location.png) no-repeat left center;
+  background-size: 24rpx 24rpx;
 }
 .htit{
   width:50rpx;
@@ -47,20 +55,21 @@
   font-weight:400;
   color:rgba(39,42,56,1);
   line-height:28rpx;
-  top: 72rpx;
+  top: 24rpx;
   right: 6rpx;
   position: absolute;
   text-align: right;
 }
 .hscore{
-  height:96rpx;
-  font-size:96rpx;
+  height:72rpx;
+  font-size:72rpx;
   font-family:DINEngschriftStd;
   color:rgba(39,42,56,1);
-  line-height:116rpx;
+  line-height:72rpx;
   position: absolute;
-  top: 176rpx;
+  top: 128rpx;
   right: 0;
+  font-weight: 100;
 }
 .hlu{
   height: 56rpx;
@@ -73,4 +82,339 @@
   background-size: 56rpx 56rpx;
   margin-right: 10rpx;
   border-radius: 50%;
+}
+.hup{
+  height: 38%;
+  width: 100%;
+  background: #fff;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.hdo{
+  height: 62%;
+  width: 100%;
+  background: #272A38;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+.hsas{
+  height: 120rpx;
+  width: 100%;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/bg.png) center no-repeat;
+  background-size: 100% 120rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(31,37,48,1);
+  line-height:120rpx;
+  text-indent: 90rpx;
+  position: relative;
+}
+.hsas image{
+  width: 23rpx;
+  height: 23rpx;
+  left: 52rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  position: absolute;
+}
+.hseries{
+  height: 72rpx;
+  width: 662rpx;
+  margin-left: 48rpx;
+  box-sizing: border-box;
+}
+.hstou{
+  width: 72rpx;
+  height: 72rpx;
+  background:rgba(255,212,80,1);
+  border-radius:16rpx;
+  position: relative;
+  float: left;
+}
+.hstou image{
+  width: 34rpx;
+  height: 34rpx;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.hscall{
+  margin-left: 28rpx;
+  float: left;
+  font-size:22rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(190,191,195,1);
+  line-height:72rpx;
+}
+.hsnum,.hsnuma,.hsnumb{
+  float: right;
+  color: #fff;
+  font-size:24rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  line-height:86rpx;
+}
+.hsnum span,.hsnuma span,.hsnumb span{
+  font-size: 48rpx;
+  line-height: 72rpx;
+  font-weight: 100;
+}
+.hbottom{
+  width: 658rpx;
+  height: 158rpx;
+  box-sizing: border-box;
+  margin-left: 52rpx;
+  position: relative;
+}
+.hbottom view:nth-of-type(1){
+  color: #fff;
+  position: absolute;
+  height: 36rpx;
+  font-size: 36rpx;
+  font-weight: 100;
+  line-height: 36rpx;
+}
+.hbottom view:nth-of-type(2){
+  color: #fff;
+  position: absolute;
+  height: 36rpx;
+  font-weight: 100;
+  font-size:24rpx;
+  font-family:DINEngschriftStd;
+  left: 46rpx;
+  line-height:28rpx;
+}
+.hbottom view:nth-of-type(3){
+  top: 64rpx;
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(147,148,155,1);
+  line-height:34rpx;
+  position: absolute;
+}
+.hbottom view:nth-of-type(4){
+  top: 38rpx;
+  right: 0;
+  height:60rpx;
+  font-size:20rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(147,148,155,1);
+  line-height:60rpx;
+  position: absolute;
+  width: 120rpx;
+  background:rgba(57,62,83,1);
+  border-radius:4rpx;
+  text-align: center;
+}
+.kbox{
+  width: 100%;
+  border-bottom: solid 16rpx rgba(246,246,246,1);
+}
+.kcont{
+  width: 680rpx;
+  margin-left: 36rpx;
+  height: 100%;
+}
+.ktime{
+  text-indent: 42rpx;
+  height: 40rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(29,35,45,1);
+  line-height:40rpx;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/location.png) left center no-repeat;
+  background-size: 34rpx 34rpx; 
+  margin-top: 60rpx;
+}
+.ftime{
+  text-indent: 42rpx;
+  height: 40rpx;
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(29,35,45,1);
+  line-height:40rpx;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/location.png) left center no-repeat;
+  background-size: 34rpx 34rpx; 
+  margin-top: 60rpx;
+}
+.ksumt span{
+  height: 56rpx;
+  font-size:56rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(29,35,45,1);
+  line-height:56rpx;
+  
+}
+.ksumt{
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(29,35,45,1);
+  line-height:34rpx;
+  text-indent: 30rpx;
+  margin: 60rpx auto 46rpx;
+}
+.koy{
+  height: 107rpx;
+  width: 100%;
+  line-height: 106rpx;
+  box-sizing: border-box;
+  border-top: 1rpx solid rgba(151,151,151,0.3);
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(29,35,45,1);
+  position: relative;
+}
+.koa{
+  text-indent: 32rpx;
+  float: left;
+}
+.kob{
+  position: absolute;
+  right: 26rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(29,35,45,1);
+}
+.kob span{
+  font-size:36rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(29,35,45,1);
+}
+.klin .koy:nth-of-type(1){
+  border: none;
+}
+.flin .koy:nth-of-type(1){
+  border: none;
+}
+.flin{
+  width:100%;
+  background:rgba(244,245,249,1);
+  border-radius:8rpx;
+}
+.kpro{
+  width: 680rpx;
+  height: 130rpx;
+  background: url(https://img.linkfeeling.cn/wx_small/sportdatail/bg.png) center no-repeat;
+  background-size: 680rpx 130rpx;
+  margin: 44rpx auto 80rpx;
+  text-indent: 52rpx;
+}
+.kpro view:nth-of-type(1){
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(31,37,48,1);
+  line-height:34rpx;
+  padding-top: 32rpx;
+}
+.kpro view:nth-of-type(2){
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(31,37,48,1);
+  line-height:34rpx;
+}
+.kpro view:nth-of-type(2) span{
+  font-size:36rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(30,37,47,1);
+}
+.kboot{
+  height: 356rpx;
+  width: 100%;
+  box-sizing: border-box;
+}
+.kleft{
+  float: left;
+  height: 100%;
+  width: 50%;
+  background: yellow;
+  box-sizing: border-box;
+}
+.kright{
+  float: left;
+  height: 100%;
+  width: 50%;
+  box-sizing: border-box;
+  position: relative;
+}
+.kboa{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(29,35,45,1);
+  line-height:34rpx;
+  position: absolute;
+  right: 24rpx;
+}
+.kbob{
+  height:34rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(29,35,45,1);
+  line-height:34rpx;
+  position: absolute;
+  right: 24rpx;
+  top: 35rpx;
+}
+.kboc{
+  height:34rpx;
+  position: absolute;
+  right: 44rpx;
+  top: 139rpx;
+  font-size:24rpx;
+  font-family:PingFangSC-Regular;
+  font-weight:400;
+  color:rgba(147,148,155,1);
+  line-height:34rpx;
+}
+.kbod{
+  position: absolute;
+  right: 160rpx;
+  height:40px;
+  font-size:28rpx;
+  font-family:PingFangSC-Medium;
+  font-weight:500;
+  color:rgba(31,37,48,1);
+  line-height:40rpx;
+  top: 186rpx;
+}
+.kboe{
+  font-weight:400;
+  position: absolute;
+  right: 14rpx;
+  height:56rpx;
+  font-size:56rpx;
+  font-family:DINEngschriftStd;
+  color:rgba(29,35,45,1);
+  line-height:56rpx;
+  top: 192rpx;
+}
+.kbof{
+  width: 12rpx;
+  height: 12rpx;
+  background: #5882EF;
+  border-radius: 50%;
+  top: 202rpx;
+  position: absolute;
+  right: 260rpx;
 }

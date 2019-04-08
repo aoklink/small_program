@@ -15,7 +15,7 @@ Page({
       kk: false
     })
     console.log(e.currentTarget.dataset.now)
-    us.situation = e.currentTarget.dataset.man
+    us.situation = e.currentTarget.dataset.now
   },
   yzb: function (e) {
     this.setData({
@@ -23,7 +23,7 @@ Page({
       kk: false
     })
     console.log(e.currentTarget.dataset.now)
-    us.situation = e.currentTarget.dataset.man
+    us.situation = e.currentTarget.dataset.now
   },
   yzc: function (e) {
     this.setData({
@@ -31,7 +31,7 @@ Page({
       kk: false
     })
     console.log(e.currentTarget.dataset.now)
-    us.situation = e.currentTarget.dataset.man
+    us.situation = e.currentTarget.dataset.now
   },
   yzy: function () {
     if (this.data.kk === false){

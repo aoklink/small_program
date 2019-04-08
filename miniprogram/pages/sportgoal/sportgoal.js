@@ -71,7 +71,9 @@ Page({
           goal: us.goal,
           wx_code: tty,
           user_name: oname,
-          head_icon: us.avatarUrl || userInfo.avatarUrl || user.head 
+          head_icon: us.avatarUrl || userInfo.avatarUrl || user.head,
+          wx_data: user.uee,
+          wx_iv: user.uvv
         },
         header: {
           'content-type': 'application/json' // 默认值

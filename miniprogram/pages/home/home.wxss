@@ -333,6 +333,7 @@ page{
   font-weight:600;
   color:rgba(39,42,56,1);
   margin-left: 40rpx;
+  word-break: break-all;
 }
 .uacpri{
   display: inline-block;

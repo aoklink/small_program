@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 38,
 			"list": [
 				{
 					"id": 0,
@@ -280,6 +280,14 @@
 					"id": -1,
 					"name": "lkfl",
 					"pathName": "pages/lkfl/lkfl",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 38,
+					"name": "now",
+					"pathName": "pages/sportnow/sportnow",
+					"query": "",
 					"scene": null
 				}
 			]
