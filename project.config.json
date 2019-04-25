@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 38,
+			"current": 37,
 			"list": [
 				{
 					"id": 0,
@@ -208,13 +208,6 @@
 				},
 				{
 					"id": -1,
-					"name": "map",
-					"pathName": "pages/map/map",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
 					"name": "mapc",
 					"pathName": "pages/mapc/mapc",
 					"query": "",
@@ -284,9 +277,16 @@
 					"scene": null
 				},
 				{
-					"id": 38,
-					"name": "now",
-					"pathName": "pages/sportnow/sportnow",
+					"id": 37,
+					"name": "yy",
+					"pathName": "pages/yy/yy",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "ios",
+					"pathName": "pages/ios/ios",
 					"query": "",
 					"scene": null
 				}

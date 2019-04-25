@@ -62,6 +62,7 @@ Page({
           network: us.nw,
           product_id: us.pi,
           app_version: us.av,
+          gym_name: us.pi,
           sms_code: us.smcode,
           age: us.age,
           gender: us.sex,

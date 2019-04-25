@@ -9,7 +9,6 @@ App({
         traceUser: true,
       })
     }
-
   },
   globalData: {
     userInfo: {

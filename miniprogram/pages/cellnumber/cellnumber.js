@@ -96,8 +96,8 @@ Page({
           },
           success(res) {
             console.log(res.data.code)
-            if (res.data.code == 103){
-              console.log(res.data.code == 103?true:false)
+            if (res.data.code == 113){
+              console.log(res.data.code == 113?true:false)
               console.log("发送")
               wx.request({
                 url: app.globalData.lp + 'user/get_code', // 仅为示例，并非真实的接口地址
@@ -125,7 +125,7 @@ Page({
                   })
                 }
               }) 
-            } else if (res.data.code == 104) {
+            } else if (res.data.code == 114) {
               console.log("手机号已注册")
               that.setData({
                 rrr: false,

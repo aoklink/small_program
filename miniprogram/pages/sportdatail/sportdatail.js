@@ -501,7 +501,7 @@ Page({
           linearGradient1.addColorStop(1, 'rgba(199,223,255,0.2)');
           lcl.fillStyle = linearGradient1;
         }
-        if (data[i].device_name == "hiit") {
+        if (data[i].device_name == "hiit" || data[i].device_name == "HIIT") {
           lcl.setStrokeStyle = 'rgba(255,255,255,0)'
           lcl.fillStyle = '#FF5E7F'
           var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -509,7 +509,7 @@ Page({
           linearGradient1.addColorStop(1, 'rgba(255,93,127,0.2)');
           lcl.fillStyle = linearGradient1;
         }
-        if (data[i].device_name == "") {
+        if (data[i].device_name == "rest" || data[i].device_name == "") {
           lcl.setStrokeStyle = 'rgba(255,255,255,0)'
           lcl.fillStyle = '#7E879C'
           var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -554,13 +554,13 @@ Page({
         if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
           lcl.setStrokeStyle = '#FFD450'
         }
-        if (data[i].device_name == "力量") {
+        if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
           lcl.setStrokeStyle = '#398EFF'
         }
-        if (data[i].device_name == "hiit") {
+        if (data[i].device_name == "hiit" || data[i].device_name == "HIIT") {
           lcl.setStrokeStyle = '#FF5E7F'
         }
-        if (data[i].device_name == "") {
+        if (data[i].device_name == "rest" || data[i].device_name == "") {
           lcl.setStrokeStyle = '#7E879C'
         }
 
@@ -1312,7 +1312,7 @@ Page({
                   if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
                     xcc = xcc + parseFloat(data[i].calorie)
                   }
-                  if (data[i].device_name == 'hiit') {
+                  if (data[i].device_name == 'hiit' || data[i].device_name == 'HIIT') {
                     yqc = yqc + parseFloat(data[i].calorie)
                   }
                   //运动曲线
@@ -1491,7 +1491,7 @@ Page({
                   if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
                     bcc = bcc + data[i].duration
                   }
-                  if (data[i].device_name == 'hiit') {
+                  if (data[i].device_name == 'hiit' || data[i].device_name == 'HIIT') {
                     ccc = ccc + data[i].duration
                   }
                 }
@@ -1627,7 +1627,7 @@ Page({
                     linearGradient1.addColorStop(1, 'rgba(199,223,255,0.2)');
                     lcl.fillStyle = linearGradient1;
                   }
-                  if (data[i].device_name == "hiit") {
+                  if (data[i].device_name == "hiit" || data[i].device_name == "HIIT") {
                     lcl.setStrokeStyle = 'rgba(255,255,255,0)'
                     lcl.fillStyle = '#FF5E7F'
                     var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -1635,7 +1635,7 @@ Page({
                     linearGradient1.addColorStop(1, 'rgba(255,93,127,0.2)');
                     lcl.fillStyle = linearGradient1;
                   }
-                  if (data[i].device_name == "") {
+                  if (data[i].device_name == "rest" || data[i].device_name == "") {
                     lcl.setStrokeStyle = 'rgba(255,255,255,0)'
                     lcl.fillStyle = '#7E879C'
                     var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -1682,13 +1682,13 @@ Page({
                   if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
                     lcl.setStrokeStyle = '#FFD450'
                   }
-                  if (data[i].device_name == "力量") {
+                  if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
                     lcl.setStrokeStyle = '#398EFF'
                   }
-                  if (data[i].device_name == "hiit") {
+                  if (data[i].device_name == "hiit" || data[i].device_name == "HIIT") {
                     lcl.setStrokeStyle = '#FF5E7F'
                   }
-                  if (data[i].device_name == "") {
+                  if (data[i].device_name == "rest" || data[i].device_name == "") {
                     lcl.setStrokeStyle = '#7E879C'
                   }
 

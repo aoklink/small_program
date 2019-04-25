@@ -42,7 +42,8 @@ Page({
     console.log(e.currentTarget.dataset.yzy)
     app.globalData.bindtime = e.currentTarget.dataset.yzy
     wx.navigateTo({
-      url: '../sportdatail/sportdatail',
+      // url: '../sportdatail/sportdatail',
+      url: '../ios/ios',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },

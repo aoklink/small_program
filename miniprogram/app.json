@@ -53,7 +53,9 @@
     "pages/bb/bb",
     "pages/cc/cc",
     "pages/imgtest/imgtest",
-    "pages/font/font"
+    "pages/font/font",
+    "pages/ios/ios",
+    "pages/yy/yy"
   ],
   "permission": {
     "scope.userLocation": {
