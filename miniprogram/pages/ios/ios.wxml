@@ -78,8 +78,8 @@
     </view>
     <view class='kright'>
       <view class="bgb"></view>
-      <view class='kboa'><span>{{suptip}}</span>是你<span>{{supno}}</span>喜欢的器械</view>
-      <view class='kbob'>累计已使用<span>{{suptime}}</span>分钟</view>
+      <view class='kboa'><span>{{suptip}}</span>累计已使用<span>{{suptime}}</span>分钟</view>
+      <!-- <view class='kbob'></view> -->
       <view class='kboc'>历史运动时长占比</view>
       <view class='kbod'>{{suptip}}</view>
       <view class='kboe'><span>{{kbbpa}}</span>%</view>
@@ -105,8 +105,8 @@
       </view>
       <view class='kright'>
         <view class="bgc"></view>
-        <view class='kboa'><span>{{suptib}}</span>已消耗了你<span>{{supcal}}</span>千卡热量</view>
-        <view class='kbob'>在所有运动的中排行第<span>{{subno}}</span></view>
+        <view class='kboa'><span>{{suptib}}</span>已消耗<span>{{supcal}}</span>千卡热量</view>
+        <!-- <view class='kbob'>在所有运动的中排行第<span>{{subno}}</span></view> -->
         <view class='kboc'>历史运动时长占比</view>
         <view class='kbod'>{{suptib}}</view>
         <view class='kboe'><span>{{kbbpb}}</span>%</view>

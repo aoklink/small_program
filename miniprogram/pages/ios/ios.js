@@ -564,7 +564,7 @@ Page({
     //   for (var i = 0; i < data.length; i++) {
     //     lcl.beginPath()
     //     lcl.lineWidth = 0.5
-    //     if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
+    //     if (data[i].c.indexOf("跑步机") > -1 || data[i].c.indexOf("椭圆机") > -1 || data[i].c.indexOf("单车") > -1) {
     //       lcl.setStrokeStyle = 'rgba(255,255,255,0)'
     //       lcl.fillStyle = '#FFD450'
     //       var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -572,7 +572,7 @@ Page({
     //       linearGradient1.addColorStop(1, 'rgba(255,236,178,0.2)');
     //       lcl.fillStyle = linearGradient1;
     //     }
-    //     if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
+    //     if (data[i].c.indexOf("哑铃") > -1 || data[i].c.indexOf("杠铃") > -1 || data[i].c.indexOf("飞鸟") > -1) {
     //       lcl.setStrokeStyle = 'rgba(255,255,255,0)'
     //       lcl.fillStyle = '#398EFF'
     //       var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -580,7 +580,7 @@ Page({
     //       linearGradient1.addColorStop(1, 'rgba(199,223,255,0.2)');
     //       lcl.fillStyle = linearGradient1;
     //     }
-    //     if (data[i].device_name == "hiit" || data[i].device_name == "HIIT") {
+    //     if (data[i].c == "hiit" || data[i].c == "HIIT") {
     //       lcl.setStrokeStyle = 'rgba(255,255,255,0)'
     //       lcl.fillStyle = '#FF5E7F'
     //       var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -588,7 +588,7 @@ Page({
     //       linearGradient1.addColorStop(1, 'rgba(255,93,127,0.2)');
     //       lcl.fillStyle = linearGradient1;
     //     }
-    //     if (data[i].device_name == "rest" || data[i].device_name == "") {
+    //     if (data[i].c == "rest" || data[i].c == "") {
     //       lcl.setStrokeStyle = 'rgba(255,255,255,0)'
     //       lcl.fillStyle = '#7E879C'
     //       var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 300 * ck);
@@ -630,16 +630,16 @@ Page({
     //   for (var i = 0; i < data.length; i++) {
     //     lcl.beginPath()
     //     lcl.lineWidth = 1
-    //     if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
+    //     if (data[i].c.indexOf("跑步机") > -1 || data[i].c.indexOf("椭圆机") > -1 || data[i].c.indexOf("单车") > -1) {
     //       lcl.setStrokeStyle = '#FFD450'
     //     }
-    //     if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
+    //     if (data[i].c.indexOf("哑铃") > -1 || data[i].c.indexOf("杠铃") > -1 || data[i].c.indexOf("飞鸟") > -1) {
     //       lcl.setStrokeStyle = '#398EFF'
     //     }
-    //     if (data[i].device_name == "hiit" || data[i].device_name == "HIIT") {
+    //     if (data[i].c == "hiit" || data[i].c == "HIIT") {
     //       lcl.setStrokeStyle = '#FF5E7F'
     //     }
-    //     if (data[i].device_name == "rest" || data[i].device_name == "") {
+    //     if (data[i].c == "rest" || data[i].c == "") {
     //       lcl.setStrokeStyle = '#7E879C'
     //     }
 
@@ -1348,10 +1348,10 @@ Page({
             data = data.items
             var sdata = JSON.parse(JSON.stringify(data));
             data.sort(function (a, b) {
-              return a.server_time - b.server_time
+              return a.b - b.b
             });
             there.setData({
-              sctime: Math.round((data[data.length - 1].server_time - data[0].server_time) / 60000)
+              sctime: Math.round((data[data.length - 1].b - data[0].b) / 60000)
             })
 
             //运动曲线canvas
@@ -1424,8 +1424,8 @@ Page({
             var cha = 0
             var buc = {}
             buc.cal = 0
-            var ftime = data[0].server_time
-            var etime = data[data.length - 1].server_time
+            var ftime = data[0].b
+            var etime = data[data.length - 1].b
             buc.run_data = []
             //心率统计
             var run_effects = []
@@ -1439,8 +1439,8 @@ Page({
             var llmax = 0
 
             //心率区间
-            var smaha = data[0].heart_rate//最小心率
-            var bigha = data[0].heart_rate//最大心率
+            var smaha = data[0].g//最小心率
+            var bigha = data[0].g//最大心率
             var aveha = 0//平均心率
             console.log(data)
             //10个最大力量值
@@ -1459,57 +1459,57 @@ Page({
             var spdbgc = 0//单车最大速度
             var spdooc = 0//单车速度长度
             for (var i = 0; i < data.length; i++) {
-              smaha < parseInt(data[i].heart_rate) ? smaha = smaha : smaha = parseInt(data[i].heart_rate)
-              bigha > parseInt(data[i].heart_rate) ? bigha = bigha : bigha = parseInt(data[i].heart_rate)
-              aveha = aveha + parseInt(data[i].heart_rate)
-              llmax < parseFloat(data[i].gravity) ? llmax = parseFloat(data[i].gravity) : llmax = llmax
-              if (parseFloat(data[i].gravity) > 0) {
-                sumjjm.push(parseFloat(data[i].gravity))
+              smaha < parseInt(data[i].g) ? smaha = smaha : smaha = parseInt(data[i].g)
+              bigha > parseInt(data[i].g) ? bigha = bigha : bigha = parseInt(data[i].g)
+              aveha = aveha + parseInt(data[i].g)
+              llmax < parseFloat(data[i].e) ? llmax = parseFloat(data[i].e) : llmax = llmax
+              if (parseFloat(data[i].e) > 0) {
+                sumjjm.push(parseFloat(data[i].e))
               }
 
-              if (data[i].device_name.indexOf("跑步机") > -1) {
-                if (data[i].distance != '') {
-                  sumbba = sumbba + parseFloat(data[i].distance)
+              if (data[i].c.indexOf("跑步机") > -1) {
+                if (data[i].d != '') {
+                  sumbba = sumbba + parseFloat(data[i].d)
                 }
-                if (data[i].speed != '') {
-                  speeda = speeda + parseFloat(data[i].speed)
-                  spdbga > parseFloat(data[i].speed) ? spdbga = spdbga : spdbga = parseFloat(data[i].speed)
+                if (data[i].i != '') {
+                  speeda = speeda + parseFloat(data[i].i)
+                  spdbga > parseFloat(data[i].i) ? spdbga = spdbga : spdbga = parseFloat(data[i].i)
                   spdooa = spdooa + 1
                 }
               }
-              if (data[i].device_name.indexOf("椭圆机") > -1) {
-                if (data[i].distance != '') {
-                  sumbbb = sumbbb + parseFloat(data[i].distance)
+              if (data[i].c.indexOf("椭圆机") > -1) {
+                if (data[i].d != '') {
+                  sumbbb = sumbbb + parseFloat(data[i].d)
                 }
-                if (data[i].speed != '') {
-                  speedb = speedb + parseFloat(data[i].speed)
-                  spdbgb > parseFloat(data[i].speed) ? spdbgb = spdbgb : spdbgb = parseFloat(data[i].speed)
+                if (data[i].i != '') {
+                  speedb = speedb + parseFloat(data[i].i)
+                  spdbgb > parseFloat(data[i].i) ? spdbgb = spdbgb : spdbgb = parseFloat(data[i].i)
                   spdoob = spdoob + 1
                 }
               }
               there.setData({
                 aveha: Math.round(aveha / data.length)
               })
-              if (data[i].device_name.indexOf("单车") > -1) {
-                if (data[i].distance != '') {
-                  sumbbc = sumbbc + parseFloat(data[i].distance)
+              if (data[i].c.indexOf("单车") > -1) {
+                if (data[i].d != '') {
+                  sumbbc = sumbbc + parseFloat(data[i].d)
                 }
-                if (data[i].speed != '') {
-                  speedc = speedc + parseFloat(data[i].speed)
-                  spdbgc > parseFloat(data[i].speed) ? spdbgc = spdbgc : spdbgc = parseFloat(data[i].speed)
+                if (data[i].i != '') {
+                  speedc = speedc + parseFloat(data[i].i)
+                  spdbgc > parseFloat(data[i].i) ? spdbgc = spdbgc : spdbgc = parseFloat(data[i].i)
                   spdooc = spdooc + 1
                 }
               }
-              // if (data[i].device_name.indexOf("哑铃") > -1) {
+              // if (data[i].c.indexOf("哑铃") > -1) {
 
               // }
-              // if (data[i].device_name.indexOf("杠铃") > -1) {
+              // if (data[i].c.indexOf("杠铃") > -1) {
 
               // }
-              // if (data[i].device_name.indexOf("飞鸟") > -1) {
+              // if (data[i].c.indexOf("飞鸟") > -1) {
 
               // }
-              // if (data[i].device_name.indexOf("hiit") > -1 || data[i].device_name.indexOf("HIIT") > -1) {
+              // if (data[i].c.indexOf("hiit") > -1 || data[i].c.indexOf("HIIT") > -1) {
 
               // }
             }
@@ -1581,34 +1581,34 @@ Page({
 
             for (var i = 0; i < data.length - 1; i++) {
               //总热量
-              scccal = scccal + parseFloat(data[i].calorie)
+              scccal = scccal + parseFloat(data[i].f)
               //本次消耗热量
-              if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
-                xcc = xcc + parseFloat(data[i].calorie)
+              if (data[i].c.indexOf("跑步机") > -1 || data[i].c.indexOf("椭圆机") > -1 || data[i].c.indexOf("单车") > -1) {
+                xcc = xcc + parseFloat(data[i].f)
               }
-              if (data[i].device_name == 'hiit' || data[i].device_name == 'HIIT') {
-                yqc = yqc + parseFloat(data[i].calorie)
+              if (data[i].c == 'hiit' || data[i].c == 'HIIT') {
+                yqc = yqc + parseFloat(data[i].f)
               }
               //运动曲线
-              if (data[i + 1].device_name == data[i].device_name) {
-                buc.run_data.push(data[i].heart_rate)
-                buc.cal = buc.cal + parseFloat(data[i].calorie)
+              if (data[i + 1].c == data[i].c) {
+                buc.run_data.push(data[i].g)
+                buc.cal = buc.cal + parseFloat(data[i].f)
                 // console.log(buc)
               }
-              if (data[i + 1].device_name != data[i].device_name) {
+              if (data[i + 1].c != data[i].c) {
                 if (i == 1) {
-                  buc.device_name = data[i].device_name
-                  buc.duration = data[i].server_time - data[cha].server_time
-                  buc.run_data.push(data[i].heart_rate)
+                  buc.c = data[i].c
+                  buc.duration = data[i].b - data[cha].b
+                  buc.run_data.push(data[i].g)
                   cha = i
                   arrbox.push(buc)
                   buc = {}
                   buc.run_data = []
                   buc.cal = 0
                 } else {
-                  buc.device_name = data[i].device_name
-                  buc.duration = data[i].server_time - data[cha].server_time
-                  buc.run_data.push(data[i].heart_rate)
+                  buc.c = data[i].c
+                  buc.duration = data[i].b - data[cha].b
+                  buc.run_data.push(data[i].g)
                   cha = i
                   arrbox.push(buc)
                   buc = {}
@@ -1618,46 +1618,46 @@ Page({
               }
 
               //心率统计
-              if (data[i].result == 0) {
+              if (data[i].a == 0) {
                 if (i == 0) {
                   runa = 0
                 } else {
-                  runa = parseInt(runa) + parseInt(data[i].server_time - data[i - 1].server_time)
+                  runa = parseInt(runa) + parseInt(data[i].b - data[i - 1].b)
                 }
               }
-              if (data[i].result == 1) {
+              if (data[i].a == 1) {
                 if (i == 0) {
                   runb = 0
                 } else {
-                  runb = parseInt(runb) + parseInt(data[i].server_time - data[i - 1].server_time)
+                  runb = parseInt(runb) + parseInt(data[i].b - data[i - 1].b)
                 }
               }
-              if (data[i].result == 2) {
+              if (data[i].a == 2) {
                 if (i == 0) {
                   runc = 0
                 } else {
-                  runc = parseInt(runc) + parseInt(data[i].server_time - data[i - 1].server_time)
+                  runc = parseInt(runc) + parseInt(data[i].b - data[i - 1].b)
                 }
               }
-              if (data[i].result == 3) {
+              if (data[i].a == 3) {
                 if (i == 0) {
                   rund = 0
                 } else {
-                  rund = parseInt(rund) + parseInt(data[i].server_time - data[i - 1].server_time)
+                  rund = parseInt(rund) + parseInt(data[i].b - data[i - 1].b)
                 }
               }
-              if (data[i].result == 4) {
+              if (data[i].a == 4) {
                 if (i == 0) {
                   rune = 0
                 } else {
-                  rune = parseInt(rune) + parseInt(data[i].server_time - data[i - 1].server_time)
+                  rune = parseInt(rune) + parseInt(data[i].b - data[i - 1].b)
                 }
               }
-              if (data[i].result == 5) {
+              if (data[i].a == 5) {
                 if (i == 0) {
                   runf = 0
                 } else {
-                  runf = parseInt(runf) + parseInt(data[i].server_time - data[i - 1].server_time)
+                  runf = parseInt(runf) + parseInt(data[i].b - data[i - 1].b)
                 }
               }
             }
@@ -1895,9 +1895,9 @@ Page({
             // document.getElementById("yyf").style.width = (run_effects[5] / pbig * 12.5 + 0.5)+'rem'
 
 
-            buc.device_name = data[data.length - 1].device_name
-            buc.duration = data[data.length - 1].server_time - data[cha].server_time
-            buc.run_data.push(data[data.length - 1].heart_rate)
+            buc.c = data[data.length - 1].c
+            buc.duration = data[data.length - 1].b - data[cha].b
+            buc.run_data.push(data[data.length - 1].g)
 
             arrbox.push(buc)
 
@@ -1923,41 +1923,41 @@ Page({
             for (var i = 0; i < data.length; i++) {
               ssuummdur = ssuummdur + data[i].duration
               //本次运动时长
-              if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
+              if (data[i].c.indexOf("跑步机") > -1 || data[i].c.indexOf("椭圆机") > -1 || data[i].c.indexOf("单车") > -1) {
                 acc = acc + data[i].duration
               }
-              if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
+              if (data[i].c.indexOf("哑铃") > -1 || data[i].c.indexOf("杠铃") > -1 || data[i].c.indexOf("飞鸟") > -1) {
                 bcc = bcc + data[i].duration
               }
-              if (data[i].device_name == 'hiit' || data[i].device_name == 'HIIT') {
+              if (data[i].c == 'hiit' || data[i].c == 'HIIT') {
                 ccc = ccc + data[i].duration
               }
               //运动图标
-              if (data[i].device_name.indexOf("跑步机") > -1) {
+              if (data[i].c.indexOf("跑步机") > -1) {
                 tuc.splice(0, 1, 1)
                 tima = tima + data[i].duration
               }
-              if (data[i].device_name.indexOf("椭圆机") > -1) {
+              if (data[i].c.indexOf("椭圆机") > -1) {
                 tuc.splice(1, 1, 1)
                 timb = timb + data[i].duration
               }
-              if (data[i].device_name.indexOf("单车") > -1) {
+              if (data[i].c.indexOf("单车") > -1) {
                 tuc.splice(2, 1, 1)
                 timc = timc + data[i].duration
               }
-              if (data[i].device_name.indexOf("哑铃") > -1) {
+              if (data[i].c.indexOf("哑铃") > -1) {
                 tuc.splice(3, 1, 1)
                 timd = timd + data[i].duration
               }
-              if (data[i].device_name.indexOf("杠铃") > -1) {
+              if (data[i].c.indexOf("杠铃") > -1) {
                 tuc.splice(4, 1, 1)
                 time = time + data[i].duration
               }
-              if (data[i].device_name.indexOf("飞鸟") > -1) {
+              if (data[i].c.indexOf("飞鸟") > -1) {
                 tuc.splice(5, 1, 1)
                 timf = timf + data[i].duration
               }
-              if (data[i].device_name.indexOf("hiit") > -1 || data[i].device_name.indexOf("HIIT") > -1) {
+              if (data[i].c.indexOf("hiit") > -1 || data[i].c.indexOf("HIIT") > -1) {
                 tuc.splice(6, 1, 1)
                 timg = timg + data[i].duration
               }
@@ -1967,10 +1967,10 @@ Page({
             var tymc = 0//小飞鸟总次数
             var jzmaxc = 0//小飞鸟极限重量
             for (var i = 0; i < sdata.length; i++) {
-              if (parseInt(sdata[i].time) > 0) {
+              if (parseInt(sdata[i].h) > 0) {
                 tykc = tykc + 1
-                tymc = tymc + parseInt(sdata[i].time)
-                jzmaxc > sdata[i].gravity ? jzmaxc = jzmaxc : jzmaxc = sdata[i].gravity
+                tymc = tymc + parseInt(sdata[i].h)
+                jzmaxc > sdata[i].e ? jzmaxc = jzmaxc : jzmaxc = sdata[i].e
               }
             }
             there.setData({
@@ -2162,7 +2162,7 @@ Page({
             for (var i = 0; i < data.length; i++) {
               lcl.beginPath()
               lcl.lineWidth = 0.5
-              if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
+              if (data[i].c.indexOf("跑步机") > -1 || data[i].c.indexOf("椭圆机") > -1 || data[i].c.indexOf("单车") > -1) {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
                 lcl.fillStyle = '#FFD450'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 250 * ck);
@@ -2170,7 +2170,7 @@ Page({
                 linearGradient1.addColorStop(1, 'rgba(255,236,178,0.5)');
                 lcl.fillStyle = linearGradient1;
               }
-              if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
+              if (data[i].c.indexOf("哑铃") > -1 || data[i].c.indexOf("杠铃") > -1 || data[i].c.indexOf("飞鸟") > -1) {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
                 lcl.fillStyle = '#398EFF'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 250 * ck);
@@ -2178,7 +2178,7 @@ Page({
                 linearGradient1.addColorStop(1, 'rgba(199,223,255,0.5)');
                 lcl.fillStyle = linearGradient1;
               }
-              if (data[i].device_name == "hiit" || data[i].device_name == 'HIIT') {
+              if (data[i].c == "hiit" || data[i].c == 'HIIT') {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
                 lcl.fillStyle = '#FF5E7F'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 250 * ck);
@@ -2186,7 +2186,7 @@ Page({
                 linearGradient1.addColorStop(1, 'rgba(255,93,127,0.5)');
                 lcl.fillStyle = linearGradient1;
               }
-              if (data[i].device_name == "" || data[i].device_name == "rest") {
+              if (data[i].c == "" || data[i].c == "rest") {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
                 lcl.fillStyle = '#7E879C'
                 var linearGradient1 = lcl.createLinearGradient(0, 0, 0, 250 * ck);
@@ -2227,16 +2227,16 @@ Page({
             for (var i = 0; i < data.length; i++) {
               lcl.beginPath()
               lcl.lineWidth = 0.5 * ck
-              if (data[i].device_name.indexOf("跑步机") > -1 || data[i].device_name.indexOf("椭圆机") > -1 || data[i].device_name.indexOf("单车") > -1) {
+              if (data[i].c.indexOf("跑步机") > -1 || data[i].c.indexOf("椭圆机") > -1 || data[i].c.indexOf("单车") > -1) {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
               }
-              if (data[i].device_name.indexOf("哑铃") > -1 || data[i].device_name.indexOf("杠铃") > -1 || data[i].device_name.indexOf("飞鸟") > -1) {
+              if (data[i].c.indexOf("哑铃") > -1 || data[i].c.indexOf("杠铃") > -1 || data[i].c.indexOf("飞鸟") > -1) {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
               }
-              if (data[i].device_name == "hiit" || data[i].device_name == 'HIIT') {
+              if (data[i].c == "hiit" || data[i].c == 'HIIT') {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
               }
-              if (data[i].device_name == "" || data[i].device_name == "rest") {
+              if (data[i].c == "" || data[i].c == "rest") {
                 lcl.setStrokeStyle('rgba(255,255,255,0)')
               }
 
@@ -2322,31 +2322,31 @@ Page({
             for (var i = 0; i < data.length; i++) {
               ssuummdur = ssuummdur + data[i].duration
               //本次运动时长
-              if (data[i].device_name.indexOf("跑步机") > -1) {
+              if (data[i].c.indexOf("跑步机") > -1) {
                 stta.time = stta.time + data[i].duration
                 stta.cal = stta.cal + data[i].cal
               }
-              if (data[i].device_name.indexOf("椭圆机") > -1) {
+              if (data[i].c.indexOf("椭圆机") > -1) {
                 sttb.time = sttb.time + data[i].duration
                 sttb.cal = sttb.cal + data[i].cal
               }
-              if (data[i].device_name.indexOf("单车") > -1) {
+              if (data[i].c.indexOf("单车") > -1) {
                 sttc.time = sttc.time + data[i].duration
                 sttc.cal = sttc.cal + data[i].cal
               }
-              if (data[i].device_name.indexOf("哑铃") > -1) {
+              if (data[i].c.indexOf("哑铃") > -1) {
                 sttdtime = sttd.time + data[i].duration
                 sttd.cal = sttd.cal + data[i].cal
               }
-              if (data[i].device_name.indexOf("杠铃") > -1) {
+              if (data[i].c.indexOf("杠铃") > -1) {
                 stte.time = stte.time + data[i].duration
                 stte.cal = stte.cal + data[i].cal
               }
-              if (data[i].device_name.indexOf("飞鸟") > -1) {
+              if (data[i].c.indexOf("飞鸟") > -1) {
                 sttf.time = sttf.time + data[i].duration
                 sttf.cal = sttf.cal + data[i].cal
               }
-              if (data[i].device_name.indexOf("hiit") > -1 || data[i].device_name.indexOf("HIIT") > -1) {
+              if (data[i].c.indexOf("hiit") > -1 || data[i].c.indexOf("HIIT") > -1) {
                 sttg.time = sttg.time + data[i].duration
                 sttg.cal = sttg.cal + data[i].cal
               }
