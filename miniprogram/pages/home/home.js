@@ -13,6 +13,8 @@ Page({
    * 页面的初始数据
    */
   data: {
+    oka: true,
+    okb: false,
     pt: Math.random(),
     current: 2,
     // imgboxa: [],
@@ -71,7 +73,34 @@ Page({
     trt: 0,
     yb: [],
     act: [],
-    seeall: ''
+    seeall: '',
+    yzyai: '',
+    yyy: [1],
+    yba: ["健康阳光", "态度和蔼", "国际认证"],
+    ybb: ["身材超棒", "高级认证", "擅长瘦身"],
+    opllbb: [
+      {
+        img_url: "https://link-imgs.oss-cn-hangzhou.aliyuncs.com/link-platform/1554720752123299.jpg",
+        name: "leo",
+        label: "健康阳光 态度和蔼 国际认证",
+        // lab: this.data.yba,
+        popl: "https://link-imgs.oss-cn-hangzhou.aliyuncs.com/link-platform/1554720752123299.jpg"
+      },
+      { 
+        img_url: "https://link-imgs.oss-cn-hangzhou.aliyuncs.com/link-platform/1554720706468465.jpg",
+        name: "王静", 
+        label: "身材超棒 高级认证 擅长瘦身", 
+        // lab: this.data.ybb, 
+        popl: "https://link-imgs.oss-cn-hangzhou.aliyuncs.com/link-platform/1554720706468465.jpg" }
+      ,
+      {
+        img_url: "https://link-imgs.oss-cn-hangzhou.aliyuncs.com/link-platform/1554720706468465.jpg",
+        name: "王静",
+        label: "身材超棒 高级认证 擅长瘦身",
+        // lab: this.data.ybb, 
+        popl: "https://link-imgs.oss-cn-hangzhou.aliyuncs.com/link-platform/1554720706468465.jpg"
+      }
+      ]
   },
   seeglo: function () {
     this.setData({
@@ -218,7 +247,8 @@ Page({
                   product_id: us.pi,
                   app_version: us.av,
                   wx_data: uee,
-                  wx_iv: uvv
+                  wx_iv: uvv,
+                  gym_name: us.gym_name || user.gym_name || "link_office"
                 },
                 header: {
                   'content-type': 'application/json' // 默认值
@@ -243,7 +273,7 @@ Page({
        
                     })
                     wx.request({
-                      url: 'https://ll.linkfeeling.cn/api/user/account_info',
+                      url: 'https://ll.linkfeeling.cn/api/account/info',
                       method: 'POST',
                       data: {
                         uid: us.uid,
@@ -254,7 +284,8 @@ Page({
                         login_type: "wx",
                         network: us.nw,
                         product_id: us.pi,
-                        app_version: us.av
+                        app_version: us.av,
+                        gym_name: us.gym_name
                       },
                       header: {
                         'content-type': 'application/json' // 默认值
@@ -266,7 +297,7 @@ Page({
                         us.height = res.data.data.stature
                         us.weight = res.data.data.weight
                         us.goal = res.data.data.goal
-                        us.nickName = decodeURIComponent(res.data.data.name)
+                        us.nickName = decodeURIComponent((res.data.data.name).replace(/\+/g, '%20'))
                         us.avatarUrl = res.data.data.head_icon
                         that.setData({
                           pl: us.nickName,
@@ -287,7 +318,7 @@ Page({
                         network: us.nw,
                         product_id: us.pi,
                         app_version: us.av,
-                        gym_name: '领客菲力概念店'
+                        gym_name: us.gym_name
                       },
                       header: {
                         'content-type': 'application/json' // 默认值
@@ -302,12 +333,12 @@ Page({
                           // console.log(res.data.data.info.display_img_urls)
                           //
                           var str1 = res.data.data.info.display_img_urls
-                          var arr1 = []
-                          var leng1
-                          leng1 = str1.replace(/(^\[*)|(\]*$)/g, "").split(",")
-                          for (var i = 0; i < leng1.length; i++) {
-                            arr1.push(leng1[i].replace(/(^"*)|("*$)/g, ""))
-                          }
+                          var arr1 = str1
+                          // var leng1
+                          // leng1 = str1.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                          // for (var i = 0; i < leng1.length; i++) {
+                          //   arr1.push(leng1[i].replace(/(^"*)|("*$)/g, ""))
+                          // }
                           // console.log(arr1)
                           us.shopcell = res.data.data.info.phone
                           us.address = res.data.data.info.address
@@ -326,12 +357,12 @@ Page({
                           var yby = []
                           for (var i = 0; i < res.data.data.class.length; i++) {
                             var str = res.data.data.class[i].img_urls
-                            var arr = []
-                            var leng
-                            leng = str.replace(/(^\[*)|(\]*$)/g, "").split(",")
-                            for (var j = 0; j < leng.length; j++) {
-                              arr.push(leng[j].replace(/(^"*)|("*$)/g, ""))
-                            }
+                            var arr = str
+                            // var leng
+                            // leng = str.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                            // for (var j = 0; j < leng.length; j++) {
+                            //   arr.push(leng[j].replace(/(^"*)|("*$)/g, ""))
+                            // }
                             // console.log(arr)
                             res.data.data.class[i].lun = arr
                             yby.push(arr[0])
@@ -387,6 +418,24 @@ Page({
                           that.setData({
                             opll: yyb
                           })
+                          var lclai = 1
+                          if (that.data.opll.length == 1) {
+                            lclai = 1
+                            console.log(1)
+                          }
+                          if (that.data.opll.length == 2) {
+                            lclai = 2
+                            console.log(1)
+                          }
+                          if (that.data.opll.length > 2) {
+                            lclai = 2.5
+                            console.log(1)
+                          }
+
+                          that.setData({
+                            yzyai: lclai
+                          })
+                          
                           //健身房标签
                           var opl = []
 
@@ -446,6 +495,33 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    console.log(decodeURIComponent('Leo+%E4%BA%95%E4%B9%9D'.replace(/\+/g, '%20')))
+    // wx.loadFontFace({
+    //   family: this.data.fontFamily,
+    //   source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
+    //   success(res) {
+    //     console.log(res.status)
+    //   },
+    //   fail: function (res) {
+    //     console.log(res.status)
+    //   },
+    //   complete: function (res) {
+    //     console.log(res.status)
+    //   }
+    // });
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     var that = this
     wx.login({
       //获取code
@@ -462,7 +538,7 @@ Page({
         if (res.authSetting['scope.userInfo']) {
           wx.getUserInfo({
             success: function (res) {
-              console.log("手按",res)
+              console.log("手按", res)
               var uee = res.encryptedData
               var uvv = res.iv
               wx.setStorageSync('userInfo', res.userInfo)
@@ -510,7 +586,8 @@ Page({
                       product_id: us.pi,
                       app_version: us.av,
                       wx_data: uee,
-                      wx_iv: uvv
+                      wx_iv: uvv,
+                      gym_name: us.gym_name || user.gym_name || "link_office"
                     },
                     header: {
                       'content-type': 'application/json' // 默认值
@@ -532,42 +609,10 @@ Page({
                         us.uid = res.data.data.uid
                         that.setData({
                           nono: true,
-  
+
                         })
                         wx.request({
-                          url: 'https://ll.linkfeeling.cn/api/user/account_info',
-                          method: 'POST',
-                          data: {
-                            uid: us.uid,
-                            user_type: us.ut,
-                            request_time: us.rt,
-                            platform: us.pt,
-                            tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
-                            login_type: "wx",
-                            network: us.nw,
-                            product_id: us.pi,
-                            app_version: us.av
-                          },
-                          header: {
-                            'content-type': 'application/json' // 默认值
-                          },
-                          success(res) {
-                            console.log(res.data)
-                            us.sex = res.data.data.gender
-                            us.age = res.data.data.age
-                            us.height = res.data.data.stature
-                            us.weight = res.data.data.weight
-                            us.goal = res.data.data.goal
-                            us.nickName = decodeURIComponent(res.data.data.name)
-                            us.avatarUrl = res.data.data.head_icon
-                            that.setData({
-                              pl: us.nickName,
-                              olo: us.avatarUrl
-                            })
-                          }
-                        })
-                        wx.request({
-                          url: app.globalData.lp+'platform/gym/info',
+                          url: 'https://ll.linkfeeling.cn/api/account/info',
                           method: 'POST',
                           data: {
                             uid: us.uid,
@@ -579,7 +624,40 @@ Page({
                             network: us.nw,
                             product_id: us.pi,
                             app_version: us.av,
-                            gym_name: '领客菲力概念店'
+                            gym_name: us.gym_name
+                          },
+                          header: {
+                            'content-type': 'application/json' // 默认值
+                          },
+                          success(res) {
+                            console.log(res.data)
+                            us.sex = res.data.data.gender
+                            us.age = res.data.data.age
+                            us.height = res.data.data.stature
+                            us.weight = res.data.data.weight
+                            us.goal = res.data.data.goal
+                            us.nickName = decodeURIComponent((res.data.data.name).replace(/\+/g, '%20'))
+                            us.avatarUrl = res.data.data.head_icon
+                            that.setData({
+                              pl: us.nickName,
+                              olo: us.avatarUrl
+                            })
+                          }
+                        })
+                        wx.request({
+                          url: app.globalData.lp + 'platform/gym/info',
+                          method: 'POST',
+                          data: {
+                            uid: us.uid,
+                            user_type: us.ut,
+                            request_time: us.rt,
+                            platform: us.pt,
+                            tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+                            login_type: "wx",
+                            network: us.nw,
+                            product_id: us.pi,
+                            app_version: us.av,
+                            gym_name: us.gym_name
                           },
                           header: {
                             'content-type': 'application/json' // 默认值
@@ -594,12 +672,12 @@ Page({
                               // console.log(res.data.data.info.display_img_urls)
                               //
                               var str1 = res.data.data.info.display_img_urls
-                              var arr1 = []
-                              var leng1
-                              leng1 = str1.replace(/(^\[*)|(\]*$)/g, "").split(",")
-                              for (var i = 0; i < leng1.length; i++) {
-                                arr1.push(leng1[i].replace(/(^"*)|("*$)/g, ""))
-                              }
+                              var arr1 = str1
+                              // var leng1
+                              // leng1 = str1.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                              // for (var i = 0; i < leng1.length; i++) {
+                              //   arr1.push(leng1[i].replace(/(^"*)|("*$)/g, ""))
+                              // }
                               // console.log(arr1)
                               us.shopcell = res.data.data.info.phone
                               us.address = res.data.data.info.address
@@ -616,21 +694,21 @@ Page({
                               // console.log(res.data.data.class)
                               // console.log(res.data.data.class.length)
                               var yby = []
-                              for (var i = 0; i < res.data.data.class.length;i++){
+                              for (var i = 0; i < res.data.data.class.length; i++) {
                                 var str = res.data.data.class[i].img_urls
-                                var arr = []
-                                var leng
-                                leng = str.replace(/(^\[*)|(\]*$)/g, "").split(",")
-                                for (var j = 0; j < leng.length; j++) {
-                                  arr.push(leng[j].replace(/(^"*)|("*$)/g, ""))
-                                }
+                                var arr = str
+                                // var leng
+                                // leng = str.replace(/(^\[*)|(\]*$)/g, "").split(",")
+                                // for (var j = 0; j < leng.length; j++) {
+                                //   arr.push(leng[j].replace(/(^"*)|("*$)/g, ""))
+                                // }
                                 // console.log(arr)
                                 res.data.data.class[i].lun = arr
                                 yby.push(arr[0])
                                 // console.log(yby)
                               }
                               // console.log(yby)
-                              for (var i = 0; i < res.data.data.class.length; i++){
+                              for (var i = 0; i < res.data.data.class.length; i++) {
                                 res.data.data.class[i].popl = yby[i]
                               }
                               // console.log(res.data.data.class)
@@ -638,7 +716,7 @@ Page({
                               that.setData({
                                 act: res.data.data.class
                               })
-                              if(that.data.act.length < 4){
+                              if (that.data.act.length < 4) {
                                 that.setData({
                                   seeall: true
                                 })
@@ -657,9 +735,9 @@ Page({
                                 yby.push(arr[0])
                                 // console.log(yby)
                               }
-                              
+
                               // console.log(res.data.data.coach[1].label)
-                             
+
                               // console.log(res.data.data.coach)
                               var opl = []
                               for (var i = 0; i < res.data.data.coach.length; i++) {
@@ -671,23 +749,41 @@ Page({
                               for (var i = 0; i < res.data.data.coach.length; i++) {
                                 res.data.data.coach[i].popl = yby[i]
                               }
+                              console.log(res.data.data.coach)
                               var yyb = []
-                              for (var i = res.data.data.coach.length-1; i >= 0; i--){
+                              for (var i = res.data.data.coach.length - 1; i >= 0; i--) {
                                 yyb.push(res.data.data.coach[i])
                               }
                               // console.log(res.data.data.coach[1].lab[0])
                               that.setData({
                                 opll: yyb
                               })
+                              var lclai = 1
+                              if (that.data.opll.length == 1) {
+                                lclai = 1
+                                console.log(1)
+                              }
+                              if (that.data.opll.length == 2) {
+                                lclai = 2
+                                console.log(1)
+                              }
+                              if (that.data.opll.length > 2) {
+                                lclai = 2.5
+                                console.log(1)
+                              }
+
+                              that.setData({
+                                yzyai: lclai
+                              })
                               //健身房标签
                               var opl = []
-                              
+
                               var str = res.data.data.info.label
                               var parr = str.split(' ');
                               // console.log(parr)
                               res.data.data.info.lab = parr
-                             
-                              
+
+
                               that.setData({
                                 yb: parr,
                                 yoyo: false
@@ -710,32 +806,6 @@ Page({
         }
       }
     })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    // wx.loadFontFace({
-    //   family: this.data.fontFamily,
-    //   source: 'url("https://ll.linkfeeling.cn/fonts/DIN%201451%20Std%20Engschrift.TTF")',
-    //   success(res) {
-    //     console.log(res.status)
-    //   },
-    //   fail: function (res) {
-    //     console.log(res.status)
-    //   },
-    //   complete: function (res) {
-    //     console.log(res.status)
-    //   }
-    // });
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    this.onLoad()
   },
 
   /**

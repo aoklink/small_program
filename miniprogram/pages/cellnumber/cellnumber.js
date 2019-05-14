@@ -79,7 +79,7 @@ Page({
         us.mob = that.data.yzy
         let kt = mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt)
         wx.request({
-          url: app.globalData.lp +'user/check_register', // 仅为示例，并非真实的接口地址
+          url: app.globalData.lp +'account/check_register', // 仅为示例，并非真实的接口地址
           method: 'POST',
           data: {
             phone_num: us.mob,
@@ -89,7 +89,8 @@ Page({
             tk: kt,
             network: us.nw,
             product_id: us.pi,
-            app_version: us.av
+            app_version: us.av,
+            gym_name: us.gym_name
           },
           header: {
             'content-type': 'application/json' // 默认值
@@ -100,7 +101,7 @@ Page({
               console.log(res.data.code == 113?true:false)
               console.log("发送")
               wx.request({
-                url: app.globalData.lp + 'user/get_code', // 仅为示例，并非真实的接口地址
+                url: app.globalData.lp + 'account/sms_code', // 仅为示例，并非真实的接口地址
                 method: 'POST',
                 data: {
                   phone_num: us.mob,
@@ -110,7 +111,8 @@ Page({
                   tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
                   network: us.nw,
                   product_id: us.pi,
-                  app_version: us.av
+                  app_version: us.av,
+                  gym_name: us.gym_name
                 },
                 header: {
                   'content-type': 'application/json' // 默认值

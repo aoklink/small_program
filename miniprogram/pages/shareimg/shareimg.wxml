@@ -1,0 +1,14 @@
+<view class='{{oka?"gbb":"sharebox"}}'>
+  <view class='yhbuu'>
+    <view class='uiuyy' bindtap='oppo'>
+      <!-- <span></span> -->
+      <view class='uiu'>返回首页</view>
+    </view>
+    <view class='share'>
+      <canvas canvas-id="shareCanvas" style="width:285px;height:399px"></canvas>
+    </view>
+    <view class='btn-box'>
+      <button class='butty' bindtap='downloadImg'>保存图片</button>
+    </view>
+  </view>
+</view>

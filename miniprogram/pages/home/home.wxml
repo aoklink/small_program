@@ -1,3 +1,4 @@
+<!-- <view class='header'></view> -->
 <view hidden="{{nono}}" class='jjmmbox'>
 <view wx:if="{{canIUse}}">
     <view class='headerhh'>
@@ -5,7 +6,7 @@
     </view>
  
     <view class='contenthh'>
-        <view>领客菲力申请获取以下权限</view>
+        <view>LinkFeeling申请获取以下权限</view>
         <text>获得你的公开信息(昵称，头像等)</text>
     </view>
  
@@ -40,9 +41,9 @@
     <view>营业时间</view>
     <view></view>
     <view>周一至周五</view>
-    <view>{{'8:00-22:00'}}</view>
+    <view>{{'9:00-21:00'}}</view>
     <view>周六至周日</view>
-    <view>{{'8:00-22:00'}}</view>
+    <view>{{'9:00-21:00'}}</view>
   </view>
   <view class='utup'>
     <view>{{shopname}}</view>
@@ -52,7 +53,7 @@
   <view class='utdw'>
     <span wx:key="index" wx:for="{{yb}}">{{item}}</span>
   </view>
-  <view class='uact'>
+  <view class='uact' hidden='{{act.length<1?oka:okb}}'>
     <view class='uactit'>课程活动</view>
     <view class='{{seeall?"":"hblu"}}'>
       <view class='uacbox' wx:key="index" wx:for="{{act}}" bindtap="gopp" data-inpp='{{index}}'>
@@ -76,9 +77,12 @@
   </view>
   <view class='ucoach'>
     <view class='uconame'>教练</view>
-    <swiper class='luncoa' display-multiple-items="2.5">
+    <swiper class='luncoa' display-multiple-items="{{yzyai}}">
       <swiper-item wx:key="index" wx:for="{{opll}}"><image src='{{item.popl}}?m={{pt}}'></image><view class='coaname'>{{item.name}}</view><view class='coabox'><span wx:for="{{item.lab}}" wx:for-item="items" wx:key="index">{{items}}</span></view></swiper-item> 
     </swiper>
+    <!-- <swiper class='luncoa' display-multiple-items="{{yzyai}}">
+      <swiper-item wx:key="index" wx:for="{{yyy}}"><image src='https://img.linkfeeling.cn/wx_small/my/logo.png'></image><view class='coaname'>{{123}}</view><view class='coabox'><span>{{999}}</span></view></swiper-item> 
+    </swiper> -->
   </view>
   </view>
   <view class='bottom'>

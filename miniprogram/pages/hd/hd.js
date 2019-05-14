@@ -18,8 +18,8 @@ Page({
     var data = e.detail.data;
     console.log(data)
     var wboid = data[0].wboid;
-
-  },
+    
+  }, 
   // onShareAppMessage: function (res) {
   //   console.log(999);
   //   var that = this

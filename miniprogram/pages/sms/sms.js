@@ -1,4 +1,5 @@
 var mmd = require('../../utils/mmd.js');
+var us = getApp().globalData.userInfo
 Page({
 
   /**
@@ -55,7 +56,8 @@ Page({
         tk: kt,
         network: this.data.user.nw,
         product_id: pi,
-        app_version: av
+        app_version: av,
+        gym_name: us.gym_name
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -94,7 +96,8 @@ Page({
             login_type: sm,
             network: that.data.user.nw,
             product_id: pi,
-            app_version: av
+            app_version: av,
+            gym_name: us.gym_name
           },
           header: {
             'content-type': 'application/json' // 默认值

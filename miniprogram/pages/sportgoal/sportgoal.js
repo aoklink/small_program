@@ -51,7 +51,7 @@ Page({
       const userInfo = wx.getStorageSync('userInfo')
       var oname = encodeURIComponent(us.nickName || userInfo.nickName || user.name)
       wx.request({
-        url: app.globalData.lp +'user/register', // 仅为示例，并非真实的接口地址
+        url: app.globalData.lp +'account/register', // 仅为示例，并非真实的接口地址
         method: 'POST',
         data: {
           phone_num: us.mob,
@@ -62,7 +62,6 @@ Page({
           network: us.nw,
           product_id: us.pi,
           app_version: us.av,
-          gym_name: us.pi,
           sms_code: us.smcode,
           age: us.age,
           gender: us.sex,
@@ -74,7 +73,8 @@ Page({
           user_name: oname,
           head_icon: us.avatarUrl || userInfo.avatarUrl || user.head,
           wx_data: user.uee,
-          wx_iv: user.uvv
+          wx_iv: user.uvv,
+          gym_name: us.gym_name
         },
         header: {
           'content-type': 'application/json' // 默认值

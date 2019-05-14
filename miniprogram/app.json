@@ -55,7 +55,11 @@
     "pages/imgtest/imgtest",
     "pages/font/font",
     "pages/ios/ios",
-    "pages/yy/yy"
+    "pages/yy/yy",
+    "pages/hd/hd",
+    "pages/shareimg/shareimg",
+    "pages/pl/pl",
+    "pages/goodfriend/goodfriend"
   ],
   "permission": {
     "scope.userLocation": {

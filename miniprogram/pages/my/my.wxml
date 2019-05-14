@@ -20,6 +20,7 @@
     <span class="ssa"></span>
     <view>运动报告</view>
     <view class='{{report_num == 0?"ubua":"ubu"}}'>
+    <!-- <view class='{{report_num != 0?"ubua":"ubu"}}'> -->
       <span>{{report_num}}份未读</span>
     </view>
     <view></view>

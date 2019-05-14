@@ -25,7 +25,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://ll.linkfeeling.cn/api/userdata/personal/info',
+      url: 'https://ll.linkfeeling.cn/api/user/personal/info',
       method: 'POST',
       data: {
         uid: us.uid,
@@ -36,7 +36,8 @@ Page({
         login_type: "wx",
         network: us.nw,
         product_id: us.pi,
-        app_version: us.av
+        app_version: us.av,
+        gym_name: us.gym_name
       },
       header: {
         'content-type': 'application/json' // 默认值

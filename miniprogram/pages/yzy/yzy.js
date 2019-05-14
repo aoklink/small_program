@@ -41,9 +41,10 @@ Page({
   yzylb: function (e) {
     console.log(e.currentTarget.dataset.yzy)
     app.globalData.bindtime = e.currentTarget.dataset.yzy
+    us.bindtimecurrent = e.currentTarget.dataset.yzy
     wx.navigateTo({
       // url: '../sportdatail/sportdatail',
-      url: '../ios/ios',
+      url: '../hd/hd',
       success: function (res) { },
       fail: function (res) { },
       complete: function (res) { },
@@ -170,7 +171,7 @@ Page({
       }
       for (var i = 0; i < data.length; i++) {
         data[i].time = Math.round(data[i].time / 60000)
-        data[i].cal = Math.ceil(data[i].calorie)
+        data[i].cal = Math.round(data[i].calorie)
       }
       that.setData({
         yzydata: data,
@@ -210,7 +211,7 @@ Page({
       if (data.length != 0) { // 数组不为空
         for (var i = 0; i < data.length; i++) {
           data[i].time = Math.round(data[i].time / 60000)
-          data[i].cal = Math.ceil(data[i].calorie)
+          data[i].cal = Math.round(data[i].calorie)
         }
         console.log(data)
         var ttbox = that.data.ttbox

@@ -5,7 +5,7 @@
       <view class='tb' data-index='{{index}}'>{{ttbox[index]}}</view>
       <view class='sb' bindtap='yzylb' data-yzy='{{item.bind_time}}'>
         <view class='sl'>
-          <view class='slu'>运动时长</view>
+          <view class='slu'>打卡时长</view>
           <view class='yaa'></view>
           <view class='sld'>{{item.time}} <span class="sldd">分钟</span></view>
         </view>

@@ -38,5 +38,5 @@ page{
   font-weight:400;
   color:rgba(29,35,45,0.5);
   line-height:34rpx;
-  margin-top: 10rpx;
+  margin-top: 60rpx;
 }

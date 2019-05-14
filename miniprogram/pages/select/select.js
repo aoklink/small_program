@@ -1025,7 +1025,8 @@ Page({
         stature: bheight,
         weight: bweight,
         goal: bgoal,
-        head_icon: that.data.head 
+        head_icon: that.data.head,
+        gym_name: us.gym_name
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -1132,7 +1133,7 @@ Page({
   onLoad: function (options) {
     var that = this
     wx.request({
-      url: 'https://ll.linkfeeling.cn/api/user/account_info',
+      url: 'https://ll.linkfeeling.cn/api/account/info',
       method: 'POST',
       data: {
         uid: us.uid,
@@ -1143,7 +1144,8 @@ Page({
         login_type: "wx",
         network: us.nw,
         product_id: us.pi,
-        app_version: us.av
+        app_version: us.av,
+        gym_name: us.gym_name
       },
       header: {
         'content-type': 'application/json' // 默认值
@@ -1155,7 +1157,7 @@ Page({
         us.height = res.data.data.stature
         us.weight = res.data.data.weight
         us.goal = res.data.data.goal
-        us.nickName = decodeURIComponent(res.data.data.name)
+        us.nickName = decodeURIComponent((res.data.data.name).replace(/\+/g, '%20'))
         us.avatarUrl = res.data.data.head_icon
         console.log(us.goal)
         var kjn

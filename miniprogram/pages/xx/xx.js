@@ -1,133 +1,79 @@
-var url = "http://www.imooc.com/course/ajaxlist";
-var page = 0;
-var page_size = 5;
-var sort = "last";
-var is_easy = 0;
-var lange_id = 0;
-var pos_id = 0;
-var unlearn = 0;
-
-// 请求数据
-var loadMore = function (that) {
-  that.setData({
-    hidden: false
-  });
-  wx.request({
-    url: url,
-    data: {
-      page: page,
-      page_size: page_size,
-      sort: sort,
-      is_easy: is_easy,
-      lange_id: lange_id,
-      pos_id: pos_id,
-      unlearn: unlearn
-    },
-    success: function (res) {
-
-      var list = that.data.list;
-      console.info("list数据长度：" + list.length);
-      for (var i = 0; i < res.data.list.length; i++) {
-        list.push(res.data.list[i]);
-      }
-      that.setData({
-        list: list
-      });
-      console.info("之前page==：" + page);
-      page++;
-      console.info("目前page==：" + page);
-      that.setData({
-        hidden: true
-      });
-    }
-  });
-}
+var app = getApp();
+var us = getApp().globalData.userInfo
+var mmd = require('../../utils/mmd.js');
+const doAuth = require('../../utils/doAuth.js')
+var user = require('../../utils/user.js');
 Page({
-  /**
-   * 页面的初始数据
-   */
   data: {
-    hidden: true,
-    list: [],
-    scrollTop: 0,
-    scrollHeight: 0
+    winHeight: "",//窗口高度
+    currentTab: 0, //预设当前项的值
+    scrollLeft: 0, //tab标题的滚动条位置
+    expertList: [{ //假数据
+      img: "avatar.png",
+      name: "欢顔",
+      tag: "知名情感博主",
+      answer: 134,
+      listen: 2234
+    }]
   },
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    //   这里要注意，微信的scroll-view必须要设置高度才能监听滚动事件，所以，需要在页面的onLoad事件中给scroll-view的高度赋值
-    var that = this;
-    wx.getSystemInfo({
-      success: function (res) {
-        that.setData({
-          scrollHeight: res.windowHeight
-        });
-        console.log("设备高度scrollHeight==" + res.windowHeight);
-
+  // 滚动切换标签样式
+  go: function (e) {
+    wx.navigateTo({
+      url: '../yy/yy?id=123',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  },
+  // 点击标题切换当前页时改变样式
+  swichNav: function (e) {
+    var cur = e.target.dataset.current;
+    if (this.data.currentTaB == cur) { return false; }
+    else {
+      this.setData({
+        currentTab: cur
+      })
+    }
+  },
+  //判断当前滚动超过一屏时，设置tab标题滚动条。
+  checkCor: function () {
+    if (this.data.currentTab > 4) {
+      this.setData({
+        scrollLeft: 300
+      })
+    } else {
+      this.setData({
+        scrollLeft: 0
+      })
+    }
+  },
+  getCurrentPageUrl() {
+    var pages = getCurrentPages() //获取加载的页面
+    var currentPage = pages[pages.length - 1] //获取当前页面的对象
+    var url = currentPage.route //当前页面url
+    console.log(url)
+    return url
+  },
+  onShareAppMessage: function (res) {
+    console.log(999);
+    var that = this
+    return {
+      title: us.nickName + '的运动报告',
+      path: '/pages/hd/hd?bind_time=' + that.data.bindtime + '&uid=' + that.data.uid,
+      success: function (shareTickets) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      },
+      complete: function (res) {
+        // 不管成功失败都会执行
       }
-
-    });
-
-    loadMore(that);
-
+    }
   },
-  //页面滑动到底部
-  bindDownLoad: function () {
-    var that = this;
-    loadMore(that);
-    console.log("lower");
-  },
-  scroll: function (event) {
-    //该方法绑定了页面滚动时的事件，我这里记录了当前的position.y的值,为了请求数据之后把页面定位到这里来。
-    this.setData({
-      scrollTop: event.detail.scrollTop
-    });
-    console.log("滚动时触发scrollTop==" + event.detail.scrollTop);
-  },
-  topLoad: function (event) {
-    //   该方法绑定了页面滑动到顶部的事件，然后做上拉刷新
-    page = 0;
-    this.setData({
-      list: [],
-      scrollTop: 0
-    });
-    loadMore(this);
-    console.log("重新加载");
-  },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  },
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  },
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  },
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  },
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  },
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  },
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
+  onLoad: function (e) {
+    app.globalData.bindtime = 1557540496466
+    us.bindtimecurrent = 1557540496466
+    us.uid = 'd255540aa900743c90dcc33ab7a11b30'
   }
 })

@@ -18,7 +18,7 @@ App({
       ut: "trainee",
       rt: Date.parse(new Date()),
       pt: "small_program",
-      pi: "Linkfeeling",
+      pi: "link_office",
       sm: "pwd",
       av: "001",
       wx_code: "",
@@ -35,7 +35,8 @@ App({
       shopcell: '',
       gan: '',
       gana: '',
-      ganb: ''
+      ganb: '',
+      gym_name: 'link_office'
     },
     bindtime: '',
     ccc: '',

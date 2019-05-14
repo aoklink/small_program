@@ -31,7 +31,7 @@ Page({
     let that = this
     console.log("check")
     wx.request({
-      url: app.globalData.lp + 'user/check_smscode', // 仅为示例，并非真实的接口地址
+      url: app.globalData.lp + 'account/check_sms_code', // 仅为示例，并非真实的接口地址
       method: 'POST',
       data: {
         phone_num: us.mob,
@@ -42,7 +42,8 @@ Page({
         network: us.nw,
         product_id: us.pi,
         app_version: us.av,
-        sms_code: this.data.Value
+        sms_code: this.data.Value,
+        gym_name: us.gym_name
       },
       header: {
         'content-type': 'application/json' // 默认值

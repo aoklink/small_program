@@ -1,0 +1,2 @@
+<view class='box'></view>
+<button bindtap="onShareAppMessage" data-info='{{order}}'  open-type="share" hover-class='none' plain="true" class='bbll'>点击分享微信好友</button>

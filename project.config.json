@@ -2,7 +2,7 @@
 	"miniprogramRoot": "miniprogram/",
 	"cloudfunctionRoot": "cloudfunctions/",
 	"setting": {
-		"urlCheck": false,
+		"urlCheck": true,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 37,
+			"current": 43,
 			"list": [
 				{
 					"id": 0,
@@ -288,6 +288,40 @@
 					"name": "ios",
 					"pathName": "pages/ios/ios",
 					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "hd",
+					"pathName": "pages/hd/hd",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "shareimg",
+					"pathName": "pages/shareimg/shareimg",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pl",
+					"pathName": "pages/pl/pl",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "googd",
+					"pathName": "pages/goodfriend/goodfriend",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "xx",
+					"pathName": "pages/xx/xx",
 					"scene": null
 				}
 			]
