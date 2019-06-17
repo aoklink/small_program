@@ -9,7 +9,7 @@ Page({
   data: {
     pbox: [],
     current: 2,
-    imgboxa: ['http://ll.linkfeeling.cn/img/ok.png', 'http://ll.linkfeeling.cn/img/ok.png', 'http://ll.linkfeeling.cn/img/ok.png'],
+    imgboxa: [],
     nono: true,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     ppy: '',

@@ -1,2 +1,1 @@
-<!-- <web-view src="https://ll.linkfeeling.cn/wx/share.html?bind_time=1557540496466&uid=d255540aa900743c90dcc33ab7a11b30&yzy=10"></web-view> -->
 <web-view bindmessage="handleGetMessage" src="https://ll.linkfeeling.cn/wx/share.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10"></web-view>

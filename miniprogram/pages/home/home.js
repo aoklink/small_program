@@ -5,7 +5,6 @@ var us = getApp().globalData.userInfo
 //////////////////////
 
 //当前测试lp为link123
-
 //////////////////////
 Page({
 

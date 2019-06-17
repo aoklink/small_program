@@ -79,7 +79,7 @@ Page({
     var data = e.detail.data
     us.add = data[0].add
     us.daynu = data[0].daynu
-    us.hadd = data[0].hadd
+    us.hadd = data[0].aadd
     us.hsatit = data[0].hsatit
     us.hscore = data[0].hscore
     us.htimga = data[0].htimga
@@ -91,6 +91,8 @@ Page({
     us.yzytime = data[0].yzytime
     us.yzyuid = data[0].yzyuid
     us.qrcode = data[0].qrcode
+    us.jz = data[0].jz
+    us.pjh = data[0].pjh
   },
   /**
    * 生命周期函数--监听页面加载
