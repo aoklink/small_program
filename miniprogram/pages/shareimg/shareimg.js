@@ -91,6 +91,29 @@ Page({
     console.log(currentdate)
     return currentdate;
   },
+  gethm: function (no) {
+    var date = no;
+    var seperator1 = ":";
+    var month = date.getMonth() + 1;
+    var strDate = date.getDate();
+    var shour = date.getHours()
+    var smin = date.getMinutes()
+    if (month >= 1 && month <= 9) {
+      month = "0" + month;
+    }
+    if (strDate >= 0 && strDate <= 9) {
+      strDate = "0" + strDate;
+    }
+    if (shour >= 0 && shour <= 9) {
+      shour = "0" + shour
+    }
+    if (smin >= 0 && smin <= 9) {
+      smin = "0" + smin
+    }
+    var currentdate = shour + seperator1 + smin
+    console.log(currentdate)
+    return currentdate;
+  },
   downloadImg: function () {
     // 保存到相册
     var that = this
@@ -180,7 +203,7 @@ Page({
                   //日期
                   ctx.setFillStyle('rgba(255,255,255,0.5)')  // 文字颜色：黑色
                   ctx.setFontSize(10) // 文字字号：10px
-                  ctx.fillText(there.getMd(new Date(parseInt(us.yzytime))), 65, 50)
+                  ctx.fillText(there.getMd(new Date(parseInt(us.yzytime))) + ' ' + there.gethm(new Date(parseInt(us.yzytime))), 65, 50)
                   // 打卡天数
                   ctx.setFillStyle('#B5B9CA')  // 文字颜色：黑色
                   ctx.setFontSize(10) // 文字字号：16px
