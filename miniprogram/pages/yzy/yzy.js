@@ -39,9 +39,11 @@ Page({
     pos: 1
   },
   yzylb: function (e) {
-    console.log(e.currentTarget.dataset.yzy)
+    console.log(e.currentTarget.dataset.src)
     app.globalData.bindtime = e.currentTarget.dataset.yzy
     us.bindtimecurrent = e.currentTarget.dataset.yzy
+    app.globalData.src = e.currentTarget.dataset.src
+    us.src = e.currentTarget.dataset.src
     wx.navigateTo({
       // url: '../sportdatail/sportdatail',
       url: '../hd/hd',
@@ -137,7 +139,7 @@ Page({
     let that = this;
     that.setData({
       loading: true,  //把"上拉加载"的变量设为false，显示 
-      pos: that.data.pos + 10
+      pos: that.data.pos + 1
 
     })
     // 上拉获取更多数据
@@ -171,7 +173,7 @@ Page({
       }
       for (var i = 0; i < data.length; i++) {
         data[i].time = Math.round(data[i].time / 60000)
-        data[i].cal = Math.round(data[i].calorie)
+        data[i].cal = Math.round(data[i].calorie) 
       }
       that.setData({
         yzydata: data,
@@ -187,10 +189,6 @@ Page({
         ttbox: that.data.ttbox
       })
       wx.stopPullDownRefresh(); // 数据请求成功后，停止刷新
-      // var yzydata = data;
-      // that.setData({
-      //   yzydata: yzydata,
-      // })
     }, function (message) {
       console.log("message=", message)
     })

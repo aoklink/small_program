@@ -57,16 +57,19 @@ Page({
   //   }
   // },
   onShareAppMessage: function (res) {
-    console.log(999);
+    console.log(88);
     var that = this
     return {
       title: us.nickName + '的运动报告',
       path: '/pages/hd/hd?bind_time=' + that.data.bindtime + '&uid=' + that.data.uid,
+      // path: '/pages/hd/hd?bind_time=1562672595863&uid=8dd14058a21b109b34bf7a93bb9b7462',
       success: function (shareTickets) {
         // 转发成功
+        console.log(77)
       },
       fail: function (res) {
         // 转发失败
+        console.log(66)
       },
       complete: function (res) {
         // 不管成功失败都会执行
@@ -98,14 +101,13 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (e) {
-    console.log(e.bind_time)
-    console.log(e.uid)
     this.setData({
       bindtime: e.bind_time || app.globalData.bindtime || us.bindtimecurrent,
-      uid: e.uid || us.uid
+      uid: e.uid || us.uid,
+      src: e.src || app.globalData.src || us.src
     })
     console.log(this.data.bindtime)
-    console.log(this.data.uid)
+    console.log(this.data.src)
   },
 
   /**

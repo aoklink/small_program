@@ -1,1 +1,3 @@
-<web-view bindmessage="handleGetMessage" src="https://test.linkfeeling.cn/wx/share.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10"></web-view>
+<!-- <web-view bindmessage="handleGetMessage" src="https://ll.linkfeeling.cn/wx/share.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10"></web-view> -->
+<!-- <web-view bindmessage="handleGetMessage" src="{{src}}&yzy=10"></web-view> -->
+<web-view bindmessage="handleGetMessage" src="https://h5.linkfeeling.cn/test/detail.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10"></web-view>

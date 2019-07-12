@@ -16,7 +16,7 @@ function gainData(count, pos, success, fail) {
       "product_id": us.pi,
       "app_version": us.av,
       "flag": 'true',
-      "count": '10',
+      "count": '20',
       "gym_name": us.gym_name
     },
     header: {
