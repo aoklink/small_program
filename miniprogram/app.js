@@ -92,6 +92,9 @@ App({
     });
   },
   onLaunch: function (options) {
-    this.checkForUpdate()
+    this.checkForUpdate(),
+    wx.cloud.init({
+      traceUser: true,
+    })
   }
 })
