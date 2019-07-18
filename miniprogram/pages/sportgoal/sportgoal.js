@@ -47,7 +47,7 @@ Page({
   yzy: function () {
     let that = this
     if (this.data.kk === false) {
-      let tty = that.data.ww_co
+      var tty = that.data.ww_co || us.ww_co || user.wx_co
       const userInfo = wx.getStorageSync('userInfo')
       var oname = encodeURIComponent(us.nickName || userInfo.nickName || user.name)
       wx.request({
@@ -106,6 +106,8 @@ Page({
       //获取code
       success: function (res) {
         console.log(res)
+        us.ww_co = res.code
+        user.wx_co = res.code
         that.setData({
           ww_co: res.code
         })
