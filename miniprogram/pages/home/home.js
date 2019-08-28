@@ -840,5 +840,17 @@ Page({
    */
   onShareAppMessage: function () {
 
+  },
+
+ submit: function (e) {
+    var form_id = e.detail.formId;
+    console.log(form_id);
+    this.setData({
+      formID: form_id
+    });
+    // form_id发给后台
+  },
+  toChildPage:function(){
+    
   }
 })

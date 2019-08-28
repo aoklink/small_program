@@ -1,99 +1,128 @@
 <!-- <view class='header'></view> -->
-<view hidden="{{nono}}" class='jjmmbox'>
-<view wx:if="{{canIUse}}">
-    <view class='headerhh'>
+<form report-submit="{{true}}" bindsubmit="submit" class='form'>
+  <view hidden="{{nono}}" class='jjmmbox'>
+    <view wx:if="{{canIUse}}">
+      <view class='headerhh'>
         <image class='imahh'></image>
-    </view>
- 
-    <view class='contenthh'>
+      </view>
+
+      <view class='contenthh'>
         <view>LinkFeeling申请获取以下权限</view>
         <text>获得你的公开信息(昵称，头像等)</text>
-    </view>
- 
-    <button class='bottomhh' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
+      </view>
+      <button class='bottomhh' type='primary' open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="bindGetUserInfo">
         授权登录
-    </button>
-</view>
- 
-<view wx:else>请升级微信版本</view>
-</view>
-<view class='nini' hidden='{{nono}}'></view>
-<view class='load' hidden='{{!yoyo}}'> 
-  <image class='loadimg' src='https://img.linkfeeling.cn/wx_small/home/loading.gif?m={{pt}}'></image>
-</view>
-<view class='ubox' hidden='{{yoyo}}'>
-  <view hidden='{{bgbg}}'>
-  <view class='uba' bindtap="gomy">
-    <view class='tou' style='background:url({{olo}}) center no-repeat;background-size:78rpx 78rpx;'></view>
-    <view class='ruu'>{{pl}}</view>
-    <view class='rdd'></view>
+      </button>
+    </view>
+    <view wx:else>请升级微信版本</view>
   </view>
-  <view class='uhub'>
-  <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>
-    <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}"><image src='{{item}}?m={{pt}}'></image></swiper-item>
-  </swiper>
+  <view class='nini' hidden='{{nono}}'></view>
+  <view class='load' hidden='{{!yoyo}}'>
+    <image class='loadimg' src='https://img.linkfeeling.cn/wx_small/home/loading.gif?m={{pt}}'></image>
   </view>
-  <view class='upl'>
-    <span></span>
-    <span>{{opqc}} 张</span>
-  </view>
-  <view class='uplf'>
-    <view>营业时间</view>
-    <view></view>
-    <view>周一至周五</view>
-    <view>{{'9:00-21:00'}}</view>
-    <view>周六至周日</view>
-    <view>{{'9:00-21:00'}}</view>
-  </view>
-  <view class='utup'>
-    <view>{{shopname}}</view>
-    <view>{{shopadd}}</view>
-    <view bindtap='mapp'></view>
-  </view>
-  <view class='utdw'>
-    <span wx:key="index" wx:for="{{yb}}">{{item}}</span>
-  </view>
-  <view class='uact' hidden='{{act.length<1?oka:okb}}'>
-    <view class='uactit'>课程活动</view>
-    <view class='{{seeall?"":"hblu"}}'>
-      <view class='uacbox' wx:key="index" wx:for="{{act}}" bindtap="gopp" data-inpp='{{index}}'>
-        <view class='uactu' style='background: url("{{item.popl}}?m={{pt}}") no-repeat center;background-size: 160rpx 160rpx;'></view>
-        <!-- <view class='uactu' style='background: yellow no-repeat center;background-size: 160rpx 160rpx;'></view> -->
-        <view class='uacrr'>
-          <view class='uacpro'>{{item.title}}</view>
-          <view class='uacdoo'>
-            <view class='uacpri'><span>￥</span>{{item.price_info}}</view>
-            <view class='uacyuy'>预约</view>
-          </view>
+  <view class='ubox' hidden='{{yoyo}}'>
+    <view hidden='{{bgbg}}'>
+      <view class='uba' bindtap="gomy">
+        <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        <view class='tou' style='background:url({{olo}}) center no-repeat;background-size:78rpx 78rpx;'>
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        </view>
+        <view class='ruu'>{{pl}}
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        </view>
+        <view class='rdd'>
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
         </view>
       </view>
-    </view>
-    <view hidden='{{seeall}}' class='uall' bindtap='seeglo'>查看全部</view>
-    <cover-view class='prema' bindtap='call'>
-      <cover-view>课程</cover-view>
-      <cover-view>预约</cover-view>
-    </cover-view>
+      <view class='uhub'>
+        <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>
+          <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}">
+            <image src='{{item}}?m={{pt}}'></image>
+            <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+          </swiper-item>
+        </swiper>
+      </view>
+      <view class='upl'>
+        <span></span>
+        <span>{{opqc}} 张</span>
+        <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+      </view>
+      <view class='uplf'>
+        <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        <view>营业时间</view>
+        <view></view>
+        <view>周一至周五</view>
+        <view>{{'9:00-21:00'}}</view>
+        <view>周六至周日</view>
+        <view>{{'9:00-21:00'}}</view>
+      </view>
+      <view class='utup'>
+        <view>{{shopname}}
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        </view>
+        <view>{{shopadd}} </view>
+        <view bindtap='mapp'>
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        </view>
+      </view>
+      <view class='utdw'>
+        <span wx:key="index" wx:for="{{yb}}">{{item}}</span>
+      </view>
+      <view class='uact' hidden='{{act.length<1?oka:okb}}'>
+        <view class='uactit'>课程活动
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        </view>
+        <view class='{{seeall?"":"hblu"}}'>
+          <view class='uacbox' wx:key="index" wx:for="{{act}}" bindtap="gopp" data-inpp='{{index}}'>
+            <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+            <view class='uactu' style='background: url("{{item.popl}}?m={{pt}}") no-repeat center;background-size: 160rpx 160rpx;'></view>
+            <!-- <view class='uactu' style='background: yellow no-repeat center;background-size: 160rpx 160rpx;'></view> -->
+            <view class='uacrr'>
+              <view class='uacpro'>{{item.title}}</view>
+              <view class='uacdoo'>
+                <view class='uacpri'>
+                  <span>￥</span>{{item.price_info}}</view>
+                <view class='uacyuy'>预约</view>
+              </view>
+            </view>
+          </view>
+        </view>
+        <view hidden='{{seeall}}' class='uall' bindtap='seeglo'>查看全部</view>
+        <cover-view class='prema' bindtap='call'>
+          <cover-view>课程</cover-view>
+          <cover-view>预约</cover-view>
+        </cover-view>
 
-  </view>
-  <view class='ucoach'>
-    <view class='uconame'>教练</view>
-    <swiper class='luncoa' display-multiple-items="{{yzyai}}">
-      <swiper-item wx:key="index" wx:for="{{opll}}"><image src='{{item.popl}}?m={{pt}}'></image><view class='coaname'>{{item.name}}</view><view class='coabox'><span wx:for="{{item.lab}}" wx:for-item="items" wx:key="index">{{items}}</span></view></swiper-item> 
-    </swiper>
-    <!-- <swiper class='luncoa' display-multiple-items="{{yzyai}}">
+      </view>
+      <view class='ucoach'>
+        <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        <view class='uconame'>教练
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+        </view>
+        <swiper class='luncoa' display-multiple-items="{{yzyai}}">
+          <swiper-item wx:key="index" wx:for="{{opll}}">
+            <image src='{{item.popl}}?m={{pt}}'></image>
+            <view class='coaname'>{{item.name}}</view>
+            <view class='coabox'>
+              <span wx:for="{{item.lab}}" wx:for-item="items" wx:key="index">{{items}}</span>
+            </view>
+            <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+          </swiper-item>
+        </swiper>
+        <!-- <swiper class='luncoa' display-multiple-items="{{yzyai}}">
       <swiper-item wx:key="index" wx:for="{{yyy}}"><image src='https://img.linkfeeling.cn/wx_small/my/logo.png'></image><view class='coaname'>{{123}}</view><view class='coabox'><span>{{999}}</span></view></swiper-item> 
     </swiper> -->
+      </view>
+    </view>
+    <view class='bottom'>
+      <span></span>
+      <view>领客菲力（杭州）健康技术有限公司</view>
+      <view>提供方案技术服务</view>
+    </view>
   </view>
-  </view>
-  <view class='bottom'>
-    <span></span>
-    <view>领客菲力（杭州）健康技术有限公司</view>
-    <view>提供方案技术服务</view>
-  </view>
-</view>
+</form>
 <!-- <view class='{{bg?"imgbg":"imgbgg"}}'>
     <swiper class='bggb'>
     <swiper-item bindtap="fullno" wx:key="item" wx:for="{{imgboxb}}"><image src='{{item}}' mode="widthFix"></image></swiper-item>
   </swiper>
 </view> -->
-
