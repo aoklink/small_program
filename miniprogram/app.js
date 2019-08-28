@@ -1,4 +1,4 @@
-//app.js
+var user = require('utils/user.js');
 App({
   onLaunch: function () {
     
@@ -20,7 +20,7 @@ App({
       pt: "small_program",
       pi: "link_office",
       sm: "pwd",
-      av: "001",
+      av: "1.7.9",
       wx_code: "",
       sex: '男',
       age: '24',
@@ -67,7 +67,6 @@ App({
     updateManager.onUpdateFailed(function () { })
   },
   onLoad: function (options) {
-    console.log('gg')
     let that = this;
     wx.getNetworkType({
       success: function (res) {
@@ -96,5 +95,13 @@ App({
     wx.cloud.init({
       traceUser: true,
     })
+  },
+  onShow: function (options) {
+    if (options.scene == 1007 || options.scene == 1008) {
+      // 通过单人聊天会话分享进入通过群聊会话分享进入
+      user.sceneok = 0
+    } else {
+      user.sceneok = 1
+    }
   }
 })

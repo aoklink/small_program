@@ -1,6 +1,7 @@
 var app = getApp();
 var mmd = require('../../utils/mmd.js');
 var us = getApp().globalData.userInfo
+var user = require('../../utils/user.js');
 Page({
 
   /**
@@ -284,136 +285,17 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    // var that = this
-    // wx.login({
-    //   //获取code
-    //   success: function (res) {
-    //     console.log(res)
-    //     that.setData({
-    //       hcc: res.code
-    //     })
-    //   }
-    // }),
-    // wx.loadFontFace({
-    //   family: this.data.fontFamily,
-    //   source: 'url("https://www.linkfeeling.cn/platform/font/DIN 1451 Std Engschrift.TTF")',
-    //   success(res) {
-    //     console.log(res.status)
-    //   },
-    //   fail: function (res) {
-    //     console.log(res.status)
-    //   },
-    //   complete: function (res) {
-    //     console.log(res.status)
-    //   }
-    // }),
-    // wx.getNetworkType({
-    //   success: function (res) {
-    //     console.log(res.networkType);
-    //     us.nw = res.networkType
-    //   }
-    // })
-    // // 查看是否授权
-    // wx.getSetting({
-    //   success: function (res) {
-    //     if (res.authSetting['scope.userInfo']) {
-    //       wx.getUserInfo({
-    //         success: function (res) {
-    //           console.log("授权成功")
-    //           us.nickName = res.userInfo.nickName
-    //           that.setData({
-    //             pl: res.userInfo.nickName,
-    //             olo: res.userInfo.avatarUrl
-    //           })
-    //           us.avatarUrl = res.userInfo.avatarUrl
-    //           us.usname = res.userInfo.nickName
-    //           wx.login({
-    //             success: function (res) {
-    //               console.log(res.code)
-    //               wx.request({
-    //                 url: app.globalData.lp + 'user/login', // 仅为示例，并非真实的接口地址
-    //                 method: 'POST',
-    //                 data: {
-    //                   wx_code: that.data.hcc,
-    //                   user_type: us.ut,
-    //                   request_time: us.rt,
-    //                   platform: us.pt,
-    //                   tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
-    //                   login_type: "wx",
-    //                   network: us.nw,
-    //                   product_id: us.pi,
-    //                   app_version: us.av
-    //                 },
-    //                 header: {
-    //                   'content-type': 'application/json' // 默认值
-    //                 },
-    //                 success(res) {
-    //                   console.log(res.data)
-
-    //                   if (res.data.code == 103) {
-    //                     wx.navigateTo({
-    //                       url: '../cellnumber/cellnumber',
-    //                       // url: '../information/information',
-    //                       success: function (res) { },
-    //                       fail: function (res) { },
-    //                       complete: function (res) { },
-    //                     })
-    //                   }
-    //                   else if (res.data.code == 200) {
-    //                     console.log(res.data.data)
-    //                     us.uid = res.data.data.uid
-    //                     that.setData({
-    //                       nono: true,
-    //                     })
-    //                     wx.request({
-    //                       url: 'https://ll.linkfeeling.cn/api/user/account_info',
-    //                       method: 'POST',
-    //                       data: {
-    //                         uid: us.uid,
-    //                         user_type: us.ut,
-    //                         request_time: us.rt,
-    //                         platform: us.pt,
-    //                         tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
-    //                         login_type: "wx",
-    //                         network: us.nw,
-    //                         product_id: us.pi,
-    //                         app_version: us.av
-    //                       },
-    //                       header: {
-    //                         'content-type': 'application/json' // 默认值
-    //                       },
-    //                       success(res) {
-    //                         console.log(res.data)
-    //                         if (res.data.code == 200) {
-    //                           that.setData({
-    //                             head_icon: res.data.data.head_icon,
-    //                             head_icon: 'http://ll.linkfeeling.cn/img/ok.png',
-    //                             name: res.data.data.name,
-    //                             // sex: res.data.data.gender,
-    //                             // age: res.data.data.age,
-    //                             // goal: res.data.data.goal,
-    //                             // weight: res.data.data.weight,
-    //                             // height: res.data.data.stature
-    //                           })
-    //                         }
-    //                       }
-    //                     })
-    //                   }
-    //                 }
-    //               })
-    //             }
-    //           })
-    //         }
-    //       });
-    //     }
-    //     else {
-    //       that.setData({
-    //         nono: false
-    //       })
-    //     }
-    //   }
-    // })
-    //   ,
+    console.log(user.sceneok)
+    if (user.sceneok == 0) {
+      //获取分享转发页面时携带的参数
+      console.log(options)
+      var item = JSON.parse(options.str);
+      console.log(item)
+      us.inpp = options.inpp
+      us.shopcell = options.shopcell
+      us.aclun[us.inpp] = item
+    }
+    console.log(us.aclun[us.inpp])
     this.setData({
       pbox : us.aclun[us.inpp],
       plpr: us.aclun[us.inpp].price_info,
@@ -477,11 +359,24 @@ Page({
   onReachBottom: function () {
 
   },
-
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function () {
-
+  onShareAppMessage: function (res) {
+    var str = JSON.stringify(us.aclun[us.inpp]);
+    console.log(us.shopcell)
+    var that = this
+    return {
+      path: '/pages/activity/activity?str=' + str + '&shopcell=' + us.shopcell +'&inpp=' + us.inpp,
+      success: function (shareTickets) {
+        // 转发成功
+      },
+      fail: function (res) {
+        // 转发失败
+      },
+      complete: function (res) {
+        // 不管成功失败都会执行
+      }
+    }
   }
 })
