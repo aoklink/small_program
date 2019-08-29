@@ -20,7 +20,7 @@ App({
       pt: "small_program",
       pi: "link_office",
       sm: "pwd",
-      av: "1.7.9",
+      av: "1.8.0",
       wx_code: "",
       sex: '男',
       age: '24',
