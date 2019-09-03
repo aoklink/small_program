@@ -1,5 +1,5 @@
 <!-- <view class='header'></view> -->
-<form report-submit="{{true}}" bindsubmit="submit" class='form'>
+<form report-submit="{{true}}"  bindsubmit="submit" report-submit-timeout="250" class='form'>
   <view hidden="{{nono}}" class='jjmmbox'>
     <view wx:if="{{canIUse}}">
       <view class='headerhh'>

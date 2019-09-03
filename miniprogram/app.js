@@ -42,7 +42,7 @@ App({
     ccc: '',
     yzy: 'yangzeyuan',
     ctxPath: 'https://m.hao123.com/',
-    lp: 'https://ll.linkfeeling.cn/api/',
+    lp: 'https://dev.linkfeeling.cn/api/',
     fontFamily: 'FT',
     inpp: '',
     aclun: [],
