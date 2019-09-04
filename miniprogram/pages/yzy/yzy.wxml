@@ -1,33 +1,47 @@
-<view  class="container">
-  <block wx:key="{{index}}" wx:for="{{yzydata}}">
-    <view class='box'  wx:if='{{spt}}'>
-      <view class='ta'></view>
-      <view class='tb' data-index='{{index}}'>{{ttbox[index]}}</view>
-      <view class='sb' bindtap='yzylb' data-yzy='{{item.bind_time}}' data-src='{{item.url}}'>
-        <view class='sl'>
-          <view class='slu'>打卡时长</view>
-          <view class='yaa'></view>
-          <view class='sld'>{{item.time}} <span class="sldd">分钟</span></view>
+<form report-submit="{{true}}" bindsubmit="formSubmit" report-submit-timeout="500">
+  <view class="container">
+    <block wx:key="{{index}}" wx:for="{{yzydata}}">
+      <view class='box' wx:if='{{spt}}'>
+        <view class='ta'></view>
+        <view class='tb' data-index='{{index}}'>{{ttbox[index]}}</view>
+        <view class='sb' bindtap='yzylb' data-yzy='{{item.bind_time}}' data-src='{{item.url}}'>
+          <view class='sl'>
+            <view class='slu'>打卡时长
+              <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+            </view>
+            <view class='yaa'></view>
+            <view class='sld'>{{item.time}}
+              <span class="sldd">分钟</span>
+            </view>
+            <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+          </view>
+          <view class='sr'>
+            <view class='sru'>消耗热量
+              <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+            </view>
+            <view class='ybb'></view>
+            <view class='srd'>{{item.cal}}
+              <span class="srdd">千卡</span>
+            </view>
+            <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
+          </view>
+          <view class='ss'>查看</view>
+          <view class='new' hidden='{{item.is_read}}'>New</view>
+          <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
         </view>
-        <view class='sr'>
-          <view class='sru'>消耗热量</view>
-          <view class='ybb'></view>
-          <view class='srd'>{{item.cal}} <span class="srdd">千卡</span></view>
-        </view>
-        <view class='ss'>查看</view>
-        <view class='new' hidden='{{item.is_read}}'>New</view>
       </view>
+    </block>
+    <view class='boxb' wx:if='{{!spt}}'>
+      <view class='xbt'></view>
+      <view class='xbm'>您还没有运动记录</view>
+      <view class='xbb'>"你也太懒了吧，小心又胖了~"</view>
+      <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
     </view>
-  </block> 
-  <view class='boxb' wx:if='{{!spt}}'>
-    <view class='xbt'></view>
-    <view class='xbm'>您还没有运动记录</view>
-    <view class='xbb'>"你也太懒了吧，小心又胖了~"</view>
-  </view>
-  <!-- <view class="load_more" hidden="{{!loading}}">
+    <!-- <view class="load_more" hidden="{{!loading}}">
     <view class="load_loading"></view>
     <view class="load-tips">正在加载……</view>
   </view>
   <view class="load_end" hidden="{{!loaded}}">没有更多数据了……</view> -->
 
-</view>
+  </view>
+</form>

@@ -1,10 +1,9 @@
-
 .section1 {
   margin-top: 20rpx;
   background-color: #fff;
-  display: flex; 
+  display: flex;
   justify-content: space-around;
-  border-bottom:1rpx solid #f2f2f2; 
+  border-bottom: 1rpx solid #f2f2f2;
 }
 
 .section1-item {
@@ -24,14 +23,13 @@
   border-radius: 10rpx;
   margin-top: 20rpx;
   align-self: center;
-
 }
 
 .section2 {
   display: flex;
   flex-direction: column;
-  background-color: #fff; 
-  border-bottom:1rpx solid #f2f2f2;  
+  background-color: #fff;
+  border-bottom: 1rpx solid #f2f2f2;
   font-size: 12px;
 }
 
@@ -39,8 +37,7 @@
   display: flex;
   flex-direction: row;
   padding: 30rpx 10rpx 30rpx 10rpx;
-  border-bottom:1rpx solid #f2f2f2; 
- 
+  border-bottom: 1rpx solid #f2f2f2;
 }
 
 .item2-left {
@@ -60,6 +57,7 @@
   flex-direction: row;
   justify-content: center;
 }
+
 .load_loading {
   margin: 0 5px;
   width: 40rpx;
@@ -70,6 +68,7 @@
   background: transparent url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMjAiIGhlaWdodD0iMTIwIiB2aWV3Qm94PSIwIDAgMTAwIDEwMCI+PHBhdGggZmlsbD0ibm9uZSIgZD0iTTAgMGgxMDB2MTAwSDB6Ii8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTlFOUU5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0idHJhbnNsYXRlKDAgLTMwKSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iIzk4OTY5NyIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgzMCAxMDUuOTggNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjOUI5OTlBIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDYwIDc1Ljk4IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0EzQTFBMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSg5MCA2NSA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNBQkE5QUEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoMTIwIDU4LjY2IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0IyQjJCMiIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgxNTAgNTQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjQkFCOEI5IiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKDE4MCA1MCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDMkMwQzEiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTE1MCA0NS45OCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNDQkNCQ0IiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTEyMCA0MS4zNCA2NSkiLz48cmVjdCB3aWR0aD0iNyIgaGVpZ2h0PSIyMCIgeD0iNDYuNSIgeT0iNDAiIGZpbGw9IiNEMkQyRDIiIHJ4PSI1IiByeT0iNSIgdHJhbnNmb3JtPSJyb3RhdGUoLTkwIDM1IDY1KSIvPjxyZWN0IHdpZHRoPSI3IiBoZWlnaHQ9IjIwIiB4PSI0Ni41IiB5PSI0MCIgZmlsbD0iI0RBREFEQSIgcng9IjUiIHJ5PSI1IiB0cmFuc2Zvcm09InJvdGF0ZSgtNjAgMjQuMDIgNjUpIi8+PHJlY3Qgd2lkdGg9IjciIGhlaWdodD0iMjAiIHg9IjQ2LjUiIHk9IjQwIiBmaWxsPSIjRTJFMkUyIiByeD0iNSIgcnk9IjUiIHRyYW5zZm9ybT0icm90YXRlKC0zMCAtNS45OCA2NSkiLz48L3N2Zz4=) no-repeat;
   background-size: 100%;
 }
+
 .load_tips {
   display: inline-block;
   vertical-align: middle;
@@ -81,23 +80,27 @@
   font-size: 14px;
   text-align: center;
 }
-page{
+
+page {
   background: #f6f6f6;
   font-family: PingFangSC-Regular;
 }
-.box{
+
+.box {
   margin: 0rpx auto 0;
   width: 706rpx;
   height: 272rpx;
   position: relative;
 }
-.boxb{
-  background: #F6F6F6;
+
+.boxb {
+  background: #f6f6f6;
   width: 400rpx;
   margin: 226rpx auto 0;
   position: relative;
 }
-.xbt{
+
+.xbt {
   width: 260rpx;
   height: 260rpx;
   display: inline-block;
@@ -107,7 +110,8 @@ page{
   background: url(https://img.linkfeeling.cn/wx_small/mydata/none.png) center no-repeat;
   background-size: 260rpx 260rpx;
 }
-.xbm{
+
+.xbm {
   position: absolute;
   width: 100%;
   height: 44rpx;
@@ -117,7 +121,8 @@ page{
   font-size: 32rpx;
   line-height: 44rpx;
 }
-.xbb{
+
+.xbb {
   position: absolute;
   width: 100%;
   height: 34rpx;
@@ -128,7 +133,8 @@ page{
   line-height: 34rpx;
   color: #999;
 }
-.ta{
+
+.ta {
   display: inline-block;
   width: 40rpx;
   height: 34rpx;
@@ -138,7 +144,8 @@ page{
   left: 18rpx;
   top: 20rpx;
 }
-.tb{
+
+.tb {
   width: 300rpx;
   height: 34rpx;
   display: inline-block;
@@ -149,7 +156,8 @@ page{
   font-size: 24rpx;
   color: #444858;
 }
-.sb{
+
+.sb {
   position: absolute;
   top: 72rpx;
   width: 100%;
@@ -157,36 +165,40 @@ page{
   background: #fff;
   border-radius: 8rpx;
 }
-.sl{
+
+.sl {
   position: absolute;
   width: 250rpx;
   height: 120rpx;
   left: 50rpx;
   top: 38rpx;
 }
-.sr{
-  position:absolute;
-width:270rpx;
-height:150rpx;
-left:260rpx;
-top:40rpx;
 
+.sr {
+  position: absolute;
+  width: 270rpx;
+  height: 150rpx;
+  left: 260rpx;
+  top: 40rpx;
 }
-.yaa{
+
+.yaa {
   width: 26rpx;
   height: 30rpx;
   position: absolute;
   top: 60rpx;
   /* background: url(http://ll.linkfeeling.cn/img/on.png) center no-repeat; */
 }
-.ybb{
+
+.ybb {
   width: 26rpx;
   height: 30rpx;
   position: absolute;
   top: 60rpx;
   /* background: url(http://ll.linkfeeling.cn/img/od.png) center no-repeat; */
 }
-.ss{
+
+.ss {
   position: absolute;
   width: 102rpx;
   height: 50rpx;
@@ -194,65 +206,79 @@ top:40rpx;
   top: 65rpx;
   font-size: 22rpx;
   text-align: center;
-  background: #F4B619;
+  background: #f4b619;
   line-height: 50rpx;
   border-radius: 55rpx;
   color: #fff;
 }
-.slu{
-  color:rgba(29,35,45,0.5);
+
+.slu {
+  color: rgba(29, 35, 45, 0.5);
   font-size: 24rpx;
   width: 100%;
   height: 34rpx;
   line-height: 34rpx;
   text-indent: 30rpx;
 }
-.sld{
+
+.sld {
   font-size: 56rpx;
   text-indent: 35rpx;
   font-family: 'FT';
 }
-.sldd{
+
+.sldd {
   font-size: 24rpx;
   letter-spacing: 2rpx;
   /* height: 34rpx;
   line-height: 34rpx;
   position: absolute;  */
 }
-.sru{
-  color: rgba(29,35,45,0.5);
+
+.sru {
+  color: rgba(29, 35, 45, 0.5);
   width: 100%;
   font-size: 24rpx;
   line-height: 34rpx;
   height: 34rpx;
   text-indent: 40rpx;
 }
-.srd{
-  font-size:36rpx;
-letter-spacing:2rpx;
-position:absolute;
-top:50rpx;
-left:40rpx;
-font-family: 'FT';
 
+.srd {
+  font-size: 36rpx;
+  letter-spacing: 2rpx;
+  position: absolute;
+  top: 50rpx;
+  left: 40rpx;
+  font-family: 'FT';
 }
-.srdd{
+
+.srdd {
   letter-spacing: 2rpx;
   font-size: 24rpx;
-
 }
-.new{
-  width:70rpx;
-  height:32rpx;
-  background:rgba(26,180,134,1);
-  border-radius:16rpx;
+
+.new {
+  width: 70rpx;
+  height: 32rpx;
+  background: rgba(26, 180, 134, 1);
+  border-radius: 16rpx;
   text-align: center;
   line-height: 32rpx;
   color: #fff;
-  font-size:20rpx;
-  font-family:PingFangSC-Medium;
-  font-weight:500;
+  font-size: 20rpx;
+  font-family: PingFangSC-Medium;
+  font-weight: 500;
   position: absolute;
   top: -12rpx;
   right: -6rpx;
+}
+
+/*formId埋点*/
+
+.form-btn {
+  position: absolute;
+  opacity: 0;
+  width: 100%;
+  height: 100%;
 }

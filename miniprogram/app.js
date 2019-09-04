@@ -36,7 +36,7 @@ App({
       gan: '',
       gana: '',
       ganb: '',
-      gym_name: 'link_office'
+      gym_name: 'link_test'
     },
     bindtime: '',
     ccc: '',

@@ -107,7 +107,7 @@ Page({
       src: e.src || app.globalData.src || us.src
     })
     console.log(this.data.bindtime)
-    console.log(this.data.src)
+    console.log(this.data.uid)
   },
 
   /**

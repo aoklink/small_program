@@ -1,5 +1,5 @@
 <!-- <view class='header'></view> -->
-<form report-submit="{{true}}"  bindsubmit="formSubmit" report-submit-timeout="500" >
+<form report-submit="{{true}}" bindsubmit="formSubmit" report-submit-timeout="500">
   <view hidden="{{nono}}" class='jjmmbox'>
     <view wx:if="{{canIUse}}">
       <view class='headerhh'>
@@ -92,7 +92,7 @@
           <cover-view>课程</cover-view>
           <cover-view>预约</cover-view>
         </cover-view>
-
+           <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
       </view>
       <view class='ucoach'>
         <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
@@ -115,6 +115,7 @@
       </view>
     </view>
     <view class='bottom'>
+       <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
       <span></span>
       <view>领客菲力（杭州）健康技术有限公司</view>
       <view>提供方案技术服务</view>
