@@ -839,7 +839,7 @@ Page({
 
   },
 
-  submit: function(e) {
+  formSubmit: function(e) {
     // form_id发给后台
     var form_id = e.detail.formId;
     console.log(form_id);
