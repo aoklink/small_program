@@ -3,7 +3,7 @@ var us = getApp().globalData.userInfo
 var mmd = require('mmd.js');
 function gainData(count, pos, success, fail) {
   wx.request({
-    url: "https://ll.linkfeeling.cn/api/user/sport/list",//接口地址  
+    url: app.globalData.lp + "user/sport/list",//接口地址  
     method: 'POST',
     data: {
       "pos": pos,

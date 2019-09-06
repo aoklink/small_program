@@ -85,8 +85,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    //获取初始化数据 
-    // this.gainLoadingListData()
+    console.log(app.globalData.lp)
   },
 
   /**
@@ -114,7 +113,7 @@ Page({
    * 生命周期函数--监听页面卸载
    */
   onUnload: function() {
-
+    console.log(app.globalData.lp)
   },
 
   /**
