@@ -1,7 +1,7 @@
 var user = require('utils/user.js');
 App({
-  onLaunch: function () {
-    
+  onLaunch: function() {
+
     if (!wx.cloud) {
       console.error('请使用 2.2.3 或以上的基础库以使用云能力')
     } else {
@@ -36,13 +36,13 @@ App({
       gan: '',
       gana: '',
       ganb: '',
-      gym_name: 'link_test'
+      gym_name: 'link_office'
     },
     bindtime: '',
     ccc: '',
     yzy: 'yangzeyuan',
     ctxPath: 'https://m.hao123.com/',
-    lp: 'https://dev.linkfeeling.cn/api/',
+    lp: 'https://ll.linkfeeling.cn/api/',
     fontFamily: 'FT',
     inpp: '',
     aclun: [],
@@ -51,52 +51,52 @@ App({
     shoplogo: ''
   },
   //检查微信小程序是否最新版本
-  checkForUpdate: function () {
+  checkForUpdate: function() {
     const updateManager = wx.getUpdateManager()
-    updateManager.onUpdateReady(function () {
+    updateManager.onUpdateReady(function() {
       wx.showModal({
         title: '更新提示',
         content: '新版本已经准备好，是否重启应用？',
-        success: function (res) {
+        success: function(res) {
           if (res.confirm) {
             updateManager.applyUpdate()
           }
         }
       })
     })
-    updateManager.onUpdateFailed(function () { })
+    updateManager.onUpdateFailed(function() {})
   },
-  onLoad: function (options) {
+  onLoad: function(options) {
     let that = this;
     wx.getNetworkType({
-      success: function (res) {
-        let cc = res.networkType
-        that.setData({
-          'user.nw': cc
-        })
-      }
-    }),
-    wx.loadFontFace({
-      family: this.globalData.fontFamily,
-      source: 'url("https://sungd.github.io/Pacifico.ttf")',
-      success(res) {
-        console.log(res.status)
-      },
-      fail: function (res) {
-        console.log(res.status)
-      },
-        complete: function (res) {
-        console.log(res.status)
-      }
-    });
+        success: function(res) {
+          let cc = res.networkType
+          that.setData({
+            'user.nw': cc
+          })
+        }
+      }),
+      wx.loadFontFace({
+        family: this.globalData.fontFamily,
+        source: 'url("https://sungd.github.io/Pacifico.ttf")',
+        success(res) {
+          console.log(res.status)
+        },
+        fail: function(res) {
+          console.log(res.status)
+        },
+        complete: function(res) {
+          console.log(res.status)
+        }
+      });
   },
-  onLaunch: function (options) {
+  onLaunch: function(options) {
     this.checkForUpdate(),
-    wx.cloud.init({
-      traceUser: true,
-    })
+      wx.cloud.init({
+        traceUser: true,
+      })
   },
-  onShow: function (options) {
+  onShow: function(options) {
     if (options.scene == 1007 || options.scene == 1008) {
       // 通过单人聊天会话分享进入通过群聊会话分享进入
       user.sceneok = 0
