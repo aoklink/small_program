@@ -34,6 +34,10 @@
           <button form-type="submit" class='form-btn' bindtap="toChildPage"></button>
         </view>
       </view>
+      <view class='usertap' wx:if="{{getok}}">
+        <view>快速授权</view>
+        <button ontap="getCode">一键授权</button>
+      </view>
       <view class='uhub'>
         <swiper class='lunbo' autoplay='true' interval='3000' circular='true'>
           <swiper-item bindtap="fullpage" wx:key="index" wx:for="{{imgboxa}}" data-index="{{index}}">
@@ -88,7 +92,7 @@
           </view>
         </view>
         <view hidden='{{seeall}}' class='uall' bindtap='seeglo'>查看全部</view>
-        <cover-view class='prema' bindtap='call'>
+        <cover-view class='prema' bindtap='call' hidden="{{!nono}}">
           <cover-view>课程</cover-view>
           <cover-view>预约</cover-view>
         </cover-view>
