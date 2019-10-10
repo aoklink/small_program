@@ -1,5 +1,4 @@
 <!-- <web-view bindmessage="handleGetMessage" src="https://ll.linkfeeling.cn/wx/share.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10"></web-view> -->
 <!-- <web-view bindmessage="handleGetMessage" src="{{src}}&yzy=10"></web-view> -->
-<web-view bindmessage="handleGetMessage" src="https://ll.linkfeeling.cn/wx/share.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10&qq=123"></web-view>
-<!-- https://h5.linkfeeling.cn/test/detail.html?bind_time=1567598398203&uid=bcc50250653686af9ade3f692d527feb&yzy=10 -->
-<!-- <web-view bindmessage="handleGetMessage" src="https://h5.linkfeeling.cn/test/detail.html?bind_time=1563265079105&uid=f0169308ec362098250e22890159c3c2&yzy=10"></web-view> -->
+<!-- <web-view bindmessage="handleGetMessage" src="https://ll.linkfeeling.cn/wx/share.html?bind_time={{bindtime}}&uid={{uid}}&yzy=10&qq=123"></web-view> -->
+<web-view bindmessage="handleGetMessage" src="{{url}}&yzy=10&qq=123"></web-view>

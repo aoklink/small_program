@@ -104,7 +104,8 @@ Page({
     this.setData({
       bindtime: e.bind_time || app.globalData.bindtime || us.bindtimecurrent,
       uid: e.uid || us.uid,
-      src: e.src || app.globalData.src || us.src
+      src: e.src || app.globalData.src || us.src,
+      url: us.src
     })
     console.log(this.data.bindtime)
     console.log(this.data.uid)

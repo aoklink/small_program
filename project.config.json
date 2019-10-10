@@ -32,7 +32,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 43,
+			"current": 44,
 			"list": [
 				{
 					"id": 0,
@@ -322,6 +322,13 @@
 					"id": -1,
 					"name": "xx",
 					"pathName": "pages/xx/xx",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "yzy",
+					"pathName": "pages/yzy/yzy",
 					"scene": null
 				}
 			]

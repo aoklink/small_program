@@ -960,7 +960,7 @@ Page({
       ppw: e.detail.value
     })
     console.log(this.data.arrac[e.detail.value])
-    us.height = this.data.arrac[e.detail.value]
+    us.weight = this.data.arrac[e.detail.value]
   },
   bsex: function (e) {
     let that = this

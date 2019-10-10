@@ -2,6 +2,7 @@ var networking = require('../../utils/networking.js');
 var app = getApp()
 var us = getApp().globalData.userInfo
 var mmd = require('../../utils/mmd.js');
+var user = require('../../utils/user.js');
 Page({
 
   /**
@@ -86,6 +87,7 @@ Page({
    */
   onLoad: function(options) {
     console.log(app.globalData.lp)
+    console.log(124)
   },
 
   /**
@@ -99,7 +101,73 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-    this.gainLoadingListData()
+    var that = this
+    if(us.uid){
+      that.gainLoadingListData()
+    }else{
+      wx.getUserInfo({
+        success: function (res) {
+          var uee = res.encryptedData
+          var uvv = res.iv
+          wx.setStorageSync('userInfo', res.userInfo)
+          wx.setStorage({
+            key: 'userInfo',
+            data: res.userInfo
+          })
+          user.uee = uee
+          user.uvv = uvv
+          user.name = res.userInfo.nickName
+          user.head = res.userInfo.avatarUrl
+          console.log(user.name)
+          console.log(res.userInfo.nickName)
+          us.nickName = res.userInfo.nickName
+          console.log(res.userInfo.nickName)
+          us.avatarUrl = res.userInfo.avatarUrl
+          us.usname = res.userInfo.nickName
+          wx.login({
+            success: function (res) {
+              console.log(res.code)
+              that.setData({
+                hcc: res.code
+              })
+              console.log(that.data.hcc)
+              console.log(uee)
+              console.log(uvv)
+              wx.request({
+                url: app.globalData.lp + 'user/login', // 仅为示例，并非真实的接口地址
+                method: 'POST',
+                data: {
+                  wx_code: that.data.hcc,
+                  user_type: us.ut,
+                  request_time: us.rt,
+                  platform: us.pt,
+                  tk: mmd.hexMD5(us.pi + ":" + us.ut + ":" + us.rt),
+                  login_type: "wx",
+                  network: us.nw,
+                  product_id: us.pi,
+                  app_version: us.av,
+                  wx_data: uee,
+                  wx_iv: uvv,
+                  gym_name: us.gym_name || user.gym_name || "gaote_fitness"
+                },
+                header: {
+                  'content-type': 'application/json' // 默认值
+                },
+                success(res) {
+                  console.log(res.data)
+                  if (res.data.code == 200) {
+                    console.log(res.data.data)
+                    us.uid = res.data.data.uid
+                    that.gainLoadingListData()
+                    console.log(19999924)
+                  }
+                }
+              })
+            }
+          })
+        }
+      });
+    }
   },
 
   /**

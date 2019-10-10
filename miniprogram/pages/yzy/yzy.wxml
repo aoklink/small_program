@@ -1,4 +1,4 @@
-<form report-submit="{{true}}" bindsubmit="formSubmit" report-submit-timeout="500">
+<form report-submit="{{true}}" bindsubmit="formSubmit" report-submit-timeout="1000">
   <view class="container">
     <block wx:key="{{index}}" wx:for="{{yzydata}}">
       <view class='box' wx:if='{{spt}}'>
